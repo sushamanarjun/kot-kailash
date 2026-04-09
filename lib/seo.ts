@@ -1,0 +1,122 @@
+import type { Metadata } from 'next';
+
+const BASE_URL = 'https://kotkailash.com';
+
+export function buildMetadata(overrides: Partial<Metadata> & {
+  title: string;
+  description: string;
+  path?: string;
+  ogImage?: string;
+}): Metadata {
+  const { title, description, path = '/', ogImage = '/og-default.jpg', ...rest } = overrides;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${BASE_URL}${path}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${BASE_URL}${path}`,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      type: 'website',
+      locale: 'en_IN',
+      siteName: 'Kot Kailash Kumaon',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+    },
+    ...rest,
+  };
+}
+
+export const hotelJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: 'Kot Kailash Kumaon',
+  url: BASE_URL,
+  description:
+    'A century-old Kumaoni heritage house on the Shaukiyathal ridge at 7,800 feet. Eight keys across three houses. Founded by two veterans of India\'s finest hospitality.',
+  image: [
+    `${BASE_URL}/images/hero-ridge.jpeg`,
+    `${BASE_URL}/og-default.jpg`,
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Village Kunja Gunth, Shaukiyathal',
+    addressLocality: 'Almora',
+    addressRegion: 'Uttarakhand',
+    postalCode: '263623',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 29.84,
+    longitude: 79.74,
+  },
+  telephone: '+919412040289',
+  email: 'stay@kotkailash.com',
+  priceRange: '₹₹₹₹',
+  starRating: {
+    '@type': 'Rating',
+    ratingValue: '5',
+  },
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: 'Altitude 7,800 Feet', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'AQI Under 10', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Heritage Forest', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Curated Library', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Kumaoni Kitchen', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Wood Fires', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Himalayan Views', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Full Property Buyout Available', value: true },
+  ],
+  numberOfRooms: 8,
+  sameAs: [
+    'https://www.instagram.com/kotkailash',
+    'https://www.tripadvisor.com',
+    'https://maps.google.com/?q=Kot+Kailash+Kumaon',
+  ],
+};
+
+export const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Kot Kailash Kumaon',
+  description: 'Heritage boutique property at 7,800 feet in Shaukiyathal, Almora, Uttarakhand.',
+  url: BASE_URL,
+  telephone: '+919412040289',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Village Kunja Gunth, Shaukiyathal',
+    addressLocality: 'Almora',
+    addressRegion: 'Uttarakhand',
+    postalCode: '263623',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 29.84,
+    longitude: 79.74,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: [
+      'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+    ],
+    opens: '00:00',
+    closes: '23:59',
+  },
+};
