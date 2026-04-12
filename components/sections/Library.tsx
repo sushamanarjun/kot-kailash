@@ -6,7 +6,7 @@ export default function Library() {
     <section
       id="library"
       style={{
-        background: 'var(--stone)',
+        background: 'var(--parchment)',
         padding: '120px 64px',
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
@@ -110,7 +110,7 @@ export default function Library() {
           <span
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '7.5px',
+              fontSize: '11px',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: 'var(--gold)',

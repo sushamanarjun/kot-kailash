@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { cormorant, jost, cinzel } from '@/lib/fonts';
+import { cormorant, jost } from '@/lib/fonts';
 import Nav from '@/components/layout/Nav';
 import Footer from '@/components/layout/Footer';
 import CustomCursor from '@/components/layout/CustomCursor';
+import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -71,13 +72,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${jost.variable} ${cinzel.variable}`}
+      className={`${cormorant.variable} ${jost.variable}`}
     >
       <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <CustomCursor />
         <Nav />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

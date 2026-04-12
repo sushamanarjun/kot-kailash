@@ -43,7 +43,7 @@ export default function WeatherWidget() {
         <span
           style={{
             fontFamily: 'var(--sans)',
-            fontSize: '8px',
+            fontSize: '11px',
             letterSpacing: '0.26em',
             textTransform: 'uppercase',
             color: 'var(--gold-pale)',
@@ -56,7 +56,7 @@ export default function WeatherWidget() {
             fontFamily: 'var(--serif)',
             fontSize: '0.78rem',
             fontStyle: 'italic',
-            color: 'rgba(255,255,255,0.48)',
+            color: 'rgba(255,255,255,0.75)',
           }}
         >
           {weather.condition}
@@ -76,7 +76,7 @@ export default function WeatherWidget() {
       <span
         style={{
           fontFamily: 'var(--sans)',
-          fontSize: '7.5px',
+          fontSize: '11px',
           letterSpacing: '0.18em',
           padding: '3px 8px',
           color: 'rgba(115,225,125,0.88)',

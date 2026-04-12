@@ -67,7 +67,7 @@ export default function Sustainability() {
             >
               <span
                 style={{
-                  fontFamily: 'var(--caps)',
+                  fontFamily: 'var(--sans)',
                   fontSize: '1.1rem',
                   color: 'var(--gold)',
                   opacity: 0.38,

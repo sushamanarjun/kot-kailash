@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import WeatherWidget from './WeatherWidget';
 
+const HOTEL_SPIDER_URL = 'https://reservations.hotel-spider.com/032644b5fbfafed6';
+
 const stats = [
   { number: '8', label: 'Heritage Keys' },
   { number: '7,800', label: 'Feet Altitude' },
@@ -102,7 +104,7 @@ export default function Hero() {
             className="hero-el"
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '9px',
+              fontSize: '11px',
               letterSpacing: '0.38em',
               textTransform: 'uppercase',
               color: 'white',
@@ -123,16 +125,19 @@ export default function Hero() {
                 display: 'block',
               }}
             />
-            Shaukiyathal · Almora · Uttarakhand · India
+            SHAUKIYATHAL · ALMORA · 7,800 FT
           </div>
 
-          {/* H1 */}
-          <h1
+          {/* SEO H1 — visually hidden */}
+          <h1 className="sr-only">Kumaoni Heritage Retreat near Jageshwar, Almora</h1>
+
+          {/* Visual headline */}
+          <h2
             ref={h1Ref}
             className="hero-el"
             style={{
               fontFamily: 'var(--serif)',
-              fontSize: 'clamp(3.4rem, 6.2vw, 6rem)',
+              fontSize: 'clamp(3rem, 5.8vw, 5.6rem)',
               fontWeight: 300,
               fontStyle: 'italic',
               color: 'white',
@@ -141,33 +146,38 @@ export default function Hero() {
               transitionDelay: '0.2s',
             }}
           >
-            A century-old
+            Where the ridge
             <br />
-            house on a ridge
-            <br />
+            breathes{' '}
             <em style={{ fontStyle: 'normal', color: 'var(--gold-pale)' }}>
-              at 7,800 feet.
+              differently.
             </em>
-          </h1>
+          </h2>
 
-          {/* Caption */}
-          <p
+          {/* CTAs */}
+          <div
             ref={capRef}
             className="hero-el"
             style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '1rem',
-              fontStyle: 'italic',
-              color: 'rgba(255,255,255,0.72)',
-              marginTop: '18px',
-              maxWidth: '360px',
-              lineHeight: 1.8,
+              display: 'flex',
+              gap: '12px',
+              flexWrap: 'wrap',
+              marginTop: '28px',
               transitionDelay: '0.48s',
-              textShadow: '0 1px 6px rgba(0,0,0,0.45)',
             }}
           >
-            &ldquo;The best travel leaves you quieter than it found you.&rdquo;
-          </p>
+            <a
+              href={HOTEL_SPIDER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold"
+            >
+              Reserve a Room
+            </a>
+            <a href="/#story" className="btn-outline">
+              Explore the Retreat
+            </a>
+          </div>
         </div>
 
         {/* Stats Grid */}
@@ -213,7 +223,7 @@ export default function Hero() {
               <span
                 style={{
                   fontFamily: 'var(--sans)',
-                  fontSize: '7.5px',
+                  fontSize: '11px',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
                   color: 'var(--gold)',
@@ -248,10 +258,10 @@ export default function Hero() {
         <span
           style={{
             fontFamily: 'var(--sans)',
-            fontSize: '7.5px',
+            fontSize: '11px',
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.22)',
+            color: 'rgba(255,255,255,0.5)',
           }}
         >
           Discover

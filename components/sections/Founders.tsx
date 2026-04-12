@@ -101,7 +101,7 @@ export default function Founders() {
               <span
                 style={{
                   fontFamily: 'var(--sans)',
-                  fontSize: '7.5px',
+                  fontSize: '11px',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                   color: 'var(--gold)',
@@ -130,7 +130,7 @@ export default function Founders() {
           <span
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '8px',
+              fontSize: '11px',
               letterSpacing: '0.24em',
               textTransform: 'uppercase',
               color: 'var(--gold)',
@@ -157,7 +157,7 @@ export default function Founders() {
               fontFamily: 'var(--serif)',
               fontSize: '0.95rem',
               fontStyle: 'italic',
-              color: 'var(--clay)',
+              color: 'var(--gold)',
               display: 'block',
               marginBottom: '20px',
             }}
@@ -203,7 +203,7 @@ export default function Founders() {
               <span
                 style={{
                   fontFamily: 'var(--sans)',
-                  fontSize: '7.5px',
+                  fontSize: '11px',
                   letterSpacing: '0.18em',
                   textTransform: 'uppercase',
                   color: 'var(--gold)',
@@ -221,10 +221,10 @@ export default function Founders() {
               href="/founders"
               style={{
                 fontFamily: 'var(--sans)',
-                fontSize: '8.5px',
+                fontSize: '11px',
                 letterSpacing: '0.24em',
                 textTransform: 'uppercase',
-                color: 'var(--clay)',
+                color: 'var(--gold)',
                 textDecoration: 'none',
                 borderBottom: '1px solid rgba(138,90,56,0.22)',
                 paddingBottom: '2px',

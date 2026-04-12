@@ -7,7 +7,7 @@ export default function Tehni() {
     <section
       id="tehni"
       style={{
-        background: 'var(--parchment)',
+        background: 'var(--cream)',
         padding: '120px 64px',
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
@@ -32,7 +32,7 @@ export default function Tehni() {
           The kitchen
           <br />
           as a{' '}
-          <em style={{ fontStyle: 'italic', color: 'var(--clay)' }}>
+          <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>
             curriculum.
           </em>
         </h2>
@@ -62,34 +62,79 @@ export default function Tehni() {
           </p>
         </div>
 
-        {/* Dishes */}
+        {/* Dishes — editorial list */}
         <div
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '7px 16px',
-            marginTop: '38px',
+            marginTop: '36px',
+            paddingTop: '28px',
+            borderTop: '1px solid rgba(26,22,18,0.08)',
           }}
-          role="list"
-          aria-label="Kumaoni dishes served"
         >
-          {dishes.map((dish) => (
-            <span
-              key={dish}
-              role="listitem"
-              style={{
-                fontFamily: 'var(--serif)',
-                fontSize: '0.88rem',
-                color: 'var(--ink-soft)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '7px',
-              }}
-            >
-              <span style={{ color: 'var(--gold)' }}>·</span>
-              {dish}
-            </span>
-          ))}
+          <span
+            style={{
+              fontFamily: 'var(--sans)',
+              fontSize: '11px',
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              color: 'var(--gold)',
+              display: 'block',
+              marginBottom: '16px',
+            }}
+          >
+            In the repertoire
+          </span>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '6px 10px',
+            }}
+            role="list"
+            aria-label="Kumaoni dishes served"
+          >
+            {dishes.map((dish, i) => (
+              <span
+                key={dish}
+                role="listitem"
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: '0.88rem',
+                  fontStyle: 'italic',
+                  color: 'var(--ink-soft)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                }}
+              >
+                {dish}
+                {i < dishes.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      width: '3px',
+                      height: '3px',
+                      borderRadius: '50%',
+                      background: 'rgba(139,107,61,0.3)',
+                      flexShrink: 0,
+                      display: 'inline-block',
+                    }}
+                  />
+                )}
+              </span>
+            ))}
+          </div>
+          <p
+            style={{
+              fontFamily: 'var(--sans)',
+              fontSize: '11px',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'rgba(61,53,48,0.4)',
+              marginTop: '14px',
+            }}
+          >
+            Subject to season
+          </p>
         </div>
       </RevealWrapper>
 
@@ -106,25 +151,6 @@ export default function Tehni() {
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
-          {/* Decorative word */}
-          <span
-            style={{
-              position: 'absolute',
-              bottom: '-26px',
-              right: '-12px',
-              fontFamily: 'var(--caps)',
-              fontSize: '7rem',
-              color: 'rgba(138,90,56,0.055)',
-              letterSpacing: '0.1em',
-              pointerEvents: 'none',
-              userSelect: 'none',
-              whiteSpace: 'nowrap',
-              lineHeight: 1,
-            }}
-            aria-hidden="true"
-          >
-            TEHNI
-          </span>
         </div>
       </RevealWrapper>
     </section>

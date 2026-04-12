@@ -17,7 +17,7 @@ export default function Rooms({ showRates = false }: RoomsProps) {
     <section
       id="stay"
       style={{
-        background: 'var(--stone)',
+        background: 'var(--parchment)',
         padding: '120px 64px',
       }}
     >
@@ -56,7 +56,7 @@ export default function Rooms({ showRates = false }: RoomsProps) {
               fontFamily: 'var(--serif)',
               fontSize: '0.9rem',
               fontStyle: 'italic',
-              color: 'var(--clay)',
+              color: 'var(--ink-soft)',
               maxWidth: '230px',
               textAlign: 'right',
               lineHeight: 1.75,
@@ -79,7 +79,7 @@ export default function Rooms({ showRates = false }: RoomsProps) {
       >
         {featured.map((room, i) => (
           <RevealWrapper key={room.id} delay={i as 0 | 1}>
-            <RoomCard room={room} showRates={showRates} />
+            <RoomCard room={room} />
           </RevealWrapper>
         ))}
       </div>
@@ -95,7 +95,7 @@ export default function Rooms({ showRates = false }: RoomsProps) {
       >
         {small.map((room, i) => (
           <RevealWrapper key={room.id} delay={i as 0 | 1}>
-            <RoomCard room={room} showRates={showRates} small />
+            <RoomCard room={room} small />
           </RevealWrapper>
         ))}
 
@@ -103,7 +103,7 @@ export default function Rooms({ showRates = false }: RoomsProps) {
         <RevealWrapper delay={2}>
           <div
             style={{
-              background: 'var(--parchment)',
+              background: 'var(--cream)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -117,7 +117,7 @@ export default function Rooms({ showRates = false }: RoomsProps) {
             <span
               style={{
                 fontFamily: 'var(--sans)',
-                fontSize: '7.5px',
+                fontSize: '11px',
                 letterSpacing: '0.26em',
                 textTransform: 'uppercase',
                 color: 'var(--gold)',
@@ -201,11 +201,10 @@ export default function Rooms({ showRates = false }: RoomsProps) {
 
 function RoomCard({
   room,
-  showRates,
   small,
 }: {
   room: (typeof rooms)[0];
-  showRates: boolean;
+  showRates?: boolean;
   small?: boolean;
 }) {
   return (
@@ -220,6 +219,7 @@ function RoomCard({
       <style>{`
         .room-card:hover .room-card-img { transform: scale(1.06); }
         .room-card-img { transition: transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94); }
+        .room-explore-link:hover { color: var(--gold) !important; }
       `}</style>
 
       {/* Image */}
@@ -248,7 +248,7 @@ function RoomCard({
         <span
           style={{
             fontFamily: 'var(--sans)',
-            fontSize: '7.5px',
+            fontSize: '11px',
             letterSpacing: '0.26em',
             textTransform: 'uppercase',
             color: 'var(--gold)',
@@ -274,7 +274,7 @@ function RoomCard({
             fontFamily: 'var(--serif)',
             fontSize: '0.8rem',
             fontStyle: 'italic',
-            color: 'rgba(255,255,255,0.38)',
+            color: 'rgba(255,255,255,0.6)',
             lineHeight: 1.68,
           }}
         >
@@ -294,29 +294,28 @@ function RoomCard({
           <span
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '7.5px',
+              fontSize: '11px',
               letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.22)',
+              color: 'var(--gold)',
+              fontWeight: 400,
             }}
           >
-            {room.inclusions}
+            {room.price}
           </span>
           <Link
-            href="/reserve"
+            href={`/stay/${room.id}`}
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '8px',
+              fontSize: '11px',
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: 'var(--gold)',
+              color: 'rgba(255,255,255,0.7)',
               textDecoration: 'none',
-              borderBottom: '1px solid rgba(197,153,90,0.22)',
-              paddingBottom: '2px',
-              transition: 'color 0.3s, border-color 0.3s',
+              transition: 'color 0.2s',
             }}
+            className="room-explore-link"
           >
-            Reserve Your Stay
+            {room.exploreLabel}
           </Link>
         </div>
       </div>

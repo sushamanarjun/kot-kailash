@@ -23,7 +23,7 @@ export default function Footer() {
         <div>
           <span
             style={{
-              fontFamily: 'var(--caps)',
+              fontFamily: 'var(--sans)',
               fontSize: '11px',
               letterSpacing: '0.38em',
               color: 'white',
@@ -117,11 +117,12 @@ export default function Footer() {
           </span>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '9px' }}>
             {[
-              { href: '/#reserve', label: 'Reserve your stay' },
-              { href: 'https://www.kotkailash.com/faqs/', label: 'FAQs', external: true },
-              { href: 'https://www.kotkailash.com/terms-and-conditions/', label: 'Terms & Conditions', external: true },
+              { href: '/stay', label: 'Rooms & Suites' },
+              { href: '/how-to-reach', label: 'How to Reach' },
+              { href: '/retreats', label: 'Retreats & Offsites' },
+              { href: '/journal', label: 'Journal' },
+              { href: '/about', label: 'Our Story' },
               { href: 'https://www.kotkailash.com/cancellation-refunds/', label: 'Cancellations', external: true },
-              { href: '/founders', label: 'The Founders' },
             ].map((l) => (
               <li key={l.label}>
                 {'external' in l ? (

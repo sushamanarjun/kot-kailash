@@ -56,7 +56,7 @@ export default function Testimonials() {
               <div
                 style={{
                   color: 'var(--gold)',
-                  fontSize: '0.58rem',
+                  fontSize: '0.85rem',
                   letterSpacing: '4px',
                   marginBottom: '15px',
                 }}
@@ -69,7 +69,7 @@ export default function Testimonials() {
                   fontFamily: 'var(--serif)',
                   fontSize: '0.9rem',
                   fontStyle: 'italic',
-                  color: 'rgba(255,255,255,0.54)',
+                  color: 'rgba(255,255,255,0.75)',
                   lineHeight: 1.85,
                   marginBottom: '18px',
                   flex: 1,
@@ -94,7 +94,7 @@ export default function Testimonials() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontFamily: 'var(--caps)',
+                    fontFamily: 'var(--sans)',
                     fontSize: '0.65rem',
                     color: 'var(--gold)',
                   }}
@@ -106,10 +106,10 @@ export default function Testimonials() {
                   <span
                     style={{
                       fontFamily: 'var(--sans)',
-                      fontSize: '8px',
+                      fontSize: '11px',
                       letterSpacing: '0.13em',
                       textTransform: 'uppercase',
-                      color: 'rgba(255,255,255,0.28)',
+                      color: 'rgba(255,255,255,0.55)',
                       display: 'block',
                     }}
                   >
@@ -118,9 +118,9 @@ export default function Testimonials() {
                   <span
                     style={{
                       fontFamily: 'var(--sans)',
-                      fontSize: '7.5px',
+                      fontSize: '11px',
                       letterSpacing: '0.1em',
-                      color: 'rgba(197,153,90,0.38)',
+                      color: 'rgba(139,107,61,1)',
                     }}
                   >
                     {t.source}

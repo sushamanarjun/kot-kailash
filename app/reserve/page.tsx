@@ -71,7 +71,7 @@ export default function ReservePage() {
         <span
           style={{
             fontFamily: 'var(--sans)',
-            fontSize: '8px',
+            fontSize: '11px',
             letterSpacing: '0.38em',
             textTransform: 'uppercase',
             color: 'var(--gold)',
@@ -103,7 +103,7 @@ export default function ReservePage() {
             fontFamily: 'var(--serif)',
             fontSize: '1rem',
             fontStyle: 'italic',
-            color: 'rgba(255,255,255,0.4)',
+            color: 'rgba(255,255,255,0.6)',
             maxWidth: '480px',
             margin: '0 auto',
             lineHeight: 1.8,
@@ -118,7 +118,7 @@ export default function ReservePage() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-gold"
-            style={{ padding: '15px 44px', fontSize: '9px', letterSpacing: '0.26em' }}
+            style={{ padding: '15px 44px', fontSize: '11px', letterSpacing: '0.26em' }}
           >
             Check Availability
           </a>
@@ -136,7 +136,7 @@ export default function ReservePage() {
       {/* Rates Table */}
       <section
         style={{
-          background: 'var(--stone)',
+          background: 'var(--parchment)',
           padding: '80px 64px',
         }}
       >
@@ -144,7 +144,7 @@ export default function ReservePage() {
           <div
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '8px',
+              fontSize: '11px',
               letterSpacing: '0.38em',
               textTransform: 'uppercase',
               color: 'var(--gold)',
@@ -172,7 +172,7 @@ export default function ReservePage() {
                   <span
                     style={{
                       fontFamily: 'var(--sans)',
-                      fontSize: '7.5px',
+                      fontSize: '11px',
                       letterSpacing: '0.2em',
                       textTransform: 'uppercase',
                       color: 'var(--gold)',

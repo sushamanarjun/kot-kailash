@@ -9,38 +9,18 @@ export default function Reserve() {
       id="reserve"
       style={{
         background: 'var(--ink)',
-        padding: '120px 64px',
+        padding: '80px 64px',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Giant watermark */}
-      <span
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          fontFamily: 'var(--caps)',
-          fontSize: '20vw',
-          color: 'rgba(255,255,255,0.011)',
-          whiteSpace: 'nowrap',
-          pointerEvents: 'none',
-          letterSpacing: '0.1em',
-          userSelect: 'none',
-        }}
-        aria-hidden="true"
-      >
-        RESERVE
-      </span>
-
       <RevealWrapper>
         {/* Eyebrow */}
         <div
           style={{
             fontFamily: 'var(--sans)',
-            fontSize: '8.5px',
+            fontSize: '11px',
             letterSpacing: '0.38em',
             textTransform: 'uppercase',
             color: 'var(--gold)',
@@ -48,13 +28,13 @@ export default function Reserve() {
             alignItems: 'center',
             justifyContent: 'center',
             gap: '12px',
-            marginBottom: '28px',
+            marginBottom: '20px',
             position: 'relative',
             zIndex: 1,
           }}
         >
           <span style={{ width: '28px', height: '1px', background: 'var(--gold)', opacity: 0.38 }} />
-          Reserve your stay
+          Eight Keys · Rare Availability
           <span style={{ width: '28px', height: '1px', background: 'var(--gold)', opacity: 0.38 }} />
         </div>
 
@@ -62,17 +42,17 @@ export default function Reserve() {
         <h2
           style={{
             fontFamily: 'var(--serif)',
-            fontSize: 'clamp(2.8rem, 5.5vw, 5rem)',
+            fontSize: 'clamp(2.4rem, 4.5vw, 4rem)',
             fontWeight: 300,
             fontStyle: 'italic',
             color: 'white',
-            marginBottom: '14px',
+            marginBottom: '20px',
             position: 'relative',
             zIndex: 1,
             lineHeight: 1.1,
           }}
         >
-          Eight keys. One ridge.
+          Reserve your stay at Kot Kailash
         </h2>
 
         <p
@@ -80,128 +60,58 @@ export default function Reserve() {
             fontFamily: 'var(--serif)',
             fontSize: '0.96rem',
             fontStyle: 'italic',
-            color: 'rgba(255,255,255,0.3)',
-            marginBottom: '16px',
+            color: 'rgba(255,255,255,0.55)',
+            marginBottom: '28px',
             position: 'relative',
             zIndex: 1,
           }}
         >
-          Direct enquiries receive our personal attention.
-          <br />
-          Direct bookings receive the best available rate.
+          Direct bookings always receive the best available rate.
         </p>
 
-        <p
-          style={{
-            fontFamily: 'var(--sans)',
-            fontSize: '8px',
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            color: 'rgba(197,153,90,0.5)',
-            marginBottom: '48px',
-            position: 'relative',
-            zIndex: 1,
-          }}
-        >
-          Minimum three nights · All meals included · Extended stays warmly encouraged
-        </p>
-
-        {/* Buttons */}
+        {/* Single primary CTA */}
         <div
           style={{
             display: 'flex',
-            gap: '12px',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '20px',
             position: 'relative',
             zIndex: 1,
-            marginBottom: '44px',
+            marginBottom: '28px',
           }}
         >
           <a
             href={HOTEL_SPIDER_URL}
             target="_blank"
             rel="noopener noreferrer"
+            className="btn-gold"
+            style={{ padding: '15px 52px', fontSize: '11px', letterSpacing: '0.26em' }}
+          >
+            Check Availability
+          </a>
+          <p
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '9px',
-              letterSpacing: '0.26em',
-              textTransform: 'uppercase',
-              background: 'var(--gold)',
-              color: 'var(--ink)',
-              padding: '15px 44px',
-              textDecoration: 'none',
-              transition: 'background 0.3s',
-              display: 'inline-block',
+              fontSize: '11px',
+              letterSpacing: '0.1em',
+              color: 'rgba(255,255,255,0.55)',
             }}
           >
-            Reserve your stay
-          </a>
-          <a
-            href="mailto:info@kotkailash.com"
-            className="btn-outline"
-            style={{ padding: '15px 36px', fontSize: '9px', letterSpacing: '0.26em' }}
-          >
-            Write to us
-          </a>
-          <a
-            href="https://wa.me/919650264905"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline"
-            style={{ padding: '15px 36px', fontSize: '9px', letterSpacing: '0.26em' }}
-          >
-            WhatsApp
-          </a>
-        </div>
-
-        {/* Contact links */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '22px',
-            position: 'relative',
-            zIndex: 1,
-            flexWrap: 'wrap',
-            marginBottom: '44px',
-          }}
-        >
-          {[
-            { href: 'tel:+919650264905', label: '+91 96502 64905' },
-            null,
-            { href: 'tel:+918860070400', label: '+91 88600 70400' },
-            null,
-            { href: 'mailto:info@kotkailash.com', label: 'info@kotkailash.com' },
-            null,
-            { href: 'https://instagram.com/kot.kailash', label: '@kot.kailash', external: true },
-          ].map((item, i) =>
-            item === null ? (
-              <div
-                key={`sep-${i}`}
-                style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,0.07)' }}
-              />
-            ) : (
-              <a
-                key={item.href}
-                href={item.href}
-                target={'external' in item ? '_blank' : undefined}
-                rel={'external' in item ? 'noopener noreferrer' : undefined}
-                style={{
-                  fontFamily: 'var(--sans)',
-                  fontSize: '9px',
-                  letterSpacing: '0.13em',
-                  color: 'rgba(255,255,255,0.26)',
-                  textDecoration: 'none',
-                  transition: 'color 0.3s',
-                }}
-                className="res-ct"
-              >
-                {item.label}
-              </a>
-            )
-          )}
+            Or call{' '}
+            <a
+              href="tel:+919650264905"
+              style={{
+                color: 'rgba(255,255,255,0.7)',
+                textDecoration: 'none',
+                transition: 'color 0.3s',
+              }}
+              className="res-ct"
+            >
+              +91 9650264905
+            </a>
+            {' '}· We respond to every enquiry personally
+          </p>
         </div>
 
         {/* Payment badges */}
@@ -213,7 +123,7 @@ export default function Reserve() {
             gap: '14px',
             position: 'relative',
             zIndex: 1,
-            paddingTop: '36px',
+            paddingTop: '24px',
             borderTop: '1px solid rgba(255,255,255,0.05)',
             flexWrap: 'wrap',
           }}
@@ -221,10 +131,10 @@ export default function Reserve() {
           <span
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '7.5px',
+              fontSize: '11px',
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.22)',
+              color: 'rgba(255,255,255,0.5)',
             }}
           >
             Accepted on-site
@@ -238,10 +148,10 @@ export default function Reserve() {
                     padding: '5px 12px',
                     border: '1px solid rgba(255,255,255,0.09)',
                     fontFamily: 'var(--sans)',
-                    fontSize: '9px',
+                    fontSize: '11px',
                     fontWeight: 400,
                     letterSpacing: '0.08em',
-                    color: 'rgba(255,255,255,0.48)',
+                    color: 'rgba(255,255,255,0.65)',
                   }}
                 >
                   {p}

@@ -53,7 +53,7 @@ export default function FoundersPage() {
         >
           Built by people
           <br />
-          <em style={{ fontStyle: 'normal', color: 'var(--clay)' }}>
+          <em style={{ fontStyle: 'normal', color: 'var(--gold)' }}>
             who know the ridge.
           </em>
         </h1>

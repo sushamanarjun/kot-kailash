@@ -72,10 +72,10 @@ export default function Manifesto() {
             borderLeft: '2px solid var(--gold)',
             paddingLeft: '18px',
             fontFamily: 'var(--sans)',
-            fontSize: '8px',
+            fontSize: '11px',
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
-            color: 'var(--clay)',
+            color: 'var(--gold)',
           }}
         >
           Three years in · Eight keys across three houses · One ridge
@@ -107,7 +107,7 @@ export default function Manifesto() {
           <span
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '8px',
+              fontSize: '11px',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: 'var(--gold)',

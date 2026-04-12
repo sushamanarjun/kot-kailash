@@ -9,6 +9,8 @@ export type Room = {
   capacity: string;
   featured: boolean;
   isSmall?: boolean;
+  price: string;
+  exploreLabel: string;
 };
 
 export type Buyout = {
@@ -29,6 +31,8 @@ export const rooms: Room[] = [
     inclusions: 'All meals · Double occupancy',
     capacity: '2 guests',
     featured: true,
+    price: 'On request',
+    exploreLabel: 'EXPLORE COTTAGE →',
   },
   {
     id: 'family-suite',
@@ -41,6 +45,8 @@ export const rooms: Room[] = [
     inclusions: 'All meals · Up to 4 guests',
     capacity: 'Up to 5 guests',
     featured: true,
+    price: 'On request',
+    exploreLabel: 'EXPLORE SUITE →',
   },
   {
     id: 'kutir-suites',
@@ -54,6 +60,8 @@ export const rooms: Room[] = [
     capacity: '2 guests per suite',
     featured: false,
     isSmall: true,
+    price: 'From ₹8,999 / night',
+    exploreLabel: 'EXPLORE SUITE →',
   },
   {
     id: 'kumaoni-suites',
@@ -67,6 +75,8 @@ export const rooms: Room[] = [
     capacity: '2 guests per suite',
     featured: false,
     isSmall: true,
+    price: 'From ₹7,499 / night',
+    exploreLabel: 'EXPLORE SUITE →',
   },
 ];
 

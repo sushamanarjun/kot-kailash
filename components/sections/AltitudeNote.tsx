@@ -4,7 +4,7 @@ export default function AltitudeNote() {
   return (
     <section
       style={{
-        background: 'var(--stone)',
+        background: 'var(--parchment)',
         padding: '72px 64px',
         display: 'grid',
         gridTemplateColumns: '1fr 2fr',
@@ -19,7 +19,7 @@ export default function AltitudeNote() {
         <span
           style={{
             fontFamily: 'var(--sans)',
-            fontSize: '8px',
+            fontSize: '11px',
             letterSpacing: '0.32em',
             textTransform: 'uppercase',
             color: 'var(--gold)',

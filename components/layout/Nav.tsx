@@ -2,22 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const HOTEL_SPIDER_URL =
   'https://reservations.hotel-spider.com/032644b5fbfafed6';
 
 const navLinks = [
-  { href: '/#stay', label: 'Stay' },
-  { href: '/#experiences', label: 'Experiences' },
-  { href: '/#tehni', label: 'Dine' },
-  { href: '/#sacred', label: 'Sacred Arc' },
-  { href: '/#story', label: 'Our Story' },
-  { href: '/#reserve', label: 'Reserve' },
+  { href: '/stay', label: 'Stay' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/tehni', label: 'Dine' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/about', label: 'About' },
 ];
 
 export default function Nav() {
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 50);
@@ -41,22 +42,22 @@ export default function Nav() {
           justifyContent: 'space-between',
           padding: solid ? '18px 64px' : '32px 64px',
           transition: 'padding 0.5s, background 0.5s, box-shadow 0.5s',
-          background: solid ? 'rgba(250,247,242,0.97)' : 'transparent',
-          backdropFilter: solid ? 'blur(16px)' : 'none',
-          boxShadow: solid ? '0 1px 0 var(--fog)' : 'none',
+          background: solid ? 'rgba(26,22,18,0.97)' : 'transparent',
+          backdropFilter: solid ? 'blur(12px)' : 'none',
+          boxShadow: solid ? '0 1px 0 rgba(255,255,255,0.05)' : 'none',
         }}
       >
         {/* Wordmark */}
         <Link
           href="/"
           style={{
-            fontFamily: 'var(--caps)',
+            fontFamily: 'var(--sans)',
             fontSize: '11px',
             letterSpacing: '0.4em',
-            color: solid ? 'var(--ink)' : 'rgba(255,255,255,0.9)',
+            color: 'rgba(255,255,255,0.9)',
             textDecoration: 'none',
             transition: 'color 0.4s, text-shadow 0.4s',
-            textShadow: solid ? '0 1px 8px rgba(0,0,0,0)' : '0 1px 8px rgba(0,0,0,0.55)',
+            textShadow: '0 1px 8px rgba(0,0,0,0.55)',
           }}
         >
           KOT KAILASH · KUMAON
@@ -76,7 +77,7 @@ export default function Nav() {
         >
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link href={link.href} className="nav-link">
+              <Link href={link.href} className={`nav-link${pathname === link.href ? ' nav-link-active' : ''}`}>
                 {link.label}
               </Link>
             </li>
@@ -92,7 +93,7 @@ export default function Nav() {
             rel="noopener noreferrer"
             className="nav-book-btn"
           >
-            Reserve your stay
+            Reserve a Room
           </a>
 
           {/* Hamburger (hidden on desktop via CSS) */}
@@ -100,10 +101,11 @@ export default function Nav() {
             className="nav-hamburger"
             onClick={() => setOpen(true)}
             aria-label="Open navigation menu"
+            style={{ minHeight: '44px', minWidth: '44px', alignItems: 'center', justifyContent: 'center' }}
           >
-            <span style={{ background: solid ? 'var(--ink)' : 'rgba(255,255,255,0.8)' }} />
-            <span style={{ background: solid ? 'var(--ink)' : 'rgba(255,255,255,0.8)' }} />
-            <span style={{ background: solid ? 'var(--ink)' : 'rgba(255,255,255,0.8)' }} />
+            <span style={{ background: 'rgba(255,255,255,0.8)' }} />
+            <span style={{ background: 'rgba(255,255,255,0.8)' }} />
+            <span style={{ background: 'rgba(255,255,255,0.8)' }} />
           </button>
         </div>
       </nav>
@@ -130,7 +132,7 @@ export default function Nav() {
           >
             <span
               style={{
-                fontFamily: 'var(--caps)',
+                fontFamily: 'var(--sans)',
                 fontSize: '11px',
                 letterSpacing: '0.4em',
                 color: 'white',
@@ -166,7 +168,7 @@ export default function Nav() {
                   fontFamily: 'var(--serif)',
                   fontSize: '1.6rem',
                   fontWeight: 300,
-                  color: 'rgba(255,255,255,0.7)',
+                  color: pathname === link.href ? 'var(--gold)' : 'rgba(255,255,255,0.7)',
                   textDecoration: 'none',
                   padding: '12px 0',
                   borderBottom: '1px solid rgba(255,255,255,0.05)',
@@ -198,7 +200,7 @@ export default function Nav() {
                 transition: 'background 0.3s',
               }}
             >
-              Reserve your stay
+              Reserve a Room
             </a>
           </div>
         </div>

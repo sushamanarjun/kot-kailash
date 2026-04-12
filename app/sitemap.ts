@@ -1,8 +1,8 @@
 import type { MetadataRoute } from 'next';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://kotkailash.com';
+const base = 'https://kotkailash.com';
 
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: base,
@@ -10,29 +10,86 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 1.0,
     },
+    // Stay pages
     {
-      url: `${base}/rooms`,
+      url: `${base}/stay`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${base}/reserve`,
+      url: `${base}/stay/kumaoni-suites`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.85,
     },
     {
-      url: `${base}/experiences`,
+      url: `${base}/stay/kutir-suites`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${base}/stay/kumaon-vann`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${base}/stay/family-suite`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    // Core pages
+    {
+      url: `${base}/experience`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${base}/founders`,
+      url: `${base}/tehni`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${base}/retreats`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${base}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.7,
+    },
+    {
+      url: `${base}/gallery`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+    {
+      url: `${base}/how-to-reach`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.75,
+    },
+    {
+      url: `${base}/journal`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.65,
+    },
+    // Legacy
+    {
+      url: `${base}/reserve`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
   ];
 }

@@ -19,9 +19,9 @@ import Sustainability from '@/components/sections/Sustainability';
 import Reserve from '@/components/sections/Reserve';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Kot Kailash Kumaon — A Heritage Ridge Sanctuary at 7,800 Feet',
+  title: 'Kot Kailash | Heritage Retreat near Jageshwar, Almora',
   description:
-    "A century-old Kumaoni house on the Shaukiyathal ridge at 7,800 feet. Eight keys across three houses. Founded by veterans of India's finest hospitality. Almora, Uttarakhand.",
+    'A century-old Kumaoni home at 7,800 ft. 8 suites, Himalayan views, and hyperlocal dining at Tehni. 2 km from Jageshwar. Direct bookings get the best rate.',
   path: '/',
   ogImage: '/og-default.jpg',
   keywords: [
