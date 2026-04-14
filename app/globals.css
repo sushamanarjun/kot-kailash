@@ -465,7 +465,7 @@ button:focus-visible {
   font-family: var(--sans);
   font-size: var(--text-label);
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.26);
+  color: rgba(255, 255, 255, 0.58);
   text-decoration: none;
   transition: color 0.3s;
   display: block;
@@ -480,7 +480,7 @@ button:focus-visible {
   font-size: var(--text-label-sm);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.17);
+  color: rgba(255, 255, 255, 0.52);
   text-decoration: none;
   transition: color 0.3s;
 }

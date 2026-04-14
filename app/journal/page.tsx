@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { buildMetadata } from '@/lib/seo';
 import Reserve from '@/components/sections/Reserve';
 import RevealWrapper from '@/components/ui/RevealWrapper';
@@ -72,6 +73,13 @@ const placeholderPosts = [
       'Rhododendron arboreum. The Uttarakhand state tree. At Shaukiyathal it flowers in late March, when the night temperature is still below 10 degrees. The flowers become sherbet the same day they are picked.',
     readTime: '3 min read',
   },
+];
+
+const JOURNAL_IMAGES = [
+  '/images/ridge-fullbleed.jpg',     // featured post
+  '/images/tehni-kitchen.webp',      // grid post 1
+  '/images/hero-ridge.jpeg',         // grid post 2
+  '/images/room-kumaon-vann.webp',   // grid post 3
 ];
 
 export default function JournalPage() {
@@ -215,41 +223,23 @@ export default function JournalPage() {
               </div>
             </div>
 
-            {/* Placeholder image */}
+            {/* Featured post image */}
             <div
               style={{
                 width: '100%',
                 aspectRatio: '4/3',
-                background: 'var(--forest-deep)',
-                border: '1px solid rgba(255,255,255,0.06)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
                 position: 'relative',
                 overflow: 'hidden',
               }}
             >
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  backgroundImage:
-                    'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-                  backgroundSize: '40px 40px',
-                }}
+              <Image
+                src={JOURNAL_IMAGES[0]}
+                alt="Journal — Kot Kailash"
+                fill
+                loading="lazy"
+                sizes="(max-width:680px) 100vw, 50vw"
+                style={{ objectFit: 'cover' }}
               />
-              <span
-                style={{
-                  fontFamily: 'var(--sans)',
-                  fontSize: '11px',
-                  letterSpacing: '0.3em',
-                  textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.1)',
-                  position: 'relative',
-                }}
-              >
-                The Seasons
-              </span>
             </div>
           </div>
         </RevealWrapper>
@@ -286,41 +276,24 @@ export default function JournalPage() {
                   flexDirection: 'column',
                 }}
               >
-                {/* Post image placeholder */}
+                {/* Post image */}
                 <div
                   style={{
                     width: '100%',
                     aspectRatio: '3/2',
-                    background: i % 2 === 0 ? 'var(--forest-deep)' : 'var(--forest)',
                     position: 'relative',
                     overflow: 'hidden',
                     flexShrink: 0,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
                   }}
                 >
-                  <div
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      backgroundImage:
-                        'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-                      backgroundSize: '32px 32px',
-                    }}
+                  <Image
+                    src={JOURNAL_IMAGES[(i + 1) % JOURNAL_IMAGES.length]}
+                    alt={post.category}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width:640px) 100vw, (max-width:1100px) 50vw, 33vw"
+                    style={{ objectFit: 'cover' }}
                   />
-                  <span
-                    style={{
-                      fontFamily: 'var(--sans)',
-                      fontSize: '11px',
-                      letterSpacing: '0.3em',
-                      textTransform: 'uppercase',
-                      color: 'rgba(255,255,255,0.1)',
-                      position: 'relative',
-                    }}
-                  >
-                    {post.category}
-                  </span>
                 </div>
 
                 {/* Post content */}

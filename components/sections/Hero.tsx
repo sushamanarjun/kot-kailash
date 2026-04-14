@@ -149,7 +149,7 @@ export default function Hero() {
             Where the ridge
             <br />
             breathes{' '}
-            <em style={{ fontStyle: 'normal', color: 'var(--gold-pale)' }}>
+            <em style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.38)' }}>
               differently.
             </em>
           </h2>

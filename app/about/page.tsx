@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { buildMetadata } from '@/lib/seo';
 import Founders from '@/components/sections/Founders';
 import Sustainability from '@/components/sections/Sustainability';
@@ -19,188 +20,610 @@ export const metadata: Metadata = buildMetadata({
   ],
 });
 
+const MILESTONES = [
+  {
+    year: '~1920',
+    label: 'Built on the ridge',
+    detail: 'The Negi family of the Shauk community constructs the main house at 7,800 feet on the Shaukiyathal ridge.',
+  },
+  {
+    year: '2018',
+    label: 'The decision',
+    detail: 'Pushkar Singh Negi and Aishwarya Negi decide to restore — not renovate — the property to its original character.',
+  },
+  {
+    year: '2021',
+    label: 'Craftspeople return',
+    detail: 'The same craftspeople who maintain older village structures re-press the mud plaster walls by hand.',
+  },
+  {
+    year: '2023',
+    label: 'Kot Kailash opens',
+    detail: 'Eight rooms. No fixed menu. One ridge. Open to guests who understand the difference.',
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section
-        style={{
-          background: 'var(--forest-deep)',
-          padding: '160px 64px 80px',
-        }}
-      >
-        <h1 className="sr-only">
-          Our Story — Kot Kailash Heritage Retreat, Kumaon
-        </h1>
-        <div style={{ maxWidth: '640px' }}>
-          <span
+      <style>{`
+        @keyframes abFadeUp {
+          from { opacity: 0; transform: translateY(22px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes abScrollCue {
+          0%, 100% { opacity: 0.3; transform: translateY(0); }
+          50%       { opacity: 0.7; transform: translateY(7px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .ab-anim, .ab-cue { animation: none !important; opacity: 1 !important; }
+        }
+
+        /* ── Split-screen hero ── */
+        .ab-hero {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          min-height: 100dvh;
+        }
+        @media (max-width: 768px) {
+          .ab-hero { grid-template-columns: 1fr; }
+          .ab-hero-text { order: 2; padding: 60px 32px 72px; }
+          .ab-hero-img  { order: 1; min-height: 65vw; }
+        }
+
+        /* ── Long-read story ── */
+        .ab-story-col {
+          max-width: 660px;
+          margin: 0 auto;
+          fontFamily: var(--serif);
+        }
+        .ab-story-col p {
+          font-family: var(--serif);
+          font-size: 1.05rem;
+          color: var(--ink-soft);
+          line-height: 1.92;
+          margin-top: 22px;
+        }
+        .ab-story-col p:first-child { margin-top: 0; }
+
+        /* ── Milestones strip ── */
+        .ab-milestones {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+        }
+        @media (max-width: 860px) {
+          .ab-milestones { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+          .ab-milestones { grid-template-columns: 1fr; }
+        }
+        .ab-ms-cell {
+          padding: 52px 40px;
+          border-left: 1px solid rgba(255,255,255,0.05);
+          position: relative;
+        }
+        .ab-ms-cell:first-child { border-left: none; }
+        @media (max-width: 860px) {
+          .ab-ms-cell:nth-child(odd)  { border-left: none; }
+          .ab-ms-cell:nth-child(3),
+          .ab-ms-cell:nth-child(4)    { border-top: 1px solid rgba(255,255,255,0.05); }
+        }
+        @media (max-width: 480px) {
+          .ab-ms-cell { border-left: none !important; border-top: 1px solid rgba(255,255,255,0.05); }
+          .ab-ms-cell:first-child { border-top: none; }
+          .ab-ms-cell { padding: 36px 32px; }
+        }
+      `}</style>
+
+      {/* ─── §1 Hero — split-screen ───────────────────────────── */}
+      <section className="ab-hero">
+        <h1 className="sr-only">Our Story — Kot Kailash Heritage Retreat, Kumaon</h1>
+
+        {/* Left: Text panel */}
+        <div
+          className="ab-hero-text"
+          style={{
+            background: 'var(--ink)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            padding: '140px 72px 80px',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Faint year as background texture */}
+          <div style={{
+            position: 'absolute',
+            bottom: '-5%',
+            left: '-5%',
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(14rem, 22vw, 26rem)',
+            fontWeight: 300,
+            color: 'rgba(255,255,255,0.022)',
+            lineHeight: 1,
+            userSelect: 'none',
+            pointerEvents: 'none',
+            letterSpacing: '-0.04em',
+          }}>1920</div>
+
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <div
+              className="ab-anim"
+              style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '11px',
+                letterSpacing: '0.38em',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+                marginBottom: '28px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                animation: 'abFadeUp 0.8s ease both',
+                animationDelay: '0.15s',
+                opacity: 0,
+              }}
+            >
+              <span style={{ width: '28px', height: '1px', background: 'var(--gold)', opacity: 0.45 }} />
+              VI · Our Story
+            </div>
+
+            <h2
+              className="ab-anim"
+              style={{
+                fontFamily: 'var(--serif)',
+                fontSize: 'clamp(2.8rem, 4.2vw, 4.4rem)',
+                fontWeight: 300,
+                color: 'white',
+                lineHeight: 1.1,
+                marginBottom: '28px',
+                animation: 'abFadeUp 0.8s ease both',
+                animationDelay: '0.32s',
+                opacity: 0,
+              }}
+            >
+              Not a hotel.
+              <br />
+              <span style={{ color: 'rgba(255,255,255,0.36)' }}>
+                Not a homestay.
+              </span>
+            </h2>
+
+            <p
+              className="ab-anim"
+              style={{
+                fontFamily: 'var(--serif)',
+                fontSize: '1rem',
+                fontStyle: 'italic',
+                color: 'rgba(255,255,255,0.48)',
+                lineHeight: 1.85,
+                maxWidth: '380px',
+                animation: 'abFadeUp 0.8s ease both',
+                animationDelay: '0.5s',
+                opacity: 0,
+              }}
+            >
+              A Kumaoni heritage home restored without apology to its origins.
+              Hand-pressed mud plaster walls. Oak and rhododendron forest.
+              Air that runs between AQI 9 and 25, year-round.
+            </p>
+
+            {/* Divider */}
+            <div
+              className="ab-anim"
+              style={{
+                width: '40px',
+                height: '1px',
+                background: 'rgba(139,107,61,0.4)',
+                margin: '36px 0',
+                animation: 'abFadeUp 0.8s ease both',
+                animationDelay: '0.65s',
+                opacity: 0,
+              }}
+            />
+
+            <div
+              className="ab-anim"
+              style={{
+                animation: 'abFadeUp 0.8s ease both',
+                animationDelay: '0.65s',
+                opacity: 0,
+              }}
+            >
+              <a
+                href="https://reservations.hotel-spider.com/032644b5fbfafed6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold"
+                style={{ padding: '13px 36px', fontSize: '11px', letterSpacing: '0.24em' }}
+              >
+                Reserve a Room
+              </a>
+            </div>
+          </div>
+
+          {/* Scroll cue */}
+          <div
+            className="ab-cue"
             style={{
-              fontFamily: 'var(--sans)',
-              fontSize: '11px',
-              letterSpacing: '0.38em',
-              textTransform: 'uppercase',
-              color: 'var(--gold)',
-              display: 'block',
-              marginBottom: '20px',
+              position: 'absolute',
+              bottom: '36px',
+              left: '72px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              animation: 'abScrollCue 2.6s ease-in-out infinite',
+              animationDelay: '1.4s',
+              opacity: 0,
             }}
           >
-            Our Story
-          </span>
-          <h2
-            style={{
+            <svg width="44" height="1" viewBox="0 0 44 1">
+              <line x1="0" y1="0.5" x2="44" y2="0.5" stroke="rgba(255,255,255,0.18)" strokeWidth="1"/>
+            </svg>
+            <span style={{
+              fontFamily: 'var(--sans)', fontSize: '9px',
+              letterSpacing: '0.3em', textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.28)',
+            }}>Scroll</span>
+          </div>
+        </div>
+
+        {/* Right: Image panel */}
+        <div
+          className="ab-hero-img"
+          style={{
+            background: 'linear-gradient(170deg, #0a1208 0%, #1a2416 35%, #2e3d2a 70%, #1c2a18 100%)',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Property image */}
+          <Image
+            src="/images/ridge-fullbleed.jpg"
+            alt="Kot Kailash — the main house on the Shaukiyathal ridge, Almora"
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
+          />
+          {/* Atmospheric overlay */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'radial-gradient(ellipse 70% 60% at 55% 40%, rgba(139,107,61,0.1) 0%, transparent 65%)',
+            zIndex: 1,
+          }} />
+          {/* Caption strip at bottom */}
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            padding: '48px 36px 28px',
+            background: 'linear-gradient(to top, rgba(10,18,8,0.92) 0%, rgba(10,18,8,0.6) 50%, transparent 100%)',
+            zIndex: 2,
+          }}>
+            <p style={{
               fontFamily: 'var(--serif)',
-              fontSize: 'clamp(2.8rem, 5vw, 4.5rem)',
-              fontWeight: 300,
+              fontSize: '0.82rem',
               fontStyle: 'italic',
-              color: 'white',
-              lineHeight: 1.1,
-              marginBottom: '20px',
-            }}
-          >
-            Not a hotel.
-            <br />
-            <em style={{ fontStyle: 'normal', color: 'var(--gold-pale)' }}>
-              Not a homestay.
-            </em>
-          </h2>
-          <p
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '1rem',
-              fontStyle: 'italic',
-              color: 'rgba(255,255,255,0.6)',
-              lineHeight: 1.85,
-              maxWidth: '480px',
-            }}
-          >
-            A Kumaoni heritage home restored without apology to its origins.
-            Hand-pressed mud plaster walls. Oak and rhododendron forest. Air
-            that runs between AQI 9 and 25, year-round.
-          </p>
+              color: 'rgba(255,255,255,0.88)',
+              lineHeight: 1.5,
+            }}>
+              Kot Kailash, Shaukiyathal ridge, Almora · 7,800 ft
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Property history */}
-      <section
-        style={{
-          background: 'var(--cream)',
-          padding: '100px 64px',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '80px',
-          alignItems: 'start',
-        }}
-        className="manifesto-grid"
-      >
+      {/* ─── §2 The long-read story ───────────────────────────── */}
+      <section style={{ background: 'var(--parchment)', padding: '100px 64px' }}>
         <RevealWrapper>
-          <div className="eyebrow">The History</div>
-          <h3
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: 'clamp(2rem, 3vw, 2.8rem)',
-              fontWeight: 300,
-              color: 'var(--ink)',
-              lineHeight: 1.15,
-              marginBottom: '28px',
-            }}
-          >
-            A century on the ridge.
-          </h3>
-          <div
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '1.02rem',
-              color: 'var(--ink-soft)',
-              lineHeight: 1.9,
-            }}
-          >
-            <p>
-              Kot Kailash occupies the Shaukiyathal ridge in the Almora
-              district of Uttarakhand at 7,800 feet. The main house is over a
-              century old — built by the Negi family of the Shauk community,
-              one of the original Himalayan trading communities whose routes
-              connected the Gangetic plains to Tibet.
-            </p>
-            <p style={{ marginTop: '18px' }}>
-              The property passed through generations before Pushkar Singh Negi
-              and Aishwarya Negi decided to restore it — not renovate, restore.
-              The mud plaster was re-pressed by the same craftsmen who maintain
-              the older structures of the village. The stone was sourced from
-              the ridge itself.
-            </p>
-            <p style={{ marginTop: '18px' }}>
-              What exists now is not a simulation of Kumaoni heritage — it is
-              Kumaoni heritage, inhabited by people who know the difference.
-            </p>
-          </div>
-        </RevealWrapper>
+          <div className="ab-story-col">
 
-        <RevealWrapper delay={2}>
-          <div className="eyebrow">The Community</div>
-          <h3
-            style={{
+            {/* Chapter heading: The History */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px',
+              marginBottom: '36px',
+            }}>
+              <span style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '11px',
+                letterSpacing: '0.32em',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+                whiteSpace: 'nowrap',
+              }}>The History</span>
+              <span style={{
+                flex: 1,
+                height: '1px',
+                background: 'rgba(26,22,18,0.1)',
+              }} />
+            </div>
+
+            <h2 style={{
               fontFamily: 'var(--serif)',
-              fontSize: 'clamp(2rem, 3vw, 2.8rem)',
+              fontSize: 'clamp(2.4rem, 3.6vw, 3.4rem)',
               fontWeight: 300,
               color: 'var(--ink)',
-              lineHeight: 1.15,
-              marginBottom: '28px',
-            }}
-          >
-            The Shauk of Shaukiyathal.
-          </h3>
-          <div
-            style={{
+              lineHeight: 1.12,
+              marginBottom: '36px',
+            }}>
+              A century on the ridge.
+            </h2>
+
+            <div className="ab-story-col">
+              <p>
+                Kot Kailash occupies the Shaukiyathal ridge in the Almora
+                district of Uttarakhand at 7,800 feet. The main house is over a
+                century old — built by the Negi family of the Shauk community,
+                one of the original Himalayan trading communities whose routes
+                connected the Gangetic plains to Tibet.
+              </p>
+              <p>
+                The property passed through generations before Pushkar Singh Negi
+                and Aishwarya Negi decided to restore it — not renovate, restore.
+                The mud plaster was re-pressed by the same craftspeople who
+                maintain the older structures of the village. The stone was
+                sourced from the ridge itself.
+              </p>
+            </div>
+
+            {/* Inline pull quote */}
+            <blockquote style={{
+              borderLeft: '2px solid var(--gold)',
+              paddingLeft: '24px',
+              margin: '36px 0',
+            }}>
+              <p style={{
+                fontFamily: 'var(--serif)',
+                fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)',
+                fontStyle: 'italic',
+                color: 'var(--ink)',
+                lineHeight: 1.65,
+                marginTop: 0,
+              }}>
+                What exists now is not a simulation of Kumaoni heritage — it is
+                Kumaoni heritage, inhabited by people who know the difference.
+              </p>
+            </blockquote>
+
+            {/* Chapter divider: The Community */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px',
+              margin: '56px 0 36px',
+            }}>
+              <span style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '11px',
+                letterSpacing: '0.32em',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+                whiteSpace: 'nowrap',
+              }}>The Community</span>
+              <span style={{
+                flex: 1,
+                height: '1px',
+                background: 'rgba(26,22,18,0.1)',
+              }} />
+            </div>
+
+            <h2 style={{
               fontFamily: 'var(--serif)',
-              fontSize: '1.02rem',
-              color: 'var(--ink-soft)',
-              lineHeight: 1.9,
-            }}
-          >
-            <p>
-              The village of Shaukiyathal takes its name from the Shauk
-              community — the highland traders who historically moved between
-              the Himalayan valleys and the Tibetan plateau. The name means,
-              approximately, &ldquo;the place of the Shauks.&rdquo;
-            </p>
-            <p style={{ marginTop: '18px' }}>
-              The community today maintains its agricultural traditions — the
-              mandua fields, the bhatt cultivation, the seasonal festivals that
-              structure the Kumaoni year. Kot Kailash is not separate from this
-              village. It is part of it. The food that Tehni serves comes from
-              it. The people who work here come from it.
-            </p>
+              fontSize: 'clamp(2.4rem, 3.6vw, 3.4rem)',
+              fontWeight: 300,
+              color: 'var(--ink)',
+              lineHeight: 1.12,
+              marginBottom: '36px',
+            }}>
+              The Shauk of Shaukiyathal.
+            </h2>
+
+            <div className="ab-story-col">
+              <p>
+                The village of Shaukiyathal takes its name from the Shauk
+                community — the highland traders who historically moved between
+                the Himalayan valleys and the Tibetan plateau. The name means,
+                approximately, &ldquo;the place of the Shauks.&rdquo;
+              </p>
+              <p>
+                The community today maintains its agricultural traditions — the
+                mandua fields, the bhatt cultivation, the seasonal festivals that
+                structure the Kumaoni year. Kot Kailash is not separate from this
+                village. It is part of it. The food that Tehni serves comes from
+                it. The people who work here come from it.
+              </p>
+            </div>
+
+            {/* Footnote fact */}
+            <div style={{
+              marginTop: '40px',
+              paddingTop: '28px',
+              borderTop: '1px solid rgba(26,22,18,0.08)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '14px',
+            }}>
+              <span style={{
+                width: '20px', height: '1px',
+                background: 'rgba(139,107,61,0.38)',
+                flexShrink: 0,
+              }} />
+              <p style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '10px',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'rgba(61,53,48,0.45)',
+                lineHeight: 1.6,
+              }}>
+                All staff sourced from Kunja Gunth village · 2 km from the
+                property · Zero-kilometre food supply
+              </p>
+            </div>
+
           </div>
         </RevealWrapper>
       </section>
 
-      {/* Pull quote */}
-      <section
-        style={{
-          background: 'var(--ink)',
-          padding: '80px 64px',
-          textAlign: 'center',
-        }}
-      >
+      {/* ─── §3 Milestones — horizontal strip ────────────────── */}
+      <section style={{ background: 'var(--ink)' }}>
+        <div className="ab-milestones">
+          {MILESTONES.map((m, i) => (
+            <RevealWrapper key={m.year} delay={(i % 4) as 0 | 1 | 2 | 3}>
+              <div className="ab-ms-cell">
+                {/* Year — ghost large */}
+                <div style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: 'clamp(3rem, 4.5vw, 5rem)',
+                  fontWeight: 300,
+                  color: 'rgba(255,255,255,0.06)',
+                  lineHeight: 1,
+                  letterSpacing: '-0.03em',
+                  marginBottom: '16px',
+                  userSelect: 'none',
+                }}>{m.year}</div>
+                {/* Label */}
+                <div style={{
+                  fontFamily: 'var(--sans)',
+                  fontSize: '10px',
+                  letterSpacing: '0.28em',
+                  textTransform: 'uppercase',
+                  color: 'var(--gold)',
+                  marginBottom: '10px',
+                }}>{m.label}</div>
+                {/* Detail */}
+                <p style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: '0.88rem',
+                  fontStyle: 'italic',
+                  color: 'rgba(255,255,255,0.44)',
+                  lineHeight: 1.75,
+                }}>{m.detail}</p>
+              </div>
+            </RevealWrapper>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── §4 Pull quote ───────────────────────────────────── */}
+      <section style={{
+        background: 'var(--forest-deep)',
+        padding: '80px 64px',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: '-30px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          fontFamily: 'var(--serif)',
+          fontSize: '20rem',
+          lineHeight: 1,
+          color: 'rgba(255,255,255,0.025)',
+          userSelect: 'none',
+          pointerEvents: 'none',
+        }}>"</div>
+
         <RevealWrapper>
-          <p
-            style={{
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <div style={{
+              display: 'flex', alignItems: 'center',
+              justifyContent: 'center', gap: '20px', marginBottom: '28px',
+            }}>
+              <span style={{ width: '40px', height: '1px', background: 'var(--gold)', opacity: 0.35 }} />
+              <span style={{
+                fontFamily: 'var(--sans)', fontSize: '9px',
+                letterSpacing: '0.32em', textTransform: 'uppercase',
+                color: 'var(--gold)', opacity: 0.6,
+              }}>On travel</span>
+              <span style={{ width: '40px', height: '1px', background: 'var(--gold)', opacity: 0.35 }} />
+            </div>
+            <p style={{
               fontFamily: 'var(--serif)',
-              fontSize: 'clamp(1.4rem, 2.5vw, 2rem)',
+              fontSize: 'clamp(1.5rem, 2.8vw, 2.4rem)',
               fontStyle: 'italic',
-              color: 'rgba(255,255,255,0.7)',
-              maxWidth: '680px',
+              fontWeight: 300,
+              color: 'rgba(255,255,255,0.68)',
+              maxWidth: '640px',
               margin: '0 auto',
-              lineHeight: 1.7,
-            }}
-          >
-            &ldquo;The best travel leaves you quieter than it found you.&rdquo;
-          </p>
+              lineHeight: 1.65,
+            }}>
+              &ldquo;The best travel leaves you quieter than it found you.&rdquo;
+            </p>
+          </div>
         </RevealWrapper>
       </section>
 
+      {/* ─── §5 Founders ─────────────────────────────────────── */}
       <Founders />
+
+      {/* ─── §6 How We Work ──────────────────────────────────── */}
       <Sustainability />
+
+      {/* ─── §7 CTA — light break ────────────────────────────── */}
+      <section style={{
+        background: 'var(--parchment)',
+        padding: '80px 64px',
+        textAlign: 'center',
+      }}>
+        <RevealWrapper>
+          <span style={{
+            fontFamily: 'var(--sans)',
+            fontSize: '11px',
+            letterSpacing: '0.32em',
+            textTransform: 'uppercase',
+            color: 'var(--gold)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '12px',
+            marginBottom: '20px',
+          }}>
+            <span style={{ width: '22px', height: '1px', background: 'var(--gold)', opacity: 0.4 }} />
+            Eight Keys · Rare Availability
+            <span style={{ width: '22px', height: '1px', background: 'var(--gold)', opacity: 0.4 }} />
+          </span>
+          <h2 style={{
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(2rem, 3.5vw, 3rem)',
+            fontWeight: 300,
+            fontStyle: 'italic',
+            color: 'var(--ink)',
+            marginBottom: '14px',
+            lineHeight: 1.15,
+          }}>
+            Come and be part of the story.
+          </h2>
+          <p style={{
+            fontFamily: 'var(--serif)',
+            fontSize: '0.96rem',
+            fontStyle: 'italic',
+            color: 'var(--ink-soft)',
+            lineHeight: 1.8,
+            maxWidth: '400px',
+            margin: '0 auto 32px',
+          }}>
+            Direct bookings always receive the best available rate.
+          </p>
+          <a
+            href="https://reservations.hotel-spider.com/032644b5fbfafed6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold"
+            style={{ padding: '15px 52px', fontSize: '11px', letterSpacing: '0.26em' }}
+          >
+            Reserve a Room
+          </a>
+        </RevealWrapper>
+      </section>
+
+      {/* ─── §8 Reserve ──────────────────────────────────────── */}
       <Reserve />
     </>
   );

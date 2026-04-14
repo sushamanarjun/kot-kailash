@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import Reserve from '@/components/sections/Reserve';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 
@@ -14,6 +15,7 @@ interface GalleryImage {
   note: string;
   gradient: string;
   accentColor: string;
+  src: string;
 }
 
 const CATEGORIES: Category[] = ['All', 'The Ridge', 'Rooms', 'Tehni', 'Forest', 'Seasons'];
@@ -24,90 +26,105 @@ const IMAGES: GalleryImage[] = [
     caption: 'The Shaukiyathal Ridge at dawn', note: '6:04 AM · March',
     gradient: 'linear-gradient(160deg, #0d1810 0%, #1c2a18 55%, #2e3d2a 100%)',
     accentColor: 'rgba(139,107,61,0.22)',
+    src: '/images/hero-ridge.jpeg',
   },
   {
     id: 2, category: 'Rooms', aspect: 'portrait',
     caption: 'Kumaon Vann — the forest cottage', note: 'Afternoon light',
     gradient: 'linear-gradient(160deg, #1a1410 0%, #2e2218 55%, #3d2e22 100%)',
     accentColor: 'rgba(139,107,61,0.16)',
+    src: '/images/room-kumaon-vann.webp',
   },
   {
     id: 3, category: 'Forest', aspect: 'portrait',
     caption: 'Oak forest below the main house', note: 'Mid-October',
     gradient: 'linear-gradient(160deg, #0a1408 0%, #142010 55%, #1c2e18 100%)',
     accentColor: 'rgba(46,80,38,0.35)',
+    src: '/images/ridge-twoUp.webp',
   },
   {
     id: 4, category: 'Tehni', aspect: 'square',
     caption: 'Mandua rotis, hand-pressed', note: 'Morning prep',
     gradient: 'linear-gradient(160deg, #1e1408 0%, #2e1e0c 55%, #3a2810 100%)',
     accentColor: 'rgba(139,107,61,0.28)',
+    src: '/images/tehni-kitchen.webp',
   },
   {
     id: 5, category: 'Seasons', aspect: 'landscape',
     caption: 'Buransh bloom — late March', note: 'Rhododendron season',
     gradient: 'linear-gradient(160deg, #1a0c10 0%, #2e1018 55%, #3a1820 100%)',
     accentColor: 'rgba(155,58,42,0.22)',
+    src: '/images/ridge-fullbleed.jpg',
   },
   {
     id: 6, category: 'Rooms', aspect: 'landscape',
     caption: 'Kutir Suite — Machan loft view', note: 'Blue hour',
     gradient: 'linear-gradient(160deg, #0c1018 0%, #141820 55%, #1c2430 100%)',
     accentColor: 'rgba(139,107,61,0.12)',
+    src: '/images/room-kutir-suites.webp',
   },
   {
     id: 7, category: 'The Ridge', aspect: 'portrait',
     caption: 'Himalayan panorama at sunset', note: '5:48 PM · November',
     gradient: 'linear-gradient(160deg, #1a1008 0%, #28160a 55%, #3a1e0c 100%)',
     accentColor: 'rgba(155,58,42,0.32)',
+    src: '/images/ridge-fullbleed.jpg',
   },
   {
     id: 8, category: 'Tehni', aspect: 'portrait',
     caption: 'Bhatt ke Dubke — the Kumaoni staple', note: 'Lunch service',
     gradient: 'linear-gradient(160deg, #181008 0%, #261808 55%, #342010 100%)',
     accentColor: 'rgba(139,107,61,0.22)',
+    src: '/images/tehni-hero.webp',
   },
   {
     id: 9, category: 'Forest', aspect: 'landscape',
     caption: 'Rhododendron in the courtyard', note: 'Spring',
     gradient: 'linear-gradient(160deg, #0c1a0a 0%, #142210 55%, #1c2e18 100%)',
     accentColor: 'rgba(46,80,38,0.42)',
+    src: '/images/ridge-twoUp.webp',
   },
   {
     id: 10, category: 'Seasons', aspect: 'landscape',
     caption: 'Snowline from the east terrace', note: 'January · 7,800 ft',
     gradient: 'linear-gradient(160deg, #101418 0%, #181c24 55%, #20242e 100%)',
     accentColor: 'rgba(139,107,61,0.1)',
+    src: '/images/hero-ridge.jpeg',
   },
   {
     id: 11, category: 'Rooms', aspect: 'portrait',
     caption: 'Family Suite — the observatory', note: 'Night sky view',
     gradient: 'linear-gradient(160deg, #080c14 0%, #0c1020 55%, #10182c 100%)',
     accentColor: 'rgba(100,120,200,0.14)',
+    src: '/images/room-family-suite.webp',
   },
   {
     id: 12, category: 'The Ridge', aspect: 'landscape',
     caption: 'Morning mist over the valley', note: 'Pre-dawn fog',
     gradient: 'linear-gradient(160deg, #101414 0%, #181e1e 55%, #202828 100%)',
     accentColor: 'rgba(139,107,61,0.09)',
+    src: '/images/ridge-twoUp.webp',
   },
   {
     id: 13, category: 'Tehni', aspect: 'square',
     caption: 'Rhododendron sherbet', note: 'Seasonal, irreplaceable',
     gradient: 'linear-gradient(160deg, #1e0c10 0%, #2e1018 55%, #3c1620 100%)',
     accentColor: 'rgba(155,58,42,0.28)',
+    src: '/images/tehni-village.webp',
   },
   {
     id: 14, category: 'Forest', aspect: 'portrait',
     caption: 'The trail into oak country', note: 'Below the ridge',
     gradient: 'linear-gradient(160deg, #0a1208 0%, #101c0c 55%, #182614 100%)',
     accentColor: 'rgba(46,80,38,0.38)',
+    src: '/images/ridge-twoUp.webp',
   },
   {
     id: 15, category: 'Rooms', aspect: 'landscape',
     caption: 'The main house courtyard', note: 'Dusk',
     gradient: 'linear-gradient(160deg, #14100c 0%, #1c1610 55%, #282014 100%)',
     accentColor: 'rgba(139,107,61,0.18)',
+    src: '/images/room-kumaoni-suites.webp',
   },
 ];
 
@@ -451,19 +468,16 @@ export default function GalleryClient() {
                   onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); } }}
                   aria-label={`View photograph: ${img.caption}`}
                 >
-                  {/* Gradient bg */}
+                  {/* Image */}
                   <div className="gl-item-bg" style={{ background: img.gradient }}>
-                    {/* Subtle grid texture */}
-                    <div style={{
-                      position: 'absolute', inset: 0,
-                      backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
-                      backgroundSize: '44px 44px',
-                    }} />
-                    {/* Radial glow accent */}
-                    <div style={{
-                      position: 'absolute', inset: 0,
-                      background: `radial-gradient(ellipse 55% 55% at ${28 + (img.id * 7) % 44}% ${28 + (img.id * 11) % 44}%, ${img.accentColor} 0%, transparent 65%)`,
-                    }} />
+                    <Image
+                      src={img.src}
+                      alt={img.caption}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                      style={{ objectFit: 'cover' }}
+                    />
                   </div>
 
                   <span className="gl-badge">{img.category}</span>
@@ -492,49 +506,6 @@ export default function GalleryClient() {
           ))}
         </div>
 
-        {/* Photography coming soon */}
-        <RevealWrapper>
-          <div style={{
-            textAlign: 'center',
-            marginTop: '72px',
-            paddingTop: '52px',
-            borderTop: '1px solid rgba(26,22,18,0.08)',
-          }}>
-            <span style={{
-              fontFamily: 'var(--sans)',
-              fontSize: '11px',
-              letterSpacing: '0.3em',
-              textTransform: 'uppercase',
-              color: 'var(--gold)',
-              display: 'block',
-              marginBottom: '14px',
-            }}>Photography Coming Soon</span>
-            <p style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '0.95rem',
-              fontStyle: 'italic',
-              color: 'var(--ink-soft)',
-              lineHeight: 1.8,
-              maxWidth: '400px',
-              margin: '0 auto 22px',
-            }}>
-              We are commissioning a full editorial shoot across all four seasons. The gallery will be live later this year.
-            </p>
-            <a
-              href="mailto:reach@kotkailash.com?subject=Photography%20Enquiry"
-              style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '11px',
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: 'var(--gold)',
-                textDecoration: 'none',
-                borderBottom: '1px solid rgba(139,107,61,0.38)',
-                paddingBottom: '2px',
-              }}
-            >Photography enquiries →</a>
-          </div>
-        </RevealWrapper>
       </section>
 
       {/* ─── Pull quote ───────────────────────────────────────── */}
@@ -687,27 +658,13 @@ export default function GalleryClient() {
           <div className="gl-lb-content">
             {/* Image */}
             <div className="gl-lb-img" style={{ background: activeImg.gradient }}>
-              <div style={{
-                position: 'absolute', inset: 0,
-                backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
-                backgroundSize: '48px 48px',
-              }} />
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: `radial-gradient(ellipse 60% 60% at ${28 + (activeImg.id * 7) % 44}% ${28 + (activeImg.id * 11) % 44}%, ${activeImg.accentColor} 0%, transparent 65%)`,
-              }} />
-              <div style={{
-                position: 'absolute', inset: 0,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <span style={{
-                  fontFamily: 'var(--sans)',
-                  fontSize: '9px',
-                  letterSpacing: '0.32em',
-                  textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.1)',
-                }}>Photograph</span>
-              </div>
+              <Image
+                src={activeImg.src}
+                alt={activeImg.caption}
+                fill
+                sizes="(max-width:680px) 100vw, 860px"
+                style={{ objectFit: 'cover' }}
+              />
             </div>
 
             {/* Caption row */}

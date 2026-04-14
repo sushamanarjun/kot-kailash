@@ -6,7 +6,7 @@ export default function Footer() {
       style={{
         background: 'var(--ink)',
         padding: '72px 64px 44px',
-        borderTop: '1px solid rgba(255,255,255,0.03)',
+        borderTop: '1px solid rgba(255,255,255,0.08)',
       }}
     >
       {/* 4-column grid */}
@@ -38,7 +38,7 @@ export default function Footer() {
               fontFamily: 'var(--serif)',
               fontSize: '0.82rem',
               fontStyle: 'italic',
-              color: 'rgba(255,255,255,0.24)',
+              color: 'rgba(255,255,255,0.52)',
               lineHeight: 1.78,
               maxWidth: '220px',
             }}
@@ -52,10 +52,10 @@ export default function Footer() {
               marginTop: '20px',
               fontStyle: 'normal',
               fontFamily: 'var(--sans)',
-              fontSize: '7.5px',
+              fontSize: '10px',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.14)',
+              color: 'rgba(255,255,255,0.44)',
               lineHeight: 2,
             }}
           >
@@ -72,7 +72,7 @@ export default function Footer() {
           <span
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '8px',
+              fontSize: '10px',
               letterSpacing: '0.28em',
               textTransform: 'uppercase',
               color: 'var(--gold)',
@@ -105,7 +105,7 @@ export default function Footer() {
           <span
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '8px',
+              fontSize: '10px',
               letterSpacing: '0.28em',
               textTransform: 'uppercase',
               color: 'var(--gold)',
@@ -149,7 +149,7 @@ export default function Footer() {
           <span
             style={{
               fontFamily: 'var(--sans)',
-              fontSize: '8px',
+              fontSize: '10px',
               letterSpacing: '0.28em',
               textTransform: 'uppercase',
               color: 'var(--gold)',
@@ -193,7 +193,7 @@ export default function Footer() {
           justifyContent: 'space-between',
           alignItems: 'center',
           paddingTop: '30px',
-          borderTop: '1px solid rgba(255,255,255,0.03)',
+          borderTop: '1px solid rgba(255,255,255,0.08)',
           flexWrap: 'wrap',
           gap: '16px',
         }}
@@ -201,9 +201,9 @@ export default function Footer() {
         <div
           style={{
             fontFamily: 'var(--sans)',
-            fontSize: '7.5px',
+            fontSize: '10px',
             letterSpacing: '0.08em',
-            color: 'rgba(255,255,255,0.13)',
+            color: 'rgba(255,255,255,0.38)',
             lineHeight: 1.9,
           }}
         >
@@ -233,9 +233,9 @@ export default function Footer() {
         <span
           style={{
             fontFamily: 'var(--sans)',
-            fontSize: '7.5px',
+            fontSize: '10px',
             letterSpacing: '0.1em',
-            color: 'rgba(255,255,255,0.1)',
+            color: 'rgba(255,255,255,0.32)',
             textTransform: 'uppercase',
           }}
         >

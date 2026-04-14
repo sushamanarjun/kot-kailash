@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { buildMetadata } from '@/lib/seo';
 import { experiences } from '@/lib/content/experiences';
 import SacredArc from '@/components/sections/SacredArc';
@@ -37,6 +38,15 @@ const promises = [
   { label: 'Host-Arranged', detail: 'Pushkar or Aishwarya walks with you, or shows you the way.' },
 ];
 
+const EXP_IMAGES: Record<string, string> = {
+  'I':   '/images/ridge-twoUp.webp',      // Walk to Vriddh Jageshwar — forest trail
+  'II':  '/images/tehni-village.webp',    // Jageshwar Dham — village/heritage
+  'III': '/images/tehni-kitchen.webp',    // Bread in a Kumaoni Home — cooking
+  'IV':  '/images/ridge-fullbleed.jpg',   // Ridge Picnic — panoramic ridge
+  'V':   '/images/hero-ridge.jpeg',       // Kasar Devi & Binsar — hills
+  'VI':  '/images/room-kumaon-vann.webp', // Forest Walks — forest cottage
+};
+
 export default function ExperiencePage() {
   return (
     <>
@@ -73,42 +83,24 @@ export default function ExperiencePage() {
           }
         `}</style>
 
-        {/* Placeholder bg — replace with: <Image src="/images/experience-hero.webp" fill priority alt="..." /> */}
-        <div
-          aria-hidden="true"
-          style={{ position: 'absolute', inset: 0, background: 'var(--forest-deep)' }}
-        >
-          <div style={{
-            position: 'absolute', inset: 0,
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px)',
-            backgroundSize: '52px 52px',
-          }} />
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'radial-gradient(ellipse at 35% 60%, rgba(46,61,42,0.6) 0%, transparent 65%)',
-          }} />
-          <span style={{
-            position: 'absolute', top: '50%', left: '50%',
-            transform: 'translate(-50%,-50%)',
-            fontFamily: 'var(--sans)', fontSize: '11px',
-            letterSpacing: '0.28em', textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.07)',
-            userSelect: 'none', pointerEvents: 'none',
-          }}>
-            Hero — Ridge / Forest trail photo
-          </span>
-        </div>
+        {/* Hero background image */}
+        <Image
+          src="/images/hero-ridge.jpeg"
+          alt="Ridge view from Kot Kailash, Shaukiyathal — 7,800 ft"
+          fill
+          priority
+          style={{ objectFit: 'cover', zIndex: 0 }}
+        />
 
         {/* Gradient overlay — strong at bottom */}
         <div aria-hidden="true" style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to top, rgba(26,22,18,0.96) 0%, rgba(26,22,18,0.52) 42%, rgba(26,22,18,0.1) 100%)',
+          position: 'absolute', inset: 0, zIndex: 1,
+          background: 'linear-gradient(to top, rgba(10,8,5,0.97) 0%, rgba(10,8,5,0.75) 30%, rgba(10,8,5,0.3) 60%, transparent 100%)',
         }} />
 
         {/* Ghost watermark */}
         <div aria-hidden="true" style={{
-          position: 'absolute', top: '50%', left: '50%',
+          position: 'absolute', top: '50%', left: '50%', zIndex: 1,
           transform: 'translate(-50%,-50%)',
           fontFamily: 'var(--serif)', fontSize: 'clamp(10rem, 28vw, 26rem)',
           fontStyle: 'italic', fontWeight: 300,
@@ -122,7 +114,7 @@ export default function ExperiencePage() {
         <div
           className="exp-hero-content"
           style={{
-            position: 'relative', zIndex: 1,
+            position: 'relative', zIndex: 2,
             padding: '0 64px 84px',
             display: 'grid',
             gridTemplateColumns: '1fr auto',
@@ -134,7 +126,7 @@ export default function ExperiencePage() {
             <span style={{
               fontFamily: 'var(--sans)', fontSize: '11px',
               letterSpacing: '0.38em', textTransform: 'uppercase',
-              color: 'var(--gold)', display: 'block', marginBottom: '20px',
+              color: 'rgba(255,255,255,0.7)', display: 'block', marginBottom: '20px',
             }}>
               Experiences · Kot Kailash
             </span>
@@ -149,7 +141,7 @@ export default function ExperiencePage() {
             >
               Six ways to know
               <br />
-              <em style={{ fontStyle: 'normal', color: 'var(--gold-pale)' }}>the ridge.</em>
+              <em style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.38)' }}>the ridge.</em>
             </h2>
             <p style={{
               fontFamily: 'var(--serif)', fontSize: '1.05rem',
@@ -280,37 +272,16 @@ export default function ExperiencePage() {
                         position: 'relative',
                         height: '460px',
                         overflow: 'hidden',
-                        background: atm.grad,
                       }}
                     >
-                      <div aria-hidden="true" style={{
-                        position: 'absolute', inset: 0,
-                        backgroundImage:
-                          'linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)',
-                        backgroundSize: '44px 44px',
-                      }} />
-                      <div aria-hidden="true" style={{
-                        position: 'absolute', inset: 0,
-                        background: `radial-gradient(ellipse at ${atm.gx}% ${atm.gy}%, rgba(197,153,90,0.09) 0%, transparent 55%)`,
-                      }} />
-                      <div className="exp-row-img" style={{
-                        position: 'absolute', inset: 0,
-                        background: atm.grad,
-                      }} />
-                      {/* Replace above with:
-                          <Image src={`/images/exp-${exp.numeral.toLowerCase()}.webp`} fill loading="lazy"
-                                 style={{ objectFit:'cover' }} alt={exp.name}
-                                 sizes="(max-width:860px) 100vw, 52vw" />
-                      */}
-                      <span style={{
-                        position: 'absolute', bottom: '24px', left: '24px',
-                        fontFamily: 'var(--sans)', fontSize: '11px',
-                        letterSpacing: '0.24em', textTransform: 'uppercase',
-                        color: 'rgba(255,255,255,0.1)',
-                        userSelect: 'none', pointerEvents: 'none',
-                      }}>
-                        {exp.name}
-                      </span>
+                      <Image
+                        src={EXP_IMAGES[exp.numeral] ?? '/images/hero-ridge.jpeg'}
+                        alt={exp.name}
+                        fill
+                        loading="lazy"
+                        sizes="(max-width:860px) 100vw, 52vw"
+                        style={{ objectFit: 'cover' }}
+                      />
                     </div>
                   )}
 
@@ -415,37 +386,16 @@ export default function ExperiencePage() {
                         position: 'relative',
                         height: '460px',
                         overflow: 'hidden',
-                        background: atm.grad,
                       }}
                     >
-                      <div aria-hidden="true" style={{
-                        position: 'absolute', inset: 0,
-                        backgroundImage:
-                          'linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)',
-                        backgroundSize: '44px 44px',
-                      }} />
-                      <div aria-hidden="true" style={{
-                        position: 'absolute', inset: 0,
-                        background: `radial-gradient(ellipse at ${atm.gx}% ${atm.gy}%, rgba(197,153,90,0.09) 0%, transparent 55%)`,
-                      }} />
-                      <div className="exp-row-img" style={{
-                        position: 'absolute', inset: 0,
-                        background: atm.grad,
-                      }} />
-                      {/* Replace above with:
-                          <Image src={`/images/exp-${exp.numeral.toLowerCase()}.webp`} fill loading="lazy"
-                                 style={{ objectFit:'cover' }} alt={exp.name}
-                                 sizes="(max-width:860px) 100vw, 52vw" />
-                      */}
-                      <span style={{
-                        position: 'absolute', bottom: '24px', right: '24px',
-                        fontFamily: 'var(--sans)', fontSize: '11px',
-                        letterSpacing: '0.24em', textTransform: 'uppercase',
-                        color: 'rgba(255,255,255,0.1)',
-                        userSelect: 'none', pointerEvents: 'none',
-                      }}>
-                        {exp.name}
-                      </span>
+                      <Image
+                        src={EXP_IMAGES[exp.numeral] ?? '/images/hero-ridge.jpeg'}
+                        alt={exp.name}
+                        fill
+                        loading="lazy"
+                        sizes="(max-width:860px) 100vw, 52vw"
+                        style={{ objectFit: 'cover' }}
+                      />
                     </div>
                   )}
                 </div>

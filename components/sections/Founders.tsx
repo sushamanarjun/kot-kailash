@@ -94,8 +94,8 @@ export default function Founders() {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                padding: '22px',
-                background: 'linear-gradient(to top, rgba(10,8,5,0.88), transparent)',
+                padding: '64px 22px 22px',
+                background: 'linear-gradient(to top, rgba(10,8,5,0.95) 0%, rgba(10,8,5,0.6) 55%, transparent 100%)',
               }}
             >
               <span
@@ -104,7 +104,7 @@ export default function Founders() {
                   fontSize: '11px',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  color: 'var(--gold)',
+                  color: 'rgba(197,153,90,0.9)',
                   display: 'block',
                   marginBottom: '4px',
                 }}
@@ -116,7 +116,7 @@ export default function Founders() {
                   fontFamily: 'var(--serif)',
                   fontSize: '1rem',
                   fontStyle: 'italic',
-                  color: 'white',
+                  color: 'rgba(255,255,255,0.95)',
                 }}
               >
                 {pushkar.name}

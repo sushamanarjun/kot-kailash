@@ -56,18 +56,18 @@ export default function TwoUp() {
               bottom: 0,
               left: 0,
               right: 0,
-              padding: '24px',
+              padding: '56px 24px 22px',
               background:
-                'linear-gradient(to top, rgba(10,16,8,0.78), transparent)',
+                'linear-gradient(to top, rgba(10,16,8,0.92) 0%, rgba(10,16,8,0.6) 50%, transparent 100%)',
             }}
           >
             <span
               style={{
                 fontFamily: 'var(--sans)',
-                fontSize: '7.5px',
+                fontSize: '10px',
                 letterSpacing: '0.2em',
                 textTransform: 'uppercase',
-                color: 'var(--gold)',
+                color: 'rgba(197,153,90,0.9)',
                 display: 'block',
                 marginBottom: '4px',
               }}
@@ -79,7 +79,8 @@ export default function TwoUp() {
                 fontFamily: 'var(--serif)',
                 fontSize: '1rem',
                 fontStyle: 'italic',
-                color: 'white',
+                color: 'rgba(255,255,255,0.92)',
+                textShadow: '0 1px 8px rgba(0,0,0,0.6)',
               }}
             >
               {p.name}
