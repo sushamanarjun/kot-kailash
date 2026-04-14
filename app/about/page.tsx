@@ -9,7 +9,7 @@ import RevealWrapper from '@/components/ui/RevealWrapper';
 export const metadata: Metadata = buildMetadata({
   title: 'Our Story | Kot Kailash — Heritage Retreat, Kumaon',
   description:
-    'The story of Kot Kailash — a century-old Kumaoni home on the Shaukiyathal ridge restored by Pushkar Singh Negi and Aishwarya Negi. The Shauk community, the ridge, and the restoration.',
+    'The story of Kot Kailash — a family ancestral storehouse on the Shaukiyathal ridge restored by Pushkar Singh Negi. The village of Kailash Kot, the ridge, and the homecoming.',
   path: '/about',
   keywords: [
     'Kot Kailash story',
@@ -23,23 +23,23 @@ export const metadata: Metadata = buildMetadata({
 const MILESTONES = [
   {
     year: '~1920',
-    label: 'Built on the ridge',
-    detail: 'The Negi family of the Shauk community constructs the main house at 7,800 feet on the Shaukiyathal ridge.',
+    label: 'The ancestral storehouse',
+    detail: 'Kot Kailash serves as the ancestral storehouse of the Negi family — farmers from the five-house village of Kailash Kot, on the Shaukiyathal ridge.',
   },
   {
     year: '2018',
-    label: 'The decision',
-    detail: 'Pushkar Singh Negi and Aishwarya Negi decide to restore — not renovate — the property to its original character.',
+    label: 'The homecoming',
+    detail: 'Pushkar Singh Negi — founding GM of The Kumaon at Kasar Devi — returns home to restore the family property. Not renovate. Restore.',
   },
   {
     year: '2021',
     label: 'Craftspeople return',
-    detail: 'The same craftspeople who maintain older village structures re-press the mud plaster walls by hand.',
+    detail: 'The same craftspeople who maintain older village structures re-press the mud plaster walls by hand. Almost everything made locally.',
   },
   {
     year: '2023',
     label: 'Kot Kailash opens',
-    detail: 'Eight rooms. No fixed menu. One ridge. Open to guests who understand the difference.',
+    detail: 'Eight rooms across three structures. No fixed menu. One ridge. Open to guests who understand the difference.',
   },
 ];
 
@@ -330,7 +330,7 @@ export default function AboutPage() {
         <RevealWrapper>
           <div className="ab-story-col">
 
-            {/* Chapter heading: The History */}
+            {/* Chapter heading: Our Story */}
             <div style={{
               display: 'flex',
               alignItems: 'center',
@@ -344,7 +344,7 @@ export default function AboutPage() {
                 textTransform: 'uppercase',
                 color: 'var(--gold)',
                 whiteSpace: 'nowrap',
-              }}>The History</span>
+              }}>Our Story</span>
               <span style={{
                 flex: 1,
                 height: '1px',
@@ -360,23 +360,27 @@ export default function AboutPage() {
               lineHeight: 1.12,
               marginBottom: '36px',
             }}>
-              A century on the ridge.
+              A name flipped.<br />A home reclaimed.
             </h2>
 
             <div className="ab-story-col">
               <p>
-                Kot Kailash occupies the Shaukiyathal ridge in the Almora
-                district of Uttarakhand at 7,800 feet. The main house is over a
-                century old — built by the Negi family of the Shauk community,
-                one of the original Himalayan trading communities whose routes
-                connected the Gangetic plains to Tibet.
+                Kot Kailash was once the ancestral storehouse of founder Pushkar
+                Singh Negi&rsquo;s family — farmers from the five-house village
+                of Kailash Kot. Pushkar studied hotel management, built a
+                distinguished career across India&rsquo;s finest properties, and
+                went on to become the founding General Manager of The Kumaon at
+                Kasar Devi — a property that Forbes, Architectural Digest, and
+                the Michelin Guide all took note of.
               </p>
               <p>
-                The property passed through generations before Pushkar Singh Negi
-                and Aishwarya Negi decided to restore it — not renovate, restore.
-                The mud plaster was re-pressed by the same craftspeople who
-                maintain the older structures of the village. The stone was
-                sourced from the ridge itself.
+                But the pull of home was always stronger. When he returned to
+                restore the old family house, he simply flipped the name of his
+                native village — and Kot Kailash was born. The childhood friends
+                and cousins who grew up together, went to the same school, and
+                played cricket in the same fields now form the small, close-knit
+                team that runs it all. Pushkar lives on the property himself,
+                moving between rooms as needed.
               </p>
             </div>
 
@@ -394,12 +398,11 @@ export default function AboutPage() {
                 lineHeight: 1.65,
                 marginTop: 0,
               }}>
-                What exists now is not a simulation of Kumaoni heritage — it is
-                Kumaoni heritage, inhabited by people who know the difference.
+                This place is not a project for him — it is home.
               </p>
             </blockquote>
 
-            {/* Chapter divider: The Community */}
+            {/* Chapter divider: The Place */}
             <div style={{
               display: 'flex',
               alignItems: 'center',
@@ -413,7 +416,7 @@ export default function AboutPage() {
                 textTransform: 'uppercase',
                 color: 'var(--gold)',
                 whiteSpace: 'nowrap',
-              }}>The Community</span>
+              }}>The Place</span>
               <span style={{
                 flex: 1,
                 height: '1px',
@@ -429,29 +432,56 @@ export default function AboutPage() {
               lineHeight: 1.12,
               marginBottom: '36px',
             }}>
-              The Shauk of Shaukiyathal.
+              Three structures.<br />Eight rooms.<br />One ridge.
             </h2>
 
             <div className="ab-story-col">
               <p>
-                The village of Shaukiyathal takes its name from the Shauk
-                community — the highland traders who historically moved between
-                the Himalayan valleys and the Tibetan plateau. The name means,
-                approximately, &ldquo;the place of the Shauks.&rdquo;
+                Kot Kailash unfolds across three structures with just eight rooms
+                in total, keeping the experience intimate and personal. The
+                hamlet of Shaukiyathal — named after the Shauka shepherds who
+                once passed through with their flocks — has little more than
+                6–7 houses and a small shop. In quieter seasons, barely a dozen
+                people can be found here at once.
               </p>
               <p>
-                The community today maintains its agricultural traditions — the
-                mandua fields, the bhatt cultivation, the seasonal festivals that
-                structure the Kumaoni year. Kot Kailash is not separate from this
-                village. It is part of it. The food that Tehni serves comes from
-                it. The people who work here come from it.
+                At the heart of the property sits Pushkar&rsquo;s restored
+                ancestral home, built with mud-plastered walls, clay floors, and
+                wooden beams — almost everything made locally, from the furniture
+                and curtains to the switches, taps, and chimneys. A neighbouring
+                structure, taken on long-term lease from a local homeowner,
+                houses additional suites in natural, unpolished cedar wood. And
+                then there is Kumaon Vann — a former wood shed transformed into
+                a standalone forest cottage, with a private courtyard, a wood
+                fire burner, and a freestanding bathtub that looks directly out
+                to the Nanda Devi range.
+              </p>
+            </div>
+
+            {/* Sayed Aziz note */}
+            <div style={{
+              marginTop: '40px',
+              paddingTop: '28px',
+              borderTop: '1px solid rgba(26,22,18,0.08)',
+            }}>
+              <p style={{
+                fontFamily: 'var(--serif)',
+                fontSize: '0.92rem',
+                fontStyle: 'italic',
+                color: 'var(--ink-soft)',
+                lineHeight: 1.88,
+              }}>
+                Supporting the vision from London is Sayed Aziz — a hospitality
+                veteran with experience across the Taj and Oberoi groups — who
+                brings a global perspective to what remains, at its core, a
+                deeply local story.
               </p>
             </div>
 
             {/* Footnote fact */}
             <div style={{
-              marginTop: '40px',
-              paddingTop: '28px',
+              marginTop: '28px',
+              paddingTop: '20px',
               borderTop: '1px solid rgba(26,22,18,0.08)',
               display: 'flex',
               alignItems: 'center',

@@ -35,7 +35,7 @@ const expAtmosphere = [
 const promises = [
   { label: 'All Included', detail: 'Every experience is part of your room rate. Nothing is extra.' },
   { label: 'No Programme', detail: 'No schedule. No activities desk. A conversation is how it begins.' },
-  { label: 'Host-Arranged', detail: 'Pushkar or Aishwarya walks with you, or shows you the way.' },
+  { label: 'Host-Arranged', detail: 'Pushkar walks with you, or shows you the way.' },
 ];
 
 const EXP_IMAGES: Record<string, string> = {

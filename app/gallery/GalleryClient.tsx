@@ -562,7 +562,7 @@ export default function GalleryClient() {
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.3)',
-            }}>— Aishwarya Negi, Co-Founder</span>
+            }}>— Pushkar Singh Negi, Founder</span>
           </div>
         </RevealWrapper>
       </section>
