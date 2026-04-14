@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 import { experiences } from '@/lib/content/experiences';
 
@@ -5,9 +6,11 @@ interface ExperiencesProps {
   /** When true (standalone /experience page), the section header is hidden
    *  since the page hero already provides the h2 + context. */
   standalone?: boolean;
+  /** When true (homepage), shows only 3 cards with a CTA to /experience */
+  preview?: boolean;
 }
 
-export default function Experiences({ standalone = false }: ExperiencesProps) {
+export default function Experiences({ standalone = false, preview = false }: ExperiencesProps) {
   const row1 = experiences.slice(0, 3);
   const row2 = experiences.slice(3);
 
@@ -154,78 +157,99 @@ export default function Experiences({ standalone = false }: ExperiencesProps) {
         ))}
       </div>
 
-      {/* ── Grid Row 2 ── */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '3px',
-        }}
-        className="exp-grid"
-        role="list"
-        aria-label="Experiences at Kot Kailash, part 2"
-      >
-        {row2.map((exp, i) => (
-          <RevealWrapper key={exp.numeral} delay={(i as 0 | 1 | 2)}>
-            <ExperienceCard exp={exp} />
-          </RevealWrapper>
-        ))}
-      </div>
+      {/* ── Grid Row 2 — hidden in preview/homepage mode ── */}
+      {!preview && (
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '3px',
+          }}
+          className="exp-grid"
+          role="list"
+          aria-label="Experiences at Kot Kailash, part 2"
+        >
+          {row2.map((exp, i) => (
+            <RevealWrapper key={exp.numeral} delay={(i as 0 | 1 | 2)}>
+              <ExperienceCard exp={exp} />
+            </RevealWrapper>
+          ))}
+        </div>
+      )}
 
       {/* ── CTA strip ── */}
       <RevealWrapper>
-        <div
-          style={{
-            marginTop: '64px',
-            padding: '40px 48px',
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.05)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '24px',
-            flexWrap: 'wrap',
-          }}
-          className="exp-cta-strip"
-        >
-          <style>{`
-            @media (max-width: 680px) {
-              .exp-cta-strip { flex-direction: column !important; text-align: center !important; }
-            }
-          `}</style>
-          <div>
+        {preview ? (
+          <div style={{ marginTop: '48px', textAlign: 'center' }}>
             <p
               style={{
                 fontFamily: 'var(--serif)',
-                fontSize: '1.1rem',
+                fontSize: '0.95rem',
                 fontStyle: 'italic',
-                color: 'white',
-                marginBottom: '4px',
-                lineHeight: 1.3,
+                color: 'rgba(255,255,255,0.55)',
+                marginBottom: '18px',
               }}
             >
-              All six experiences are included.
+              Six curated experiences. All included in your stay.
             </p>
-            <p
-              style={{
-                fontFamily: 'var(--serif)',
-                fontSize: '0.9rem',
-                fontStyle: 'italic',
-                color: 'rgba(255,255,255,0.5)',
-                lineHeight: 1.5,
-              }}
-            >
-              No extra charge. No booking form. A conversation with your host.
-            </p>
+            <Link href="/experience" className="btn-outline">
+              See all 6 experiences →
+            </Link>
           </div>
-          <a
-            href="mailto:reach@kotkailash.com?subject=Experience%20Enquiry"
-            className="btn-outline"
-            style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
+        ) : (
+          <div
+            style={{
+              marginTop: '64px',
+              padding: '40px 48px',
+              background: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.05)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '24px',
+              flexWrap: 'wrap',
+            }}
+            className="exp-cta-strip"
           >
-            Ask about your visit
-          </a>
-        </div>
+            <style>{`
+              @media (max-width: 680px) {
+                .exp-cta-strip { flex-direction: column !important; text-align: center !important; }
+              }
+            `}</style>
+            <div>
+              <p
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: '1.1rem',
+                  fontStyle: 'italic',
+                  color: 'white',
+                  marginBottom: '4px',
+                  lineHeight: 1.3,
+                }}
+              >
+                All six experiences are included.
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: '0.9rem',
+                  fontStyle: 'italic',
+                  color: 'rgba(255,255,255,0.5)',
+                  lineHeight: 1.5,
+                }}
+              >
+                No extra charge. No booking form. A conversation with your host.
+              </p>
+            </div>
+            <a
+              href="mailto:reach@kotkailash.com?subject=Experience%20Enquiry"
+              className="btn-outline"
+              style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
+            >
+              Ask about your visit
+            </a>
+          </div>
+        )}
       </RevealWrapper>
     </section>
   );

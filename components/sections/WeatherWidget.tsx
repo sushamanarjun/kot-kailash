@@ -21,6 +21,7 @@ export default function WeatherWidget() {
 
   return (
     <div
+      className="weather-widget"
       style={{
         position: 'absolute',
         top: '104px',

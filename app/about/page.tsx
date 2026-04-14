@@ -65,10 +65,20 @@ export default function AboutPage() {
           grid-template-columns: 1fr 1fr;
           min-height: 100dvh;
         }
+        /* Hero must be full-bleed — override global section padding rules */
+        section.ab-hero,
+        section.ab-hero:first-child {
+          padding: 0 !important;
+        }
         @media (max-width: 768px) {
-          .ab-hero { grid-template-columns: 1fr; }
-          .ab-hero-text { order: 2; padding: 60px 32px 72px; }
-          .ab-hero-img  { order: 1; min-height: 65vw; }
+          .ab-hero {
+            grid-template-columns: 1fr;
+            min-height: auto !important;
+            background: var(--ink);
+          }
+          .ab-hero-text { order: 2; padding: 52px 24px 56px !important; }
+          .ab-hero-img  { order: 1; min-height: 55vw; }
+          .ab-scroll-cue { left: 24px !important; bottom: 20px !important; }
         }
 
         /* ── Long-read story ── */
@@ -245,7 +255,7 @@ export default function AboutPage() {
 
           {/* Scroll cue */}
           <div
-            className="ab-cue"
+            className="ab-cue ab-scroll-cue"
             style={{
               position: 'absolute',
               bottom: '36px',

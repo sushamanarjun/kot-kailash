@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 import AqiCard from './AqiCard';
 
@@ -80,6 +81,24 @@ export default function Manifesto() {
         >
           Three years in · Eight keys across three houses · One ridge
         </div>
+        <Link
+          href="/about"
+          style={{
+            fontFamily: 'var(--sans)',
+            fontSize: '11px',
+            letterSpacing: '0.24em',
+            textTransform: 'uppercase',
+            color: 'var(--gold)',
+            textDecoration: 'none',
+            borderBottom: '1px solid rgba(138,90,56,0.22)',
+            paddingBottom: '2px',
+            marginTop: '22px',
+            display: 'inline-block',
+            transition: 'color 0.3s',
+          }}
+        >
+          Our full story →
+        </Link>
       </RevealWrapper>
 
       {/* Right: Pull Quote + AQI */}

@@ -1,6 +1,6 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import RevealWrapper from '@/components/ui/RevealWrapper';
-import { dishes } from '@/lib/content/dishes';
 
 export default function Tehni() {
   return (
@@ -57,91 +57,32 @@ export default function Tehni() {
             staple that most guests have never encountered. The rhododendron
             sherbet is seasonal and irreplaceable.
           </p>
-          <p style={{ marginTop: '15px' }}>
-            There is no menu. There is a conversation, and then a meal.
-          </p>
         </div>
 
-        {/* Dishes — editorial list */}
-        <div
-          style={{
-            marginTop: '36px',
-            paddingTop: '28px',
-            borderTop: '1px solid rgba(26,22,18,0.08)',
-          }}
-        >
-          <span
+        <div style={{ marginTop: '28px' }}>
+          <Link
+            href="/tehni"
             style={{
               fontFamily: 'var(--sans)',
               fontSize: '11px',
-              letterSpacing: '0.28em',
+              letterSpacing: '0.24em',
               textTransform: 'uppercase',
               color: 'var(--gold)',
-              display: 'block',
-              marginBottom: '16px',
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(138,90,56,0.22)',
+              paddingBottom: '2px',
+              transition: 'color 0.3s',
             }}
           >
-            In the repertoire
-          </span>
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '6px 10px',
-            }}
-            role="list"
-            aria-label="Kumaoni dishes served"
-          >
-            {dishes.map((dish, i) => (
-              <span
-                key={dish}
-                role="listitem"
-                style={{
-                  fontFamily: 'var(--serif)',
-                  fontSize: '0.88rem',
-                  fontStyle: 'italic',
-                  color: 'var(--ink-soft)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                }}
-              >
-                {dish}
-                {i < dishes.length - 1 && (
-                  <span
-                    aria-hidden="true"
-                    style={{
-                      width: '3px',
-                      height: '3px',
-                      borderRadius: '50%',
-                      background: 'rgba(139,107,61,0.3)',
-                      flexShrink: 0,
-                      display: 'inline-block',
-                    }}
-                  />
-                )}
-              </span>
-            ))}
-          </div>
-          <p
-            style={{
-              fontFamily: 'var(--sans)',
-              fontSize: '11px',
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: 'rgba(61,53,48,0.4)',
-              marginTop: '14px',
-            }}
-          >
-            Subject to season
-          </p>
+            Explore Tehni →
+          </Link>
         </div>
       </RevealWrapper>
 
       {/* Right: Image */}
       <RevealWrapper delay={2}>
         <div style={{ position: 'relative' }}>
-          <div style={{ width: '100%', height: '510px', overflow: 'hidden' }}>
+          <div className="tehni-img-wrap" style={{ width: '100%', height: '510px', overflow: 'hidden' }}>
             <Image
               src="/images/tehni-kitchen.webp"
               alt="The Tehni — Kumaoni kitchen at Kot Kailash"

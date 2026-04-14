@@ -1,7 +1,12 @@
+import Link from 'next/link';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 import { sacredSites } from '@/lib/content/sacredSites';
 
-export default function SacredArc() {
+interface SacredArcProps {
+  compact?: boolean;
+}
+
+export default function SacredArc({ compact = false }: SacredArcProps) {
   const row1 = sacredSites.slice(0, 3);
   const row2 = sacredSites.slice(3);
 
@@ -116,63 +121,89 @@ export default function SacredArc() {
         ))}
       </div>
 
-      {/* ── Grid Row 2 (2 sites + pull quote) ── */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '2px',
-        }}
-        className="sacred-grid-2"
-        role="list"
-        aria-label="Sacred sites near Kot Kailash, part 2"
-      >
-        {row2.map((site, i) => (
-          <RevealWrapper key={site.numeral} delay={(i as 0 | 1)}>
-            <SacredCard site={site} />
-          </RevealWrapper>
-        ))}
+      {/* ── Grid Row 2 — hidden in compact/homepage mode ── */}
+      {!compact && (
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '2px',
+          }}
+          className="sacred-grid-2"
+          role="list"
+          aria-label="Sacred sites near Kot Kailash, part 2"
+        >
+          {row2.map((site, i) => (
+            <RevealWrapper key={site.numeral} delay={(i as 0 | 1)}>
+              <SacredCard site={site} />
+            </RevealWrapper>
+          ))}
 
-        {/* Pull quote fills the third column */}
-        <RevealWrapper delay={2}>
-          <div
-            style={{
-              background: 'var(--forest)',
-              padding: '34px 32px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              minHeight: '100%',
-            }}
-          >
-            <p
+          {/* Pull quote fills the third column */}
+          <RevealWrapper delay={2}>
+            <div
               style={{
-                fontFamily: 'var(--serif)',
-                fontSize: '1rem',
-                fontStyle: 'italic',
-                color: 'rgba(255,255,255,0.75)',
-                lineHeight: 1.8,
-                marginBottom: '16px',
+                background: 'var(--forest)',
+                padding: '34px 32px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                minHeight: '100%',
               }}
             >
-              &ldquo;Your host will tell you which puja to attend and when to
-              arrive. That knowledge is not in any guidebook.&rdquo;
-            </p>
-            <span
+              <p
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: '1rem',
+                  fontStyle: 'italic',
+                  color: 'rgba(255,255,255,0.75)',
+                  lineHeight: 1.8,
+                  marginBottom: '16px',
+                }}
+              >
+                &ldquo;Your host will tell you which puja to attend and when to
+                arrive. That knowledge is not in any guidebook.&rdquo;
+              </p>
+              <span
+                style={{
+                  fontFamily: 'var(--sans)',
+                  fontSize: '11px',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: 'var(--gold)',
+                  opacity: 0.7,
+                }}
+              >
+                — Pushkar Singh Negi
+              </span>
+            </div>
+          </RevealWrapper>
+        </div>
+      )}
+
+      {/* Compact CTA */}
+      {compact && (
+        <RevealWrapper>
+          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+            <Link
+              href="/experience"
               style={{
                 fontFamily: 'var(--sans)',
                 fontSize: '11px',
-                letterSpacing: '0.2em',
+                letterSpacing: '0.24em',
                 textTransform: 'uppercase',
                 color: 'var(--gold)',
-                opacity: 0.7,
+                textDecoration: 'none',
+                borderBottom: '1px solid rgba(138,90,56,0.22)',
+                paddingBottom: '2px',
+                transition: 'color 0.3s',
               }}
             >
-              — Pushkar Singh Negi
-            </span>
+              Explore the full sacred arc →
+            </Link>
           </div>
         </RevealWrapper>
-      </div>
+      )}
     </section>
   );
 }

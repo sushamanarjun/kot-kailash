@@ -504,6 +504,18 @@ button:focus-visible {
   }
 }
 
+/* ─── Weather Widget ────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .weather-widget {
+    right: 36px !important;
+  }
+}
+@media (max-width: 680px) {
+  .weather-widget {
+    display: none !important;
+  }
+}
+
 /* ─── Responsive Layout ─────────────────────────────────── */
 
 /* Tablet (≤ 1100px) */
@@ -560,7 +572,7 @@ button:focus-visible {
   }
 
   section,
-  footer > div {
+  footer {
     padding-left: 36px !important;
     padding-right: 36px !important;
   }
@@ -600,12 +612,12 @@ button:focus-visible {
   }
 
   section,
-  footer > div {
+  footer {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
 
-  main > section:first-child {
+  main > section:first-child:not(.ab-hero) {
     padding-top: 96px !important;
   }
   main > section:not(:first-child) {
@@ -616,6 +628,34 @@ button:focus-visible {
   nav {
     padding: 18px 20px !important;
   }
+
+  /* Hero min-height — prevent taller-than-viewport on small phones */
+  section#hero {
+    min-height: 580px !important;
+  }
+
+  /* FullBleedImage — reduce below-fold image height */
+  .fullbleed-img {
+    height: 52vh !important;
+    min-height: 300px !important;
+  }
+
+  /* Tall stacked images — reduce height when single-column */
+  .room-img-wrap { height: 280px !important; }
+  .tehni-img-wrap { height: 300px !important; }
+  .founder-img-wrap { height: 300px !important; }
+
+  /* Footer bottom bar — stack vertically */
+  .ft-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+}
+
+/* ─── About page: hero is always full-bleed ────────────────── */
+section.ab-hero {
+  padding: 0 !important;
 }
 
 /* ─── Screen Reader Only ────────────────────────────────── */

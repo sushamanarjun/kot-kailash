@@ -87,9 +87,9 @@ export default function Footer() {
               { href: '/#stay', label: 'Rooms & Suites' },
               { href: '/#experiences', label: 'Experiences' },
               { href: '/#tehni', label: 'Tehni — The Kitchen' },
-              { href: '/#library', label: 'The Library' },
+              { href: '/about', label: 'The Library' },
               { href: '/#sacred', label: 'Sacred Arc' },
-              { href: '/#seasons', label: 'Seasons' },
+              { href: '/experience', label: 'Seasons' },
             ].map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="ft-link">
@@ -188,6 +188,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div
+        className="ft-bottom"
         style={{
           display: 'flex',
           justifyContent: 'space-between',

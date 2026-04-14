@@ -7,9 +7,10 @@ const HOTEL_SPIDER_URL = 'https://reservations.hotel-spider.com/032644b5fbfafed6
 
 interface RoomsProps {
   showRates?: boolean;
+  compact?: boolean;
 }
 
-export default function Rooms({ showRates = false }: RoomsProps) {
+export default function Rooms({ showRates = false, compact = false }: RoomsProps) {
   const featured = rooms.filter((r) => r.featured);
   const small = rooms.filter((r) => !r.featured);
 
@@ -84,82 +85,103 @@ export default function Rooms({ showRates = false }: RoomsProps) {
         ))}
       </div>
 
-      {/* Small Rooms (3-col) */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '3px',
-        }}
-        className="rooms-trio"
-      >
-        {small.map((room, i) => (
-          <RevealWrapper key={room.id} delay={i as 0 | 1}>
-            <RoomCard room={room} small />
-          </RevealWrapper>
-        ))}
+      {/* Small Rooms (3-col) — hidden in compact/homepage mode */}
+      {!compact && (
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '3px',
+          }}
+          className="rooms-trio"
+        >
+          {small.map((room, i) => (
+            <RevealWrapper key={room.id} delay={i as 0 | 1}>
+              <RoomCard room={room} small />
+            </RevealWrapper>
+          ))}
 
-        {/* Buyout Card */}
-        <RevealWrapper delay={2}>
-          <div
-            style={{
-              background: 'var(--cream)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '38px 28px',
-              textAlign: 'center',
-              gap: '16px',
-              minHeight: '310px',
-            }}
-          >
-            <span
+          {/* Buyout Card */}
+          <RevealWrapper delay={2}>
+            <div
               style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '11px',
-                letterSpacing: '0.26em',
-                textTransform: 'uppercase',
-                color: 'var(--gold)',
+                background: 'var(--cream)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '38px 28px',
+                textAlign: 'center',
+                gap: '16px',
+                minHeight: '310px',
               }}
             >
-              Full Property
-            </span>
-            <h3
-              style={{
-                fontFamily: 'var(--serif)',
-                fontSize: '1.35rem',
-                fontWeight: 400,
-                color: 'var(--ink)',
-                lineHeight: 1.2,
-              }}
-            >
-              {buyout.title}
-            </h3>
+              <span
+                style={{
+                  fontFamily: 'var(--sans)',
+                  fontSize: '11px',
+                  letterSpacing: '0.26em',
+                  textTransform: 'uppercase',
+                  color: 'var(--gold)',
+                }}
+              >
+                Full Property
+              </span>
+              <h3
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: '1.35rem',
+                  fontWeight: 400,
+                  color: 'var(--ink)',
+                  lineHeight: 1.2,
+                }}
+              >
+                {buyout.title}
+              </h3>
+              <p
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: '0.88rem',
+                  fontStyle: 'italic',
+                  color: 'var(--ink-soft)',
+                  lineHeight: 1.65,
+                  maxWidth: '220px',
+                }}
+              >
+                {buyout.description}
+              </p>
+              <a
+                href={`mailto:stay@kotkailash.com?subject=Full%20Buyout%20Enquiry`}
+                className="btn-gold"
+              >
+                Enquire
+              </a>
+            </div>
+          </RevealWrapper>
+        </div>
+      )}
+
+      {/* CTA */}
+      {compact ? (
+        <RevealWrapper>
+          <div style={{ textAlign: 'center', marginTop: '52px' }}>
             <p
               style={{
                 fontFamily: 'var(--serif)',
-                fontSize: '0.88rem',
+                fontSize: '0.95rem',
                 fontStyle: 'italic',
                 color: 'var(--ink-soft)',
-                lineHeight: 1.65,
-                maxWidth: '220px',
+                marginBottom: '22px',
               }}
             >
-              {buyout.description}
+              Eight keys across three houses. All meals included.
             </p>
-            <a
-              href={`mailto:stay@kotkailash.com?subject=Full%20Buyout%20Enquiry`}
-              className="btn-gold"
-            >
-              Enquire
-            </a>
+            <Link href="/stay" className="btn-gold">
+              View all rooms &amp; rates →
+            </Link>
           </div>
         </RevealWrapper>
-      </div>
-
-      {/* CTA (only if not showing rates — homepage) */}
-      {!showRates && (
+      ) : !showRates && (
         <RevealWrapper>
           <div
             style={{
@@ -180,7 +202,7 @@ export default function Rooms({ showRates = false }: RoomsProps) {
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/reserve" className="btn-gold">
-                View Rates & Reserve
+                View Rates &amp; Reserve
               </Link>
               <a
                 href={HOTEL_SPIDER_URL}
@@ -224,6 +246,7 @@ function RoomCard({
 
       {/* Image */}
       <div
+        className="room-img-wrap"
         style={{
           width: '100%',
           height: small ? '310px' : '420px',

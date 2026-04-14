@@ -5,17 +5,12 @@ import Hero from '@/components/sections/Hero';
 import Manifesto from '@/components/sections/Manifesto';
 import FullBleedImage from '@/components/sections/FullBleedImage';
 import Rooms from '@/components/sections/Rooms';
-import Journey from '@/components/sections/Journey';
 import Experiences from '@/components/sections/Experiences';
 import Tehni from '@/components/sections/Tehni';
 import TwoUp from '@/components/sections/TwoUp';
 import SacredArc from '@/components/sections/SacredArc';
-import Seasons from '@/components/sections/Seasons';
-import Library from '@/components/sections/Library';
-import AltitudeNote from '@/components/sections/AltitudeNote';
 import Founders from '@/components/sections/Founders';
 import Testimonials from '@/components/sections/Testimonials';
-import Sustainability from '@/components/sections/Sustainability';
 import Reserve from '@/components/sections/Reserve';
 
 export const metadata: Metadata = buildMetadata({
@@ -49,18 +44,13 @@ export default function HomePage() {
         alt="The Shaukiyathal ridge at dawn — Kot Kailash, Almora, Uttarakhand"
         caption="The Shaukiyathal Ridge · 7,800 Feet"
       />
-      <Rooms />
-      <Journey />
-      <Experiences />
+      <Rooms compact />
+      <Experiences preview />
       <Tehni />
       <TwoUp />
-      <SacredArc />
-      <Seasons />
-      <Library />
-      <AltitudeNote />
-      <Founders />
+      <SacredArc compact />
       <Testimonials />
-      <Sustainability />
+      <Founders compact />
       <Reserve />
     </>
   );

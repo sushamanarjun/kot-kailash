@@ -3,7 +3,11 @@ import Link from 'next/link';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 import { founders, foundersCoda } from '@/lib/content/founders';
 
-export default function Founders() {
+interface FoundersProps {
+  compact?: boolean;
+}
+
+export default function Founders({ compact = false }: FoundersProps) {
   const pushkar = founders[0];
 
   return (
@@ -14,47 +18,49 @@ export default function Founders() {
         padding: '120px 64px',
       }}
     >
-      {/* Intro */}
-      <RevealWrapper>
-        <div
-          style={{
-            textAlign: 'center',
-            maxWidth: '560px',
-            margin: '0 auto 68px',
-          }}
-        >
-          <div className="eyebrow" style={{ justifyContent: 'center' }}>
-            VII · The Founders
+      {/* Intro — hidden in compact/homepage mode */}
+      {!compact && (
+        <RevealWrapper>
+          <div
+            style={{
+              textAlign: 'center',
+              maxWidth: '560px',
+              margin: '0 auto 68px',
+            }}
+          >
+            <div className="eyebrow" style={{ justifyContent: 'center' }}>
+              VII · The Founders
+            </div>
+            <h2
+              style={{
+                fontFamily: 'var(--serif)',
+                fontSize: 'clamp(2.4rem, 3.6vw, 3.4rem)',
+                fontWeight: 300,
+                lineHeight: 1.15,
+                marginBottom: '14px',
+                color: 'var(--ink)',
+              }}
+            >
+              Built by two veterans
+              <br />
+              who chose the mountain.
+            </h2>
+            <p
+              style={{
+                fontFamily: 'var(--serif)',
+                fontSize: '1rem',
+                fontStyle: 'italic',
+                color: 'var(--ink-soft)',
+                lineHeight: 1.82,
+              }}
+            >
+              A decade-long professional partnership between two hoteliers who spent
+              their careers at the highest levels of Indian luxury hospitality — and
+              then decided to build something of their own.
+            </p>
           </div>
-          <h2
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: 'clamp(2.4rem, 3.6vw, 3.4rem)',
-              fontWeight: 300,
-              lineHeight: 1.15,
-              marginBottom: '14px',
-              color: 'var(--ink)',
-            }}
-          >
-            Built by two veterans
-            <br />
-            who chose the mountain.
-          </h2>
-          <p
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '1rem',
-              fontStyle: 'italic',
-              color: 'var(--ink-soft)',
-              lineHeight: 1.82,
-            }}
-          >
-            A decade-long professional partnership between two hoteliers who spent
-            their careers at the highest levels of Indian luxury hospitality — and
-            then decided to build something of their own.
-          </p>
-        </div>
-      </RevealWrapper>
+        </RevealWrapper>
+      )}
 
       {/* Pushkar profile */}
       <div
@@ -72,6 +78,7 @@ export default function Founders() {
         <RevealWrapper>
           <div style={{ position: 'relative' }}>
             <div
+              className="founder-img-wrap"
               style={{
                 width: '100%',
                 height: '420px',
@@ -173,15 +180,19 @@ export default function Founders() {
               lineHeight: 1.88,
             }}
           >
-            {pushkar.bio.map((para, i) => (
-              <p key={i} style={{ marginTop: i > 0 ? '13px' : 0 }}>
-                {para}
-              </p>
-            ))}
+            {compact ? (
+              <p>{pushkar.bio[0]}</p>
+            ) : (
+              pushkar.bio.map((para, i) => (
+                <p key={i} style={{ marginTop: i > 0 ? '13px' : 0 }}>
+                  {para}
+                </p>
+              ))
+            )}
           </div>
 
-          {/* TripAdvisor review */}
-          {pushkar.review && (
+          {/* TripAdvisor review — hidden in compact mode */}
+          {!compact && pushkar.review && (
             <div
               style={{
                 marginTop: '26px',
