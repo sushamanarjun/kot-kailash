@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-const LAT = 29.84;
-const LON = 79.74;
+const LAT = 29.655549413999495;
+const LON = 79.84102259547427;
 
 export const revalidate = 1800; // cache for 30 minutes server-side
 
