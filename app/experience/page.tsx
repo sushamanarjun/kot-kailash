@@ -85,7 +85,7 @@ export default function ExperiencePage() {
 
         {/* Hero background image */}
         <Image
-          src="/images/hero-ridge.jpeg"
+          src="/images/kot-kailash-ridge-shaukiyathal.jpeg"
           alt="Ridge view from Kot Kailash, Shaukiyathal — 7,800 ft"
           fill
           priority
