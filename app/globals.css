@@ -512,17 +512,8 @@ button:focus-visible {
 }
 @media (max-width: 680px) {
   .weather-widget {
-    top: 100px !important;
-    left: 20px !important;
-    right: auto !important;
-    padding: 8px 12px !important;
-    gap: 10px !important;
+    display: none !important;
   }
-  .weather-icon      { font-size: 1.05rem !important; }
-  .weather-temp      { font-size: 1.35rem !important; }
-  .weather-label     { font-size: 9px !important; letter-spacing: 0.18em !important; }
-  .weather-condition { font-size: 0.7rem !important; }
-  .weather-aqi       { font-size: 9px !important; padding: 2px 6px !important; letter-spacing: 0.12em !important; }
 }
 
 /* ─── Responsive Layout ─────────────────────────────────── */
