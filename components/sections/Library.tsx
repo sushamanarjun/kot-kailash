@@ -33,7 +33,7 @@ export default function Library() {
           />
           <div style={{ width: '100%', height: '540px', overflow: 'hidden' }}>
             <Image
-              src="/images/library.webp"
+              src="/images/library-kot-kailash.webp"
               alt="The library at Kot Kailash — curated books on Kumaon, the Himalayas, and India"
               width={800}
               height={540}

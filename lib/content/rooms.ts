@@ -26,7 +26,7 @@ export const rooms: Room[] = [
     name: 'Kumaon Vann',
     description:
       'A freestanding bathtub positioned so that what you see when you look up is the snow peaks of the Himalayas. A wood-fired burner. A private courtyard bonfire. Set into the rhododendron and oak forest. The only schedule is the one the forest sets.',
-    image: '/images/room-kumaon-vann.webp',
+    image: '/images/kumaon-vann-room-kot-kailash.webp',
     imageAlt: 'Kumaon Vann — the signature forest cottage at Kot Kailash',
     inclusions: 'All meals · Double occupancy',
     capacity: '2 guests',
@@ -40,7 +40,7 @@ export const rooms: Room[] = [
     name: 'The Family Suite',
     description:
       'Two bedrooms. A glass observatory constructed almost entirely of light and landscape. A private dining room with its own fireplace, where meals feel like occasions rather than service. Direct access to the Kot Kailash Library.',
-    image: '/images/room-family-suite.webp',
+    image: '/images/family-suite-room-kot-kailash.webp',
     imageAlt: 'The Family Suite at Kot Kailash — private residence for families',
     inclusions: 'All meals · Up to 4 guests',
     capacity: 'Up to 5 guests',
@@ -54,7 +54,7 @@ export const rooms: Room[] = [
     name: 'Kutir Suites',
     description:
       'Multi-level family sanctuaries. A Machan loft built in the tradition of Kumaoni watchtowers. Surreal Himalayan views from the living room.',
-    image: '/images/room-kutir-suites.webp',
+    image: '/images/kutir-suites-room-kot-kailash.webp',
     imageAlt: 'Kutir Suites — the annexe at Kot Kailash',
     inclusions: 'All meals · Double occupancy',
     capacity: '2 guests per suite',
@@ -69,7 +69,7 @@ export const rooms: Room[] = [
     name: 'Kumaoni Suites',
     description:
       'Walls hand-pressed with red clay. Stone that has survived a hundred Himalayan winters. Valley views. Heritage restored without apology to its origins.',
-    image: '/images/room-kumaoni-suites.webp',
+    image: '/images/kumaoni-suites-room-kot-kailash.webp',
     imageAlt: 'Kumaoni Suites — the original main house at Kot Kailash',
     inclusions: 'All meals · Double occupancy',
     capacity: '2 guests per suite',

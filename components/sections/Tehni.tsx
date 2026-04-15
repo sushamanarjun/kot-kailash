@@ -86,7 +86,7 @@ export default function Tehni({ compact }: { compact?: boolean }) {
         <div style={{ position: 'relative' }}>
           <div className="tehni-img-wrap" style={{ width: '100%', height: '510px', overflow: 'hidden' }}>
             <Image
-              src="/images/tehni-kitchen.webp"
+              src="/images/tehni-kitchen-interior-kot-kailash.webp"
               alt="The Tehni — Kumaoni kitchen at Kot Kailash"
               width={800}
               height={510}

@@ -43,7 +43,7 @@ export default function HomePage() {
       <Hero />
       <Manifesto compact />
       <FullBleedImage
-        src="/images/ridge-fullbleed.jpg"
+        src="/images/shaukiyathal-ridge-kot-kailash.jpg"
         alt="The Shaukiyathal ridge at dawn — Kot Kailash, Almora, Uttarakhand"
         caption="The Shaukiyathal Ridge · 7,800 Feet"
       />

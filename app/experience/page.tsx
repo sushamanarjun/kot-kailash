@@ -39,12 +39,12 @@ const promises = [
 ];
 
 const EXP_IMAGES: Record<string, string> = {
-  'I':   '/images/walk-to-jageshwar.webp',  // Walk to Vriddh Jageshwar
-  'II':  '/images/jageshwar-temple.webp',   // Jageshwar Dham
-  'III': '/images/tehni-kitchen.webp',     // Bread in a Kumaoni Home — no dedicated image yet
-  'IV':  '/images/ridge-picnic.webp',       // Ridge Picnic
-  'V':   '/images/kasar-devi-bansar.webp',  // Kasar Devi & Binsar
-  'VI':  '/images/forest-walk.webp',        // Forest Walks
+  'I':   '/images/walk-to-jageshwar-kot-kailash.webp',        // Walk to Vriddh Jageshwar
+  'II':  '/images/jageshwar-temple-almora-uttarakhand.webp', // Jageshwar Dham
+  'III': '/images/tehni-kitchen-interior-kot-kailash.webp',  // Bread in a Kumaoni Home
+  'IV':  '/images/ridge-picnic-kot-kailash.webp',            // Ridge Picnic
+  'V':   '/images/kasar-devi-bansar-kumaon.webp',            // Kasar Devi & Binsar
+  'VI':  '/images/forest-walk-kot-kailash-kumaon.webp',      // Forest Walks
 };
 
 export default function ExperiencePage() {
@@ -275,7 +275,7 @@ export default function ExperiencePage() {
                       }}
                     >
                       <Image
-                        src={EXP_IMAGES[exp.numeral] ?? '/images/hero-ridge.jpeg'}
+                        src={EXP_IMAGES[exp.numeral] ?? '/images/kot-kailash-ridge-shaukiyathal.jpeg'}
                         alt={exp.name}
                         fill
                         loading="lazy"
@@ -389,7 +389,7 @@ export default function ExperiencePage() {
                       }}
                     >
                       <Image
-                        src={EXP_IMAGES[exp.numeral] ?? '/images/hero-ridge.jpeg'}
+                        src={EXP_IMAGES[exp.numeral] ?? '/images/kot-kailash-ridge-shaukiyathal.jpeg'}
                         alt={exp.name}
                         fill
                         loading="lazy"

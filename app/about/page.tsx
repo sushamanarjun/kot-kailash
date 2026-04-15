@@ -290,7 +290,7 @@ export default function AboutPage() {
         >
           {/* Property image */}
           <Image
-            src="/images/experience.webp"
+            src="/images/kot-kailash-experience-kumaon.webp"
             alt="Kot Kailash — the main house on the Shaukiyathal ridge, Almora"
             fill
             priority

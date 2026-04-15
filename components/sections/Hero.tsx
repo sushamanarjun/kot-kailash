@@ -68,7 +68,7 @@ export default function Hero() {
 
         {/* Still image — priority LCP, always visible until video plays */}
         <Image
-          src="/images/hero-ridge.jpeg"
+          src="/images/kot-kailash-ridge-shaukiyathal.jpeg"
           alt="Kot Kailash — the Shaukiyathal ridge at 7,800 feet, Almora, Uttarakhand"
           fill
           priority

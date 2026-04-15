@@ -50,7 +50,7 @@ export const hotelJsonLd = {
   description:
     'A century-old Kumaoni heritage home restored as an experiential retreat at 7,800 ft, 2 km from Vriddh Jageshwar, Almora.',
   image: [
-    `${BASE_URL}/images/hero-ridge.jpeg`,
+    `${BASE_URL}/images/kot-kailash-ridge-shaukiyathal.jpeg`,
     `${BASE_URL}/og-default.jpg`,
   ],
   address: {

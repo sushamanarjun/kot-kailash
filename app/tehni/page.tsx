@@ -86,7 +86,7 @@ export default function TehniPage() {
           }}
         >
           <Image
-            src="/images/tehni-hero.webp"
+            src="/images/tehni-kitchen-hero-kot-kailash.webp"
             alt="Kumaoni kitchen and dining at Kot Kailash, Shaukiyathal"
             fill
             priority
@@ -324,7 +324,7 @@ export default function TehniPage() {
           }}
         >
           <Image
-            src="/images/tehni-kitchen.webp"
+            src="/images/tehni-kitchen-interior-kot-kailash.webp"
             alt="The Tehni — Kumaoni kitchen at Kot Kailash"
             fill
             loading="lazy"
@@ -892,7 +892,7 @@ export default function TehniPage() {
             }}
           >
             <Image
-              src="/images/tehni-village.webp"
+              src="/images/tehni-village-kumaon-almora.webp"
               fill
               loading="lazy"
               style={{ objectFit: 'cover' }}

@@ -76,10 +76,10 @@ const placeholderPosts = [
 ];
 
 const JOURNAL_IMAGES = [
-  '/images/ridge-fullbleed.jpg',     // featured post
-  '/images/tehni-kitchen.webp',      // grid post 1
-  '/images/hero-ridge.jpeg',         // grid post 2
-  '/images/room-kumaon-vann.webp',   // grid post 3
+  '/images/shaukiyathal-ridge-kot-kailash.jpg',        // featured post
+  '/images/tehni-kitchen-interior-kot-kailash.webp',  // grid post 1
+  '/images/kot-kailash-ridge-shaukiyathal.jpeg',       // grid post 2
+  '/images/kumaon-vann-room-kot-kailash.webp',         // grid post 3
 ];
 
 export default function JournalPage() {

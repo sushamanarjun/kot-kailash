@@ -2,13 +2,13 @@ import Image from 'next/image';
 
 const panels = [
   {
-    src: '/images/library-twoUp.webp',
+    src: '/images/library-two-up-kot-kailash.webp',
     alt: 'The library at Kot Kailash',
     label: 'The Collection',
     name: 'The Library',
   },
   {
-    src: '/images/ridge-twoUp.webp',
+    src: '/images/ridge-two-up-kot-kailash.webp',
     alt: 'The Shaukiyathal ridge at dawn',
     label: 'Dawn, October',
     name: 'The Ridge',
