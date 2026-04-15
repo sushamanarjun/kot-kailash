@@ -39,9 +39,10 @@ export default function WeatherWidget() {
         transition: 'opacity 0.8s ease, transform 0.8s ease',
       }}
     >
-      <span style={{ fontSize: '1.35rem', lineHeight: 1 }}>{weather.icon}</span>
+      <span className="weather-icon" style={{ fontSize: '1.35rem', lineHeight: 1 }}>{weather.icon}</span>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
         <span
+          className="weather-label"
           style={{
             fontFamily: 'var(--sans)',
             fontSize: '11px',
@@ -53,6 +54,7 @@ export default function WeatherWidget() {
           Shaukiyathal · Now
         </span>
         <span
+          className="weather-condition"
           style={{
             fontFamily: 'var(--serif)',
             fontSize: '0.78rem',
@@ -64,6 +66,7 @@ export default function WeatherWidget() {
         </span>
       </div>
       <span
+        className="weather-temp"
         style={{
           fontFamily: 'var(--serif)',
           fontSize: '1.85rem',
@@ -75,6 +78,7 @@ export default function WeatherWidget() {
         {weather.temp}°
       </span>
       <span
+        className="weather-aqi"
         style={{
           fontFamily: 'var(--sans)',
           fontSize: '11px',
