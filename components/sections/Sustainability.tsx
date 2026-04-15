@@ -18,7 +18,7 @@ export default function Sustainability() {
       {/* Left: Copy */}
       <RevealWrapper>
         <div className="eyebrow" style={{ color: 'var(--gold)' }}>
-          VIII · How We Work
+          How We Work
         </div>
         <h2
           style={{

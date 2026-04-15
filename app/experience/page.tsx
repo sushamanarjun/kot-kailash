@@ -39,12 +39,12 @@ const promises = [
 ];
 
 const EXP_IMAGES: Record<string, string> = {
-  'I':   '/images/ridge-twoUp.webp',      // Walk to Vriddh Jageshwar — forest trail
-  'II':  '/images/tehni-village.webp',    // Jageshwar Dham — village/heritage
-  'III': '/images/tehni-kitchen.webp',    // Bread in a Kumaoni Home — cooking
-  'IV':  '/images/ridge-fullbleed.jpg',   // Ridge Picnic — panoramic ridge
-  'V':   '/images/hero-ridge.jpeg',       // Kasar Devi & Binsar — hills
-  'VI':  '/images/room-kumaon-vann.webp', // Forest Walks — forest cottage
+  'I':   '/images/walk-to-jageshwar.webp',  // Walk to Vriddh Jageshwar
+  'II':  '/images/jageshwar-temple.webp',   // Jageshwar Dham
+  'III': '/images/tehni-kitchen.webp',     // Bread in a Kumaoni Home — no dedicated image yet
+  'IV':  '/images/ridge-picnic.webp',       // Ridge Picnic
+  'V':   '/images/kasar-devi-bansar.webp',  // Kasar Devi & Binsar
+  'VI':  '/images/forest-walk.webp',        // Forest Walks
 };
 
 export default function ExperiencePage() {
@@ -500,7 +500,7 @@ export default function ExperiencePage() {
       {/* ═══════════════════════════════════════════════════════════════
           §5  SACRED ARC
       ═══════════════════════════════════════════════════════════════ */}
-      <SacredArc />
+      <SacredArc standalone />
 
       {/* ═══════════════════════════════════════════════════════════════
           §6  JOURNEY

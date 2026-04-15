@@ -53,34 +53,36 @@ export default function Experiences({ standalone = false, preview = false }: Exp
                 the ridge.
               </h2>
             </div>
-            <div>
-              <p
-                style={{
-                  fontFamily: 'var(--serif)',
-                  fontSize: '1rem',
-                  fontStyle: 'italic',
-                  color: 'rgba(255,255,255,0.65)',
-                  lineHeight: 1.9,
-                }}
-              >
-                None of these are scheduled programmes. They are invitations —
-                to a trail, a temple, a kitchen, a ridge. Your host arranges
-                them around you.
-              </p>
-              <p
-                style={{
-                  fontFamily: 'var(--serif)',
-                  fontSize: '1rem',
-                  fontStyle: 'italic',
-                  color: 'rgba(255,255,255,0.65)',
-                  lineHeight: 1.9,
-                  marginTop: '15px',
-                }}
-              >
-                All experiences are included in the room rate. There is no
-                activities menu. There is a conversation.
-              </p>
-            </div>
+            {!preview && (
+              <div>
+                <p
+                  style={{
+                    fontFamily: 'var(--serif)',
+                    fontSize: '1rem',
+                    fontStyle: 'italic',
+                    color: 'rgba(255,255,255,0.65)',
+                    lineHeight: 1.9,
+                  }}
+                >
+                  None of these are scheduled programmes. They are invitations —
+                  to a trail, a temple, a kitchen, a ridge. Your host arranges
+                  them around you.
+                </p>
+                <p
+                  style={{
+                    fontFamily: 'var(--serif)',
+                    fontSize: '1rem',
+                    fontStyle: 'italic',
+                    color: 'rgba(255,255,255,0.65)',
+                    lineHeight: 1.9,
+                    marginTop: '15px',
+                  }}
+                >
+                  All experiences are included in the room rate. There is no
+                  activities menu. There is a conversation.
+                </p>
+              </div>
+            )}
           </div>
         </RevealWrapper>
       )}

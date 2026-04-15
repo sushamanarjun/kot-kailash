@@ -84,6 +84,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.65,
     },
+    {
+      url: `${base}/faq`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${base}/cancellations`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${base}/founders`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.65,
+    },
     // Legacy
     {
       url: `${base}/reserve`,

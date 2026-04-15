@@ -2,7 +2,7 @@ import Link from 'next/link';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 import AqiCard from './AqiCard';
 
-export default function Manifesto() {
+export default function Manifesto({ compact }: { compact?: boolean }) {
   return (
     <section
       id="story"
@@ -54,18 +54,22 @@ export default function Manifesto() {
             and oak forests have been there longer than the house. The air
             quality index, on most days, runs in single digits.
           </p>
-          <p style={{ marginTop: '18px' }}>
-            Kot Kailash sits in a category the Indian luxury hospitality market
-            is only beginning to find language for: a place where Kumaoni
-            culture is not the backdrop — it is the entire point. Living close
-            to the land. Eating what the village grows. Walking trails that have
-            no signboards. A stay that asks nothing of you except that you
-            arrive with time to spend.
-          </p>
-          <p style={{ marginTop: '18px' }}>
-            The founders call this{' '}
-            <strong style={{ fontWeight: 400 }}>Professionalized Intimacy.</strong>
-          </p>
+          {!compact && (
+            <>
+              <p style={{ marginTop: '18px' }}>
+                Kot Kailash sits in a category the Indian luxury hospitality market
+                is only beginning to find language for: a place where Kumaoni
+                culture is not the backdrop — it is the entire point. Living close
+                to the land. Eating what the village grows. Walking trails that have
+                no signboards. A stay that asks nothing of you except that you
+                arrive with time to spend.
+              </p>
+              <p style={{ marginTop: '18px' }}>
+                The founders call this{' '}
+                <strong style={{ fontWeight: 400 }}>Professionalized Intimacy.</strong>
+              </p>
+            </>
+          )}
         </div>
         <div
           style={{

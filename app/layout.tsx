@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { cormorant, jost } from '@/lib/fonts';
+import { hotelJsonLd } from '@/lib/seo';
+import JsonLd from '@/components/ui/JsonLd';
 import Nav from '@/components/layout/Nav';
 import Footer from '@/components/layout/Footer';
 import CustomCursor from '@/components/layout/CustomCursor';
@@ -79,6 +81,7 @@ export default function RootLayout({
       className={`${cormorant.variable} ${jost.variable}`}
     >
       <body>
+        <JsonLd data={hotelJsonLd} />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <CustomCursor />
         <Nav />

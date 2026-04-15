@@ -12,7 +12,7 @@ export default function Seasons() {
       id="seasons"
       style={{
         background: 'var(--ink)',
-        padding: '120px 64px',
+        padding: '72px 64px',
       }}
     >
       <div style={{ maxWidth: '780px' }}>
@@ -22,7 +22,7 @@ export default function Seasons() {
             fontSize: 'clamp(2rem, 3vw, 2.8rem)',
             fontWeight: 300,
             color: 'white',
-            marginBottom: '12px',
+            marginBottom: '8px',
             lineHeight: 1.15,
           }}
         >
@@ -34,7 +34,7 @@ export default function Seasons() {
             fontSize: '0.9rem',
             fontStyle: 'italic',
             color: 'rgba(255,255,255,0.55)',
-            marginBottom: '52px',
+            marginBottom: '28px',
             lineHeight: 1.75,
           }}
         >
@@ -47,7 +47,7 @@ export default function Seasons() {
         style={{
           display: 'flex',
           borderBottom: '1px solid rgba(255,255,255,0.07)',
-          marginBottom: '48px',
+          marginBottom: '28px',
           overflowX: 'auto',
           msOverflowStyle: 'none',
           scrollbarWidth: 'none',
@@ -92,7 +92,7 @@ export default function Seasons() {
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gap: '60px',
+          gap: '48px',
           alignItems: 'center',
           animation: 'seasonFadeIn 0.3s ease',
         }}
@@ -129,7 +129,7 @@ export default function Seasons() {
               fontSize: 'clamp(2rem, 3vw, 2.6rem)',
               fontWeight: 300,
               color: 'white',
-              marginBottom: '20px',
+              marginBottom: '12px',
               lineHeight: 1.1,
             }}
           >
@@ -153,7 +153,7 @@ export default function Seasons() {
         <div
           style={{
             width: '100%',
-            aspectRatio: '4/3',
+            aspectRatio: '16/9',
             background: 'rgba(255,255,255,0.03)',
             border: '1px solid rgba(255,255,255,0.05)',
             display: 'flex',

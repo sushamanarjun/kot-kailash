@@ -354,7 +354,7 @@ export default function GalleryClient() {
             }}
           >
             <span style={{ width: '28px', height: '1px', background: 'var(--gold)', opacity: 0.45 }} />
-            V · Gallery
+            Gallery
           </div>
 
           <h2

@@ -75,7 +75,7 @@ export default function Founders({ compact = false }: FoundersProps) {
             }}
           >
             <div className="eyebrow" style={{ justifyContent: 'center' }}>
-              VI · The Founders
+              The Founders
             </div>
             <h2
               style={{

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 
-export default function Tehni() {
+export default function Tehni({ compact }: { compact?: boolean }) {
   return (
     <section
       id="tehni"
@@ -49,14 +49,16 @@ export default function Tehni() {
             where things are made ready. At Kot Kailash, the kitchen is where
             the ridge expresses itself most directly.
           </p>
-          <p style={{ marginTop: '15px' }}>
-            Everything that comes out of it is either grown on the property,
-            sourced from the village, or procured from farmers within the
-            district. The mandua (finger millet) flour for the rotis comes from
-            the terraced fields below. The bhatt (black soybean) is a Kumaoni
-            staple that most guests have never encountered. The rhododendron
-            sherbet is seasonal and irreplaceable.
-          </p>
+          {!compact && (
+            <p style={{ marginTop: '15px' }}>
+              Everything that comes out of it is either grown on the property,
+              sourced from the village, or procured from farmers within the
+              district. The mandua (finger millet) flour for the rotis comes from
+              the terraced fields below. The bhatt (black soybean) is a Kumaoni
+              staple that most guests have never encountered. The rhododendron
+              sherbet is seasonal and irreplaceable.
+            </p>
+          )}
         </div>
 
         <div style={{ marginTop: '28px' }}>

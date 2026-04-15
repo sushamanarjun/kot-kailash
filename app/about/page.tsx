@@ -176,7 +176,7 @@ export default function AboutPage() {
               }}
             >
               <span style={{ width: '28px', height: '1px', background: 'var(--gold)', opacity: 0.45 }} />
-              VI · Our Story
+              Our Story
             </div>
 
             <h2
@@ -290,7 +290,7 @@ export default function AboutPage() {
         >
           {/* Property image */}
           <Image
-            src="/images/ridge-fullbleed.jpg"
+            src="/images/experience.webp"
             alt="Kot Kailash — the main house on the Shaukiyathal ridge, Almora"
             fill
             priority

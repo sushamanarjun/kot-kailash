@@ -7,6 +7,7 @@ import FullBleedImage from '@/components/sections/FullBleedImage';
 import Rooms from '@/components/sections/Rooms';
 import Experiences from '@/components/sections/Experiences';
 import Tehni from '@/components/sections/Tehni';
+import Seasons from '@/components/sections/Seasons';
 import TwoUp from '@/components/sections/TwoUp';
 import SacredArc from '@/components/sections/SacredArc';
 import Founders from '@/components/sections/Founders';
@@ -37,8 +38,9 @@ export default function HomePage() {
       <JsonLd data={hotelJsonLd} />
       <JsonLd data={localBusinessJsonLd} />
 
+      <h1 className="sr-only">Kumaoni Heritage Retreat near Jageshwar, Almora</h1>
       <Hero />
-      <Manifesto />
+      <Manifesto compact />
       <FullBleedImage
         src="/images/ridge-fullbleed.jpg"
         alt="The Shaukiyathal ridge at dawn — Kot Kailash, Almora, Uttarakhand"
@@ -46,7 +48,8 @@ export default function HomePage() {
       />
       <Rooms compact />
       <Experiences preview />
-      <Tehni />
+      <Tehni compact />
+      <Seasons />
       <TwoUp />
       <SacredArc compact />
       <Testimonials />

@@ -4,9 +4,10 @@ import { sacredSites } from '@/lib/content/sacredSites';
 
 interface SacredArcProps {
   compact?: boolean;
+  standalone?: boolean;
 }
 
-export default function SacredArc({ compact = false }: SacredArcProps) {
+export default function SacredArc({ compact = false, standalone = false }: SacredArcProps) {
   const row1 = sacredSites.slice(0, 3);
   const row2 = sacredSites.slice(3);
 
@@ -39,7 +40,7 @@ export default function SacredArc({ compact = false }: SacredArcProps) {
 
           {/* Left: text */}
           <div>
-            <div className="eyebrow">V · The Sacred Arc</div>
+            <div className="eyebrow">{standalone ? 'The Sacred Arc' : 'V · The Sacred Arc'}</div>
             <h2
               style={{
                 fontFamily: 'var(--serif)',
