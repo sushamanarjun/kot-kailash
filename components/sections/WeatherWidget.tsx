@@ -85,7 +85,7 @@ export default function WeatherWidget() {
           border: '1px solid rgba(50,150,60,0.18)',
         }}
       >
-        AQI &lt;10
+        AQI {weather.aqi !== null ? weather.aqi : '<10'}
       </span>
     </div>
   );
