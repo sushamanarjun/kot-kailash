@@ -12,6 +12,7 @@ import TwoUp from '@/components/sections/TwoUp';
 import SacredArc from '@/components/sections/SacredArc';
 import Founders from '@/components/sections/Founders';
 import Testimonials from '@/components/sections/Testimonials';
+import PressBar from '@/components/sections/PressBar';
 import Reserve from '@/components/sections/Reserve';
 
 export const metadata: Metadata = buildMetadata({
@@ -53,6 +54,7 @@ export default function HomePage() {
       <TwoUp />
       <SacredArc compact />
       <Testimonials />
+      <PressBar />
       <Founders compact />
       <Reserve />
     </>

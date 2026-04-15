@@ -153,6 +153,7 @@ export default function Footer() {
           </span>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '9px' }}>
             {[
+              { href: '/press', label: 'Press' },
               { href: 'mailto:info@kotkailash.com', label: 'Agency Rates (20–25% off)' },
               { href: 'mailto:info@kotkailash.com', label: 'FAM Stays' },
               { href: 'mailto:info@kotkailash.com', label: 'Press Enquiries' },
