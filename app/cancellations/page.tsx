@@ -387,7 +387,6 @@ export default function CancellationsPage() {
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '12px',
-                        paddingLeft: 0,
                         borderLeft: '2px solid rgba(138,90,56,0.25)',
                         paddingLeft: '20px',
                       }}
