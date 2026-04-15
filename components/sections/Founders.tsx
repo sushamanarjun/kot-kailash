@@ -15,10 +15,56 @@ export default function Founders({ compact = false }: FoundersProps) {
       id="story"
       style={{
         background: 'var(--parchment)',
-        padding: '120px 64px',
+        padding: compact ? '72px 64px' : '120px 64px',
       }}
     >
-      {/* Intro — hidden in compact/homepage mode */}
+      {/* Compact header — homepage only */}
+      {compact && (
+        <RevealWrapper>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
+              marginBottom: '40px',
+              flexWrap: 'wrap',
+              gap: '24px',
+            }}
+          >
+            <div>
+              <div className="eyebrow">VII · The Founders</div>
+              <h2
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: 'clamp(2.4rem, 3.6vw, 3.4rem)',
+                  fontWeight: 300,
+                  lineHeight: 1.15,
+                  color: 'var(--ink)',
+                }}
+              >
+                The people
+                <br />
+                behind the ridge.
+              </h2>
+            </div>
+            <p
+              style={{
+                fontFamily: 'var(--serif)',
+                fontSize: '0.9rem',
+                fontStyle: 'italic',
+                color: 'var(--ink-soft)',
+                maxWidth: '230px',
+                textAlign: 'right',
+                lineHeight: 1.75,
+              }}
+            >
+              Two veterans of India&rsquo;s finest hospitality. One ridge.
+            </p>
+          </div>
+        </RevealWrapper>
+      )}
+
+      {/* Full intro — dedicated /founders page only */}
       {!compact && (
         <RevealWrapper>
           <div
@@ -29,7 +75,7 @@ export default function Founders({ compact = false }: FoundersProps) {
             }}
           >
             <div className="eyebrow" style={{ justifyContent: 'center' }}>
-              VII · The Founders
+              VI · The Founders
             </div>
             <h2
               style={{
@@ -66,8 +112,8 @@ export default function Founders({ compact = false }: FoundersProps) {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '300px 1fr',
-          gap: '72px',
+          gridTemplateColumns: compact ? '260px 1fr' : '300px 1fr',
+          gap: compact ? '48px' : '72px',
           alignItems: 'start',
           maxWidth: '960px',
           margin: '0 auto',
@@ -81,7 +127,7 @@ export default function Founders({ compact = false }: FoundersProps) {
               className="founder-img-wrap"
               style={{
                 width: '100%',
-                height: '420px',
+                height: compact ? '380px' : '420px',
                 background: 'linear-gradient(160deg, #362a20, #1f1810)',
                 overflow: 'hidden',
               }}
@@ -191,6 +237,53 @@ export default function Founders({ compact = false }: FoundersProps) {
             )}
           </div>
 
+          {/* Coda + CTA — sits in bio column on homepage */}
+          {compact && (
+            <>
+              <div
+                style={{
+                  marginTop: '28px',
+                  borderLeft: '2px solid var(--gold)',
+                  paddingLeft: '18px',
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: 'var(--serif)',
+                    fontSize: '0.95rem',
+                    fontStyle: 'italic',
+                    fontWeight: 300,
+                    color: 'var(--ink)',
+                    lineHeight: 1.6,
+                    margin: 0,
+                  }}
+                >
+                  Pushkar is on the ridge every morning.
+                  <br />
+                  <span style={{ color: 'var(--rust)', fontStyle: 'normal' }}>
+                    Sayed is the reason the world will find it.
+                  </span>
+                </p>
+              </div>
+              <div style={{ marginTop: '24px' }}>
+                <p
+                  style={{
+                    fontFamily: 'var(--serif)',
+                    fontSize: '0.95rem',
+                    fontStyle: 'italic',
+                    color: 'var(--ink-soft)',
+                    marginBottom: '16px',
+                  }}
+                >
+                  The full story of how Kot Kailash came to be.
+                </p>
+                <Link href="/about" className="btn-gold">
+                  Our full story →
+                </Link>
+              </div>
+            </>
+          )}
+
           {/* TripAdvisor review — hidden in compact mode */}
           {!compact && pushkar.review && (
             <div
@@ -227,48 +320,29 @@ export default function Founders({ compact = false }: FoundersProps) {
             </div>
           )}
 
-          <div style={{ marginTop: '28px' }}>
-            <Link
-              href="/founders"
-              style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '11px',
-                letterSpacing: '0.24em',
-                textTransform: 'uppercase',
-                color: 'var(--gold)',
-                textDecoration: 'none',
-                borderBottom: '1px solid rgba(138,90,56,0.22)',
-                paddingBottom: '2px',
-                transition: 'color 0.3s',
-              }}
-            >
-              Meet both founders →
-            </Link>
-          </div>
+          {!compact && (
+            <div style={{ marginTop: '28px' }}>
+              <Link
+                href="/founders"
+                style={{
+                  fontFamily: 'var(--sans)',
+                  fontSize: '11px',
+                  letterSpacing: '0.24em',
+                  textTransform: 'uppercase',
+                  color: 'var(--gold)',
+                  textDecoration: 'none',
+                  borderBottom: '1px solid rgba(138,90,56,0.22)',
+                  paddingBottom: '2px',
+                  transition: 'color 0.3s',
+                }}
+              >
+                Meet both founders →
+              </Link>
+            </div>
+          )}
         </RevealWrapper>
       </div>
 
-      {/* Coda */}
-      <RevealWrapper>
-        <div style={{ textAlign: 'center', marginTop: '64px' }}>
-          <p
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '1.4rem',
-              fontStyle: 'italic',
-              fontWeight: 300,
-              color: 'var(--ink)',
-              lineHeight: 1.55,
-            }}
-          >
-            Pushkar is on the ridge every morning.
-            <br />
-            <span style={{ color: 'var(--rust)', fontStyle: 'normal' }}>
-              Sayed is the reason the world will find it.
-            </span>
-          </p>
-        </div>
-      </RevealWrapper>
     </section>
   );
 }

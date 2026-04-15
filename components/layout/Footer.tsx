@@ -21,18 +21,9 @@ export default function Footer() {
       >
         {/* Column 1 — Brand */}
         <div>
-          <span
-            style={{
-              fontFamily: 'var(--sans)',
-              fontSize: '11px',
-              letterSpacing: '0.38em',
-              color: 'white',
-              display: 'block',
-              marginBottom: '14px',
-            }}
-          >
-            KOT KAILASH · KUMAON
-          </span>
+          <Link href="/" style={{ textDecoration: 'none', lineHeight: 0, display: 'inline-block', marginBottom: '18px' }}>
+            <img src="/logo.svg" alt="Kot Kailash" style={{ height: '38px', width: 'auto', display: 'block' }} />
+          </Link>
           <p
             style={{
               fontFamily: 'var(--serif)',
@@ -122,7 +113,8 @@ export default function Footer() {
               { href: '/retreats', label: 'Retreats & Offsites' },
               { href: '/journal', label: 'Journal' },
               { href: '/about', label: 'Our Story' },
-              { href: 'https://www.kotkailash.com/cancellation-refunds/', label: 'Cancellations', external: true },
+              { href: '/cancellations', label: 'Cancellations' },
+              { href: '/faq', label: 'FAQ' },
             ].map((l) => (
               <li key={l.label}>
                 {'external' in l ? (

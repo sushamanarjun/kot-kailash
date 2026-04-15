@@ -51,6 +51,10 @@ export const metadata: Metadata = {
       'A century-old Kumaoni house on a ridge at 7,800 feet. Eight keys. Professionalized Intimacy.',
     images: ['/og-default.jpg'],
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+  },
   robots: {
     index: true,
     follow: true,

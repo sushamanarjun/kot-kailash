@@ -39,7 +39,7 @@ export default function SacredArc({ compact = false }: SacredArcProps) {
 
           {/* Left: text */}
           <div>
-            <div className="eyebrow">The Sacred Arc</div>
+            <div className="eyebrow">V · The Sacred Arc</div>
             <h2
               style={{
                 fontFamily: 'var(--serif)',

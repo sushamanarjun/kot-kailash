@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import WeatherWidget from './WeatherWidget';
 
+const VIDEO_SRC = '/images/hero-video.webm';
+
 const HOTEL_SPIDER_URL = 'https://reservations.hotel-spider.com/032644b5fbfafed6';
 
 const stats = [
@@ -18,6 +20,7 @@ export default function Hero() {
   const h1Ref = useRef<HTMLHeadingElement>(null);
   const capRef = useRef<HTMLParagraphElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const delays = [300, 500, 780, 960];
@@ -30,6 +33,9 @@ export default function Hero() {
       }, delays[i]);
       timers.push(t);
     });
+
+    // Autoplay with silent catch — image fallback remains visible if blocked
+    videoRef.current?.play().catch(() => {});
 
     return () => timers.forEach(clearTimeout);
   }, []);
@@ -48,7 +54,7 @@ export default function Hero() {
       }}
       aria-label="Kot Kailash — A Heritage Ridge Sanctuary at 7,800 Feet"
     >
-      {/* Background Image */}
+      {/* Background: image (LCP + reduced-motion fallback) + video overlay */}
       <div
         style={{
           position: 'absolute',
@@ -56,6 +62,11 @@ export default function Hero() {
           background: 'var(--forest-deep)',
         }}
       >
+        <style>{`
+          @media (prefers-reduced-motion: reduce) { .hero-video { display: none !important; } }
+        `}</style>
+
+        {/* Still image — priority LCP, always visible until video plays */}
         <Image
           src="/images/hero-ridge.jpeg"
           alt="Kot Kailash — the Shaukiyathal ridge at 7,800 feet, Almora, Uttarakhand"
@@ -66,6 +77,26 @@ export default function Hero() {
           quality={90}
           style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
         />
+
+        {/* Video — loads after image, covers it once playing */}
+        <video
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="hero-video"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center 30%',
+          }}
+        >
+          <source src={VIDEO_SRC} type="video/webm" />
+        </video>
       </div>
 
       {/* Gradient Overlay — main cinematic fade */}
@@ -157,7 +188,7 @@ export default function Hero() {
           {/* CTAs */}
           <div
             ref={capRef}
-            className="hero-el"
+            className="hero-el hero-ctas"
             style={{
               display: 'flex',
               gap: '12px',
@@ -171,10 +202,11 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-gold"
+              style={{ minWidth: '200px' }}
             >
               Reserve a Room
             </a>
-            <a href="/#story" className="btn-outline">
+            <a href="/#story" className="btn-outline" style={{ minWidth: '200px', borderColor: 'rgba(255,255,255,0.55)' }}>
               Explore the Retreat
             </a>
           </div>

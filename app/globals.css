@@ -275,7 +275,7 @@ body.lh #cur-ring {
   text-transform: uppercase;
   background: var(--gold);
   color: var(--ink);
-  padding: 14px 28px;
+  padding: 14px 32px;
   text-decoration: none;
   transition: background 0.3s, color 0.3s;
   display: inline-flex;

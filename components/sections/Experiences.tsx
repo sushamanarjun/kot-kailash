@@ -37,7 +37,7 @@ export default function Experiences({ standalone = false, preview = false }: Exp
           >
             <div>
               <div className="eyebrow" style={{ color: 'var(--gold)' }}>
-                VI · Experiences
+                III · Experiences
               </div>
               <h2
                 style={{

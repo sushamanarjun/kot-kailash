@@ -47,20 +47,19 @@ export default function Nav() {
           boxShadow: solid ? '0 1px 0 rgba(255,255,255,0.05)' : 'none',
         }}
       >
-        {/* Wordmark */}
-        <Link
-          href="/"
-          style={{
-            fontFamily: 'var(--sans)',
-            fontSize: '11px',
-            letterSpacing: '0.4em',
-            color: 'rgba(255,255,255,0.9)',
-            textDecoration: 'none',
-            transition: 'color 0.4s, text-shadow 0.4s',
-            textShadow: '0 1px 8px rgba(0,0,0,0.55)',
-          }}
-        >
-          KOT KAILASH · KUMAON
+        {/* Logo */}
+        <Link href="/" style={{ textDecoration: 'none', lineHeight: 0, flexShrink: 0 }}>
+          <img
+            src="/logo.svg"
+            alt="Kot Kailash"
+            style={{
+              height: solid ? '42px' : '52px',
+              width: 'auto',
+              display: 'block',
+              transition: 'height 0.5s',
+              filter: 'drop-shadow(0 1px 6px rgba(0,0,0,0.5))',
+            }}
+          />
         </Link>
 
         {/* Desktop Nav Links — absolutely centred */}
@@ -130,16 +129,7 @@ export default function Nav() {
               padding: '24px',
             }}
           >
-            <span
-              style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '11px',
-                letterSpacing: '0.4em',
-                color: 'white',
-              }}
-            >
-              KOT KAILASH
-            </span>
+            <img src="/logo.svg" alt="Kot Kailash" style={{ height: '30px', width: 'auto', display: 'block' }} />
             <button
               onClick={() => setOpen(false)}
               aria-label="Close navigation"
