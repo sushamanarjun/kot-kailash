@@ -67,7 +67,7 @@ export const hotelJsonLd = {
     longitude: '79.8466',
   },
   telephone: '+919650264905',
-  email: 'reach@kotkailash.com',
+  email: 'info@kotkailash.com',
   priceRange: '₹₹₹',
   starRating: {
     '@type': 'Rating',
@@ -95,7 +95,7 @@ export const localBusinessJsonLd = {
   description: 'Heritage boutique property at 7,800 feet in Shaukiyathal, near Jageshwar, Almora, Uttarakhand.',
   url: BASE_URL,
   telephone: '+919650264905',
-  email: 'reach@kotkailash.com',
+  email: 'info@kotkailash.com',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Village Kunja Gunth, Shaukiyathal',

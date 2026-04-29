@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv \"Winter-season.webp\" \"season-winter.webp\")",
+      "Bash(mv \"Buransh-season.webp\" \"season-buransh.webp\")",
+      "Bash(mv \"Clarity-season.webp\" \"season-clarity.webp\")",
+      "Bash(mv \"Monsoon-season.webp\" \"season-monsoon.webp\")",
+      "Bash(mv \"Harvest-seasons.webp\" \"season-harvest.webp\")",
+      "Read(//c/Users/seq_arjun/.agents/skills/ui-ux-pro-max/**)",
+      "Bash(python3 scripts/search.py \"luxury heritage boutique hospitality dining kumaoni editorial\" --design-system -p \"Kot Kailash Tehni\" -f markdown)",
+      "Bash(python scripts/search.py \"luxury heritage boutique hospitality dining kumaoni editorial\" --design-system -p \"Kot Kailash Tehni\" -f markdown)",
+      "Bash(python3:*)",
+      "Bash(/c/Program Files/Python313/python.exe:*)",
+      "Bash(cmd:*)"
+    ]
+  }
+}

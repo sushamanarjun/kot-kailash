@@ -9,29 +9,35 @@ export const transportStats: TransportStat[] = [
   {
     icon: '🚂',
     time: 'By Rail',
-    route: 'Kathgodam → Shaukiyathal',
-    detail: '4–5 . hours Ranikhet Express from Anand Vihar, Delhi dep. 22:20. The nearest railway head to the mountain world. The drive from Kathgodam begins the altitude climb.',
+    route: 'Haldwani / Kathgodam → Shaukiyathal',
+    detail: '4–5 hours. Ranikhet Express from Anand Vihar, Delhi dep. 22:20. The nearest railway head to the mountain world. Shaukiyathal is 90 kms (56 miles) from the station.',
   },
   {
     icon: '✈️',
-    time: 'By Air',
+    time: 'By Air · Pantnagar',
     route: 'Pantnagar Airport → Shaukiyathal',
-    detail: '3.5–4 hours from Pantnagar, the nearest commercial airport. Direct taxis available.',
+    detail: '3.5–4 hours from Pantnagar, the nearest commercial airport.',
+  },
+  {
+    icon: '✈️',
+    time: 'By Air · Bareilly',
+    route: 'Bareilly Airport → Shaukiyathal',
+    detail: '5.5–6 hours from Bareilly Airport. Daily direct flights from Mumbai and Bengaluru.',
   },
   {
     icon: '🚗',
     time: 'By Road',
     route: 'Delhi → Shaukiyathal',
-    detail: '8–9 hours from Delhi NCR. The mountain section begins after Haldwani.',
+    detail: '8–9 hours from Delhi NCR. About 280 kms (174 miles). The mountain section begins after Haldwani.',
   },
 ];
 
 export const transferPolicy = {
   label: 'Transfer Policy',
-  text: 'We arrange private transfers from Kathgodam, Pantnagar, and Haldwani. The drive from Haldwani takes approximately three hours on mountain roads. We consider the journey to be the beginning of your stay, not a preamble to it.',
+  text: 'We arrange private airport and railway station transfers to the property. We have trusted cab suppliers, cab drivers who ferry our guests to Kot Kailash and around the Kumaon Hills safely in neat and clean cabs that are insured for passenger safety.',
 };
 
 export const journeyNarrative = {
   label: 'The Drive',
-  text: 'Guests who have driven themselves frequently comment on the transition that happens somewhere between Almora town and the ridge: the phone signal fades, the road narrows, the air changes. By the time you arrive at Kot Kailash, you have already begun to decompress.',
+  text: 'Guests who have driven themselves frequently comment on the transition that happens somewhere between Bhimtal and the ridge: the phone signal fades, the road narrows, the air changes. By the time you arrive at Kot Kailash, you have already begun to decompress.',
 };

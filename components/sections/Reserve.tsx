@@ -34,7 +34,7 @@ export default function Reserve() {
           }}
         >
           <span style={{ width: '28px', height: '1px', background: 'var(--gold)', opacity: 0.38 }} />
-          Eight Keys · Rare Availability
+          Rare Availability
           <span style={{ width: '28px', height: '1px', background: 'var(--gold)', opacity: 0.38 }} />
         </div>
 

@@ -5,10 +5,8 @@ export default function PressBar() {
   return (
     <section
       style={{
-        background: 'var(--ink)',
+        background: 'var(--parchment)',
         padding: '64px 64px',
-        borderTop: '1px solid rgba(255,255,255,0.04)',
-        borderBottom: '1px solid rgba(255,255,255,0.04)',
         textAlign: 'center',
       }}
     >
@@ -53,7 +51,7 @@ export default function PressBar() {
             fontSize: 'clamp(1.8rem, 3.2vw, 3rem)',
             fontWeight: 300,
             fontStyle: 'italic',
-            color: 'white',
+            color: 'var(--ink)',
             lineHeight: 1.1,
             letterSpacing: '0.02em',
             marginBottom: '12px',
@@ -68,7 +66,7 @@ export default function PressBar() {
             fontFamily: 'var(--serif)',
             fontSize: '0.92rem',
             fontStyle: 'italic',
-            color: 'rgba(255,255,255,0.44)',
+            color: 'var(--ink-soft)',
             lineHeight: 1.7,
             marginBottom: '32px',
           }}
@@ -90,7 +88,21 @@ export default function PressBar() {
             href="https://www.cntraveller.in/story/kot-kailash-almora-uttarakhand-homestay/"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline"
+            style={{
+              fontFamily: 'var(--sans)',
+              fontSize: '11px',
+              letterSpacing: '0.26em',
+              textTransform: 'uppercase',
+              background: 'transparent',
+              color: 'var(--ink)',
+              padding: '14px 32px',
+              textDecoration: 'none',
+              border: '1px solid rgba(30,22,16,0.22)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              minHeight: '44px',
+              transition: 'border-color 0.3s, color 0.3s',
+            }}
           >
             Read the story →
           </a>
@@ -103,10 +115,9 @@ export default function PressBar() {
               textTransform: 'uppercase',
               color: 'var(--gold)',
               textDecoration: 'none',
-              borderBottom: '1px solid rgba(138,90,56,0.28)',
+              borderBottom: '1px solid rgba(138,90,56,0.35)',
               paddingBottom: '2px',
               transition: 'color 0.3s, border-color 0.3s',
-              opacity: 0.85,
             }}
           >
             All press →

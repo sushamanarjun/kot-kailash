@@ -4,14 +4,14 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import WeatherWidget from './WeatherWidget';
 
-const VIDEO_SRC = '/images/hero-video.webm';
+const VIDEO_SRC = '/images/hero-video.mp4';
 
 const HOTEL_SPIDER_URL = 'https://reservations.hotel-spider.com/032644b5fbfafed6';
 
 const stats = [
   { number: '8', label: 'Heritage Keys' },
   { number: '7,800', label: 'Feet Altitude' },
-  { number: '<10', label: 'AQI Most Days' },
+  { number: '<25', label: 'AQI Most Days' },
   { number: '0', label: 'Fans Required' },
 ];
 
@@ -35,7 +35,7 @@ export default function Hero() {
     });
 
     // Autoplay with silent catch — image fallback remains visible if blocked
-    videoRef.current?.play().catch(() => {});
+    videoRef.current?.play().catch(() => { });
 
     return () => timers.forEach(clearTimeout);
   }, []);
@@ -95,7 +95,7 @@ export default function Hero() {
             objectPosition: 'center 30%',
           }}
         >
-          <source src={VIDEO_SRC} type="video/webm" />
+          <source src={VIDEO_SRC} type="video/mp4" />
         </video>
       </div>
 

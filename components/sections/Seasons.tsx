@@ -149,31 +149,17 @@ export default function Seasons() {
           </p>
         </div>
 
-        {/* Image placeholder */}
-        <div
+        {/* Season image */}
+        <img
+          src={season.image}
+          alt={`${season.name} at Kot Kailash — ${season.period}`}
           style={{
             width: '100%',
             aspectRatio: '16/9',
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.05)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            objectFit: 'cover',
+            display: 'block',
           }}
-          aria-hidden="true"
-        >
-          <span
-            style={{
-              fontFamily: 'var(--sans)',
-              fontSize: '11px',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.3)',
-            }}
-          >
-            {season.name} · {season.period}
-          </span>
-        </div>
+        />
       </div>
     </section>
   );

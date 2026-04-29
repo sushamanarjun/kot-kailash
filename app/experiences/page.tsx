@@ -53,7 +53,7 @@ export default function ExperiencesPage() {
             marginBottom: '16px',
           }}
         >
-          Six ways to know
+          Several ways to know
           <br />
           <em style={{ fontStyle: 'normal', color: 'var(--gold-pale)' }}>
             the ridge.

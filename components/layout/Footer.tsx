@@ -78,7 +78,6 @@ export default function Footer() {
               { href: '/#stay', label: 'Rooms & Suites' },
               { href: '/#experiences', label: 'Experiences' },
               { href: '/#tehni', label: 'Tehni — The Kitchen' },
-              { href: '/about', label: 'The Library' },
               { href: '/#sacred', label: 'Sacred Arc' },
               { href: '/experience', label: 'Seasons' },
             ].map((l) => (
@@ -108,10 +107,7 @@ export default function Footer() {
           </span>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '9px' }}>
             {[
-              { href: '/stay', label: 'Rooms & Suites' },
               { href: '/how-to-reach', label: 'How to Reach' },
-              { href: '/retreats', label: 'Retreats & Offsites' },
-              { href: '/journal', label: 'Journal' },
               { href: '/about', label: 'Our Story' },
               { href: '/cancellations', label: 'Cancellations' },
               { href: '/faq', label: 'FAQ' },
@@ -152,27 +148,15 @@ export default function Footer() {
             Trade &amp; Press
           </span>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '9px' }}>
+            <li>
+              <Link href="/press" className="ft-link">Press Enquiries</Link>
+            </li>
             {[
-              { href: '/press', label: 'Press' },
-              { href: 'mailto:info@kotkailash.com', label: 'Agency Rates (20–25% off)' },
-              { href: 'mailto:info@kotkailash.com', label: 'FAM Stays' },
-              { href: 'mailto:info@kotkailash.com', label: 'Press Enquiries' },
-              { href: 'mailto:info@kotkailash.com', label: 'Retreats & Buyout' },
-              {
-                href: 'https://www.tripadvisor.in/Hotel_Review-g679053-d25168310',
-                label: 'TripAdvisor',
-                external: true,
-              },
+              { href: 'mailto:info@kotkailash.com', label: 'Partner With Us' },
+              { href: 'mailto:info@kotkailash.com', label: 'Buyouts' },
             ].map((l) => (
               <li key={l.label}>
-                <a
-                  href={l.href}
-                  target={'external' in l ? '_blank' : undefined}
-                  rel={'external' in l ? 'noopener noreferrer' : undefined}
-                  className="ft-link"
-                >
-                  {l.label}
-                </a>
+                <a href={l.href} className="ft-link">{l.label}</a>
               </li>
             ))}
           </ul>
@@ -209,7 +193,6 @@ export default function Footer() {
         <div style={{ display: 'flex', gap: '18px' }}>
           {[
             { href: 'https://instagram.com/kot.kailash', label: 'Instagram' },
-            { href: 'https://www.tripadvisor.in/Hotel_Review-g679053-d25168310', label: 'TripAdvisor' },
             { href: 'https://g.page/r/Cb3YvvO1nV6fEB0/review', label: 'Google' },
           ].map((s) => (
             <a

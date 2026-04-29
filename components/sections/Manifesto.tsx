@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import RevealWrapper from '@/components/ui/RevealWrapper';
-import AqiCard from './AqiCard';
 
 export default function Manifesto({ compact }: { compact?: boolean }) {
   return (
@@ -83,7 +82,6 @@ export default function Manifesto({ compact }: { compact?: boolean }) {
             color: 'var(--gold)',
           }}
         >
-          Three years in · Eight keys across three houses · One ridge
         </div>
         <Link
           href="/about"
@@ -101,7 +99,7 @@ export default function Manifesto({ compact }: { compact?: boolean }) {
             transition: 'color 0.3s',
           }}
         >
-          Our full story →
+          Learn More →
         </Link>
       </RevealWrapper>
 
@@ -138,11 +136,10 @@ export default function Manifesto({ compact }: { compact?: boolean }) {
               marginTop: '12px',
             }}
           >
-            — Pushkar Singh Negi, Co-Founder &amp; GM
+            — Pushkar Singh Negi, Co-Founder
           </span>
         </div>
 
-        <AqiCard />
       </RevealWrapper>
     </section>
   );

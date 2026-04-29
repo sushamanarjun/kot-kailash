@@ -5,7 +5,16 @@ import Image from 'next/image';
 import Reserve from '@/components/sections/Reserve';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 
-type Category = 'All' | 'Seasons' | 'Rooms' | 'Tehni' | 'Experiences' | 'Library';
+type Category =
+  | 'All'
+  | 'Seasons'
+  | 'Family Suite'
+  | 'Kumaon Vann'
+  | 'Kumaoni Suite'
+  | 'Kutir Suite'
+  | 'Tehni'
+  | 'Experiences'
+  | 'Wildlife';
 
 interface GalleryImage {
   id: number;
@@ -18,46 +27,47 @@ interface GalleryImage {
   src: string;
 }
 
-const CATEGORIES: Category[] = ['All', 'Seasons', 'Rooms', 'Tehni', 'Experiences', 'Library'];
+const CATEGORIES: Category[] = [
+  'All', 'Seasons', 'Family Suite', 'Kumaon Vann',
+  'Kumaoni Suite', 'Kutir Suite', 'Tehni', 'Experiences', 'Wildlife',
+];
 
-// All filenames are SEO-friendly (lowercase, hyphenated, keyword-rich .webp).
-// Next.js Image serves these as WebP/AVIF automatically via the built-in optimiser.
 const IMAGES: GalleryImage[] = [
-  // ── Seasons ─────────────────────────────────────────────────
+  // ── Seasons (14) — IDs 1–4 rendered with priority ──────────────
   {
     id: 1, category: 'Seasons', aspect: 'landscape',
-    caption: 'Kot Kailash — the restored farmstead', note: 'Shaukiyathal ridge · Almora',
-    gradient: 'linear-gradient(160deg, #0d1810 0%, #1c2a18 55%, #2e3d2a 100%)',
-    accentColor: 'rgba(139,107,61,0.2)',
-    src: '/images/gallery/seasons/kot-kailash-exterior-shaukiyathal.webp',
-  },
-  {
-    id: 2, category: 'Seasons', aspect: 'landscape',
     caption: 'Golden hour on the ridge', note: 'Late afternoon · Kunja Gunth',
     gradient: 'linear-gradient(160deg, #1a1008 0%, #2e1c08 55%, #3c2810 100%)',
     accentColor: 'rgba(155,98,42,0.28)',
     src: '/images/gallery/seasons/golden-hour-kot-kailash.webp',
   },
   {
-    id: 3, category: 'Seasons', aspect: 'landscape',
-    caption: 'Evening light over the main house', note: 'March 2023',
-    gradient: 'linear-gradient(160deg, #141008 0%, #20180c 55%, #2c2214 100%)',
-    accentColor: 'rgba(139,107,61,0.18)',
-    src: '/images/gallery/seasons/evening-light-kot-kailash-march-2023.webp',
-  },
-  {
-    id: 4, category: 'Seasons', aspect: 'landscape',
+    id: 2, category: 'Seasons', aspect: 'landscape',
     caption: 'The property from the trail above', note: 'Shaukiyathal · 7,800 ft',
     gradient: 'linear-gradient(160deg, #0e1a0c 0%, #182812 55%, #243618 100%)',
     accentColor: 'rgba(46,80,38,0.3)',
     src: '/images/gallery/seasons/kot-kailash-property-almora.webp',
   },
   {
-    id: 5, category: 'Seasons', aspect: 'landscape',
+    id: 3, category: 'Seasons', aspect: 'landscape',
     caption: 'Three houses, one ridge', note: 'Summer',
     gradient: 'linear-gradient(160deg, #0c1a0a 0%, #142210 55%, #1e3016 100%)',
     accentColor: 'rgba(46,80,38,0.26)',
     src: '/images/gallery/seasons/kot-kailash-heritage-retreat.webp',
+  },
+  {
+    id: 4, category: 'Seasons', aspect: 'landscape',
+    caption: 'Sunset from the east terrace', note: '7,800 ft · Himalayan range',
+    gradient: 'linear-gradient(160deg, #1c1008 0%, #2e1c0a 55%, #3e2810 100%)',
+    accentColor: 'rgba(155,58,42,0.3)',
+    src: '/images/gallery/seasons/sunset-kot-kailash-himalayas.webp',
+  },
+  {
+    id: 5, category: 'Seasons', aspect: 'landscape',
+    caption: 'Evening light over the main house', note: 'March 2023',
+    gradient: 'linear-gradient(160deg, #141008 0%, #20180c 55%, #2c2214 100%)',
+    accentColor: 'rgba(139,107,61,0.18)',
+    src: '/images/gallery/seasons/evening-light-kot-kailash-march-2023.webp',
   },
   {
     id: 6, category: 'Seasons', aspect: 'portrait',
@@ -68,175 +78,584 @@ const IMAGES: GalleryImage[] = [
   },
   {
     id: 7, category: 'Seasons', aspect: 'landscape',
-    caption: 'Kumaon Vann — the forest cottage', note: 'Morning mist',
-    gradient: 'linear-gradient(160deg, #0a1208 0%, #12180e 55%, #1c2416 100%)',
-    accentColor: 'rgba(46,80,38,0.34)',
-    src: '/images/gallery/seasons/kumaon-vann-cottage-exterior.webp',
-  },
-  {
-    id: 8, category: 'Seasons', aspect: 'landscape',
     caption: 'Winter snow on the ridge', note: 'January · first snowfall',
     gradient: 'linear-gradient(160deg, #101418 0%, #181c22 55%, #202630 100%)',
     accentColor: 'rgba(139,107,61,0.1)',
     src: '/images/gallery/seasons/snow-kot-kailash-ridge-winter.webp',
   },
   {
-    id: 9, category: 'Seasons', aspect: 'landscape',
-    caption: 'Sunset from the east terrace', note: '7,800 ft · Himalayan range',
-    gradient: 'linear-gradient(160deg, #1c1008 0%, #2e1c0a 55%, #3e2810 100%)',
-    accentColor: 'rgba(155,58,42,0.3)',
-    src: '/images/gallery/seasons/sunset-kot-kailash-himalayas.webp',
-  },
-  {
-    id: 10, category: 'Seasons', aspect: 'landscape',
+    id: 8, category: 'Seasons', aspect: 'landscape',
     caption: 'Snowfall, January 2026', note: 'First snow of the season',
     gradient: 'linear-gradient(160deg, #0e1218 0%, #161a22 55%, #1e222e 100%)',
     accentColor: 'rgba(139,107,61,0.08)',
     src: '/images/gallery/seasons/snowfall-2026-kot-kailash.webp',
   },
-  // ── Rooms ────────────────────────────────────────────────────
   {
-    id: 11, category: 'Rooms', aspect: 'portrait',
-    caption: 'Stone-floored bathroom', note: 'Handcrafted detail',
-    gradient: 'linear-gradient(160deg, #181210 0%, #241c18 55%, #302620 100%)',
-    accentColor: 'rgba(139,107,61,0.16)',
-    src: '/images/gallery/rooms/bathroom-kot-kailash.webp',
+    id: 9, category: 'Seasons', aspect: 'landscape',
+    caption: 'Buransh in bloom', note: 'Rhododendron season · spring',
+    gradient: 'linear-gradient(160deg, #1a0808 0%, #2a1010 55%, #381818 100%)',
+    accentColor: 'rgba(155,42,42,0.28)',
+    src: '/images/gallery/seasons/season-buransh.webp',
   },
   {
-    id: 12, category: 'Rooms', aspect: 'portrait',
-    caption: 'Bathroom with mountain light', note: 'Natural light · morning',
-    gradient: 'linear-gradient(160deg, #141010 0%, #1e1818 55%, #282222 100%)',
-    accentColor: 'rgba(139,107,61,0.14)',
-    src: '/images/gallery/rooms/bathroom-mountain-view-kot-kailash.webp',
+    id: 10, category: 'Seasons', aspect: 'landscape',
+    caption: 'Winter clarity on the ridge', note: 'Deep blue sky · Kumaon',
+    gradient: 'linear-gradient(160deg, #080e18 0%, #101828 55%, #182234 100%)',
+    accentColor: 'rgba(42,80,139,0.2)',
+    src: '/images/gallery/seasons/season-clarity.webp',
   },
   {
-    id: 13, category: 'Rooms', aspect: 'landscape',
-    caption: 'The shared courtyard', note: 'Afternoon',
-    gradient: 'linear-gradient(160deg, #12100c 0%, #1c1810 55%, #262214 100%)',
-    accentColor: 'rgba(139,107,61,0.2)',
-    src: '/images/gallery/rooms/courtyard-kot-kailash.webp',
+    id: 11, category: 'Seasons', aspect: 'landscape',
+    caption: 'Deep winter on the property', note: 'Snowbound · December',
+    gradient: 'linear-gradient(160deg, #0c1018 0%, #141820 55%, #1c2028 100%)',
+    accentColor: 'rgba(139,107,61,0.1)',
+    src: '/images/gallery/seasons/season-deep-winter.webp',
   },
   {
-    id: 14, category: 'Rooms', aspect: 'landscape',
-    caption: 'Dining at Kot Kailash', note: 'Communal table · Tehni',
-    gradient: 'linear-gradient(160deg, #1a1208 0%, #281c0e 55%, #342614 100%)',
-    accentColor: 'rgba(139,107,61,0.24)',
-    src: '/images/gallery/rooms/dining-room-kot-kailash.webp',
+    id: 12, category: 'Seasons', aspect: 'landscape',
+    caption: 'Harvest season at Shaukiyathal', note: 'October · golden fields',
+    gradient: 'linear-gradient(160deg, #1c1408 0%, #2c200e 55%, #3a2c14 100%)',
+    accentColor: 'rgba(155,120,42,0.3)',
+    src: '/images/gallery/seasons/season-harvest.webp',
   },
   {
-    id: 15, category: 'Rooms', aspect: 'landscape',
+    id: 13, category: 'Seasons', aspect: 'landscape',
+    caption: 'The monsoon arrives', note: 'July · mist on the ridge',
+    gradient: 'linear-gradient(160deg, #0a1010 0%, #121818 55%, #1a2222 100%)',
+    accentColor: 'rgba(46,80,80,0.3)',
+    src: '/images/gallery/seasons/season-monsoon.webp',
+  },
+  {
+    id: 14, category: 'Seasons', aspect: 'landscape',
+    caption: 'Winter on the ridge', note: 'First frost · Kumaon winter',
+    gradient: 'linear-gradient(160deg, #101418 0%, #181e22 55%, #202830 100%)',
+    accentColor: 'rgba(139,107,61,0.1)',
+    src: '/images/gallery/seasons/season-winter.webp',
+  },
+
+  // ── Family Suite (11) ──────────────────────────────────────────
+  {
+    id: 15, category: 'Family Suite', aspect: 'landscape',
     caption: 'Family Suite — the main house', note: 'Upper floor · open views',
     gradient: 'linear-gradient(160deg, #141210 0%, #201c18 55%, #2a2620 100%)',
     accentColor: 'rgba(139,107,61,0.18)',
-    src: '/images/gallery/rooms/family-suite-kot-kailash.webp',
+    src: '/images/gallery/family-suite/family-suite-main.jpg',
   },
   {
-    id: 16, category: 'Rooms', aspect: 'portrait',
+    id: 16, category: 'Family Suite', aspect: 'portrait',
+    caption: 'The bed, Family Suite', note: 'Handloom textiles · Kumaon',
+    gradient: 'linear-gradient(160deg, #181208 0%, #261c0e 55%, #322614 100%)',
+    accentColor: 'rgba(139,107,61,0.22)',
+    src: '/images/gallery/family-suite/family-suite-the-bed.jpg',
+  },
+  {
+    id: 17, category: 'Family Suite', aspect: 'landscape',
+    caption: 'Family Suite — panoramic balcony', note: 'Himalayan range · east-facing',
+    gradient: 'linear-gradient(160deg, #0c1408 0%, #14200e 55%, #1c2c16 100%)',
+    accentColor: 'rgba(46,80,38,0.28)',
+    src: '/images/gallery/family-suite/family-suite-panoramic-balcony.jpg',
+  },
+  {
+    id: 18, category: 'Family Suite', aspect: 'landscape',
+    caption: 'Evenings at the Family Suite', note: 'Amber light · dusk',
+    gradient: 'linear-gradient(160deg, #181008 0%, #261a0c 55%, #342412 100%)',
+    accentColor: 'rgba(155,98,42,0.3)',
+    src: '/images/gallery/family-suite/family-suite-evening-light.jpg',
+  },
+  {
+    id: 19, category: 'Family Suite', aspect: 'portrait',
     caption: 'Family Suite interior', note: 'Natural wood finish',
     gradient: 'linear-gradient(160deg, #161008 0%, #22180e 55%, #2e2016 100%)',
-    accentColor: 'rgba(139,107,61,0.22)',
-    src: '/images/gallery/rooms/family-suite-interior-kot-kailash.webp',
+    accentColor: 'rgba(139,107,61,0.2)',
+    src: '/images/gallery/family-suite/family-suite-interior-1.jpg',
   },
   {
-    id: 17, category: 'Rooms', aspect: 'landscape',
-    caption: 'Family Suite — sitting area', note: 'Morning light',
+    id: 20, category: 'Family Suite', aspect: 'portrait',
+    caption: 'Family Suite — sitting room', note: 'Morning light',
+    gradient: 'linear-gradient(160deg, #181410 0%, #241e18 55%, #302820 100%)',
+    accentColor: 'rgba(139,107,61,0.18)',
+    src: '/images/gallery/family-suite/family-suite-interior-2.jpg',
+  },
+  {
+    id: 21, category: 'Family Suite', aspect: 'portrait',
+    caption: 'Family Suite — a closer look', note: 'Details',
+    gradient: 'linear-gradient(160deg, #161210 0%, #201c18 55%, #2c2622 100%)',
+    accentColor: 'rgba(139,107,61,0.16)',
+    src: '/images/gallery/family-suite/family-suite-interior-3.jpg',
+  },
+  {
+    id: 22, category: 'Family Suite', aspect: 'landscape',
+    caption: 'Family Suite — courtyard aspect', note: 'Morning · quiet hour',
+    gradient: 'linear-gradient(160deg, #12100c 0%, #1c1810 55%, #262214 100%)',
+    accentColor: 'rgba(139,107,61,0.2)',
+    src: '/images/gallery/family-suite/family-suite-courtyard-morning.jpeg',
+  },
+  {
+    id: 23, category: 'Family Suite', aspect: 'landscape',
+    caption: 'Family Suite overview', note: 'The full space',
+    gradient: 'linear-gradient(160deg, #141010 0%, #1e1818 55%, #282222 100%)',
+    accentColor: 'rgba(139,107,61,0.16)',
+    src: '/images/gallery/family-suite/family-suite-overview-1.jpeg',
+  },
+  {
+    id: 24, category: 'Family Suite', aspect: 'landscape',
+    caption: 'Family Suite — second perspective', note: 'Natural light',
+    gradient: 'linear-gradient(160deg, #141210 0%, #1e1c18 55%, #28261e 100%)',
+    accentColor: 'rgba(139,107,61,0.16)',
+    src: '/images/gallery/family-suite/family-suite-overview-2.jpg',
+  },
+  {
+    id: 25, category: 'Family Suite', aspect: 'landscape',
+    caption: 'Family Suite — third perspective', note: 'Open space',
+    gradient: 'linear-gradient(160deg, #141210 0%, #201c18 55%, #2c2620 100%)',
+    accentColor: 'rgba(139,107,61,0.16)',
+    src: '/images/gallery/family-suite/family-suite-overview-3.jpeg',
+  },
+
+  // ── Kumaon Vann (12) ───────────────────────────────────────────
+  {
+    id: 26, category: 'Kumaon Vann', aspect: 'landscape',
+    caption: 'Kumaon Vann — the forest cottage', note: 'Private · secluded',
+    gradient: 'linear-gradient(160deg, #0a1208 0%, #12180e 55%, #1c2416 100%)',
+    accentColor: 'rgba(46,80,38,0.34)',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-main.jpeg',
+  },
+  {
+    id: 27, category: 'Kumaon Vann', aspect: 'portrait',
+    caption: 'The bed, Kumaon Vann', note: 'Forest light · morning',
+    gradient: 'linear-gradient(160deg, #181208 0%, #261c0e 55%, #322614 100%)',
+    accentColor: 'rgba(139,107,61,0.22)',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-the-bed.jpeg',
+  },
+  {
+    id: 28, category: 'Kumaon Vann', aspect: 'portrait',
+    caption: 'Bed detail, Kumaon Vann', note: 'Handwoven textiles',
     gradient: 'linear-gradient(160deg, #181410 0%, #241e18 55%, #302820 100%)',
     accentColor: 'rgba(139,107,61,0.2)',
-    src: '/images/gallery/rooms/family-suite-sitting-area-kot-kailash.webp',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-bed-detail.jpeg',
   },
   {
-    id: 18, category: 'Rooms', aspect: 'portrait',
-    caption: 'Kumaon Vann — private courtyard', note: 'The forest cottage',
-    gradient: 'linear-gradient(160deg, #0e1208 0%, #161c0e 55%, #1e2816 100%)',
-    accentColor: 'rgba(46,80,38,0.3)',
-    src: '/images/gallery/rooms/kumaon-vann-forest-cottage-kot-kailash.webp',
+    id: 29, category: 'Kumaon Vann', aspect: 'landscape',
+    caption: 'Golden hour at Kumaon Vann', note: 'Late afternoon light',
+    gradient: 'linear-gradient(160deg, #1a1008 0%, #2c1c0c 55%, #3a2810 100%)',
+    accentColor: 'rgba(155,98,42,0.3)',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-golden-hour.jpeg',
   },
-  // ── Tehni ────────────────────────────────────────────────────
   {
-    id: 19, category: 'Tehni', aspect: 'landscape',
-    caption: 'Dining in the forest', note: 'Al fresco · Kot Kailash',
-    gradient: 'linear-gradient(160deg, #0c1408 0%, #141e0e 55%, #1c2a14 100%)',
+    id: 30, category: 'Kumaon Vann', aspect: 'portrait',
+    caption: 'Kumaon Vann bathroom', note: 'Stone and slate',
+    gradient: 'linear-gradient(160deg, #181210 0%, #241c18 55%, #302620 100%)',
+    accentColor: 'rgba(139,107,61,0.16)',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-bathroom-1.jpeg',
+  },
+  {
+    id: 31, category: 'Kumaon Vann', aspect: 'portrait',
+    caption: 'Kumaon Vann — ensuite', note: 'Natural materials',
+    gradient: 'linear-gradient(160deg, #181212 0%, #241c1c 55%, #302626 100%)',
+    accentColor: 'rgba(139,107,61,0.14)',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-bathroom-2.jpg',
+  },
+  {
+    id: 32, category: 'Kumaon Vann', aspect: 'landscape',
+    caption: 'Kumaon Vann courtyard', note: 'The private garden',
+    gradient: 'linear-gradient(160deg, #0c1208 0%, #161c0e 55%, #202816 100%)',
     accentColor: 'rgba(46,80,38,0.32)',
-    src: '/images/gallery/tehni/outdoor-dining-forest-kot-kailash.webp',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-courtyard.jpeg',
   },
   {
-    id: 20, category: 'Tehni', aspect: 'square',
+    id: 33, category: 'Kumaon Vann', aspect: 'landscape',
+    caption: 'Kumaon Vann — interior spaces', note: 'Warm stone walls',
+    gradient: 'linear-gradient(160deg, #141210 0%, #201c18 55%, #2c2620 100%)',
+    accentColor: 'rgba(139,107,61,0.18)',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-interior-1.jpeg',
+  },
+  {
+    id: 34, category: 'Kumaon Vann', aspect: 'landscape',
+    caption: 'Kumaon Vann — living space', note: 'Afternoon light',
+    gradient: 'linear-gradient(160deg, #161210 0%, #221c18 55%, #2e2620 100%)',
+    accentColor: 'rgba(139,107,61,0.18)',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-interior-2.jpeg',
+  },
+  {
+    id: 35, category: 'Kumaon Vann', aspect: 'landscape',
+    caption: 'Kumaon Vann — third view', note: 'Details',
+    gradient: 'linear-gradient(160deg, #141010 0%, #201818 55%, #2c2222 100%)',
+    accentColor: 'rgba(139,107,61,0.16)',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-interior-3.jpeg',
+  },
+  {
+    id: 36, category: 'Kumaon Vann', aspect: 'landscape',
+    caption: 'The view from Kumaon Vann', note: 'Himalayan ridge · open sky',
+    gradient: 'linear-gradient(160deg, #0e1a0c 0%, #182812 55%, #243618 100%)',
+    accentColor: 'rgba(46,80,38,0.3)',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-view.jpeg',
+  },
+  {
+    id: 37, category: 'Kumaon Vann', aspect: 'portrait',
+    caption: 'Wood fire burner, Kumaon Vann', note: 'Winter warmth · evenings',
+    gradient: 'linear-gradient(160deg, #180e06 0%, #261808 55%, #34220e 100%)',
+    accentColor: 'rgba(155,78,28,0.36)',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-wood-fire-burner.jpeg',
+  },
+
+  // ── Kumaoni Suite (9) ──────────────────────────────────────────
+  {
+    id: 38, category: 'Kumaoni Suite', aspect: 'landscape',
+    caption: 'Kumaoni Suite — the main room', note: 'Heritage proportions',
+    gradient: 'linear-gradient(160deg, #141210 0%, #201c18 55%, #2a2620 100%)',
+    accentColor: 'rgba(139,107,61,0.18)',
+    src: '/images/gallery/kumaoni-suite/kumaoni-suite-main.jpg',
+  },
+  {
+    id: 39, category: 'Kumaoni Suite', aspect: 'portrait',
+    caption: 'Kumaoni Suite — interior', note: 'Warm wood tones',
+    gradient: 'linear-gradient(160deg, #161008 0%, #221a0e 55%, #2e2416 100%)',
+    accentColor: 'rgba(139,107,61,0.22)',
+    src: '/images/gallery/kumaoni-suite/kumaoni-suite-interior-1.jpg',
+  },
+  {
+    id: 40, category: 'Kumaoni Suite', aspect: 'portrait',
+    caption: 'Kumaoni Suite — a second look', note: 'Natural light',
+    gradient: 'linear-gradient(160deg, #161210 0%, #221c18 55%, #2e2620 100%)',
+    accentColor: 'rgba(139,107,61,0.18)',
+    src: '/images/gallery/kumaoni-suite/kumaoni-suite-interior-2.jpeg',
+  },
+  {
+    id: 41, category: 'Kumaoni Suite', aspect: 'portrait',
+    caption: 'Kumaoni Suite bathroom', note: 'Stone finish · morning',
+    gradient: 'linear-gradient(160deg, #181210 0%, #241c18 55%, #302620 100%)',
+    accentColor: 'rgba(139,107,61,0.16)',
+    src: '/images/gallery/kumaoni-suite/kumaoni-suite-bathroom.jpg',
+  },
+  {
+    id: 42, category: 'Kumaoni Suite', aspect: 'landscape',
+    caption: 'Kumaoni Suite in snowfall', note: 'January snow · Shaukiyathal',
+    gradient: 'linear-gradient(160deg, #0e1218 0%, #161a22 55%, #1e222e 100%)',
+    accentColor: 'rgba(139,107,61,0.08)',
+    src: '/images/gallery/kumaoni-suite/kumaoni-suite-snowfall.jpeg',
+  },
+  {
+    id: 43, category: 'Kumaoni Suite', aspect: 'landscape',
+    caption: 'Golden hour at Kumaoni Suite', note: 'Afternoon amber',
+    gradient: 'linear-gradient(160deg, #1a1008 0%, #2c1c0c 55%, #3c2810 100%)',
+    accentColor: 'rgba(155,98,42,0.3)',
+    src: '/images/gallery/kumaoni-suite/kumaoni-suite-golden-hour.jpeg',
+  },
+  {
+    id: 44, category: 'Kumaoni Suite', aspect: 'landscape',
+    caption: 'Kumaoni Suite — overview', note: 'The full space',
+    gradient: 'linear-gradient(160deg, #141010 0%, #1e1818 55%, #282222 100%)',
+    accentColor: 'rgba(139,107,61,0.16)',
+    src: '/images/gallery/kumaoni-suite/kumaoni-suite-overview-1.jpg',
+  },
+  {
+    id: 45, category: 'Kumaoni Suite', aspect: 'landscape',
+    caption: 'Kumaoni Suite — second overview', note: 'Wide view',
+    gradient: 'linear-gradient(160deg, #141210 0%, #1e1c18 55%, #28261e 100%)',
+    accentColor: 'rgba(139,107,61,0.16)',
+    src: '/images/gallery/kumaoni-suite/kumaoni-suite-overview-2.jpg',
+  },
+  {
+    id: 46, category: 'Kumaoni Suite', aspect: 'portrait',
+    caption: 'Kumaoni Suite — peg detail', note: 'Handcrafted joinery',
+    gradient: 'linear-gradient(160deg, #181410 0%, #261e18 55%, #342820 100%)',
+    accentColor: 'rgba(139,107,61,0.2)',
+    src: '/images/gallery/kumaoni-suite/kumaoni-suite-peg-detail.jpg',
+  },
+
+  // ── Kutir Suite (11) ───────────────────────────────────────────
+  {
+    id: 47, category: 'Kutir Suite', aspect: 'landscape',
+    caption: 'Kutir Suite — exterior', note: 'Stone and timber · the cottage',
+    gradient: 'linear-gradient(160deg, #0c1208 0%, #14180e 55%, #1c2416 100%)',
+    accentColor: 'rgba(46,80,38,0.3)',
+    src: '/images/gallery/kutir-suite/kutir-suite-exterior.jpg',
+  },
+  {
+    id: 48, category: 'Kutir Suite', aspect: 'landscape',
+    caption: 'Kutir Suite — exterior, second view', note: 'The approach',
+    gradient: 'linear-gradient(160deg, #0e1408 0%, #161e0e 55%, #1e2c16 100%)',
+    accentColor: 'rgba(46,80,38,0.28)',
+    src: '/images/gallery/kutir-suite/kutir-suite-exterior-2.jpeg',
+  },
+  {
+    id: 49, category: 'Kutir Suite', aspect: 'landscape',
+    caption: 'Kutir Suite — living room', note: 'Curated interiors',
+    gradient: 'linear-gradient(160deg, #161210 0%, #221c18 55%, #2e2620 100%)',
+    accentColor: 'rgba(139,107,61,0.2)',
+    src: '/images/gallery/kutir-suite/kutir-suite-living-room.jpg',
+  },
+  {
+    id: 50, category: 'Kutir Suite', aspect: 'landscape',
+    caption: 'Kutir Suite — living room detail', note: 'Morning light',
+    gradient: 'linear-gradient(160deg, #181410 0%, #241e18 55%, #302820 100%)',
+    accentColor: 'rgba(139,107,61,0.18)',
+    src: '/images/gallery/kutir-suite/kutir-suite-living-room-2.jpeg',
+  },
+  {
+    id: 51, category: 'Kutir Suite', aspect: 'portrait',
+    caption: 'The bed, Kutir Suite', note: 'Handloom cover · quiet morning',
+    gradient: 'linear-gradient(160deg, #181208 0%, #261c0e 55%, #322614 100%)',
+    accentColor: 'rgba(139,107,61,0.22)',
+    src: '/images/gallery/kutir-suite/kutir-suite-the-bed.jpg',
+  },
+  {
+    id: 52, category: 'Kutir Suite', aspect: 'portrait',
+    caption: 'Kutir Suite — bedroom', note: 'Stone walls · warm light',
+    gradient: 'linear-gradient(160deg, #161010 0%, #221a18 55%, #2e2422 100%)',
+    accentColor: 'rgba(139,107,61,0.2)',
+    src: '/images/gallery/kutir-suite/kutir-suite-bedroom-2.jpeg',
+  },
+  {
+    id: 53, category: 'Kutir Suite', aspect: 'landscape',
+    caption: 'Kutir Suite — bedroom and machan', note: 'The loft level',
+    gradient: 'linear-gradient(160deg, #141010 0%, #201818 55%, #2c2222 100%)',
+    accentColor: 'rgba(139,107,61,0.18)',
+    src: '/images/gallery/kutir-suite/kutir-suite-bedroom-machan.jpg',
+  },
+  {
+    id: 54, category: 'Kutir Suite', aspect: 'landscape',
+    caption: 'Kutir Suite — private dining', note: 'In-suite dining · Tehni',
+    gradient: 'linear-gradient(160deg, #1c1208 0%, #2c1e10 55%, #3a2a16 100%)',
+    accentColor: 'rgba(139,107,61,0.28)',
+    src: '/images/gallery/kutir-suite/kutir-suite-private-dining.jpg',
+  },
+  {
+    id: 55, category: 'Kutir Suite', aspect: 'portrait',
+    caption: 'Kutir Suite — shower ensuite', note: 'Natural stone',
+    gradient: 'linear-gradient(160deg, #181210 0%, #241c18 55%, #302620 100%)',
+    accentColor: 'rgba(139,107,61,0.14)',
+    src: '/images/gallery/kutir-suite/kutir-suite-shower-ensuite.jpg',
+  },
+  {
+    id: 56, category: 'Kutir Suite', aspect: 'portrait',
+    caption: 'Kutir Suite — ensuite detail', note: 'Handcrafted tile',
+    gradient: 'linear-gradient(160deg, #181212 0%, #241c1c 55%, #302626 100%)',
+    accentColor: 'rgba(139,107,61,0.14)',
+    src: '/images/gallery/kutir-suite/kutir-suite-shower-ensuite-1.jpg',
+  },
+  {
+    id: 57, category: 'Kutir Suite', aspect: 'portrait',
+    caption: 'Kutir Suite — ensuite, second view', note: 'Morning light',
+    gradient: 'linear-gradient(160deg, #161010 0%, #221a18 55%, #2e2422 100%)',
+    accentColor: 'rgba(139,107,61,0.14)',
+    src: '/images/gallery/kutir-suite/kutir-suite-shower-ensuite-2.jpg',
+  },
+
+  // ── Tehni (15) ────────────────────────────────────────────────
+  {
+    id: 58, category: 'Tehni', aspect: 'landscape',
+    caption: 'Grind to perfection — Tehni', note: 'The masala stone · Kot Kailash',
+    gradient: 'linear-gradient(160deg, #1a1208 0%, #2c1e10 55%, #3a2a14 100%)',
+    accentColor: 'rgba(139,107,61,0.3)',
+    src: '/images/gallery/tehni/tehni-grind-to-perfection.jpg',
+  },
+  {
+    id: 59, category: 'Tehni', aspect: 'square',
     caption: 'Kumaoni thali, served fresh', note: 'Lunch service · Tehni',
     gradient: 'linear-gradient(160deg, #1e1408 0%, #2e1e0c 55%, #3a2810 100%)',
     accentColor: 'rgba(139,107,61,0.28)',
-    src: '/images/gallery/tehni/kumaoni-thali-tehni-kot-kailash.webp',
+    src: '/images/gallery/tehni/tehni-kumaoni-thali.jpg',
   },
   {
-    id: 21, category: 'Tehni', aspect: 'square',
-    caption: 'Mandua rotis from the wood fire', note: 'Morning prep · Tehni kitchen',
+    id: 60, category: 'Tehni', aspect: 'square',
+    caption: 'Home made bread — Tehni', note: 'Wood-fired mandua rotis',
     gradient: 'linear-gradient(160deg, #1c1208 0%, #2a1c0e 55%, #362414 100%)',
     accentColor: 'rgba(139,107,61,0.3)',
-    src: '/images/gallery/tehni/mandua-rotis-tehni-kitchen.webp',
+    src: '/images/gallery/tehni/tehni-home-made-bread.jpg',
   },
-  // ── Experiences ─────────────────────────────────────────────
   {
-    id: 22, category: 'Experiences', aspect: 'landscape',
-    caption: 'On the Shaukiyathal trail', note: 'A morning walk · no signboards',
+    id: 61, category: 'Tehni', aspect: 'square',
+    caption: 'Afternoon tea at Tehni', note: 'Ridge tea · every afternoon',
+    gradient: 'linear-gradient(160deg, #1a1008 0%, #281a0e 55%, #362414 100%)',
+    accentColor: 'rgba(139,107,61,0.26)',
+    src: '/images/gallery/tehni/tehni-afternoon-tea.jpg',
+  },
+  {
+    id: 62, category: 'Tehni', aspect: 'landscape',
+    caption: 'Dinner at Tehni', note: 'Evening service · candlelight',
+    gradient: 'linear-gradient(160deg, #181008 0%, #24180c 55%, #302210 100%)',
+    accentColor: 'rgba(139,107,61,0.24)',
+    src: '/images/gallery/tehni/tehni-dinner.jpg',
+  },
+  {
+    id: 63, category: 'Tehni', aspect: 'square',
+    caption: 'Spices from the Kumaon market', note: 'Local sourced · Tehni pantry',
+    gradient: 'linear-gradient(160deg, #1e1008 0%, #2e1c0c 55%, #3c2810 100%)',
+    accentColor: 'rgba(155,78,28,0.3)',
+    src: '/images/gallery/tehni/tehni-spices.jpg',
+  },
+  {
+    id: 64, category: 'Tehni', aspect: 'landscape',
+    caption: 'Indian breakfast — Tehni', note: 'Morning spread · Kot Kailash',
+    gradient: 'linear-gradient(160deg, #1a1408 0%, #2a2010 55%, #382c16 100%)',
+    accentColor: 'rgba(139,107,61,0.28)',
+    src: '/images/gallery/tehni/tehni-indian-breakfast.jpg',
+  },
+  {
+    id: 65, category: 'Tehni', aspect: 'landscape',
+    caption: 'Indian breakfast — second service', note: 'Fresh from the fire',
+    gradient: 'linear-gradient(160deg, #1c1408 0%, #2c2010 55%, #3a2c14 100%)',
+    accentColor: 'rgba(139,107,61,0.26)',
+    src: '/images/gallery/tehni/tehni-indian-breakfast-2.jpg',
+  },
+  {
+    id: 66, category: 'Tehni', aspect: 'landscape',
+    caption: 'Outdoor breakfast at Kot Kailash', note: 'Al fresco · ridge view',
+    gradient: 'linear-gradient(160deg, #0c1408 0%, #141e0e 55%, #1c2a14 100%)',
+    accentColor: 'rgba(46,80,38,0.32)',
+    src: '/images/gallery/tehni/tehni-outdoor-breakfast.jpg',
+  },
+  {
+    id: 67, category: 'Tehni', aspect: 'square',
+    caption: 'Local produce — Kumaon farms', note: 'Seasonal · zero-distance',
+    gradient: 'linear-gradient(160deg, #0e1408 0%, #161e0e 55%, #1e2c16 100%)',
+    accentColor: 'rgba(46,80,38,0.3)',
+    src: '/images/gallery/tehni/tehni-local-produce-1.jpg',
+  },
+  {
+    id: 68, category: 'Tehni', aspect: 'square',
+    caption: 'Local produce — second harvest', note: 'Root vegetables · Kumaon',
+    gradient: 'linear-gradient(160deg, #0c1208 0%, #141c0e 55%, #1c2a14 100%)',
+    accentColor: 'rgba(46,80,38,0.28)',
+    src: '/images/gallery/tehni/tehni-local-produce-2.jpg',
+  },
+  {
+    id: 69, category: 'Tehni', aspect: 'landscape',
+    caption: "Mother's love — Tehni", note: 'Hand-cooked · with care',
+    gradient: 'linear-gradient(160deg, #1c1208 0%, #2a1c0e 55%, #382614 100%)',
+    accentColor: 'rgba(139,107,61,0.28)',
+    src: '/images/gallery/tehni/tehni-mothers-love.jpg',
+  },
+  {
+    id: 70, category: 'Tehni', aspect: 'landscape',
+    caption: 'Lunch at Tehni', note: 'Midday service',
+    gradient: 'linear-gradient(160deg, #181408 0%, #261e0e 55%, #342814 100%)',
+    accentColor: 'rgba(139,107,61,0.24)',
+    src: '/images/gallery/tehni/tehni-lunch.jpg',
+  },
+  {
+    id: 71, category: 'Tehni', aspect: 'landscape',
+    caption: 'Dining scene — Tehni', note: 'The communal table',
+    gradient: 'linear-gradient(160deg, #141008 0%, #1e180e 55%, #2a2214 100%)',
+    accentColor: 'rgba(139,107,61,0.22)',
+    src: '/images/gallery/tehni/tehni-dining-scene-1.jpg',
+  },
+  {
+    id: 72, category: 'Tehni', aspect: 'landscape',
+    caption: 'Dining scene — Tehni, evening', note: 'Warm light · conversation',
+    gradient: 'linear-gradient(160deg, #161008 0%, #201a0e 55%, #2c2414 100%)',
+    accentColor: 'rgba(139,107,61,0.22)',
+    src: '/images/gallery/tehni/tehni-dining-scene-2.jpg',
+  },
+
+  // ── Experiences (8) ───────────────────────────────────────────
+  {
+    id: 73, category: 'Experiences', aspect: 'landscape',
+    caption: 'Picnic in the forest', note: 'Shaded grove · Tehni kitchen',
     gradient: 'linear-gradient(160deg, #0c1a08 0%, #142210 55%, #1e3016 100%)',
     accentColor: 'rgba(46,80,38,0.32)',
-    src: '/images/gallery/experience/trail-walk-kot-kailash-kumaon.webp',
+    src: '/images/gallery/experience/picnic-in-the-forest.jpg',
   },
   {
-    id: 23, category: 'Experiences', aspect: 'landscape',
-    caption: 'Jageshwar Dham in winter snow', note: 'January 2026 · 124 temples',
-    gradient: 'linear-gradient(160deg, #101418 0%, #181c24 55%, #20262e 100%)',
-    accentColor: 'rgba(139,107,61,0.1)',
-    src: '/images/gallery/experience/jageshwar-dham-snow-2026.webp',
-  },
-  {
-    id: 24, category: 'Experiences', aspect: 'landscape',
-    caption: 'Ridge picnic — Nanda Devi in view', note: 'Midday on the ridge',
-    gradient: 'linear-gradient(160deg, #0e1a0c 0%, #182812 55%, #243618 100%)',
-    accentColor: 'rgba(46,80,38,0.28)',
-    src: '/images/gallery/experience/ridge-picnic-kot-kailash.webp',
-  },
-  {
-    id: 25, category: 'Experiences', aspect: 'square',
-    caption: 'A woven basket, the ridge at your back', note: 'Picnic spread · Tehni kitchen',
-    gradient: 'linear-gradient(160deg, #1a1408 0%, #261e0e 55%, #322814 100%)',
-    accentColor: 'rgba(139,107,61,0.26)',
-    src: '/images/gallery/experience/picnic-snacks-kot-kailash-ridge.webp',
-  },
-  // ── Library ──────────────────────────────────────────────────
-  {
-    id: 26, category: 'Library', aspect: 'portrait',
-    caption: 'An afternoon with the library', note: 'Reading in the courtyard sun',
-    gradient: 'linear-gradient(160deg, #1a1408 0%, #26200e 55%, #342c14 100%)',
+    id: 74, category: 'Experiences', aspect: 'landscape',
+    caption: 'Private experiences for two', note: 'Curated · intimate',
+    gradient: 'linear-gradient(160deg, #141008 0%, #201a0c 55%, #2c2414 100%)',
     accentColor: 'rgba(139,107,61,0.24)',
-    src: '/images/gallery/library/reading-library-kot-kailash.webp',
+    src: '/images/gallery/experience/private-experiences-couple.jpg',
   },
   {
-    id: 27, category: 'Library', aspect: 'landscape',
-    caption: 'The Kot Kailash library', note: 'Curated for the altitude',
-    gradient: 'linear-gradient(160deg, #181408 0%, #241e0e 55%, #302816 100%)',
-    accentColor: 'rgba(139,107,61,0.22)',
-    src: '/images/gallery/library/kot-kailash-library-collection.webp',
+    id: 75, category: 'Experiences', aspect: 'landscape',
+    caption: 'Outdoor cooking — open fire', note: 'Forest kitchen · Kot Kailash',
+    gradient: 'linear-gradient(160deg, #180e06 0%, #261808 55%, #34220e 100%)',
+    accentColor: 'rgba(155,78,28,0.36)',
+    src: '/images/gallery/experience/outdoor-cooking-experience.jpg',
   },
   {
-    id: 28, category: 'Library', aspect: 'landscape',
-    caption: 'Books chosen for the ridge', note: 'The collection',
-    gradient: 'linear-gradient(160deg, #16120a 0%, #221c10 55%, #2e2618 100%)',
+    id: 76, category: 'Experiences', aspect: 'landscape',
+    caption: 'Culinary class — Tehni kitchen', note: 'Learn · cook · eat',
+    gradient: 'linear-gradient(160deg, #1a1208 0%, #2a1e10 55%, #382a16 100%)',
+    accentColor: 'rgba(139,107,61,0.28)',
+    src: '/images/gallery/experience/culinary-class-kot-kailash.jpg',
+  },
+  {
+    id: 77, category: 'Experiences', aspect: 'landscape',
+    caption: 'Yoga at Kot Kailash', note: 'Morning practice · ridge view',
+    gradient: 'linear-gradient(160deg, #0e1a0c 0%, #162410 55%, #1e3016 100%)',
+    accentColor: 'rgba(46,80,38,0.3)',
+    src: '/images/gallery/experience/yoga-at-kot-kailash.jpg',
+  },
+  {
+    id: 78, category: 'Experiences', aspect: 'landscape',
+    caption: 'Chholiya dance of Kumaon', note: 'Traditional performance · celebrations',
+    gradient: 'linear-gradient(160deg, #1a1008 0%, #2c1c0c 55%, #3c2810 100%)',
+    accentColor: 'rgba(155,98,42,0.3)',
+    src: '/images/gallery/experience/chholiya-dance-kumaon.jpeg',
+  },
+  {
+    id: 79, category: 'Experiences', aspect: 'landscape',
+    caption: 'Cricket at Kot Kailash', note: 'The ridge ground · afternoons',
+    gradient: 'linear-gradient(160deg, #0c1808 0%, #14220e 55%, #1c2e16 100%)',
+    accentColor: 'rgba(46,80,38,0.28)',
+    src: '/images/gallery/experience/cricket-at-kot-kailash.jpg',
+  },
+  {
+    id: 80, category: 'Experiences', aspect: 'landscape',
+    caption: 'Wanderlust — the ridge trails', note: 'No signboards · just walk',
+    gradient: 'linear-gradient(160deg, #0e1a0c 0%, #182812 55%, #243618 100%)',
+    accentColor: 'rgba(46,80,38,0.32)',
+    src: '/images/gallery/experience/wanderlust-kot-kailash.jpg',
+  },
+
+  // ── Wildlife (7) ──────────────────────────────────────────────
+  {
+    id: 81, category: 'Wildlife', aspect: 'portrait',
+    caption: 'Black-headed Jay', note: 'Garrulus lanceolatus · resident',
+    gradient: 'linear-gradient(160deg, #081018 0%, #101820 55%, #182028 100%)',
+    accentColor: 'rgba(42,80,139,0.24)',
+    src: '/images/gallery/wildlife/black-headed-jay.jpg',
+  },
+  {
+    id: 82, category: 'Wildlife', aspect: 'portrait',
+    caption: 'Ferruginous Flycatcher', note: 'Muscicapa ferruginea · passage migrant',
+    gradient: 'linear-gradient(160deg, #181008 0%, #261a0e 55%, #342414 100%)',
+    accentColor: 'rgba(155,98,42,0.3)',
+    src: '/images/gallery/wildlife/ferruginous-flycatcher.jpeg',
+  },
+  {
+    id: 83, category: 'Wildlife', aspect: 'portrait',
+    caption: 'Himalayan Bulbul', note: 'Pycnonotus leucogenys · common on ridge',
+    gradient: 'linear-gradient(160deg, #0c1008 0%, #14180e 55%, #1c2214 100%)',
+    accentColor: 'rgba(46,80,38,0.28)',
+    src: '/images/gallery/wildlife/himalayan-bulbul.jpg',
+  },
+  {
+    id: 84, category: 'Wildlife', aspect: 'portrait',
+    caption: 'Himalayan Woodpecker', note: 'Dendrocopos himalayensis · deciduous forest',
+    gradient: 'linear-gradient(160deg, #0e1208 0%, #161c0e 55%, #1e2616 100%)',
+    accentColor: 'rgba(46,80,38,0.3)',
+    src: '/images/gallery/wildlife/himalayan-woodpecker.png',
+  },
+  {
+    id: 85, category: 'Wildlife', aspect: 'landscape',
+    caption: 'Jageshwar Temple complex', note: '124 temples · 9th century · 10 km',
+    gradient: 'linear-gradient(160deg, #101418 0%, #181c24 55%, #20262e 100%)',
+    accentColor: 'rgba(139,107,61,0.12)',
+    src: '/images/gallery/wildlife/jageshwar-temple.jpeg',
+  },
+  {
+    id: 86, category: 'Wildlife', aspect: 'portrait',
+    caption: 'Stripe-breasted Woodpecker', note: 'Dendrocopos atratus · forest canopy',
+    gradient: 'linear-gradient(160deg, #0e1208 0%, #161c0e 55%, #1e2a16 100%)',
+    accentColor: 'rgba(46,80,38,0.28)',
+    src: '/images/gallery/wildlife/stripe-breasted-woodpecker.png',
+  },
+  {
+    id: 87, category: 'Wildlife', aspect: 'portrait',
+    caption: 'White-throated Laughingthrush', note: 'Pterorhinus albogularis · garrulous flocks',
+    gradient: 'linear-gradient(160deg, #100e08 0%, #181610 55%, #221e18 100%)',
     accentColor: 'rgba(139,107,61,0.2)',
-    src: '/images/gallery/library/library-books-kot-kailash.webp',
-  },
-  {
-    id: 29, category: 'Library', aspect: 'landscape',
-    caption: 'The library at dusk', note: 'Evening light',
-    gradient: 'linear-gradient(160deg, #14100a 0%, #1e1810 55%, #282218 100%)',
-    accentColor: 'rgba(139,107,61,0.18)',
-    src: '/images/gallery/library/library-evening-kot-kailash.webp',
-  },
-  {
-    id: 30, category: 'Library', aspect: 'portrait',
-    caption: 'A quiet hour with the library', note: 'Cormorant light',
-    gradient: 'linear-gradient(160deg, #181208 0%, #241c0e 55%, #302616 100%)',
-    accentColor: 'rgba(139,107,61,0.22)',
-    src: '/images/gallery/library/library-interior-kot-kailash.webp',
+    src: '/images/gallery/wildlife/white-throated-laughingthrush.jpg',
   },
 ];
 
@@ -249,6 +668,7 @@ const ASPECT_RATIO: Record<GalleryImage['aspect'], string> = {
 export default function GalleryClient() {
   const [activeCategory, setActiveCategory] = useState<Category>('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [showTop, setShowTop] = useState(false);
 
   const filtered = activeCategory === 'All'
     ? IMAGES
@@ -275,6 +695,12 @@ export default function GalleryClient() {
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [lightboxIndex, closeLightbox, prevImage, nextImage]);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 600);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     if (lightboxIndex !== null) {
@@ -406,6 +832,53 @@ export default function GalleryClient() {
           .gl-lb-prev { left: 4px; }
           .gl-lb-next { right: 4px; }
           .gl-lb-img { height: 50vw; min-height: 220px; }
+        }
+
+        /* ─── Scroll-to-top ──────────────────────────────────── */
+        @keyframes glTopIn {
+          from { opacity: 0; transform: translateY(12px) scale(0.88); }
+          to   { opacity: 1; transform: translateY(0)    scale(1); }
+        }
+        @keyframes glTopOut {
+          from { opacity: 1; transform: translateY(0)    scale(1); }
+          to   { opacity: 0; transform: translateY(12px) scale(0.88); }
+        }
+        .gl-top-btn {
+          position: fixed;
+          bottom: 36px;
+          left: 36px;
+          z-index: 200;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: var(--ink);
+          border: 1px solid rgba(139,107,61,0.35);
+          color: var(--gold);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.28);
+          transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
+          touch-action: manipulation;
+        }
+        .gl-top-btn:hover {
+          background: rgba(139,107,61,0.12);
+          border-color: var(--gold);
+          transform: translateY(-3px);
+        }
+        .gl-top-btn:focus-visible {
+          outline: 2px solid var(--gold);
+          outline-offset: 3px;
+        }
+        .gl-top-btn--visible { animation: glTopIn  0.32s cubic-bezier(0.34,1.56,0.64,1) both; }
+        .gl-top-btn--hidden  { animation: glTopOut 0.22s ease both; pointer-events: none; }
+        @media (prefers-reduced-motion: reduce) {
+          .gl-top-btn--visible, .gl-top-btn--hidden { animation: none !important; }
+          .gl-top-btn--hidden { opacity: 0; pointer-events: none; }
+        }
+        @media (max-width: 640px) {
+          .gl-top-btn { bottom: 24px; left: 20px; width: 44px; height: 44px; }
         }
       `}</style>
 
@@ -586,8 +1059,9 @@ export default function GalleryClient() {
                       src={img.src}
                       alt={img.caption}
                       fill
-                      loading="lazy"
-                      sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                      {...(i < 4 ? { priority: true } : { loading: 'lazy' as const })}
+                      quality={85}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       style={{ objectFit: 'cover' }}
                     />
                   </div>
@@ -674,68 +1148,25 @@ export default function GalleryClient() {
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.3)',
-            }}>— Pushkar Singh Negi, Founder</span>
+            }}>— Pushkar Singh Negi, Co Founder</span>
           </div>
         </RevealWrapper>
       </section>
 
-      {/* ─── CTA — light break before dark Reserve ────────────── */}
-      <section style={{
-        background: 'var(--parchment)',
-        padding: '80px 64px',
-        textAlign: 'center',
-      }}>
-        <RevealWrapper>
-          <span style={{
-            fontFamily: 'var(--sans)',
-            fontSize: '11px',
-            letterSpacing: '0.32em',
-            textTransform: 'uppercase',
-            color: 'var(--gold)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '12px',
-            marginBottom: '20px',
-          }}>
-            <span style={{ width: '22px', height: '1px', background: 'var(--gold)', opacity: 0.4 }} />
-            Eight Keys · Rare Availability
-            <span style={{ width: '22px', height: '1px', background: 'var(--gold)', opacity: 0.4 }} />
-          </span>
-          <h2 style={{
-            fontFamily: 'var(--serif)',
-            fontSize: 'clamp(2rem, 3.5vw, 3rem)',
-            fontWeight: 300,
-            fontStyle: 'italic',
-            color: 'var(--ink)',
-            marginBottom: '14px',
-            lineHeight: 1.15,
-          }}>
-            Come see it for yourself.
-          </h2>
-          <p style={{
-            fontFamily: 'var(--serif)',
-            fontSize: '0.95rem',
-            fontStyle: 'italic',
-            color: 'var(--ink-soft)',
-            marginBottom: '32px',
-            lineHeight: 1.75,
-          }}>
-            The photographs are placeholders for the actual experience.
-          </p>
-          <a
-            href="https://reservations.hotel-spider.com/032644b5fbfafed6"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-gold"
-            style={{ padding: '15px 52px', fontSize: '11px', letterSpacing: '0.26em' }}
-          >
-            Reserve a Room
-          </a>
-        </RevealWrapper>
-      </section>
-
       <Reserve />
+
+      {/* ─── Scroll-to-top ────────────────────────────────────── */}
+      <button
+        className={`gl-top-btn ${showTop ? 'gl-top-btn--visible' : 'gl-top-btn--hidden'}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Scroll to top"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+          stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"
+          aria-hidden="true">
+          <path d="M7 12V2M2 7l5-5 5 5" />
+        </svg>
+      </button>
 
       {/* ─── Lightbox ─────────────────────────────────────────── */}
       {activeImg !== null && lightboxIndex !== null && (
@@ -774,7 +1205,8 @@ export default function GalleryClient() {
                 src={activeImg.src}
                 alt={activeImg.caption}
                 fill
-                sizes="(max-width:680px) 100vw, 860px"
+                quality={85}
+                sizes="(max-width: 680px) 100vw, 860px"
                 style={{ objectFit: 'cover' }}
               />
             </div>

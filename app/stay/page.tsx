@@ -9,17 +9,17 @@ import RevealWrapper from '@/components/ui/RevealWrapper';
 const HOTEL_SPIDER_URL = 'https://reservations.hotel-spider.com/032644b5fbfafed6';
 
 const ROOM_HIGHLIGHTS: Record<string, string[]> = {
-  'kumaon-vann':    ['Freestanding bath', 'Snow peak views', 'Private bonfire', 'Seclusion'],
-  'family-suite':   ['Glass observatory', 'Private dining', 'Fireplace', 'Library'],
-  'kutir-suites':   ['Machan loft', 'Himalayan views', '4 independent keys'],
+  'kumaon-vann': ['Freestanding bath', 'Snow peak views', 'Private bonfire', 'Seclusion'],
+  'family-suite': ['Glass observatory', 'Private dining', 'Fireplace', 'Library'],
+  'kutir-suites': ['Machan loft', 'Himalayan views', '4 independent keys'],
   'kumaoni-suites': ['Clay walls', 'Century-old stone', 'Valley views'],
 };
 
 const INCLUSIONS = [
-  { roman: 'I',   label: 'All Meals',       detail: 'Breakfast, lunch & dinner from Tehni — the on-property kitchen.' },
-  { roman: 'II',  label: 'All Experiences', detail: 'Nature walks, guided trails, bonfires — every activity included.' },
-  { roman: 'III', label: 'Your Host',       detail: 'Pushkar Singh Negi is on the property every day, personally.' },
-  { roman: 'IV',  label: 'Zero Extras',     detail: 'No service charge, no hidden fees — what you book is what you pay.' },
+  { roman: 'I', label: 'Tehni — The Kitchen', detail: 'Breakfast, lunch & dinner available daily from Tehni, our on-property kitchen. Freshly prepared from the village.' },
+  { roman: 'II', label: 'Experiences', detail: 'Forest walks, guided trails, temple visits, bonfires — all available to arrange with your host during your stay.' },
+  { roman: 'III', label: 'Your Host', detail: 'Pushkar Singh Negi is on the property every day, personally available to you.' },
+  { roman: 'IV', label: 'Transparent Pricing', detail: 'No hidden charges. What you book is what you pay. Every additional arrangement is discussed and agreed in advance.' },
 ];
 
 export const metadata: Metadata = buildMetadata({
@@ -38,7 +38,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function StayPage() {
   const featuredRooms = rooms.filter(r => r.featured);
-  const suiteRooms    = rooms.filter(r => !r.featured);
+  const suiteRooms = rooms.filter(r => !r.featured);
 
   return (
     <>
@@ -349,10 +349,9 @@ export default function StayPage() {
             }}
           >
             {([
-              { value: '8',        label: 'Keys' },
-              { value: '3',        label: 'Houses' },
+              { value: '8', label: 'Keys' },
+              { value: '3', label: 'Houses' },
               { value: '7,800 ft', label: 'Altitude' },
-              { value: '100%',     label: 'All-Inclusive' },
             ] as const).map(stat => (
               <div key={stat.label} className="st-stat">
                 <div style={{
@@ -437,12 +436,12 @@ export default function StayPage() {
             color: 'rgba(255,255,255,0.22)',
           }}>Scroll</span>
           <svg width="1" height="48" viewBox="0 0 1 48" aria-hidden="true">
-            <line x1="0.5" y1="0" x2="0.5" y2="48" stroke="rgba(255,255,255,0.14)" strokeWidth="1"/>
+            <line x1="0.5" y1="0" x2="0.5" y2="48" stroke="rgba(255,255,255,0.14)" strokeWidth="1" />
           </svg>
         </div>
       </section>
 
-      {/* ─── §2 All-Inclusive Promise ─────────────────────────── */}
+      {/* ─── §2 What Kot Kailash Offers ──────────────────────── */}
       <section style={{ background: 'var(--ink)' }}>
         <RevealWrapper>
           <div style={{
@@ -455,15 +454,6 @@ export default function StayPage() {
             flexWrap: 'wrap',
           }}>
             <div>
-              <span style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '11px',
-                letterSpacing: '0.32em',
-                textTransform: 'uppercase',
-                color: 'var(--gold)',
-                display: 'block',
-                marginBottom: '12px',
-              }}>All-inclusive</span>
               <h2 style={{
                 fontFamily: 'var(--serif)',
                 fontSize: 'clamp(1.8rem, 2.8vw, 2.6rem)',
@@ -473,7 +463,7 @@ export default function StayPage() {
                 lineHeight: 1.12,
                 maxWidth: '480px',
               }}>
-                Every stay includes everything.
+                Everything you need is here.
               </h2>
             </div>
             <p style={{
@@ -484,7 +474,7 @@ export default function StayPage() {
               lineHeight: 1.82,
               maxWidth: '280px',
             }}>
-              No supplements. No schedule. What you see is what you get — and everything is already there.
+              Meals, experiences, and your host — all available at Kot Kailash, arranged around you.
             </p>
           </div>
         </RevealWrapper>
@@ -573,7 +563,7 @@ export default function StayPage() {
                 color: 'var(--ink)',
                 lineHeight: 1.1,
               }}>
-                Choose your ridge.
+                Choose your Stay.
               </h2>
             </div>
             <a
@@ -599,7 +589,7 @@ export default function StayPage() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
             {featuredRooms.map((room, i) => {
-              const imageLeft  = i % 2 === 0;
+              const imageLeft = i % 2 === 0;
               const highlights = ROOM_HIGHLIGHTS[room.id] ?? [];
               const roomNumber = String(i + 1).padStart(2, '0');
 
@@ -712,9 +702,9 @@ export default function StayPage() {
                           fontStyle: 'italic',
                           color: 'rgba(255,255,255,0.56)',
                           lineHeight: 1.9,
-                          maxWidth: '380px',
+                          maxWidth: '480px',
                           marginBottom: '28px',
-                        }}>{room.description}</p>
+                        }}>{room.shortDescription}</p>
 
                         {/* Rate + capacity */}
                         <div style={{
@@ -725,17 +715,7 @@ export default function StayPage() {
                           gap: '36px',
                           flexWrap: 'wrap',
                         }}>
-                          <div>
-                            <span style={{
-                              fontFamily: 'var(--sans)', fontSize: '10px',
-                              letterSpacing: '0.22em', textTransform: 'uppercase',
-                              color: 'rgba(255,255,255,0.3)', display: 'block', marginBottom: '5px',
-                            }}>Rate</span>
-                            <span style={{
-                              fontFamily: 'var(--sans)', fontSize: '14px',
-                              letterSpacing: '0.04em', color: 'var(--gold)',
-                            }}>{room.price}</span>
-                          </div>
+
                           <div>
                             <span style={{
                               fontFamily: 'var(--sans)', fontSize: '10px',
@@ -851,7 +831,7 @@ export default function StayPage() {
                           fontFamily: 'var(--serif)', fontSize: '0.9rem',
                           fontStyle: 'italic', color: 'rgba(255,255,255,0.52)',
                           lineHeight: 1.88, marginBottom: '24px',
-                        }}>{room.description}</p>
+                        }}>{room.shortDescription}</p>
 
                         {/* Price row */}
                         <div style={{
@@ -860,17 +840,7 @@ export default function StayPage() {
                           marginBottom: '22px',
                           display: 'flex', gap: '28px', flexWrap: 'wrap',
                         }}>
-                          <div>
-                            <span style={{
-                              fontFamily: 'var(--sans)', fontSize: '10px',
-                              letterSpacing: '0.22em', textTransform: 'uppercase',
-                              color: 'rgba(255,255,255,0.3)', display: 'block', marginBottom: '4px',
-                            }}>Rate</span>
-                            <span style={{
-                              fontFamily: 'var(--sans)', fontSize: '13px',
-                              color: 'var(--gold)',
-                            }}>{room.price}</span>
-                          </div>
+
                           <div>
                             <span style={{
                               fontFamily: 'var(--sans)', fontSize: '10px',
@@ -959,7 +929,7 @@ export default function StayPage() {
             }}>{buyout.note}</p>
 
             <a
-              href="mailto:reach@kotkailash.com?subject=Full%20Property%20Buyout%20Enquiry"
+              href="mailto:info@kotkailash.com?subject=Full%20Property%20Buyout%20Enquiry"
               className="btn-gold"
               style={{ padding: '15px 48px', fontSize: '11px', letterSpacing: '0.24em' }}
             >

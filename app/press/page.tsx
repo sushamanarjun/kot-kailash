@@ -12,15 +12,30 @@ export const metadata: Metadata = buildMetadata({
 
 const coverage = [
   {
+    publication: 'Travel + Leisure India',
+    publicationShort: 'T+L',
+    year: '2024',
+    title: 'Best Places to Visit in India This July 2024',
+    descriptor:
+      'The first time Kot Kailash appeared in print — a mention in Travel + Leisure India\'s July 2024 edit of the best places to visit across the country. The ridge found its first national audience here.',
+    href: 'https://www.travelandleisureasia.com/in/destinations/india/best-places-to-visit-in-india-this-july-2024/',
+    label: 'Travel + Leisure India',
+    featured: false,
+    cardNumeral: 'I',
+    cardLabel: 'First Mention',
+  },
+  {
     publication: 'Condé Nast Traveller',
     publicationShort: 'CNT',
-    year: '2024',
+    year: '2026',
     title: 'Kot Kailash, Almora — A Heritage Retreat in the Kumaon Himalayas',
     descriptor:
       'The Condé Nast Traveller team visited Kot Kailash and wrote about the ridge, the restored farmhouses, the kitchen, and the particular quiet that settles over the property at dawn.',
     href: 'https://www.cntraveller.in/story/kot-kailash-almora-uttarakhand-homestay/',
     label: 'Condé Nast Traveller India',
     featured: true,
+    cardNumeral: 'II',
+    cardLabel: 'Featured Coverage',
   },
 ];
 
@@ -189,7 +204,7 @@ export default function PressPage() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '3px',
+            gap: '20px',
           }}
         >
           {coverage.map((item) => (
@@ -354,7 +369,7 @@ export default function PressPage() {
                         userSelect: 'none',
                       }}
                     >
-                      I
+                      {item.cardNumeral}
                     </span>
                     <span
                       style={{
@@ -366,9 +381,9 @@ export default function PressPage() {
                         textAlign: 'center',
                       }}
                     >
-                      First
-                      <br />
-                      Coverage
+                      {item.cardLabel.split(' ').map((word, wi) => (
+                        <span key={wi}>{word}{wi < item.cardLabel.split(' ').length - 1 ? <br /> : null}</span>
+                      ))}
                     </span>
                   </div>
                 </div>
@@ -393,15 +408,8 @@ export default function PressPage() {
             Coverage updated as it appears.
           </p>
         </RevealWrapper>
-      </section>
 
-      {/* ── §3 Press enquiries ───────────────────────────────── */}
-      <section
-        style={{
-          background: 'var(--ink)',
-          padding: '72px 64px',
-        }}
-      >
+        {/* Press enquiries — kept on light background */}
         <RevealWrapper>
           <div
             className="press-enquiry"
@@ -411,7 +419,9 @@ export default function PressPage() {
               justifyContent: 'space-between',
               gap: '32px',
               maxWidth: '860px',
-              margin: '0 auto',
+              margin: '64px auto 0',
+              paddingTop: '52px',
+              borderTop: '1px solid rgba(26,22,18,0.1)',
             }}
           >
             <div>
@@ -433,17 +443,17 @@ export default function PressPage() {
                   fontFamily: 'var(--serif)',
                   fontSize: '1.05rem',
                   fontStyle: 'italic',
-                  color: 'rgba(255,255,255,0.72)',
+                  color: 'var(--ink-soft)',
                   lineHeight: 1.65,
                   maxWidth: '440px',
                 }}
               >
-                For interviews, FAM stays, photography trips, or media partnerships — write to us directly.
+                For media partnerships — write to us directly.
               </p>
             </div>
             <a
-              href="mailto:info@kotkailash.com?subject=Press%20Enquiry%20%E2%80%94%20Kot%20Kailash"
-              className="btn-outline"
+              href="mailto:psn@kotkailash.com?subject=Media%20Partnership%20%E2%80%94%20Kot%20Kailash"
+              className="btn-gold"
               style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
             >
               Contact for Press

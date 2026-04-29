@@ -48,7 +48,7 @@ export default function Experiences({ standalone = false, preview = false }: Exp
                   lineHeight: 1.15,
                 }}
               >
-                Six ways to know
+                Several ways to know
                 <br />
                 the ridge.
               </h2>
@@ -140,44 +140,23 @@ export default function Experiences({ standalone = false, preview = false }: Exp
         }
       `}</style>
 
-      {/* ── Grid Row 1 ── */}
+      {/* ── Unified grid — all 6 cards (or 3 in preview) ── */}
       <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '3px',
-          marginBottom: '3px',
         }}
         className="exp-grid"
         role="list"
-        aria-label="Experiences at Kot Kailash, part 1"
+        aria-label="Experiences at Kot Kailash"
       >
-        {row1.map((exp, i) => (
-          <RevealWrapper key={exp.numeral} delay={(i as 0 | 1 | 2)}>
+        {(preview ? row1 : [...row1, ...row2]).map((exp, i) => (
+          <RevealWrapper key={exp.numeral} delay={((i % 3) as 0 | 1 | 2)}>
             <ExperienceCard exp={exp} />
           </RevealWrapper>
         ))}
       </div>
-
-      {/* ── Grid Row 2 — hidden in preview/homepage mode ── */}
-      {!preview && (
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '3px',
-          }}
-          className="exp-grid"
-          role="list"
-          aria-label="Experiences at Kot Kailash, part 2"
-        >
-          {row2.map((exp, i) => (
-            <RevealWrapper key={exp.numeral} delay={(i as 0 | 1 | 2)}>
-              <ExperienceCard exp={exp} />
-            </RevealWrapper>
-          ))}
-        </div>
-      )}
 
       {/* ── CTA strip ── */}
       <RevealWrapper>
@@ -192,10 +171,10 @@ export default function Experiences({ standalone = false, preview = false }: Exp
                 marginBottom: '18px',
               }}
             >
-              Six curated experiences. All included in your stay.
+              Six curated experiences. Learn more.
             </p>
             <Link href="/experience" className="btn-outline">
-              See all 6 experiences →
+              See all experiences →
             </Link>
           </div>
         ) : (
@@ -244,7 +223,7 @@ export default function Experiences({ standalone = false, preview = false }: Exp
               </p>
             </div>
             <a
-              href="mailto:reach@kotkailash.com?subject=Experience%20Enquiry"
+              href="mailto:info@kotkailash.com?subject=Experience%20Enquiry"
               className="btn-outline"
               style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
             >
@@ -268,7 +247,7 @@ function ExperienceCard({ exp }: { exp: (typeof experiences)[0] }) {
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '300px',
+        height: '360px',
       }}
     >
       {/* Ghost numeral — atmospheric background */}
@@ -356,6 +335,7 @@ function ExperienceCard({ exp }: { exp: (typeof experiences)[0] }) {
             color: 'rgba(255,255,255,0.45)',
             transition: 'color 0.3s ease',
             display: 'block',
+            whiteSpace: 'pre-line',
           }}
         >
           {exp.duration}

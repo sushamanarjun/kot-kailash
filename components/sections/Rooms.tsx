@@ -63,16 +63,22 @@ export default function Rooms({ showRates = false, compact = false }: RoomsProps
               lineHeight: 1.75,
             }}
           >
-            All meals included. Minimum three nights. Extended stays warmly encouraged.
+            Extended stays warmly encouraged.
           </p>
         </div>
       </RevealWrapper>
 
       {/* Featured Rooms (2-col) */}
+      <style>{`
+        .rooms-featured > div { height: 100%; display: flex; flex-direction: column; }
+        .rooms-featured > div > .room-card { flex: 1; }
+        .rooms-trio > div { height: 100%; display: flex; flex-direction: column; }
+        .rooms-trio > div > .room-card { flex: 1; }
+      `}</style>
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '1.35fr 1fr',
+          gridTemplateColumns: '1fr 1fr',
           gap: '3px',
           marginBottom: '3px',
         }}
@@ -174,10 +180,9 @@ export default function Rooms({ showRates = false, compact = false }: RoomsProps
                 marginBottom: '22px',
               }}
             >
-              Eight keys across three houses. All meals included.
             </p>
             <Link href="/stay" className="btn-gold">
-              View all rooms &amp; rates →
+              View all rooms →
             </Link>
           </div>
         </RevealWrapper>
@@ -235,6 +240,8 @@ function RoomCard({
         position: 'relative',
         overflow: 'hidden',
         background: 'var(--ink)',
+        display: 'flex',
+        flexDirection: 'column',
       }}
       className="room-card"
     >
@@ -252,6 +259,7 @@ function RoomCard({
           height: small ? '310px' : '420px',
           overflow: 'hidden',
           background: 'var(--forest-deep)',
+          flexShrink: 0,
         }}
       >
         <div className="room-card-img" style={{ width: '100%', height: '100%' }}>
@@ -267,7 +275,7 @@ function RoomCard({
       </div>
 
       {/* Body */}
-      <div style={{ padding: '22px 28px 26px' }}>
+      <div style={{ padding: '22px 28px 26px', flex: 1, display: 'flex', flexDirection: 'column' }}>
         <span
           style={{
             fontFamily: 'var(--sans)',
@@ -301,30 +309,19 @@ function RoomCard({
             lineHeight: 1.68,
           }}
         >
-          {room.description}
+          {room.shortDescription}
         </p>
 
         <div
           style={{
             display: 'flex',
-            justifyContent: 'space-between',
+            justifyContent: 'flex-end',
             alignItems: 'center',
-            marginTop: '17px',
+            marginTop: 'auto',
             paddingTop: '15px',
             borderTop: '1px solid rgba(255,255,255,0.05)',
           }}
         >
-          <span
-            style={{
-              fontFamily: 'var(--sans)',
-              fontSize: '11px',
-              letterSpacing: '0.14em',
-              color: 'var(--gold)',
-              fontWeight: 400,
-            }}
-          >
-            {room.price}
-          </span>
           <Link
             href={`/stay/${room.id}`}
             style={{

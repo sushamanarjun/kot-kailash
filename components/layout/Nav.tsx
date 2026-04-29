@@ -92,7 +92,7 @@ export default function Nav() {
             rel="noopener noreferrer"
             className="nav-book-btn"
           >
-            Reserve a Room
+            Reserve Your Stay
           </a>
 
           {/* Hamburger (hidden on desktop via CSS) */}
@@ -190,7 +190,7 @@ export default function Nav() {
                 transition: 'background 0.3s',
               }}
             >
-              Reserve a Room
+              Reserve Your Stay
             </a>
           </div>
         </div>

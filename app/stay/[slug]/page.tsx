@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { buildMetadata } from '@/lib/seo';
 import { rooms } from '@/lib/content/rooms';
 import Reserve from '@/components/sections/Reserve';
+import RoomCarousel from '@/components/sections/RoomCarousel';
 
 const HOTEL_SPIDER_URL = 'https://reservations.hotel-spider.com/032644b5fbfafed6';
 
@@ -190,87 +191,16 @@ export default async function RoomPage({
               color: 'var(--ink-soft)',
               lineHeight: 1.9,
               maxWidth: '540px',
+              whiteSpace: 'pre-wrap',
             }}
           >
             {room.description}
           </div>
         </div>
 
-        {/* Right: Key details */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0',
-          }}
-        >
-          <h3
-            style={{
-              fontFamily: 'var(--sans)',
-              fontSize: '11px',
-              letterSpacing: '0.32em',
-              textTransform: 'uppercase',
-              color: 'var(--gold)',
-              marginBottom: '24px',
-            }}
-          >
-            What&rsquo;s Included
-          </h3>
-          {[
-            { label: 'Occupancy', value: room.capacity },
-            { label: 'Meals', value: 'All meals — breakfast, lunch & dinner' },
-            { label: 'Experiences', value: 'All included in room rate' },
-            { label: 'Minimum Stay', value: 'Three nights' },
-            { label: 'Check-in', value: '2:00 pm' },
-            { label: 'Check-out', value: '11:00 am' },
-            { label: 'Rate', value: room.price },
-          ].map((item) => (
-            <div
-              key={item.label}
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'baseline',
-                padding: '14px 0',
-                borderBottom: '1px solid var(--fog)',
-                gap: '24px',
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: 'var(--sans)',
-                  fontSize: '11px',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  color: 'var(--ink-soft)',
-                  flexShrink: 0,
-                }}
-              >
-                {item.label}
-              </span>
-              <span
-                style={{
-                  fontFamily: 'var(--serif)',
-                  fontSize: '0.9rem',
-                  color: 'var(--ink)',
-                  textAlign: 'right',
-                  lineHeight: 1.4,
-                }}
-              >
-                {item.value}
-              </span>
-            </div>
-          ))}
-
-          <a
-            href={HOTEL_SPIDER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-gold"
-            style={{ marginTop: '32px', textAlign: 'center' }}
-          >
-            Reserve this Suite
-          </a>
+        {/* Right: Gallery carousel */}
+        <div>
+          <RoomCarousel images={room.gallery} />
         </div>
       </section>
 
@@ -350,19 +280,7 @@ export default async function RoomPage({
                     right: '22px',
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: 'var(--sans)',
-                      fontSize: '11px',
-                      letterSpacing: '0.22em',
-                      textTransform: 'uppercase',
-                      color: 'var(--gold)',
-                      display: 'block',
-                      marginBottom: '4px',
-                    }}
-                  >
-                    {r.price}
-                  </span>
+
                   <span
                     style={{
                       fontFamily: 'var(--serif)',

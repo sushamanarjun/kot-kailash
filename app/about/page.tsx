@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { buildMetadata } from '@/lib/seo';
 import Founders from '@/components/sections/Founders';
 import Sustainability from '@/components/sections/Sustainability';
-import Reserve from '@/components/sections/Reserve';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 
 export const metadata: Metadata = buildMetadata({
@@ -29,7 +28,7 @@ const MILESTONES = [
   {
     year: '2018',
     label: 'The homecoming',
-    detail: 'Pushkar Singh Negi — founding GM of The Kumaon at Kasar Devi — returns home to restore the family property. Not renovate. Restore.',
+    detail: 'Pushkar Singh Negi — co founder of The Kumaon at Kasar Devi — returns home to restore the family property. Not renovate. Restore.',
   },
   {
     year: '2021',
@@ -248,7 +247,7 @@ export default function AboutPage() {
                 className="btn-gold"
                 style={{ padding: '13px 36px', fontSize: '11px', letterSpacing: '0.24em' }}
               >
-                Reserve a Room
+                Reserve Your Stay
               </a>
             </div>
           </div>
@@ -269,7 +268,7 @@ export default function AboutPage() {
             }}
           >
             <svg width="44" height="1" viewBox="0 0 44 1">
-              <line x1="0" y1="0.5" x2="44" y2="0.5" stroke="rgba(255,255,255,0.18)" strokeWidth="1"/>
+              <line x1="0" y1="0.5" x2="44" y2="0.5" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
             </svg>
             <span style={{
               fontFamily: 'var(--sans)', fontSize: '9px',
@@ -354,53 +353,53 @@ export default function AboutPage() {
 
             <h2 style={{
               fontFamily: 'var(--serif)',
-              fontSize: 'clamp(2.4rem, 3.6vw, 3.4rem)',
+              fontSize: 'clamp(2rem, 3vw, 2.8rem)',
               fontWeight: 300,
               color: 'var(--ink)',
-              lineHeight: 1.12,
+              lineHeight: 1.15,
+              marginBottom: '8px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.04em',
+            }}>
+              A Century-Old House on a Ridge at 7,800 Feet
+            </h2>
+
+            <p style={{
+              fontFamily: 'var(--sans)',
+              fontSize: '10px',
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              color: 'var(--gold)',
+              opacity: 0.75,
               marginBottom: '36px',
             }}>
-              A name flipped.<br />A home reclaimed.
-            </h2>
+              Almora District, Uttarakhand, Indian Himalayas
+            </p>
 
             <div className="ab-story-col">
               <p>
-                Kot Kailash was once the ancestral storehouse of founder Pushkar
-                Singh Negi&rsquo;s family — farmers from the five-house village
-                of Kailash Kot. Pushkar studied hotel management, built a
-                distinguished career across India&rsquo;s finest properties, and
-                went on to become the founding General Manager of The Kumaon at
-                Kasar Devi — a property that Forbes, Architectural Digest, and
-                the Michelin Guide all took note of.
+                In the village of Kunja Gunth, on a ridge the Shauka shepherds
+                once crossed with their flocks, there is a house that has stood
+                for a hundred years. Its walls are hand-pressed mud plaster and
+                cow dung — built not for aesthetics, but for insulation and
+                endurance. Its floors are traditional clay. The cedar and oak
+                forests around it have been there longer than anyone can say with
+                certainty, and the air quality index, on most mornings, runs in
+                single digits.
               </p>
               <p>
-                But the pull of home was always stronger. When he returned to
-                restore the old family house, he simply flipped the name of his
-                native village — and Kot Kailash was born. The childhood friends
-                and cousins who grew up together, went to the same school, and
-                played cricket in the same fields now form the small, close-knit
-                team that runs it all. Pushkar lives on the property himself,
-                moving between rooms as needed.
+                This is where Kot Kailash Kumaon was founded.
+              </p>
+              <p>
+                Not as a hotel. Not as a homestay. But as something the Indian
+                boutique travel market is only beginning to find language for —
+                a property with the warmth and cultural specificity of a private
+                home, operated with the precision and standards of a world-class
+                retreat. Its founders call this Professionalized Intimacy. It is,
+                in practice, the rarest thing in contemporary travel: a place
+                that feels genuinely discovered rather than designed to be found.
               </p>
             </div>
-
-            {/* Inline pull quote */}
-            <blockquote style={{
-              borderLeft: '2px solid var(--gold)',
-              paddingLeft: '24px',
-              margin: '36px 0',
-            }}>
-              <p style={{
-                fontFamily: 'var(--serif)',
-                fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)',
-                fontStyle: 'italic',
-                color: 'var(--ink)',
-                lineHeight: 1.65,
-                marginTop: 0,
-              }}>
-                This place is not a project for him — it is home.
-              </p>
-            </blockquote>
 
             {/* Chapter divider: The Place */}
             <div style={{
@@ -432,76 +431,41 @@ export default function AboutPage() {
               lineHeight: 1.12,
               marginBottom: '36px',
             }}>
-              Three structures.<br />Eight rooms.<br />One ridge.
+              Three structures.<br />Eight keys.<br />One ridge.
             </h2>
 
             <div className="ab-story-col">
               <p>
-                Kot Kailash unfolds across three structures with just eight rooms
-                in total, keeping the experience intimate and personal. The
-                hamlet of Shaukiyathal — named after the Shauka shepherds who
-                once passed through with their flocks — has little more than
-                6–7 houses and a small shop. In quieter seasons, barely a dozen
-                people can be found here at once.
+                Kot Kailash unfolds across three structures — Kumaoni Suites,
+                Kutir Suites with their machan lofts, a two bedroom Family Suite,
+                and Kumaon Vann, a standalone forest cottage with a freestanding
+                bathtub positioned to face Nanda Devi — keeping the experience
+                intimate in the way that only very small, very considered
+                properties can. The hamlet of Shaukiyathal holds no more than
+                six or seven houses and a modest village shop. Guests do not
+                arrive here by accident.
               </p>
               <p>
-                At the heart of the property sits Pushkar&rsquo;s restored
-                ancestral home, built with mud-plastered walls, clay floors, and
-                wooden beams — almost everything made locally, from the furniture
-                and curtains to the switches, taps, and chimneys. A neighbouring
-                structure, taken on long-term lease from a local homeowner,
-                houses additional suites in natural, unpolished cedar wood. And
-                then there is Kumaon Vann — a former wood shed transformed into
-                a standalone forest cottage, with a private courtyard, a wood
-                fire burner, and a freestanding bathtub that looks directly out
-                to the Nanda Devi range.
+                The kitchen is called Tehni — a zero-kilometre, harvest-led
+                concept with no fixed menu, rooted entirely in the produce of
+                the immediate village and the season that surrounds it. What is
+                served is determined by what the land offers that morning.
               </p>
-            </div>
-
-            {/* Sayed Aziz note */}
-            <div style={{
-              marginTop: '40px',
-              paddingTop: '28px',
-              borderTop: '1px solid rgba(26,22,18,0.08)',
-            }}>
-              <p style={{
-                fontFamily: 'var(--serif)',
-                fontSize: '0.92rem',
-                fontStyle: 'italic',
-                color: 'var(--ink-soft)',
-                lineHeight: 1.88,
-              }}>
-                Supporting the vision from London is Sayed Aziz — a hospitality
-                veteran with experience across the Taj and Oberoi groups — who
-                brings a global perspective to what remains, at its core, a
-                deeply local story.
+              <p>
+                Within walking distance lies Vriddh Jageshwar — believed to be
+                Lord Shiva&rsquo;s original abode, and among the oldest living
+                Shiva temples in the Kumaon Hills, predating Jageshwar Dham by
+                five centuries. Jageshwar Dham, Kasar Devi, and Kainchi Dham
+                are all within easy reach. The ridge is, by geography and by
+                spirit, one of the most culturally layered landscapes in the
+                Indian Himalayas.
               </p>
-            </div>
-
-            {/* Footnote fact */}
-            <div style={{
-              marginTop: '28px',
-              paddingTop: '20px',
-              borderTop: '1px solid rgba(26,22,18,0.08)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '14px',
-            }}>
-              <span style={{
-                width: '20px', height: '1px',
-                background: 'rgba(139,107,61,0.38)',
-                flexShrink: 0,
-              }} />
-              <p style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '10px',
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: 'rgba(61,53,48,0.45)',
-                lineHeight: 1.6,
-              }}>
-                All staff sourced from Kunja Gunth village · 2 km from the
-                property · Zero-kilometre food supply
+              <p>
+                A dedicated sound healing retreat programme — Bur&#257;nsh; is
+                offered in collaboration with Cchitvan, whose principals hold
+                PhDs in Dhrupad. It is not a wellness amenity. It is a
+                considered cultural offering, built for guests who understand
+                the difference.
               </p>
             </div>
 
@@ -626,7 +590,7 @@ export default function AboutPage() {
             marginBottom: '20px',
           }}>
             <span style={{ width: '22px', height: '1px', background: 'var(--gold)', opacity: 0.4 }} />
-            Eight Keys · Rare Availability
+            Rare Availability
             <span style={{ width: '22px', height: '1px', background: 'var(--gold)', opacity: 0.4 }} />
           </span>
           <h2 style={{
@@ -638,7 +602,7 @@ export default function AboutPage() {
             marginBottom: '14px',
             lineHeight: 1.15,
           }}>
-            Come and be part of the story.
+            Reserve your stay at Kot Kailash.
           </h2>
           <p style={{
             fontFamily: 'var(--serif)',
@@ -658,13 +622,26 @@ export default function AboutPage() {
             className="btn-gold"
             style={{ padding: '15px 52px', fontSize: '11px', letterSpacing: '0.26em' }}
           >
-            Reserve a Room
+            Reserve Your Stay
           </a>
+          <p style={{
+            fontFamily: 'var(--sans)',
+            fontSize: '11px',
+            letterSpacing: '0.1em',
+            color: 'var(--ink-soft)',
+            marginTop: '18px',
+          }}>
+            Or call{' '}
+            <a
+              href="tel:+919650264905"
+              style={{ color: 'var(--ink)', textDecoration: 'none' }}
+            >
+              +91 9650264905
+            </a>
+            {' '}· We respond to every enquiry personally
+          </p>
         </RevealWrapper>
       </section>
-
-      {/* ─── §8 Reserve ──────────────────────────────────────── */}
-      <Reserve />
     </>
   );
 }

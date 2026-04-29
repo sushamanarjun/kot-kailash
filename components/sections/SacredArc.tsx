@@ -67,7 +67,7 @@ export default function SacredArc({ compact = false, standalone = false }: Sacre
             >
               Kumaon holds one of the densest concentrations of ancient temple
               architecture in the Himalayas. The sites within reach of the
-              property span 1,200 years of Kumaoni religious history.
+              property span over 2,500 years of Kumaoni religious history.
             </p>
           </div>
 
@@ -85,7 +85,7 @@ export default function SacredArc({ compact = false, standalone = false }: Sacre
               }}
               aria-hidden="true"
             >
-              1,200
+              2,500
             </span>
             <span
               style={{

@@ -5,7 +5,7 @@ import FaqPageClient from './FaqPageClient';
 export const metadata: Metadata = buildMetadata({
   title: 'FAQ | Kot Kailash — Heritage Retreat, Kumaon',
   description:
-    'Frequently asked questions about Kot Kailash — property details, rooms, check-in, dining, amenities, policies, and how to reach us in Kumaon, Uttarakhand.',
+    'Frequently asked questions about Kot Kailash — property details, rooms, dining, amenities, nearby temples, policies, and how to reach us in Kumaon, Uttarakhand.',
   path: '/faq',
 });
 
@@ -18,215 +18,135 @@ const faqSchema = {
       name: 'What is Kot Kailash?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Kot Kailash is a heritage ridge property at 7,800 feet in the Kumaon Himalayas. Set across three heritage farmhouses with 8 guest rooms, the estate sits amid oak and rhododendron forest, terraced farms, and an ancient Shiva temple. It is a family-run retreat, not a hotel.',
+        text: 'Kot Kailash is a heritage retreat set at 7,800 feet in the Kumaon Himalayas — a restored estate of three structures, and centuries of mountain quiet. It is a place to slow down: to eat from the land, walk the ridge, and wake to unobstructed views of the Nanda Devi range.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Where exactly is Kot Kailash located?',
+      name: 'Where is Kot Kailash?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Village Kunja Gunth, Shaukiyathal, District Almora, Uttarakhand — approximately 2.5 hours by road from Kathgodam railway station.',
+        text: 'We are situated in Shaukiyathal, in the Almora district of Uttarakhand — approximately 117 kms from Kathgodam railhead, 150 kms from Pantnagar Airport and 223 kms from Bareilly Airport. Detailed arrival guidance and transfer coordination are provided at the time of booking.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How many rooms are there at Kot Kailash?',
+      name: 'How many rooms do you have?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Eight keys across three heritage houses — Ghar, Baithak, and Kothi. Each house has its own character and views; rooms vary in size and outlook.',
+        text: 'Kot Kailash has eight keys across three distinct structures: the Kumaoni Suites, the Kutir Suites with their machan lofts, a two-bedroom Family Suite, and Kumaon Vann — a standalone forest cottage with a freestanding bathtub looking out toward Nanda Devi.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What kind of property is Kot Kailash?',
+      name: 'What languages does the team speak?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Kot Kailash is a heritage farmstead converted into a guest retreat — a personal home, not a commercial hotel. At any given time only a small number of guests are on the property, which shapes the pace and the experience.',
+        text: 'Our team speaks Kumaoni, Hindi, and English.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Is Kot Kailash suitable for families with children?',
+      name: 'Is housekeeping provided, and what bathroom amenities can guests expect?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Yes. The open grounds, forest trails, and nature-based experiences are well-suited to children. There are no dedicated kids' facilities, but the naturalist walks and farmstead activities are naturally engaging for young guests.",
+        text: 'Yes. Rooms are serviced daily, and the bathrooms are stocked with curated amenities. We also provide daily turndown service. If there is anything specific you require, our team is happy to arrange it in advance.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What is included in the stay at Kot Kailash?',
+      name: 'Is there internet access at the property?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'All meals — breakfast, lunch, and dinner — are included, along with evening tea, evening bonfire, all listed Kot Kailash experiences, and gratuity. The rate is fully inclusive.',
+        text: 'We offer complimentary Wi-Fi throughout the property. We do, however, gently encourage guests to treat connectivity as optional — the ridge has a way of making the outside world feel quite distant.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What are the check-in and check-out times at Kot Kailash?',
+      name: 'Is car parking available?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Check-in is at 2:00 PM and check-out is at 11:00 AM. Early check-in or late check-out can sometimes be arranged subject to availability.',
+        text: 'Yes, complimentary parking is available on the estate.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Is there a minimum stay at Kot Kailash?',
+      name: 'Can accommodation be arranged for guests\' chauffeurs?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Two nights is the minimum. We recommend three nights to properly absorb the altitude, the pace, and the experiences the property has to offer.',
+        text: 'Yes. Driver accommodation can be arranged on a chargeable basis. Please inform us at the time of booking so that we may prepare accordingly.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Can I extend my stay at Kot Kailash after arriving?',
+      name: 'Do you serve non-vegetarian food?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes, subject to availability. You are welcome to request an extension at check-in or by contacting the team during your stay.',
+        text: 'Yes. Our kitchen — rooted in the Tehni philosophy of zero-kilometre, harvest-led cooking — works with seasonal proteins sourced with care. We do not serve beef or pork. All non-vegetarian proteins served at Kot Kailash are halal.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Is there heating in the rooms at Kot Kailash?',
+      name: 'Is a doctor accessible if needed?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'All rooms have heating arrangements for the winter months. Supplementary heaters are available on request during shoulder months when nights turn cold.',
+        text: 'Yes. Medical consultation is available around the clock. The wellbeing of our guests is something we take seriously, and our team is equipped to assist in coordinating care promptly.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What does Tehni — The Kitchen at Kot Kailash serve?',
+      name: 'Are there electric vehicle charging points at the property?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Tehni serves Kumaoni home cooking — seasonal, local, and prepared fresh each day. There is no printed menu. The kitchen works around what is in season and the preferences guests share on arrival.',
+        text: 'Yes. We provide plug points suitable for charging both electric cars and electric bikes.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Can dietary requirements be accommodated at Kot Kailash?',
+      name: 'Where are the nearest fuel stations?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Vegetarian, vegan, gluten-free, and Jain diets can all be accommodated. Please mention your requirements at the time of booking and again on arrival so the kitchen can plan accordingly.',
+        text: 'There are two petrol stations within easy reach: Garudabaanj at approximately 7 kilometres (20 minutes), and Barechhina at approximately 18 kilometres (30 minutes).',
       },
     },
     {
       '@type': 'Question',
-      name: 'Is alcohol served at Kot Kailash?',
+      name: 'What conveniences are available nearby?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Uttarakhand is a restricted state. No alcohol is served or permitted on the property.',
+        text: 'A small provisions shop sits just across the road from the property. For broader needs — an ATM, bank, pharmacy, cab services, bus connections, and a hospital — Panuwanaula is approximately 7 kilometres away, or about 20 minutes by road.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Is there Wi-Fi at Kot Kailash?',
+      name: 'What temples and places of interest are in the area?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Basic connectivity is available in the common areas. Kot Kailash intentionally limits connectivity — the ridge is best experienced without a screen in hand.',
+        text: 'The Kumaon foothills hold some of the most quietly extraordinary heritage in the Himalayan region. Nearby landmarks include: Vridh Jageshwar Temple (2 kms, 5 mins); Jageshwar Temple complex (10 kms, 15 mins); Vimal Kot Devi Temple (5 kms, 12 mins); Chitai Golu Devta Temple (25 kms, 45 mins); Nanda Devi Temple Almora (33 kms, 1 hour); Lakhudiyar Rock Art Caves (20 kms, 35 mins); Almora Zoo (25 kms, 45 mins); Katarmal Sun Temple (50 kms, 2 hours). Our team is happy to assist with guided excursions.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What is mobile network coverage like at Kot Kailash?',
+      name: 'Is Kot Kailash pet-friendly?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Coverage is patchy, as expected at altitude. BSNL has the most consistent signal in the area. Airtel and Jio work intermittently.',
+        text: 'Yes. Well-behaved pets are welcome at Kot Kailash. The property has its own resident dog, so guests travelling with animals should be comfortable in the company of other four-legged guests. A nominal housekeeping fee applies for guests arriving with pets. We ask that animals be kept on a lead in communal areas, and request that you inform us at the time of booking so that we may prepare your accommodation accordingly.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Is there a doctor or medical facility near Kot Kailash?',
+      name: 'Is the property wheelchair accessible?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The nearest hospital is in Almora, approximately 40 km away. A comprehensive first-aid kit and emergency contacts are maintained at the property, and staff are trained in basic first aid.',
+        text: 'We regret that the terrain and historic structure of Kot Kailash do not permit full wheelchair accessibility at this time. We are happy to discuss the specific requirements of any guest in advance to ensure the best possible experience within the property\'s constraints.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Is there a swimming pool or gym at Kot Kailash?',
+      name: 'Are there age restrictions for guests?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. The experience at Kot Kailash is centred on the forest, the ridge, the views, and slow living — not amenities.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do I reach Kot Kailash?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The nearest railhead is Kathgodam, served by the Corbett Express and other trains from Delhi. From Kathgodam it is approximately 2.5 hours by road via Almora. Private cabs and shared taxis are available from the station.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is there an airport near Kot Kailash?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Pantnagar Airport is the nearest, roughly 3 hours away, with limited connections. Most guests fly into Delhi and travel onward by train or road — the overnight Corbett Express from Delhi makes for a comfortable journey.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Does Kot Kailash arrange airport or station transfers?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. We can arrange private cab transfers from Kathgodam or Haldwani on request. Transfer charges apply and should be confirmed when making your reservation.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the nearest town to Kot Kailash?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Shaukiyathal is a small village. Almora, approximately 40 km away, is the nearest town with ATMs, pharmacies, a hospital, and shops.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are there ATMs near Kot Kailash?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Almora has multiple ATMs. We recommend carrying adequate cash before leaving the main road, as UPI signal can be unreliable en route and at the property.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the cancellation policy at Kot Kailash?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Cancellations are free if made more than 15 days before your arrival date. No refund is issued for cancellations within 15 days or for no-shows. The blackout period (20 Dec – 5 Jan) has stricter terms — no cancellation charge only if cancelled more than 90 days before arrival.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is smoking allowed at Kot Kailash?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Smoking is not permitted inside rooms or common areas. A designated outdoor space is available for guests who smoke.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are pets allowed at Kot Kailash?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Pets are not permitted at Kot Kailash at this time.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is Kot Kailash accessible for guests with mobility limitations?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The property involves uneven terrain, stone steps, and hillside paths. It is not recommended for guests with significant mobility challenges.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do I make a reservation at Kot Kailash?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Reservations can be made via the Reserve page on the website at kotkailash.com/reserve, or by writing directly to stay@kotkailash.com. We respond to all enquiries personally.',
+        text: 'The primary guest must be 18 years of age or older to check in. Guests under 18 are warmly welcome when accompanied by an adult guardian.',
       },
     },
   ],

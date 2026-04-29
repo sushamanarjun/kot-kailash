@@ -61,7 +61,7 @@ const CarIcon = () => (
 );
 
 /* Map index to icon component (ignores the emoji in data) */
-const TRANSPORT_ICONS = [TrainIcon, PlaneIcon, CarIcon];
+const TRANSPORT_ICONS = [TrainIcon, PlaneIcon, PlaneIcon, CarIcon];
 
 export default function Journey() {
   return (
@@ -108,9 +108,10 @@ export default function Journey() {
           }}
         >
           <p>
-            Shaukiyathal is 90 km from Kathgodam and 280 km from Delhi. The
-            road climbs steadily after Almora town. There is no other way to
-            arrive than slowly.
+            Shaukiyathal is 90 kms (56 miles) from Haldwani / Kathgodam
+            Railway station and about 280 kms (174 miles) from New Delhi.
+            The road climbs steadily after Almora town. There is no other
+            way to arrive than slowly.
           </p>
           <p style={{ marginTop: '18px' }}>
             We consider the drive to be the beginning of the stay, not a

@@ -8,9 +8,7 @@ import Rooms from '@/components/sections/Rooms';
 import Experiences from '@/components/sections/Experiences';
 import Tehni from '@/components/sections/Tehni';
 import Seasons from '@/components/sections/Seasons';
-import TwoUp from '@/components/sections/TwoUp';
 import SacredArc from '@/components/sections/SacredArc';
-import Founders from '@/components/sections/Founders';
 import Testimonials from '@/components/sections/Testimonials';
 import PressBar from '@/components/sections/PressBar';
 import Reserve from '@/components/sections/Reserve';
@@ -51,11 +49,9 @@ export default function HomePage() {
       <Experiences preview />
       <Tehni compact />
       <Seasons />
-      <TwoUp />
       <SacredArc compact />
       <Testimonials />
       <PressBar />
-      <Founders compact />
       <Reserve />
     </>
   );

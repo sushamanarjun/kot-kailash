@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     q: 'Do you arrange pickups?',
-    a: 'Yes. We arrange airport/station pickup from Kathgodam, Haldwani, or Pantnagar. Share your arrival details at reach@kotkailash.com.',
+    a: 'Yes. We arrange airport/station pickup from Kathgodam, Haldwani, or Pantnagar. Share your arrival details at info@kotkailash.com.',
   },
   {
     q: 'What is the road condition?',
@@ -383,7 +383,7 @@ export default function HowToReachPage() {
               WhatsApp Directions
             </a>
             <a
-              href="mailto:reach@kotkailash.com?subject=Transfer%20Arrangement"
+              href="mailto:info@kotkailash.com?subject=Transfer%20Arrangement"
               className="btn-outline"
             >
               Arrange Transfer

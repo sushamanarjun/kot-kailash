@@ -2,31 +2,27 @@ import { NextResponse } from 'next/server';
 
 const LAT = 29.655549413999495;
 const LON = 79.84102259547427;
+const KEY = process.env.WEATHERAPI_KEY;
 
 export const revalidate = 1800; // cache for 30 minutes server-side
 
 export async function GET() {
+  if (!KEY) return NextResponse.json(null, { status: 503 });
+
   try {
-    const [weatherRes, aqiRes] = await Promise.all([
-      fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,weathercode&timezone=Asia%2FKolkata`
-      ),
-      fetch(
-        `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${LAT}&longitude=${LON}&current=european_aqi&timezone=Asia%2FKolkata`
-      ),
-    ]);
+    const res = await fetch(
+      `https://api.weatherapi.com/v1/current.json?key=${KEY}&q=${LAT},${LON}`
+    );
 
-    if (!weatherRes.ok) {
-      return NextResponse.json(null, { status: 502 });
-    }
+    if (!res.ok) return NextResponse.json(null, { status: 502 });
 
-    const weather = await weatherRes.json();
-    const aqi = aqiRes.ok ? await aqiRes.json() : null;
+    const data = await res.json();
 
     return NextResponse.json({
-      temp: Math.round(weather.current.temperature_2m),
-      weathercode: weather.current.weathercode as number,
-      aqi: aqi ? Math.round(aqi.current.european_aqi) : null,
+      temp: Math.round(data.current.temp_c),
+      conditionCode: data.current.condition.code as number,
+      condition: data.current.condition.text as string,
+      isDay: data.current.is_day as 0 | 1,
     });
   } catch {
     return NextResponse.json(null, { status: 502 });

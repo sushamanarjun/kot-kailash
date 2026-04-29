@@ -22,29 +22,22 @@ export const metadata: Metadata = buildMetadata({
   ],
 });
 
-/* ── Per-experience image atmosphere (placeholder gradients until real photos arrive) ── */
-const expAtmosphere = [
-  { grad: 'linear-gradient(140deg,#1c2718 0%,#2e3d2a 100%)', gx: 25, gy: 65 },
-  { grad: 'linear-gradient(155deg,#2e3d2a 0%,#1a1612 100%)', gx: 70, gy: 35 },
-  { grad: 'linear-gradient(125deg,#1a1612 0%,#2e3d2a 80%)',  gx: 40, gy: 55 },
-  { grad: 'linear-gradient(160deg,#2e3d2a 0%,#1c2718 100%)', gx: 60, gy: 70 },
-  { grad: 'linear-gradient(130deg,#1c2718 0%,#3d3530 100%)', gx: 30, gy: 40 },
-  { grad: 'linear-gradient(145deg,#1a1612 0%,#2e3d2a 100%)', gx: 55, gy: 60 },
-];
-
 const promises = [
-  { label: 'All Included', detail: 'Every experience is part of your room rate. Nothing is extra.' },
+  { label: 'Discuss with your host.', detail: 'Tell us what draws you. We will find the right trail, temple, or table.' },
   { label: 'No Programme', detail: 'No schedule. No activities desk. A conversation is how it begins.' },
-  { label: 'Host-Arranged', detail: 'Pushkar walks with you, or shows you the way.' },
+  { label: 'Host-Arranged', detail: 'Your host walks with you or shows you the way.' },
 ];
 
 const EXP_IMAGES: Record<string, string> = {
-  'I':   '/images/walk-to-jageshwar-kot-kailash.webp',        // Walk to Vriddh Jageshwar
-  'II':  '/images/jageshwar-temple-almora-uttarakhand.webp', // Jageshwar Dham
-  'III': '/images/tehni-kitchen-interior-kot-kailash.webp',  // Bread in a Kumaoni Home
-  'IV':  '/images/ridge-picnic-kot-kailash.webp',            // Ridge Picnic
-  'V':   '/images/kasar-devi-bansar-kumaon.webp',            // Kasar Devi & Binsar
-  'VI':  '/images/forest-walk-kot-kailash-kumaon.webp',      // Forest Walks
+  '01': '/images/experiences/walk-to-jageshwar.jpg',
+  '02': '/images/experiences/jageshwar.jpeg',
+  '03': '/images/experiences/trek-to-bimalkot.jpg',
+  '04': '/images/experiences/yoga.jpg',
+  '05': '/images/experiences/culinary-class.jpeg',
+  '06': '/images/experiences/jata-ganga.jpg',
+  '07': '/images/experiences/udiyar-caves.jpg',
+  '08': '/images/experiences/kumaoni-food-trail.jpg',
+  '09': '/images/experiences/village-picnic.jpg',
 };
 
 export default function ExperiencePage() {
@@ -55,7 +48,7 @@ export default function ExperiencePage() {
       </h1>
 
       {/* ═══════════════════════════════════════════════════════════════
-          §1  FULL-VIEWPORT HERO — image placeholder
+          §1  FULL-VIEWPORT HERO
       ═══════════════════════════════════════════════════════════════ */}
       <section
         style={{
@@ -83,7 +76,6 @@ export default function ExperiencePage() {
           }
         `}</style>
 
-        {/* Hero background image */}
         <Image
           src="/images/kot-kailash-ridge-shaukiyathal.jpeg"
           alt="Ridge view from Kot Kailash, Shaukiyathal — 7,800 ft"
@@ -92,13 +84,11 @@ export default function ExperiencePage() {
           style={{ objectFit: 'cover', zIndex: 0 }}
         />
 
-        {/* Gradient overlay — strong at bottom */}
         <div aria-hidden="true" style={{
           position: 'absolute', inset: 0, zIndex: 1,
           background: 'linear-gradient(to top, rgba(10,8,5,0.97) 0%, rgba(10,8,5,0.75) 30%, rgba(10,8,5,0.3) 60%, transparent 100%)',
         }} />
 
-        {/* Ghost watermark */}
         <div aria-hidden="true" style={{
           position: 'absolute', top: '50%', left: '50%', zIndex: 1,
           transform: 'translate(-50%,-50%)',
@@ -107,10 +97,9 @@ export default function ExperiencePage() {
           color: 'rgba(255,255,255,0.022)', lineHeight: 1,
           userSelect: 'none', pointerEvents: 'none', whiteSpace: 'nowrap',
         }}>
-          VI
+          IX
         </div>
 
-        {/* Bottom-aligned content */}
         <div
           className="exp-hero-content"
           style={{
@@ -139,7 +128,7 @@ export default function ExperiencePage() {
                 color: 'white', lineHeight: 1.04, marginBottom: '22px',
               }}
             >
-              Six ways to know
+              Several ways to know
               <br />
               <em style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.38)' }}>the ridge.</em>
             </h2>
@@ -148,12 +137,12 @@ export default function ExperiencePage() {
               fontStyle: 'italic', color: 'rgba(255,255,255,0.58)',
               lineHeight: 1.88, maxWidth: '500px',
             }}>
-              Not a programme. Not an activities menu. A conversation with your
-              host — and then a trail, a temple, a kitchen, or the ridge at dawn.
+              The ridge has a rhythm. The forest has its trails. The kitchen
+              follows the harvest. Every experience at Kot Kailash begins where
+              the property ends — in the landscape itself.
             </p>
           </div>
 
-          {/* Scroll cue */}
           <div
             className="exp-scroll-cue exp-hero-scroll"
             aria-hidden="true"
@@ -220,32 +209,27 @@ export default function ExperiencePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          §3  SIX EXPERIENCES — alternating editorial rows
+          §3  NINE EXPERIENCES — alternating editorial rows
       ═══════════════════════════════════════════════════════════════ */}
       <section
         style={{ background: 'var(--ink)' }}
-        aria-label="Six experiences at Kot Kailash"
+        aria-label="Nine experiences at Kot Kailash"
       >
         <style>{`
-          /* Row hover — image scales subtly */
           .exp-row-img { transition: transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94); }
           .exp-row:hover .exp-row-img { transform: scale(1.04); }
-
-          /* Row text hover states */
           .exp-row:hover .exp-row-numeral-ghost { opacity: 0.08 !important; }
-          .exp-row:hover .exp-row-duration       { color: rgba(255,255,255,0.75) !important; }
-
-          /* Responsive: stack image above text on mobile */
+          .exp-arrange-link { transition: color 0.3s ease, border-bottom-color 0.3s ease; }
+          .exp-arrange-link:hover { color: var(--gold) !important; border-bottom-color: rgba(197,153,90,0.7) !important; }
           @media (max-width: 860px) {
             .exp-row-inner  { grid-template-columns: 1fr !important; }
-            .exp-row-image  { height: 320px !important; order: -1 !important; }
-            .exp-row-text   { padding: 52px 32px !important; min-height: auto !important; }
+            .exp-row-image  { min-height: 280px !important; order: -1 !important; }
+            .exp-row-text   { padding: 52px 32px !important; }
           }
         `}</style>
 
         {experiences.map((exp, i) => {
           const imageLeft = i % 2 === 0;
-          const atm = expAtmosphere[i];
           const isLast = i === experiences.length - 1;
 
           return (
@@ -262,17 +246,13 @@ export default function ExperiencePage() {
                   style={{
                     display: 'grid',
                     gridTemplateColumns: imageLeft ? '52% 1fr' : '1fr 52%',
+                    alignItems: 'stretch',
                   }}
                 >
-                  {/* Image — left or right depending on row */}
                   {imageLeft && (
                     <div
                       className="exp-row-image"
-                      style={{
-                        position: 'relative',
-                        height: '460px',
-                        overflow: 'hidden',
-                      }}
+                      style={{ position: 'relative', minHeight: '580px', overflow: 'hidden' }}
                     >
                       <Image
                         src={EXP_IMAGES[exp.numeral] ?? '/images/kot-kailash-ridge-shaukiyathal.jpeg'}
@@ -280,7 +260,8 @@ export default function ExperiencePage() {
                         fill
                         loading="lazy"
                         sizes="(max-width:860px) 100vw, 52vw"
-                        style={{ objectFit: 'cover' }}
+                        style={{ objectFit: 'cover', objectPosition: 'bottom' }}
+                        className="exp-row-img"
                       />
                     </div>
                   )}
@@ -289,16 +270,15 @@ export default function ExperiencePage() {
                   <div
                     className="exp-row-text"
                     style={{
-                      padding: '60px 72px',
+                      padding: '64px 72px',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'center',
-                      minHeight: '460px',
                       position: 'relative',
                       overflow: 'hidden',
                     }}
                   >
-                    {/* Ghost numeral background */}
+                    {/* Ghost numeral */}
                     <span
                       className="exp-row-numeral-ghost"
                       aria-hidden="true"
@@ -319,74 +299,110 @@ export default function ExperiencePage() {
                     </span>
 
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                      {/* Small numeral label */}
-                      <span style={{
-                        fontFamily: 'var(--sans)', fontSize: '11px',
-                        letterSpacing: '0.32em', textTransform: 'uppercase',
-                        color: 'var(--gold)', display: 'block', marginBottom: '20px',
-                      }}>
-                        {exp.numeral} — Experience
-                      </span>
+                      {/* Numeral + duration eyebrow */}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px', flexWrap: 'wrap' }}>
+                        <span style={{
+                          fontFamily: 'var(--sans)', fontSize: '11px',
+                          letterSpacing: '0.32em', textTransform: 'uppercase',
+                          color: 'var(--gold)',
+                        }}>
+                          {exp.numeral}
+                        </span>
+                        <span style={{
+                          fontFamily: 'var(--sans)', fontSize: '10px',
+                          letterSpacing: '0.16em', textTransform: 'uppercase',
+                          color: 'rgba(255,255,255,0.3)',
+                        }}>
+                          {exp.duration}
+                        </span>
+                      </div>
 
                       {/* Name */}
                       <h3 style={{
                         fontFamily: 'var(--serif)',
                         fontSize: 'clamp(1.8rem, 2.8vw, 2.5rem)',
                         fontWeight: 300, fontStyle: 'italic',
-                        color: 'white', lineHeight: 1.18, marginBottom: '20px',
+                        color: 'white', lineHeight: 1.18, marginBottom: '10px',
                       }}>
                         {exp.name}
                       </h3>
 
-                      {/* Description */}
+                      {/* Tagline */}
                       <p style={{
-                        fontFamily: 'var(--serif)', fontSize: '1rem',
-                        fontStyle: 'italic', color: 'rgba(255,255,255,0.62)',
-                        lineHeight: 1.88, maxWidth: '420px',
+                        fontFamily: 'var(--serif)', fontSize: '0.95rem',
+                        fontStyle: 'italic', color: 'rgba(255,255,255,0.42)',
+                        lineHeight: 1.65, maxWidth: '420px', marginBottom: '24px',
                       }}>
                         {exp.description}
                       </p>
 
-                      {/* Duration bar */}
+                      {/* Body copy */}
+                      {exp.longDescription.split('\n\n').map((para, j) => (
+                        <p key={j} style={{
+                          fontFamily: 'var(--serif)', fontSize: '0.9rem',
+                          color: 'rgba(255,255,255,0.6)',
+                          lineHeight: 1.85, maxWidth: '420px',
+                          marginTop: j > 0 ? '14px' : 0,
+                        }}>
+                          {para}
+                        </p>
+                      ))}
+
+                      {/* Price + arrange */}
                       <div style={{
-                        marginTop: '32px', paddingTop: '20px',
+                        marginTop: '28px', paddingTop: '22px',
                         borderTop: '1px solid rgba(255,255,255,0.08)',
-                        display: 'flex', alignItems: 'center', gap: '12px',
                       }}>
-                        {/* Clock SVG */}
-                        <svg
-                          width="14" height="14" viewBox="0 0 24 24"
-                          fill="none" stroke="rgba(197,153,90,0.5)"
-                          strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-                          aria-hidden="true" style={{ flexShrink: 0 }}
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        <span
-                          className="exp-row-duration"
+                        <div style={{
+                          display: 'flex', alignItems: 'baseline',
+                          gap: '12px', marginBottom: '8px', flexWrap: 'wrap',
+                        }}>
+                          <span style={{
+                            fontFamily: 'var(--serif)', fontSize: '1.15rem',
+                            fontStyle: 'italic', color: 'var(--gold)',
+                          }}>
+                            {exp.price}
+                          </span>
+                          <span style={{
+                            fontFamily: 'var(--sans)', fontSize: '10px',
+                            letterSpacing: '0.14em', textTransform: 'uppercase',
+                            color: 'rgba(255,255,255,0.32)',
+                          }}>
+                            {exp.priceNote}
+                          </span>
+                        </div>
+                        {exp.priceExtra && (
+                          <p style={{
+                            fontFamily: 'var(--sans)', fontSize: '10px',
+                            letterSpacing: '0.14em', textTransform: 'uppercase',
+                            color: 'rgba(255,255,255,0.28)', marginBottom: '16px',
+                          }}>
+                            {exp.priceExtra}
+                          </p>
+                        )}
+                        <a
+                          href={`mailto:info@kotkailash.com?subject=Arrange — ${exp.name}`}
+                          className="exp-arrange-link"
                           style={{
                             fontFamily: 'var(--sans)', fontSize: '11px',
-                            letterSpacing: '0.18em', textTransform: 'uppercase',
-                            color: 'rgba(255,255,255,0.4)',
-                            transition: 'color 0.3s ease',
+                            letterSpacing: '0.22em', textTransform: 'uppercase',
+                            color: 'rgba(197,153,90,0.7)', textDecoration: 'none',
+                            borderBottom: '1px solid rgba(197,153,90,0.25)',
+                            paddingBottom: '2px',
+                            display: 'inline-block',
+                            marginTop: exp.priceExtra ? 0 : '16px',
                           }}
                         >
-                          {exp.duration}
-                        </span>
+                          Arrange with us →
+                        </a>
                       </div>
                     </div>
                   </div>
 
-                  {/* Image — right side */}
                   {!imageLeft && (
                     <div
                       className="exp-row-image"
-                      style={{
-                        position: 'relative',
-                        height: '460px',
-                        overflow: 'hidden',
-                      }}
+                      style={{ position: 'relative', minHeight: '580px', overflow: 'hidden' }}
                     >
                       <Image
                         src={EXP_IMAGES[exp.numeral] ?? '/images/kot-kailash-ridge-shaukiyathal.jpeg'}
@@ -394,7 +410,8 @@ export default function ExperiencePage() {
                         fill
                         loading="lazy"
                         sizes="(max-width:860px) 100vw, 52vw"
-                        style={{ objectFit: 'cover' }}
+                        style={{ objectFit: 'cover', objectPosition: 'bottom' }}
+                        className="exp-row-img"
                       />
                     </div>
                   )}
@@ -403,48 +420,91 @@ export default function ExperiencePage() {
             </RevealWrapper>
           );
         })}
+      </section>
 
-        {/* Included footer strip */}
+      {/* ═══════════════════════════════════════════════════════════════
+          §3b  BEYOND THE PROPERTY
+      ═══════════════════════════════════════════════════════════════ */}
+      <section style={{
+        background: 'var(--ink)',
+        borderTop: '1px solid rgba(255,255,255,0.055)',
+        padding: '100px 64px',
+      }}
+        className="beyond-section"
+      >
+        <style>{`
+          @media (max-width: 860px) {
+            .beyond-section { padding: 72px 32px !important; }
+            .beyond-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+            .beyond-headline { font-size: clamp(3rem, 10vw, 4.5rem) !important; }
+          }
+        `}</style>
         <RevealWrapper>
-          <div style={{
-            padding: '44px 64px',
-            borderTop: '1px solid rgba(255,255,255,0.055)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '20px',
-          }}
-            className="exp-included-strip"
+          <div
+            className="beyond-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1.1fr',
+              gap: '80px',
+              alignItems: 'start',
+              maxWidth: '1200px',
+            }}
           >
-            <style>{`
-              @media (max-width: 680px) {
-                .exp-included-strip { flex-direction: column !important; text-align: center !important; }
-              }
-            `}</style>
             <div>
-              <p style={{
-                fontFamily: 'var(--serif)', fontSize: '1.08rem',
-                fontStyle: 'italic', color: 'white',
-                marginBottom: '4px', lineHeight: 1.3,
+              <span style={{
+                fontFamily: 'var(--sans)', fontSize: '11px',
+                letterSpacing: '0.32em', textTransform: 'uppercase',
+                color: 'var(--gold)', display: 'block', marginBottom: '28px',
               }}>
-                All six experiences are included.
+                Beyond the Property
+              </span>
+              <h3
+                className="beyond-headline"
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: 'clamp(2.6rem, 4.5vw, 4.2rem)',
+                  fontWeight: 300, fontStyle: 'italic',
+                  color: 'white', lineHeight: 1.1,
+                }}
+              >
+                The Kumaon
+                <br />
+                does not end
+                <br />
+                <span style={{ color: 'rgba(255,255,255,0.32)' }}>at our gate.</span>
+              </h3>
+            </div>
+
+            <div style={{
+              paddingTop: '8px',
+              borderTop: '1px solid rgba(255,255,255,0.08)',
+            }}>
+              <p style={{
+                fontFamily: 'var(--serif)', fontSize: '1.05rem',
+                fontStyle: 'italic', color: 'rgba(255,255,255,0.62)',
+                lineHeight: 1.9, marginBottom: '28px',
+              }}>
+                The sacred sites, forest trails, waterfall descents, and village
+                kitchens of Shaukiyathal are not managed attractions. They are the
+                living landscape of this ridge — ancient, unhurried, and entirely genuine.
               </p>
               <p style={{
-                fontFamily: 'var(--serif)', fontSize: '0.9rem',
-                fontStyle: 'italic', color: 'rgba(255,255,255,0.45)',
-                lineHeight: 1.5,
+                fontFamily: 'var(--serif)', fontSize: '0.92rem',
+                fontStyle: 'italic', color: 'rgba(255,255,255,0.38)',
+                lineHeight: 1.85,
               }}>
-                No extra charge. No booking form. A conversation with your host.
+                All experiences are guided by people who know this land personally.
+                All prices are inclusive of taxes and may be arranged through our
+                team at reception or at{' '}
+                <a
+                  href="mailto:info@kotkailash.com"
+                  style={{ color: 'rgba(197,153,90,0.7)', textDecoration: 'none' }}
+                >
+                  info@kotkailash.com
+                </a>
+                . We recommend booking the evening before.
               </p>
             </div>
-            <a
-              href="mailto:reach@kotkailash.com?subject=Experience%20Enquiry"
-              className="btn-outline"
-              style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
-            >
-              Ask about your visit
-            </a>
           </div>
         </RevealWrapper>
       </section>
@@ -508,7 +568,7 @@ export default function ExperiencePage() {
       <Journey />
 
       {/* ═══════════════════════════════════════════════════════════════
-          §7  CTA — light background breaks the dark run before Reserve
+          §7  CTA
       ═══════════════════════════════════════════════════════════════ */}
       <section style={{
         background: 'var(--parchment)',
@@ -516,13 +576,6 @@ export default function ExperiencePage() {
         textAlign: 'center',
       }}>
         <RevealWrapper>
-          <span style={{
-            fontFamily: 'var(--sans)', fontSize: '11px',
-            letterSpacing: '0.38em', textTransform: 'uppercase',
-            color: 'var(--gold)', display: 'block', marginBottom: '18px',
-          }}>
-            All six · All included · Nothing extra
-          </span>
           <h3 style={{
             fontFamily: 'var(--serif)',
             fontSize: 'clamp(1.8rem, 3vw, 2.8rem)',
@@ -541,7 +594,7 @@ export default function ExperiencePage() {
             looking for.
           </p>
           <a
-            href="mailto:reach@kotkailash.com?subject=Experience%20Enquiry"
+            href="mailto:info@kotkailash.com?subject=Experience%20Enquiry"
             className="btn-gold"
             style={{ display: 'inline-block' }}
           >

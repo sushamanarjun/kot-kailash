@@ -9,6 +9,7 @@ interface FoundersProps {
 
 export default function Founders({ compact = false }: FoundersProps) {
   const pushkar = founders[0];
+  const sayed = founders[1];
 
   return (
     <section
@@ -109,186 +110,234 @@ export default function Founders({ compact = false }: FoundersProps) {
       )}
 
       {/* Pushkar profile */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: compact ? '260px 1fr' : '300px 1fr',
-          gap: compact ? '48px' : '72px',
-          alignItems: 'start',
+      <FounderProfile founder={pushkar} compact={compact} showCta />
+
+      {/* Divider between founders */}
+      {!compact && (
+        <div style={{
           maxWidth: '960px',
-          margin: '0 auto',
-        }}
-        className="founder-inner"
-      >
-        {/* Image */}
+          margin: '80px auto',
+          height: '1px',
+          background: 'rgba(26,22,18,0.08)',
+        }} />
+      )}
+
+      {/* Sayed profile — full page only */}
+      {!compact && sayed && (
+        <FounderProfile founder={sayed} compact={false} />
+      )}
+
+      {/* Coda + Final note */}
+      {!compact && (
         <RevealWrapper>
-          <div style={{ position: 'relative' }}>
-            <div
-              className="founder-img-wrap"
-              style={{
-                width: '100%',
-                height: compact ? '380px' : '420px',
-                background: 'linear-gradient(160deg, #362a20, #1f1810)',
-                overflow: 'hidden',
-              }}
-            >
+          <div style={{
+            maxWidth: '600px',
+            margin: '80px auto 0',
+            textAlign: 'center',
+            borderTop: '1px solid rgba(26,22,18,0.08)',
+            paddingTop: '64px',
+          }}>
+            {/* Coda lines */}
+            <p style={{
+              fontFamily: 'var(--serif)',
+              fontSize: '0.95rem',
+              fontStyle: 'italic',
+              color: 'var(--ink-soft)',
+              lineHeight: 1.8,
+              margin: '0 0 36px',
+            }}>
+              Pushkar is on the ridge every morning.
+              <br />
+              Sayed is the reason the world will find it.
+            </p>
+
+            {/* Divider */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '16px',
+              marginBottom: '36px',
+            }}>
+              <span style={{ width: '32px', height: '1px', background: 'var(--gold)', opacity: 0.4 }} />
+              <span style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '10px',
+                letterSpacing: '0.36em',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+              }}>
+                A Final Note
+              </span>
+              <span style={{ width: '32px', height: '1px', background: 'var(--gold)', opacity: 0.4 }} />
+            </div>
+
+            {/* Final paragraph */}
+            <p style={{
+              fontFamily: 'var(--serif)',
+              fontSize: 'clamp(1rem, 1.5vw, 1.15rem)',
+              fontStyle: 'italic',
+              color: 'var(--ink)',
+              lineHeight: 1.9,
+              margin: 0,
+            }}>
+              Kot Kailash Kumaon is, by any serious assessment, one of the most
+              quietly compelling boutique properties to have opened in the Indian
+              Himalayas in recent years. It has arrived at the right moment, in
+              the right place, built by the right people — for guests who
+              understand that the best travel leaves them quieter than it found
+              them.
+            </p>
+          </div>
+        </RevealWrapper>
+      )}
+
+    </section>
+  );
+}
+
+function FounderProfile({
+  founder,
+  compact,
+  showCta = false,
+}: {
+  founder: (typeof founders)[0];
+  compact: boolean;
+  showCta?: boolean;
+}) {
+  const isPlaceholder = founder.image.includes('placeholder');
+  const imgHeight = compact ? '380px' : '420px';
+
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: compact ? '260px 1fr' : '300px 1fr',
+        gap: compact ? '48px' : '72px',
+        alignItems: 'start',
+        maxWidth: '960px',
+        margin: '0 auto',
+      }}
+      className="founder-inner"
+    >
+      {/* Image column — always left */}
+      <RevealWrapper>
+        <div style={{ position: 'relative' }}>
+          <div
+            className="founder-img-wrap"
+            style={{
+              width: '100%',
+              height: imgHeight,
+              background: 'linear-gradient(160deg, #362a20, #1f1810)',
+              overflow: 'hidden',
+            }}
+          >
+            {!isPlaceholder && (
               <Image
-                src={pushkar.image}
-                alt={pushkar.imageAlt}
+                src={founder.image}
+                alt={founder.imageAlt}
                 width={300}
                 height={420}
                 loading="lazy"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
-            </div>
-            <div
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                padding: '64px 22px 22px',
-                background: 'linear-gradient(to top, rgba(10,8,5,0.95) 0%, rgba(10,8,5,0.6) 55%, transparent 100%)',
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: 'var(--sans)',
-                  fontSize: '11px',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  color: 'rgba(197,153,90,0.9)',
-                  display: 'block',
-                  marginBottom: '4px',
-                }}
-              >
-                Co-Founder · General Manager
-              </span>
-              <span
-                style={{
-                  fontFamily: 'var(--serif)',
-                  fontSize: '1rem',
-                  fontStyle: 'italic',
-                  color: 'rgba(255,255,255,0.95)',
-                }}
-              >
-                {pushkar.name}
-              </span>
-            </div>
-          </div>
-        </RevealWrapper>
-
-        {/* Bio */}
-        <RevealWrapper delay={2}>
-          <span
-            style={{
-              fontFamily: 'var(--sans)',
-              fontSize: '11px',
-              letterSpacing: '0.24em',
-              textTransform: 'uppercase',
-              color: 'var(--gold)',
-              display: 'block',
-              marginBottom: '8px',
-            }}
-          >
-            {pushkar.role}
-          </span>
-          <h3
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '2.2rem',
-              fontWeight: 300,
-              color: 'var(--ink)',
-              marginBottom: '5px',
-              lineHeight: 1,
-            }}
-          >
-            {pushkar.name}
-          </h3>
-          <span
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '0.95rem',
-              fontStyle: 'italic',
-              color: 'var(--gold)',
-              display: 'block',
-              marginBottom: '20px',
-            }}
-          >
-            {pushkar.subtitle}
-          </span>
-
-          <div
-            style={{
-              fontFamily: 'var(--serif)',
-              fontSize: '0.92rem',
-              color: 'var(--ink-soft)',
-              lineHeight: 1.88,
-            }}
-          >
-            {compact ? (
-              <p>{pushkar.bio[0]}</p>
-            ) : (
-              pushkar.bio.map((para, i) => (
-                <p key={i} style={{ marginTop: i > 0 ? '13px' : 0 }}>
-                  {para}
-                </p>
-              ))
             )}
           </div>
+          {/* Name overlay — always present */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              padding: '64px 22px 22px',
+              background: 'linear-gradient(to top, rgba(10,8,5,0.95) 0%, rgba(10,8,5,0.6) 55%, transparent 100%)',
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--sans)',
+                fontSize: '11px',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'rgba(197,153,90,0.9)',
+                display: 'block',
+                marginBottom: '4px',
+              }}
+            >
+              Co-Founder
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--serif)',
+                fontSize: '1rem',
+                fontStyle: 'italic',
+                color: 'rgba(255,255,255,0.95)',
+              }}
+            >
+              {founder.name}
+            </span>
+          </div>
+        </div>
+      </RevealWrapper>
 
-          {/* Coda + CTA — sits in bio column on homepage */}
-          {compact && (
-            <>
-              <div
-                style={{
-                  marginTop: '28px',
-                  borderLeft: '2px solid var(--gold)',
-                  paddingLeft: '18px',
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: 'var(--serif)',
-                    fontSize: '0.95rem',
-                    fontStyle: 'italic',
-                    fontWeight: 300,
-                    color: 'var(--ink)',
-                    lineHeight: 1.6,
-                    margin: 0,
-                  }}
-                >
-                  Pushkar is on the ridge every morning.
-                  <br />
-                  <span style={{ color: 'var(--rust)', fontStyle: 'normal' }}>
-                    Sayed is the reason the world will find it.
-                  </span>
-                </p>
-              </div>
-              <div style={{ marginTop: '24px' }}>
-                <p
-                  style={{
-                    fontFamily: 'var(--serif)',
-                    fontSize: '0.95rem',
-                    fontStyle: 'italic',
-                    color: 'var(--ink-soft)',
-                    marginBottom: '16px',
-                  }}
-                >
-                  The full story of how Kot Kailash came to be.
-                </p>
-                <Link href="/about" className="btn-gold">
-                  Our full story →
-                </Link>
-              </div>
-            </>
+      {/* Bio column — always right */}
+      <RevealWrapper delay={2}>
+        {/* Role eyebrow */}
+        <span
+          style={{
+            fontFamily: 'var(--sans)',
+            fontSize: '11px',
+            letterSpacing: '0.24em',
+            textTransform: 'uppercase',
+            color: 'var(--gold)',
+            display: 'block',
+            marginBottom: '8px',
+          }}
+        >
+          {founder.role}
+        </span>
+
+        {/* Name */}
+        <h3
+          style={{
+            fontFamily: 'var(--serif)',
+            fontSize: '2.2rem',
+            fontWeight: 300,
+            color: 'var(--ink)',
+            marginBottom: '20px',
+            lineHeight: 1,
+          }}
+        >
+          {founder.name}
+        </h3>
+
+        {/* Bio paragraphs */}
+        <div
+          style={{
+            fontFamily: 'var(--serif)',
+            fontSize: '0.92rem',
+            color: 'var(--ink-soft)',
+            lineHeight: 1.88,
+          }}
+        >
+          {compact ? (
+            <p>{founder.bio[0]}</p>
+          ) : (
+            founder.bio.map((para, i) => (
+              <p key={i} style={{ marginTop: i > 0 ? '13px' : 0 }}>
+                {para}
+              </p>
+            ))
           )}
+        </div>
 
-          {/* TripAdvisor review — hidden in compact mode */}
-          {!compact && pushkar.review && (
+        {/* Compact CTA */}
+        {showCta && compact && (
+          <>
             <div
               style={{
-                marginTop: '26px',
+                marginTop: '28px',
                 borderLeft: '2px solid var(--gold)',
                 paddingLeft: '18px',
               }}
@@ -298,51 +347,38 @@ export default function Founders({ compact = false }: FoundersProps) {
                   fontFamily: 'var(--serif)',
                   fontSize: '0.95rem',
                   fontStyle: 'italic',
-                  color: 'var(--ink-soft)',
-                  lineHeight: 1.65,
+                  fontWeight: 300,
+                  color: 'var(--ink)',
+                  lineHeight: 1.6,
+                  margin: 0,
                 }}
               >
-                {pushkar.review.text}
+                Pushkar is on the ridge every morning.
+                <br />
+                <span style={{ color: 'var(--rust)', fontStyle: 'normal' }}>
+                  Sayed is the reason the world will find it.
+                </span>
               </p>
-              <span
-                style={{
-                  fontFamily: 'var(--sans)',
-                  fontSize: '11px',
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                  color: 'var(--gold)',
-                  display: 'block',
-                  marginTop: '9px',
-                }}
-              >
-                {pushkar.review.attribution}
-              </span>
             </div>
-          )}
-
-          {!compact && (
-            <div style={{ marginTop: '28px' }}>
-              <Link
-                href="/founders"
+            <div style={{ marginTop: '24px' }}>
+              <p
                 style={{
-                  fontFamily: 'var(--sans)',
-                  fontSize: '11px',
-                  letterSpacing: '0.24em',
-                  textTransform: 'uppercase',
-                  color: 'var(--gold)',
-                  textDecoration: 'none',
-                  borderBottom: '1px solid rgba(138,90,56,0.22)',
-                  paddingBottom: '2px',
-                  transition: 'color 0.3s',
+                  fontFamily: 'var(--serif)',
+                  fontSize: '0.95rem',
+                  fontStyle: 'italic',
+                  color: 'var(--ink-soft)',
+                  marginBottom: '16px',
                 }}
               >
-                Meet both founders →
+                The full story of how Kot Kailash came to be.
+              </p>
+              <Link href="/about" className="btn-gold">
+                Learn More →
               </Link>
             </div>
-          )}
-        </RevealWrapper>
-      </div>
-
-    </section>
+          </>
+        )}
+      </RevealWrapper>
+    </div>
   );
 }

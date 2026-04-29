@@ -74,19 +74,7 @@ export default function WeatherWidget() {
       >
         {weather.temp}°
       </span>
-      <span
-        style={{
-          fontFamily: 'var(--sans)',
-          fontSize: '11px',
-          letterSpacing: '0.18em',
-          padding: '3px 8px',
-          color: 'rgba(115,225,125,0.88)',
-          background: 'rgba(50,150,60,0.1)',
-          border: '1px solid rgba(50,150,60,0.18)',
-        }}
-      >
-        AQI {weather.aqi !== null ? weather.aqi : '<10'}
-      </span>
+
     </div>
   );
 }

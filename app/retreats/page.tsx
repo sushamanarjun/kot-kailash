@@ -39,7 +39,7 @@ const offerings = [
     title: 'Full Property Buyout',
     description:
       'All eight keys across three houses. Ideal for intimate weddings, family reunions, and gatherings that deserve an entire ridge. Exclusive access. Custom menus. Your own pace.',
-    note: 'All 8 keys · All meals included · Staff on-site',
+    note: 'All 8 keys · Staff on-site',
   },
   {
     numeral: 'IV',
@@ -227,7 +227,7 @@ export default function RetreatsPage() {
           </h3>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a
-              href="mailto:reach@kotkailash.com?subject=Retreat%20%2F%20Offsite%20Enquiry"
+              href="mailto:info@kotkailash.com?subject=Retreat%20%2F%20Offsite%20Enquiry"
               className="btn-gold"
             >
               Enquire by Email
