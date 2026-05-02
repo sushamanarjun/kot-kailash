@@ -10,7 +10,7 @@ export default function FullBleedImage({ src, alt, caption }: FullBleedImageProp
   return (
     <div
       style={{
-        height: '82vh',
+        height: '90vh',
         minHeight: '560px',
         overflow: 'hidden',
         position: 'relative',

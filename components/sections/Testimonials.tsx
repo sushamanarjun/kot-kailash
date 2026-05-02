@@ -12,7 +12,7 @@ export default function Testimonials() {
     >
       <RevealWrapper>
         <div className="eyebrow" style={{ color: 'var(--gold)' }}>
-          VI · What Guests Say
+          V · What Guests Say
         </div>
         <h2
           style={{

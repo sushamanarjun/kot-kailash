@@ -5,13 +5,14 @@ import { buildMetadata } from '@/lib/seo';
 import { rooms, buyout } from '@/lib/content/rooms';
 import Reserve from '@/components/sections/Reserve';
 import RevealWrapper from '@/components/ui/RevealWrapper';
+import RoomCarousel from '@/components/ui/RoomCarousel';
 
 const HOTEL_SPIDER_URL = 'https://reservations.hotel-spider.com/032644b5fbfafed6';
 
 const ROOM_HIGHLIGHTS: Record<string, string[]> = {
-  'kumaon-vann': ['Freestanding bath', 'Snow peak views', 'Private bonfire', 'Seclusion'],
-  'family-suite': ['Glass observatory', 'Private dining', 'Fireplace', 'Library'],
-  'kutir-suites': ['Machan loft', 'Himalayan views', '4 independent keys'],
+  'kumaon-vann': ['Freestanding bath', 'Complete Seclusion'],
+  'family-suite': ['Glass observatory', 'Private dining Room', 'Fireplace', 'Living Room', 'Century Old', 'Two Bed Rooms'],
+  'kutir-suites': ['Machan loft', 'Living Room', '4 independent keys'],
   'kumaoni-suites': ['Clay walls', 'Century-old stone', 'Valley views'],
 };
 
@@ -37,8 +38,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function StayPage() {
-  const featuredRooms = rooms.filter(r => r.featured);
-  const suiteRooms = rooms.filter(r => !r.featured);
+  const featuredRooms = rooms;
 
   return (
     <>
@@ -332,7 +332,7 @@ export default function StayPage() {
             Eight keys.
             <br />
             <span style={{ color: 'rgba(255,255,255,0.28)', fontStyle: 'normal' }}>
-              Three houses.
+              Three Structures.
             </span>
           </h2>
 
@@ -442,7 +442,7 @@ export default function StayPage() {
       </section>
 
       {/* ─── §2 What Kot Kailash Offers ──────────────────────── */}
-      <section style={{ background: 'var(--ink)' }}>
+      {/* <section style={{ background: 'var(--ink)' }}>
         <RevealWrapper>
           <div style={{
             padding: `clamp(44px, 6vw, 64px) clamp(24px, 5vw, 64px) 40px`,
@@ -483,7 +483,6 @@ export default function StayPage() {
           {INCLUSIONS.map((item, i) => (
             <RevealWrapper key={item.label} delay={(i % 4) as 0 | 1 | 2 | 3}>
               <div className="st-incl-cell">
-                {/* Ghost roman numeral */}
                 <div style={{
                   position: 'absolute',
                   top: '10px', right: '14px',
@@ -496,7 +495,6 @@ export default function StayPage() {
                   pointerEvents: 'none',
                 }}>{item.roman}</div>
 
-                {/* Gold accent line */}
                 <div style={{
                   width: '20px', height: '1px',
                   background: 'var(--gold)',
@@ -523,7 +521,7 @@ export default function StayPage() {
             </RevealWrapper>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* ─── §3 Rooms ─────────────────────────────────────────── */}
       <section
@@ -612,16 +610,16 @@ export default function StayPage() {
                         position: 'relative',
                       }}
                     >
-                      <div className="st-img-inner">
-                        <Image
-                          src={room.image}
-                          alt={room.imageAlt}
-                          fill
-                          sizes="(max-width:1000px) 100vw, 58vw"
-                          loading={i === 0 ? 'eager' : 'lazy'}
-                          style={{ objectFit: 'cover' }}
-                        />
-                      </div>
+                      {(() => {
+                        const uniqueGallery = room.gallery.filter(g => g.src !== room.image);
+                        const carouselImages = [
+                          { src: room.image, alt: room.imageAlt },
+                          ...uniqueGallery
+                        ];
+                        return (
+                          <RoomCarousel images={carouselImages} priority={i === 0} />
+                        );
+                      })()}
 
                       {/* Type badge */}
                       <div style={{
@@ -733,9 +731,6 @@ export default function StayPage() {
                           <a href={HOTEL_SPIDER_URL} target="_blank" rel="noopener noreferrer" className="st-book-btn">
                             Reserve
                           </a>
-                          <Link href={`/stay/${room.id}`} className="st-explore">
-                            {room.exploreLabel}
-                          </Link>
                         </div>
                       </div>
                     </div>
@@ -746,136 +741,7 @@ export default function StayPage() {
           </div>
         </div>
 
-        {/* ── The Suites (2-col comparison grid) ── */}
-        <div>
-          <RevealWrapper>
-            <div className="st-sub-label" style={{ paddingTop: '48px' }}>
-              <span className="st-sub-label-text">The Suites</span>
-              <span className="st-sub-rule" />
-            </div>
-          </RevealWrapper>
 
-          <div className="st-suite-grid">
-            {suiteRooms.map((room, i) => {
-              const highlights = ROOM_HIGHLIGHTS[room.id] ?? [];
-              const roomNumber = String(featuredRooms.length + i + 1).padStart(2, '0');
-
-              return (
-                <RevealWrapper key={room.id} delay={(i % 2) as 0 | 1}>
-                  <article className="st-suite-card" aria-label={room.name}>
-                    {/* Image */}
-                    <div className="st-suite-img-wrap">
-                      <div className="st-suite-img-inner">
-                        <Image
-                          src={room.image}
-                          alt={room.imageAlt}
-                          fill
-                          sizes="(max-width:720px) 100vw, 50vw"
-                          loading="lazy"
-                          style={{ objectFit: 'cover' }}
-                        />
-                      </div>
-                      <div style={{
-                        position: 'absolute', top: '16px', left: '16px',
-                        background: 'rgba(26,22,18,0.74)',
-                        backdropFilter: 'blur(8px)',
-                        padding: '5px 12px',
-                      }}>
-                        <span style={{
-                          fontFamily: 'var(--sans)', fontSize: '9px',
-                          letterSpacing: '0.22em', textTransform: 'uppercase',
-                          color: 'rgba(255,255,255,0.6)',
-                        }}>{room.type.split('·')[1]?.trim() ?? room.type}</span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="st-suite-content">
-                      {/* Ghost number */}
-                      <div style={{
-                        position: 'absolute',
-                        bottom: '-18px', right: '-6px',
-                        fontFamily: 'var(--serif)',
-                        fontSize: '7.5rem',
-                        fontWeight: 300,
-                        color: 'rgba(255,255,255,0.025)',
-                        lineHeight: 1,
-                        userSelect: 'none',
-                        pointerEvents: 'none',
-                        letterSpacing: '-0.04em',
-                      }}>{roomNumber}</div>
-
-                      <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', flex: 1 }}>
-                        <span style={{
-                          fontFamily: 'var(--sans)', fontSize: '11px',
-                          letterSpacing: '0.28em', textTransform: 'uppercase',
-                          color: 'var(--gold)', display: 'block', marginBottom: '10px',
-                        }}>{room.type.split('·')[0].trim()}</span>
-
-                        <h3 style={{
-                          fontFamily: 'var(--serif)',
-                          fontSize: 'clamp(1.8rem, 2.4vw, 2.4rem)',
-                          fontWeight: 300, color: 'white',
-                          lineHeight: 1.08, marginBottom: '16px',
-                        }}>{room.name}</h3>
-
-                        {highlights.length > 0 && (
-                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '18px' }}>
-                            {highlights.map(h => (
-                              <span key={h} className="st-pill">{h}</span>
-                            ))}
-                          </div>
-                        )}
-
-                        <p style={{
-                          fontFamily: 'var(--serif)', fontSize: '0.9rem',
-                          fontStyle: 'italic', color: 'rgba(255,255,255,0.52)',
-                          lineHeight: 1.88, marginBottom: '24px',
-                        }}>{room.shortDescription}</p>
-
-                        {/* Price row */}
-                        <div style={{
-                          paddingTop: '18px',
-                          borderTop: '1px solid rgba(255,255,255,0.06)',
-                          marginBottom: '22px',
-                          display: 'flex', gap: '28px', flexWrap: 'wrap',
-                        }}>
-
-                          <div>
-                            <span style={{
-                              fontFamily: 'var(--sans)', fontSize: '10px',
-                              letterSpacing: '0.22em', textTransform: 'uppercase',
-                              color: 'rgba(255,255,255,0.3)', display: 'block', marginBottom: '4px',
-                            }}>Capacity</span>
-                            <span style={{
-                              fontFamily: 'var(--sans)', fontSize: '11px',
-                              color: 'rgba(255,255,255,0.5)',
-                            }}>{room.capacity}</span>
-                          </div>
-                        </div>
-
-                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap', marginTop: 'auto' }}>
-                          <a
-                            href={HOTEL_SPIDER_URL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="st-book-btn"
-                            style={{ padding: '13px 28px' }}
-                          >
-                            Reserve
-                          </a>
-                          <Link href={`/stay/${room.id}`} className="st-explore">
-                            {room.exploreLabel}
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </RevealWrapper>
-              );
-            })}
-          </div>
-        </div>
       </section>
 
       {/* ─── §4 Full buyout ───────────────────────────────────── */}

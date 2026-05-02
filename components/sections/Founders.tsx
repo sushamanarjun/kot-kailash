@@ -33,7 +33,7 @@ export default function Founders({ compact = false }: FoundersProps) {
             }}
           >
             <div>
-              <div className="eyebrow">VII · The Founders</div>
+              <div className="eyebrow">VI · The Founders</div>
               <h2
                 style={{
                   fontFamily: 'var(--serif)',
@@ -124,7 +124,7 @@ export default function Founders({ compact = false }: FoundersProps) {
 
       {/* Sayed profile — full page only */}
       {!compact && sayed && (
-        <FounderProfile founder={sayed} compact={false} />
+        <FounderProfile founder={sayed} compact={false} hideImage />
       )}
 
       {/* Coda + Final note */}
@@ -140,11 +140,12 @@ export default function Founders({ compact = false }: FoundersProps) {
             {/* Coda lines */}
             <p style={{
               fontFamily: 'var(--serif)',
-              fontSize: '0.95rem',
+              fontSize: 'clamp(2.4rem, 3.6vw, 3.4rem)',
+              fontWeight: 300,
               fontStyle: 'italic',
-              color: 'var(--ink-soft)',
-              lineHeight: 1.8,
-              margin: '0 0 36px',
+              color: 'var(--ink)',
+              lineHeight: 1.15,
+              margin: '0 0 48px',
             }}>
               Pushkar is on the ridge every morning.
               <br />
@@ -200,10 +201,12 @@ function FounderProfile({
   founder,
   compact,
   showCta = false,
+  hideImage = false,
 }: {
   founder: (typeof founders)[0];
   compact: boolean;
   showCta?: boolean;
+  hideImage?: boolean;
 }) {
   const isPlaceholder = founder.image.includes('placeholder');
   const imgHeight = compact ? '380px' : '420px';
@@ -220,7 +223,7 @@ function FounderProfile({
       }}
       className="founder-inner"
     >
-      {/* Image column — always left */}
+      {/* Image column — always rendered; image + overlay hidden when hideImage */}
       <RevealWrapper>
         <div style={{ position: 'relative' }}>
           <div
@@ -228,11 +231,11 @@ function FounderProfile({
             style={{
               width: '100%',
               height: imgHeight,
-              background: 'linear-gradient(160deg, #362a20, #1f1810)',
+              background: hideImage ? 'transparent' : 'linear-gradient(160deg, #362a20, #1f1810)',
               overflow: 'hidden',
             }}
           >
-            {!isPlaceholder && (
+            {!hideImage && !isPlaceholder && (
               <Image
                 src={founder.image}
                 alt={founder.imageAlt}
@@ -243,41 +246,43 @@ function FounderProfile({
               />
             )}
           </div>
-          {/* Name overlay — always present */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              padding: '64px 22px 22px',
-              background: 'linear-gradient(to top, rgba(10,8,5,0.95) 0%, rgba(10,8,5,0.6) 55%, transparent 100%)',
-            }}
-          >
-            <span
+          {/* Name overlay — only when image is shown */}
+          {!hideImage && (
+            <div
               style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '11px',
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: 'rgba(197,153,90,0.9)',
-                display: 'block',
-                marginBottom: '4px',
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                padding: '64px 22px 22px',
+                background: 'linear-gradient(to top, rgba(10,8,5,0.95) 0%, rgba(10,8,5,0.6) 55%, transparent 100%)',
               }}
             >
-              Co-Founder
-            </span>
-            <span
-              style={{
-                fontFamily: 'var(--serif)',
-                fontSize: '1rem',
-                fontStyle: 'italic',
-                color: 'rgba(255,255,255,0.95)',
-              }}
-            >
-              {founder.name}
-            </span>
-          </div>
+              <span
+                style={{
+                  fontFamily: 'var(--sans)',
+                  fontSize: '11px',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(197,153,90,0.9)',
+                  display: 'block',
+                  marginBottom: '4px',
+                }}
+              >
+                Co-Founder
+              </span>
+              <span
+                style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: '1rem',
+                  fontStyle: 'italic',
+                  color: 'rgba(255,255,255,0.95)',
+                }}
+              >
+                {founder.name}
+              </span>
+            </div>
+          )}
         </div>
       </RevealWrapper>
 

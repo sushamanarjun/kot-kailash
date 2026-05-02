@@ -39,14 +39,14 @@ const IMAGES: GalleryImage[] = [
     caption: 'Golden hour on the ridge', note: 'Late afternoon · Kunja Gunth',
     gradient: 'linear-gradient(160deg, #1a1008 0%, #2e1c08 55%, #3c2810 100%)',
     accentColor: 'rgba(155,98,42,0.28)',
-    src: '/images/gallery/seasons/golden-hour-kot-kailash.webp',
+    src: '/images/gallery/seasons/golden-hour-kot-kailash.jpeg',
   },
   {
     id: 2, category: 'Seasons', aspect: 'landscape',
     caption: 'The property from the trail above', note: 'Shaukiyathal · 7,800 ft',
     gradient: 'linear-gradient(160deg, #0e1a0c 0%, #182812 55%, #243618 100%)',
     accentColor: 'rgba(46,80,38,0.3)',
-    src: '/images/gallery/seasons/kot-kailash-property-almora.webp',
+    src: '/images/gallery/seasons/kot-kailash-property-almora.jpg',
   },
   {
     id: 3, category: 'Seasons', aspect: 'landscape',
@@ -81,56 +81,56 @@ const IMAGES: GalleryImage[] = [
     caption: 'Winter snow on the ridge', note: 'January · first snowfall',
     gradient: 'linear-gradient(160deg, #101418 0%, #181c22 55%, #202630 100%)',
     accentColor: 'rgba(139,107,61,0.1)',
-    src: '/images/gallery/seasons/snow-kot-kailash-ridge-winter.webp',
+    src: '/images/gallery/seasons/snow-kot-kailash-ridge-winter.jpg',
   },
   {
     id: 8, category: 'Seasons', aspect: 'landscape',
     caption: 'Snowfall, January 2026', note: 'First snow of the season',
     gradient: 'linear-gradient(160deg, #0e1218 0%, #161a22 55%, #1e222e 100%)',
     accentColor: 'rgba(139,107,61,0.08)',
-    src: '/images/gallery/seasons/snowfall-2026-kot-kailash.webp',
+    src: '/images/gallery/seasons/snowfall-2026-kot-kailash.jpeg',
   },
   {
     id: 9, category: 'Seasons', aspect: 'landscape',
     caption: 'Buransh in bloom', note: 'Rhododendron season · spring',
     gradient: 'linear-gradient(160deg, #1a0808 0%, #2a1010 55%, #381818 100%)',
     accentColor: 'rgba(155,42,42,0.28)',
-    src: '/images/gallery/seasons/season-buransh.webp',
+    src: '/images/season-buransh.png',
   },
   {
     id: 10, category: 'Seasons', aspect: 'landscape',
     caption: 'Winter clarity on the ridge', note: 'Deep blue sky · Kumaon',
     gradient: 'linear-gradient(160deg, #080e18 0%, #101828 55%, #182234 100%)',
     accentColor: 'rgba(42,80,139,0.2)',
-    src: '/images/gallery/seasons/season-clarity.webp',
+    src: '/images/season-clarity.png',
   },
   {
     id: 11, category: 'Seasons', aspect: 'landscape',
     caption: 'Deep winter on the property', note: 'Snowbound · December',
     gradient: 'linear-gradient(160deg, #0c1018 0%, #141820 55%, #1c2028 100%)',
     accentColor: 'rgba(139,107,61,0.1)',
-    src: '/images/gallery/seasons/season-deep-winter.webp',
+    src: '/images/season-deep-winter.jpeg',
   },
   {
     id: 12, category: 'Seasons', aspect: 'landscape',
     caption: 'Harvest season at Shaukiyathal', note: 'October · golden fields',
     gradient: 'linear-gradient(160deg, #1c1408 0%, #2c200e 55%, #3a2c14 100%)',
     accentColor: 'rgba(155,120,42,0.3)',
-    src: '/images/gallery/seasons/season-harvest.webp',
+    src: '/images/season-harvest.JPG',
   },
   {
     id: 13, category: 'Seasons', aspect: 'landscape',
     caption: 'The monsoon arrives', note: 'July · mist on the ridge',
     gradient: 'linear-gradient(160deg, #0a1010 0%, #121818 55%, #1a2222 100%)',
     accentColor: 'rgba(46,80,80,0.3)',
-    src: '/images/gallery/seasons/season-monsoon.webp',
+    src: '/images/season-monsoon.jpeg',
   },
   {
     id: 14, category: 'Seasons', aspect: 'landscape',
     caption: 'Winter on the ridge', note: 'First frost · Kumaon winter',
     gradient: 'linear-gradient(160deg, #101418 0%, #181e22 55%, #202830 100%)',
     accentColor: 'rgba(139,107,61,0.1)',
-    src: '/images/gallery/seasons/season-winter.webp',
+    src: '/images/season-winter.jpeg',
   },
 
   // ── Family Suite (11) ──────────────────────────────────────────
@@ -253,7 +253,7 @@ const IMAGES: GalleryImage[] = [
     caption: 'Kumaon Vann — ensuite', note: 'Natural materials',
     gradient: 'linear-gradient(160deg, #181212 0%, #241c1c 55%, #302626 100%)',
     accentColor: 'rgba(139,107,61,0.14)',
-    src: '/images/gallery/kumaon-vann/kumaon-vann-bathroom-2.jpg',
+    src: '/images/gallery/kumaon-vann/kumaon-vann-bath-tub.JPG',
   },
   {
     id: 32, category: 'Kumaon Vann', aspect: 'landscape',
@@ -669,19 +669,25 @@ export default function GalleryClient() {
   const [activeCategory, setActiveCategory] = useState<Category>('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [showTop, setShowTop] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const filtered = activeCategory === 'All'
     ? IMAGES
     : IMAGES.filter(img => img.category === activeCategory);
 
-  const openLightbox = (index: number) => setLightboxIndex(index);
+  const openLightbox = (index: number) => {
+    setImageLoading(true);
+    setLightboxIndex(index);
+  };
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
   const prevImage = useCallback(() => {
+    setImageLoading(true);
     setLightboxIndex(prev => prev === null ? null : (prev - 1 + filtered.length) % filtered.length);
   }, [filtered.length]);
 
   const nextImage = useCallback(() => {
+    setImageLoading(true);
     setLightboxIndex(prev => prev === null ? null : (prev + 1) % filtered.length);
   }, [filtered.length]);
 
@@ -800,15 +806,15 @@ export default function GalleryClient() {
           background: rgba(8,6,4,0.97);
           z-index: 900;
           display: flex; align-items: center; justify-content: center;
-          padding: 64px 80px 32px;
+          padding: 40px 80px 24px;
         }
         .gl-lb-content {
-          max-width: 860px; width: 100%;
+          max-width: 1400px; width: 100%;
           animation: galleryLbIn 0.3s ease both;
           display: flex; flex-direction: column;
         }
         .gl-lb-img {
-          width: 100%; height: 62vh;
+          width: 100%; height: 82vh;
           position: relative; overflow: hidden; flex-shrink: 0;
         }
         .gl-lb-close, .gl-lb-nav {
@@ -833,6 +839,14 @@ export default function GalleryClient() {
           .gl-lb-next { right: 4px; }
           .gl-lb-img { height: 50vw; min-height: 220px; }
         }
+        .gl-spinner {
+          width: 32px; height: 32px;
+          border: 2px solid rgba(255,255,255,0.1);
+          border-top-color: var(--gold);
+          border-radius: 50%;
+          animation: glSpin 0.8s linear infinite;
+        }
+        @keyframes glSpin { to { transform: rotate(360deg); } }
 
         /* ─── Scroll-to-top ──────────────────────────────────── */
         @keyframes glTopIn {
@@ -1006,7 +1020,7 @@ export default function GalleryClient() {
             color: 'rgba(255,255,255,0.28)',
           }}>Scroll</span>
           <svg width="1" height="44" viewBox="0 0 1 44">
-            <line x1="0.5" y1="0" x2="0.5" y2="44" stroke="rgba(255,255,255,0.18)" strokeWidth="1"/>
+            <line x1="0.5" y1="0" x2="0.5" y2="44" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
           </svg>
         </div>
       </section>
@@ -1179,7 +1193,7 @@ export default function GalleryClient() {
         >
           <button className="gl-lb-close" onClick={closeLightbox} aria-label="Close lightbox">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M1 1l12 12M13 1L1 13"/>
+              <path d="M1 1l12 12M13 1L1 13" />
             </svg>
           </button>
 
@@ -1187,12 +1201,12 @@ export default function GalleryClient() {
             <>
               <button className="gl-lb-nav gl-lb-prev" onClick={prevImage} aria-label="Previous photograph">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M9 2L4 7l5 5"/>
+                  <path d="M9 2L4 7l5 5" />
                 </svg>
               </button>
               <button className="gl-lb-nav gl-lb-next" onClick={nextImage} aria-label="Next photograph">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M5 2l5 5-5 5"/>
+                  <path d="M5 2l5 5-5 5" />
                 </svg>
               </button>
             </>
@@ -1201,13 +1215,24 @@ export default function GalleryClient() {
           <div className="gl-lb-content">
             {/* Image */}
             <div className="gl-lb-img" style={{ background: activeImg.gradient }}>
+              {imageLoading && (
+                <div style={{
+                  position: 'absolute', inset: 0, display: 'flex',
+                  alignItems: 'center', justifyContent: 'center',
+                  zIndex: 1,
+                }}>
+                  <div className="gl-spinner" />
+                </div>
+              )}
               <Image
+                key={activeImg.src}
                 src={activeImg.src}
                 alt={activeImg.caption}
                 fill
-                quality={85}
-                sizes="(max-width: 680px) 100vw, 860px"
-                style={{ objectFit: 'cover' }}
+                quality={90}
+                sizes="(max-width: 680px) 100vw, 1400px"
+                style={{ objectFit: 'contain', opacity: imageLoading ? 0 : 1, transition: 'opacity 0.3s ease' }}
+                onLoad={() => setImageLoading(false)}
               />
             </div>
 

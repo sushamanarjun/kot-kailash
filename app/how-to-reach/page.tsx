@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/seo';
+import Journey from '@/components/sections/Journey';
 import Reserve from '@/components/sections/Reserve';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 
@@ -462,6 +463,9 @@ export default function HowToReachPage() {
         </RevealWrapper>
       </section>
 
+      {/* Journey — Getting to the ridge */}
+      <Journey />
+
       {/* FAQ */}
       <section
         style={{
@@ -486,6 +490,11 @@ export default function HowToReachPage() {
           </h3>
         </RevealWrapper>
 
+        <style>{`
+            @media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr !important; } }
+            .faq-grid > * { display: flex; flex-direction: column; }
+            .faq-grid > * > div { flex: 1; }
+          `}</style>
         <div
           style={{
             display: 'grid',
@@ -494,9 +503,6 @@ export default function HowToReachPage() {
           }}
           className="faq-grid"
         >
-          <style>{`
-            @media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr !important; } }
-          `}</style>
 
           {faqs.map((faq, i) => (
             <RevealWrapper key={i} delay={(i % 4) as 0 | 1 | 2 | 3}>
@@ -505,6 +511,9 @@ export default function HowToReachPage() {
                   padding: '32px',
                   background: 'var(--parchment)',
                   border: '1px solid var(--fog)',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
                 }}
               >
                 <h4

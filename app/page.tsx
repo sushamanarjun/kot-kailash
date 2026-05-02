@@ -5,7 +5,6 @@ import Hero from '@/components/sections/Hero';
 import Manifesto from '@/components/sections/Manifesto';
 import FullBleedImage from '@/components/sections/FullBleedImage';
 import Rooms from '@/components/sections/Rooms';
-import Experiences from '@/components/sections/Experiences';
 import Tehni from '@/components/sections/Tehni';
 import Seasons from '@/components/sections/Seasons';
 import SacredArc from '@/components/sections/SacredArc';
@@ -46,9 +45,8 @@ export default function HomePage() {
         caption="The Shaukiyathal Ridge · 7,800 Feet"
       />
       <Rooms compact />
-      <Experiences preview />
-      <Tehni compact />
       <Seasons />
+      <Tehni compact />
       <SacredArc compact />
       <Testimonials />
       <PressBar />

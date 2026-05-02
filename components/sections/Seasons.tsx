@@ -157,6 +157,7 @@ export default function Seasons() {
             width: '100%',
             aspectRatio: '16/9',
             objectFit: 'cover',
+            objectPosition: 'bottom',
             display: 'block',
           }}
         />

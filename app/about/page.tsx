@@ -289,7 +289,7 @@ export default function AboutPage() {
         >
           {/* Property image */}
           <Image
-            src="/images/kot-kailash-experience-kumaon.webp"
+            src="/images/kot-kailash-experience-kumaon.jpg"
             alt="Kot Kailash — the main house on the Shaukiyathal ridge, Almora"
             fill
             priority
@@ -474,12 +474,11 @@ export default function AboutPage() {
       </section>
 
       {/* ─── §3 Milestones — horizontal strip ────────────────── */}
-      <section style={{ background: 'var(--ink)' }}>
+      {/* <section style={{ background: 'var(--ink)' }}>
         <div className="ab-milestones">
           {MILESTONES.map((m, i) => (
             <RevealWrapper key={m.year} delay={(i % 4) as 0 | 1 | 2 | 3}>
               <div className="ab-ms-cell">
-                {/* Year — ghost large */}
                 <div style={{
                   fontFamily: 'var(--serif)',
                   fontSize: 'clamp(3rem, 4.5vw, 5rem)',
@@ -490,7 +489,6 @@ export default function AboutPage() {
                   marginBottom: '16px',
                   userSelect: 'none',
                 }}>{m.year}</div>
-                {/* Label */}
                 <div style={{
                   fontFamily: 'var(--sans)',
                   fontSize: '10px',
@@ -499,7 +497,6 @@ export default function AboutPage() {
                   color: 'var(--gold)',
                   marginBottom: '10px',
                 }}>{m.label}</div>
-                {/* Detail */}
                 <p style={{
                   fontFamily: 'var(--serif)',
                   fontSize: '0.88rem',
@@ -511,7 +508,7 @@ export default function AboutPage() {
             </RevealWrapper>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* ─── §4 Pull quote ───────────────────────────────────── */}
       <section style={{

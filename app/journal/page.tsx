@@ -77,9 +77,9 @@ const placeholderPosts = [
 
 const JOURNAL_IMAGES = [
   '/images/shaukiyathal-ridge-kot-kailash.jpg',        // featured post
-  '/images/tehni-kitchen-interior-kot-kailash.webp',  // grid post 1
-  '/images/kot-kailash-ridge-shaukiyathal.jpeg',       // grid post 2
-  '/images/kumaon-vann-room-kot-kailash.webp',         // grid post 3
+  '/images/tehni-kitchen-interior-kot-kailash.jpg',  // grid post 1
+  '/images/kot-kailash-ridge-shaukiyathal.jpg',       // grid post 2
+  '/images/kumaon-vann-room-kot-kailash.jpeg',         // grid post 3
 ];
 
 export default function JournalPage() {

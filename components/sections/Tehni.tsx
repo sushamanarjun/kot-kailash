@@ -18,7 +18,7 @@ export default function Tehni({ compact }: { compact?: boolean }) {
     >
       {/* Left: Text */}
       <RevealWrapper>
-        <div className="eyebrow">IV · Tehni</div>
+        <div className="eyebrow">III · Tehni</div>
         <h2
           style={{
             fontFamily: 'var(--serif)',
@@ -86,7 +86,7 @@ export default function Tehni({ compact }: { compact?: boolean }) {
         <div style={{ position: 'relative' }}>
           <div className="tehni-img-wrap" style={{ width: '100%', height: '510px', overflow: 'hidden' }}>
             <Image
-              src="/images/tehni-kitchen-interior-kot-kailash.webp"
+              src="/images/tehni-kitchen-interior-kot-kailash.jpg"
               alt="The Tehni — Kumaoni kitchen at Kot Kailash"
               width={800}
               height={510}

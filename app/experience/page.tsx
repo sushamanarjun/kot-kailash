@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { buildMetadata } from '@/lib/seo';
 import { experiences } from '@/lib/content/experiences';
 import SacredArc from '@/components/sections/SacredArc';
-import Journey from '@/components/sections/Journey';
 import Reserve from '@/components/sections/Reserve';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 
@@ -77,7 +76,7 @@ export default function ExperiencePage() {
         `}</style>
 
         <Image
-          src="/images/kot-kailash-ridge-shaukiyathal.jpeg"
+          src="/images/kot-kailash-ridge-shaukiyathal.jpg"
           alt="Ridge view from Kot Kailash, Shaukiyathal — 7,800 ft"
           fill
           priority
@@ -252,10 +251,10 @@ export default function ExperiencePage() {
                   {imageLeft && (
                     <div
                       className="exp-row-image"
-                      style={{ position: 'relative', minHeight: '580px', overflow: 'hidden' }}
+                      style={{ position: 'relative', minHeight: '520px', overflow: 'hidden' }}
                     >
                       <Image
-                        src={EXP_IMAGES[exp.numeral] ?? '/images/kot-kailash-ridge-shaukiyathal.jpeg'}
+                        src={EXP_IMAGES[exp.numeral] ?? '/images/kot-kailash-ridge-shaukiyathal.jpg'}
                         alt={exp.name}
                         fill
                         loading="lazy"
@@ -349,7 +348,7 @@ export default function ExperiencePage() {
                       ))}
 
                       {/* Price + arrange */}
-                      <div style={{
+                      {/* <div style={{
                         marginTop: '28px', paddingTop: '22px',
                         borderTop: '1px solid rgba(255,255,255,0.08)',
                       }}>
@@ -395,17 +394,17 @@ export default function ExperiencePage() {
                         >
                           Arrange with us →
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
 
                   {!imageLeft && (
                     <div
                       className="exp-row-image"
-                      style={{ position: 'relative', minHeight: '580px', overflow: 'hidden' }}
+                      style={{ position: 'relative', minHeight: '520px', overflow: 'hidden' }}
                     >
                       <Image
-                        src={EXP_IMAGES[exp.numeral] ?? '/images/kot-kailash-ridge-shaukiyathal.jpeg'}
+                        src={EXP_IMAGES[exp.numeral] ?? '/images/kot-kailash-ridge-shaukiyathal.jpg'}
                         alt={exp.name}
                         fill
                         loading="lazy"
@@ -562,15 +561,11 @@ export default function ExperiencePage() {
       ═══════════════════════════════════════════════════════════════ */}
       <SacredArc standalone />
 
-      {/* ═══════════════════════════════════════════════════════════════
-          §6  JOURNEY
-      ═══════════════════════════════════════════════════════════════ */}
-      <Journey />
 
       {/* ═══════════════════════════════════════════════════════════════
           §7  CTA
       ═══════════════════════════════════════════════════════════════ */}
-      <section style={{
+      {/* <section style={{
         background: 'var(--parchment)',
         padding: '80px 64px',
         textAlign: 'center',
@@ -611,7 +606,7 @@ export default function ExperiencePage() {
             </a>
           </p>
         </RevealWrapper>
-      </section>
+      </section> */}
 
       <Reserve />
     </>

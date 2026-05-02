@@ -54,7 +54,7 @@ export default function RoomsPage() {
         >
           Eight keys.
           <br />
-          Three houses.
+          Three Structures.
           <br />
           <em style={{ fontStyle: 'normal', color: 'var(--gold-pale)' }}>
             One ridge.

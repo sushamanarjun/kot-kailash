@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { buildMetadata } from '@/lib/seo';
 import Reserve from '@/components/sections/Reserve';
 import RevealWrapper from '@/components/ui/RevealWrapper';
+import RoomCarousel from '@/components/ui/RoomCarousel';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Tehni | Kumaoni Dining Experience at Kot Kailash, Almora',
@@ -18,49 +19,6 @@ export const metadata: Metadata = buildMetadata({
   ],
 });
 
-/* ── Dish data ── */
-const dishGroups = [
-  {
-    category: 'Mains',
-    subtitle: 'From the hearth of Kumaon',
-    items: [
-      { name: 'Mandua Roti', desc: 'Flatbread made from finger millet — the ancient grain of the Kumaon hills. Dense, nutty, and deeply sustaining at altitude.' },
-      { name: 'Aloo Gutke', desc: 'Baby potatoes tempered with Jakhiya seeds — the spice that defines Kumaoni cooking more than any other. Simple and irreplaceable.' },
-      { name: 'Kafuli', desc: 'A slow-cooked green curry of fenugreek and spinach, thickened with rice flour. The kind of dish that takes all morning and rewards patience absolutely.' },
-      { name: 'Chudkani', desc: 'Black-eyed peas in a spiced Kumaoni gravy. A village staple that has sustained families on this ridge through every season.' },
-    ],
-  },
-  {
-    category: 'Lentils & Sides',
-    subtitle: 'The accompaniments the Kumaon relies on',
-    items: [
-      { name: 'Bhatt ki Churkani', desc: 'Black soybean curry — a Kumaoni original. Earthy, slow-cooked, and entirely of this land.' },
-      { name: 'Gahat ki Dal', desc: 'Horse gram lentils, believed to warm the body from within. A hill winter staple that requires no embellishment.' },
-      { name: 'Bhang ki Chutney', desc: 'Hemp seed chutney — a Kumaoni condiment of remarkable depth. Sharp, aromatic, and unlike anything in the plains.' },
-      { name: 'Kumaoni Raita', desc: 'Set curd with local spices and seasonal vegetables. The cooling note that brings the meal into balance.' },
-    ],
-  },
-  {
-    category: 'Sweets & Sherbet',
-    subtitle: 'The ridge, sweetened',
-    items: [
-      { name: 'Bal Mithai', desc: 'The signature sweet of Almora. Roasted khoya coated in white sugar balls — a confection that has been made in these hills for generations.' },
-      { name: 'Singori', desc: 'Khoya wrapped in a maalu leaf cone. The leaf imparts a faint, wild fragrance that no other wrapper can replicate.' },
-      { name: 'Jhangora Kheer', desc: 'Barnyard millet pudding — lighter than rice kheer, with a texture entirely its own.' },
-      { name: 'Buransh Sherbet', desc: 'Rhododendron flower sherbet. Available only in March and April, when the forest turns red. A few fleeting weeks. Worth timing your visit for.' },
-      { name: 'Banoffee Pie', desc: 'Our one concession to the world beyond the ridge. Made in-house, with care, for those who want it.' },
-    ],
-  },
-  {
-    category: 'Rice & Ras',
-    subtitle: 'The foundation of every Kumaoni meal',
-    items: [
-      { name: 'Ras Bhaat', desc: 'Steamed mountain rice with a light, aromatic lentil broth. The meal that the Kumaon returns to at the end of every day.' },
-      { name: 'Pisi Loon', desc: 'Freshly ground salt with local herbs and spices. Served alongside every meal — more complex than it sounds, less complicated than it needs to be.' },
-      { name: 'Seasonal Accompaniments', desc: "Whatever Chandan's garden and the village offer this week. The menu does not decide — the harvest does." },
-    ],
-  },
-];
 
 const provenanceFacts = [
   { number: '0 km', label: 'Distance to source', detail: 'Village of Kunja Gunth' },
@@ -198,7 +156,17 @@ export default function TehniPage() {
       {/* ── §3 Kitchen story ── */}
       <section style={{ background: 'var(--cream)', display: 'grid', gridTemplateColumns: '55% 1fr' }} className="tehni-kitchen-grid">
         <div className="tehni-kitchen-image" style={{ position: 'relative', height: '640px', overflow: 'hidden', background: 'var(--forest-deep)' }}>
-          <Image src="/images/tehni-kitchen-interior-kot-kailash.webp" alt="The Tehni — Kumaoni kitchen at Kot Kailash" fill loading="lazy" style={{ objectFit: 'cover' }} sizes="(max-width: 960px) 100vw, 55vw" />
+          <RoomCarousel 
+            images={[
+              { src: '/images/tehni-kitchen-interior-kot-kailash.JPG', alt: 'The Tehni — Kumaoni kitchen at Kot Kailash' },
+              { src: '/images/gallery/tehni/tehni-afternoon-tea.jpg', alt: 'Tehni afternoon tea' },
+              { src: '/images/gallery/tehni/tehni-grind-to-perfection.jpg', alt: 'Tehni grind to perfection' },
+              { src: '/images/gallery/tehni/tehni-home-made-bread.jpg', alt: 'Tehni home made bread' },
+              { src: '/images/gallery/tehni/tehni-outdoor-breakfast.jpg', alt: 'Tehni outdoor breakfast' },
+              { src: '/images/gallery/tehni/tehni-local-produce-2.jpg', alt: 'Tehni local produce' },
+            ]} 
+            objectFit="cover" 
+          />
         </div>
 
         <RevealWrapper delay={1}>
@@ -222,97 +190,46 @@ export default function TehniPage() {
                 There is no menu. There is a conversation with your host, and then a meal.
               </p>
             </div>
-            <div style={{ marginTop: '40px', paddingTop: '28px', borderTop: '1px solid rgba(26,22,18,0.09)' }}>
+            {/* <div style={{ marginTop: '40px', paddingTop: '28px', borderTop: '1px solid rgba(26,22,18,0.09)' }}>
               <p style={{ fontFamily: 'var(--serif)', fontSize: '0.95rem', fontStyle: 'italic', color: 'rgba(61,53,48,0.52)', lineHeight: 1.7 }}>
                 Served at the long table — family style, at the hour the light is right.
               </p>
-            </div>
+            </div> */}
           </div>
         </RevealWrapper>
       </section>
 
-      {/* ── §4 The Seasonal Table — dish cards ── */}
-      <section style={{ background: 'var(--parchment)', padding: '80px 64px' }}>
+      {/* ── §4 Guest Favourites ── */}
+      <section style={{ background: 'var(--parchment)', padding: '100px 64px', textAlign: 'center' }}>
         <RevealWrapper>
-          <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-            <span style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'var(--gold)', display: 'block', marginBottom: '16px' }}>
-              What the Ridge Sends Up
-            </span>
-            <h3 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 300, fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1.18, marginBottom: '14px' }}>
-              The Seasonal Table
-            </h3>
-            <p style={{ fontFamily: 'var(--serif)', fontSize: '1rem', fontStyle: 'italic', color: 'var(--ink-soft)', lineHeight: 1.85, maxWidth: '440px', margin: '0 auto' }}>
-              Not a menu. A vocabulary. Assembled each day from what is ready.
-            </p>
-          </div>
-        </RevealWrapper>
-
-        {/* Dish groups */}
-        <div style={{ maxWidth: '960px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0' }}>
-          {dishGroups.map((group, gi) => (
-            <RevealWrapper key={group.category}>
-              <div style={{ borderTop: gi === 0 ? '1px solid rgba(139,107,61,0.18)' : 'none', borderBottom: '1px solid rgba(139,107,61,0.18)', padding: '48px 0' }}>
-                {/* Group header */}
-                <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '48px', alignItems: 'start', marginBottom: '32px' }} className="tehni-dish-grid">
-                  <div>
-                    <span style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.32em', textTransform: 'uppercase', color: 'var(--gold)', display: 'block', marginBottom: '6px' }}>
-                      {group.category}
-                    </span>
-                    <p style={{ fontFamily: 'var(--serif)', fontSize: '0.88rem', fontStyle: 'italic', color: 'rgba(61,53,48,0.5)', lineHeight: 1.6, margin: 0 }}>
-                      {group.subtitle}
-                    </p>
-                  </div>
-                </div>
-                {/* Dish items */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-                  {group.items.map((dish, di) => (
-                    <div key={dish.name} style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '48px', padding: '18px 0', borderTop: di > 0 ? '1px solid rgba(26,22,18,0.06)' : '1px solid rgba(139,107,61,0.1)' }} className="tehni-dish-grid">
-                      <span style={{ fontFamily: 'var(--serif)', fontSize: '1rem', fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1.4, paddingTop: '1px' }}>
-                        {dish.name}
-                      </span>
-                      <p style={{ fontFamily: 'var(--serif)', fontSize: '0.92rem', color: 'var(--ink-soft)', lineHeight: 1.82, margin: 0 }}>
-                        {dish.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </RevealWrapper>
-          ))}
-        </div>
-
-        {/* Proteins block */}
-        <RevealWrapper>
-          <div style={{ maxWidth: '960px', margin: '0 auto', borderBottom: '1px solid rgba(139,107,61,0.18)', padding: '48px 0' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '48px', alignItems: 'start', marginBottom: '32px' }} className="tehni-dish-grid">
-              <div>
-                <span style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.32em', textTransform: 'uppercase', color: 'var(--gold)', display: 'block', marginBottom: '6px' }}>
-                  Pahari Proteins
+          <span style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'var(--gold)', display: 'block', marginBottom: '40px' }}>
+            Guest Favourites
+          </span>
+          <div style={{
+            maxWidth: '900px',
+            margin: '0 auto',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '20px 28px'
+          }}>
+            {['Ras Bhaat', 'Pahari Mutton', 'Aloo ke Gutke', 'Bhaang ki Chutni', 'Pahari Murgh', 'Pisi Loon'].map((dish, i, arr) => (
+              <div key={dish} style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
+                <span style={{
+                  fontFamily: 'var(--serif)',
+                  fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)',
+                  fontStyle: 'italic',
+                  color: 'var(--ink)',
+                  lineHeight: 1.2
+                }}>
+                  {dish}
                 </span>
-                <p style={{ fontFamily: 'var(--serif)', fontSize: '0.88rem', fontStyle: 'italic', color: 'rgba(61,53,48,0.5)', lineHeight: 1.6, margin: 0 }}>
-                  Non-Vegetarian · Available Year-Round
-                </p>
-              </div>
-            </div>
-            {[
-              { name: 'Pahari Mutton', desc: "Free-range mutton from the Kumaon hills. Slow-cooked in the Kumaoni style — spiced with Jakhiya and local aromatics." },
-              { name: 'Pahari Chicken', desc: "Village-raised, free-range chicken. Prepared according to your preference and the day's kitchen." },
-              { name: 'Himalayan Trout Fish', desc: "Fresh Himalayan trout sourced from the clean streams of the Kumaon foothills. A rare and delicate protein." },
-            ].map((dish, di) => (
-              <div key={dish.name} style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '48px', padding: '18px 0', borderTop: di === 0 ? '1px solid rgba(139,107,61,0.1)' : '1px solid rgba(26,22,18,0.06)' }} className="tehni-dish-grid">
-                <span style={{ fontFamily: 'var(--serif)', fontSize: '1rem', fontStyle: 'italic', color: 'var(--ink)', lineHeight: 1.4, paddingTop: '1px' }}>
-                  {dish.name}
-                </span>
-                <p style={{ fontFamily: 'var(--serif)', fontSize: '0.92rem', color: 'var(--ink-soft)', lineHeight: 1.82, margin: 0 }}>
-                  {dish.desc}
-                </p>
+                {i < arr.length - 1 && (
+                  <span aria-hidden="true" style={{ color: 'var(--gold)', opacity: 0.5, fontSize: '1.2rem' }}>·</span>
+                )}
               </div>
             ))}
-            <div style={{ marginTop: '28px', padding: '20px 24px', background: 'rgba(139,107,61,0.05)', borderLeft: '2px solid rgba(139,107,61,0.3)' }}>
-              <p style={{ fontFamily: 'var(--serif)', fontSize: '0.9rem', fontStyle: 'italic', color: 'var(--ink-soft)', lineHeight: 1.82, margin: 0 }}>
-                Tehni&rsquo;s kitchen is rooted in the Kumaoni vegetarian tradition — but we cook for our guests, not for a philosophy. All non-vegetarian proteins are Halal. We do not serve beef or pork. Please share dietary preferences, allergies, or requirements with our team on arrival or in advance. Tehni will be prepared for you — personally and without compromise.
-              </p>
-            </div>
           </div>
         </RevealWrapper>
       </section>
@@ -330,7 +247,7 @@ export default function TehniPage() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
               <div style={{ width: '32px', height: '1px', background: 'rgba(197,153,90,0.4)' }} />
               <span style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)' }}>
-                Pushkar Singh Negi, Founder
+                Pushkar Singh Negi, Co Founder
               </span>
               <div style={{ width: '32px', height: '1px', background: 'rgba(197,153,90,0.4)' }} />
             </div>
@@ -412,13 +329,13 @@ export default function TehniPage() {
 
         <RevealWrapper delay={1}>
           <div className="tehni-provenance-image" style={{ position: 'relative', height: '100%', minHeight: '480px', overflow: 'hidden', background: 'var(--forest-deep)' }}>
-            <Image src="/images/tehni-village-kumaon-almora.webp" fill loading="lazy" style={{ objectFit: 'cover' }} alt="Kunja Gunth village below Kot Kailash ridge" sizes="(max-width: 960px) 100vw, 50vw" />
+            <Image src="/images/tehni-village-kumaon-almora.jpg" fill loading="lazy" style={{ objectFit: 'cover' }} alt="Kunja Gunth village below Kot Kailash ridge" sizes="(max-width: 960px) 100vw, 50vw" />
           </div>
         </RevealWrapper>
       </section>
 
       {/* ── §9 CTA ── */}
-      <section className="tehni-cta-section" style={{ background: 'var(--parchment)', padding: '80px 64px', textAlign: 'center' }}>
+      {/* <section className="tehni-cta-section" style={{ background: 'var(--parchment)', padding: '80px 64px', textAlign: 'center' }}>
         <RevealWrapper>
           <span style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'var(--gold)', display: 'block', marginBottom: '20px' }}>
             No menu to order from
@@ -439,7 +356,7 @@ export default function TehniPage() {
             </a>
           </p>
         </RevealWrapper>
-      </section>
+      </section> */}
 
       <Reserve />
     </>

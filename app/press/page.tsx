@@ -452,7 +452,7 @@ export default function PressPage() {
               </p>
             </div>
             <a
-              href="mailto:psn@kotkailash.com?subject=Media%20Partnership%20%E2%80%94%20Kot%20Kailash"
+              href="mailto:info@kotkailash.com?subject=Media%20Partnership%20%E2%80%94%20Kot%20Kailash"
               className="btn-gold"
               style={{ whiteSpace: 'nowrap', flexShrink: 0 }}
             >

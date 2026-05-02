@@ -41,4 +41,11 @@ export const sacredSites: SacredSite[] = [
       'An 800-year-old temple in the Binsar Wildlife Sanctuary, at the point where the Himalayan panorama is unobstructed for 300km.',
     distance: '62 kms (38 miles)',
   },
+  {
+    numeral: 'VI',
+    name: 'Kainchi Dham',
+    description:
+      'Near Nainital in Uttarakhand, is a peaceful ashram and Hanuman temple founded in 1964 by Neem Karoli Baba. Surrounded by hills, it draws visitors from all walks of life seeking meditation, spiritual comfort, and inner peace.',
+    distance: '80 kms (50 miles)',
+  },
 ];

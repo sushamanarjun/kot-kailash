@@ -40,7 +40,7 @@ export default function SacredArc({ compact = false, standalone = false }: Sacre
 
           {/* Left: text */}
           <div>
-            <div className="eyebrow">{standalone ? 'The Sacred Arc' : 'V · The Sacred Arc'}</div>
+            <div className="eyebrow">{standalone ? 'The Sacred Arc' : 'IV · The Sacred Arc'}</div>
             <h2
               style={{
                 fontFamily: 'var(--serif)',
@@ -51,7 +51,7 @@ export default function SacredArc({ compact = false, standalone = false }: Sacre
                 color: 'var(--ink)',
               }}
             >
-              Five sacred sites
+              Six sacred sites
               <br />
               within 80 kilometres.
             </h2>
@@ -122,89 +122,25 @@ export default function SacredArc({ compact = false, standalone = false }: Sacre
         ))}
       </div>
 
-      {/* ── Grid Row 2 — hidden in compact/homepage mode ── */}
-      {!compact && (
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '2px',
-          }}
-          className="sacred-grid-2"
-          role="list"
-          aria-label="Sacred sites near Kot Kailash, part 2"
-        >
-          {row2.map((site, i) => (
-            <RevealWrapper key={site.numeral} delay={(i as 0 | 1)}>
-              <SacredCard site={site} />
-            </RevealWrapper>
-          ))}
-
-          {/* Pull quote fills the third column */}
-          <RevealWrapper delay={2}>
-            <div
-              style={{
-                background: 'var(--forest)',
-                padding: '34px 32px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                minHeight: '100%',
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: 'var(--serif)',
-                  fontSize: '1rem',
-                  fontStyle: 'italic',
-                  color: 'rgba(255,255,255,0.75)',
-                  lineHeight: 1.8,
-                  marginBottom: '16px',
-                }}
-              >
-                &ldquo;Your host will tell you which puja to attend and when to
-                arrive. That knowledge is not in any guidebook.&rdquo;
-              </p>
-              <span
-                style={{
-                  fontFamily: 'var(--sans)',
-                  fontSize: '11px',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  color: 'var(--gold)',
-                  opacity: 0.7,
-                }}
-              >
-                — Pushkar Singh Negi
-              </span>
-            </div>
+      {/* ── Grid Row 2 ── */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '2px',
+        }}
+        className="sacred-grid-2"
+        role="list"
+        aria-label="Sacred sites near Kot Kailash, part 2"
+      >
+        {row2.map((site, i) => (
+          <RevealWrapper key={site.numeral} delay={(i as 0 | 1 | 2)}>
+            <SacredCard site={site} />
           </RevealWrapper>
-        </div>
-      )}
+        ))}
+      </div>
 
-      {/* Compact CTA */}
-      {compact && (
-        <RevealWrapper>
-          <div style={{ textAlign: 'center', marginTop: '40px' }}>
-            <Link
-              href="/experience"
-              style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '11px',
-                letterSpacing: '0.24em',
-                textTransform: 'uppercase',
-                color: 'var(--gold)',
-                textDecoration: 'none',
-                borderBottom: '1px solid rgba(138,90,56,0.22)',
-                paddingBottom: '2px',
-                transition: 'color 0.3s',
-              }}
-            >
-              Explore the full sacred arc →
-            </Link>
-          </div>
-        </RevealWrapper>
-      )}
+
     </section>
   );
 }
@@ -220,6 +156,7 @@ function SacredCard({ site }: { site: (typeof sacredSites)[0] }) {
         transition: 'border-color 0.35s ease, box-shadow 0.35s ease',
         display: 'flex',
         flexDirection: 'column',
+        minHeight: '230px',
       }}
       className="sacred-card"
       role="listitem"

@@ -79,7 +79,7 @@ export default function Footer() {
               { href: '/#experiences', label: 'Experiences' },
               { href: '/#tehni', label: 'Tehni — The Kitchen' },
               { href: '/#sacred', label: 'Sacred Arc' },
-              { href: '/experience', label: 'Seasons' },
+              // { href: '/experience', label: 'Seasons' },
             ].map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="ft-link">
@@ -108,7 +108,7 @@ export default function Footer() {
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '9px' }}>
             {[
               { href: '/how-to-reach', label: 'How to Reach' },
-              { href: '/about', label: 'Our Story' },
+              // { href: '/about', label: 'Our Story' },
               { href: '/cancellations', label: 'Cancellations' },
               { href: '/faq', label: 'FAQ' },
             ].map((l) => (
@@ -153,7 +153,7 @@ export default function Footer() {
             </li>
             {[
               { href: 'mailto:info@kotkailash.com', label: 'Partner With Us' },
-              { href: 'mailto:info@kotkailash.com', label: 'Buyouts' },
+              // { href: 'mailto:info@kotkailash.com', label: 'Buyouts' },
             ].map((l) => (
               <li key={l.label}>
                 <a href={l.href} className="ft-link">{l.label}</a>
@@ -194,6 +194,7 @@ export default function Footer() {
           {[
             { href: 'https://instagram.com/kot.kailash', label: 'Instagram' },
             { href: 'https://g.page/r/Cb3YvvO1nV6fEB0/review', label: 'Google' },
+            { href: 'https://www.tripadvisor.in/Hotel_Review-g679053-d25168310', label: 'TripAdvisor' },
           ].map((s) => (
             <a
               key={s.href}
