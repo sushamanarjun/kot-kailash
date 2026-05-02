@@ -27,10 +27,13 @@ interface GalleryImage {
   src: string;
 }
 
-const CATEGORIES: Category[] = [
-  'All', 'Seasons', 'Family Suite', 'Kumaon Vann',
-  'Kumaoni Suite', 'Kutir Suite', 'Tehni', 'Experiences', 'Wildlife',
-];
+const FILTER_CATEGORIES = [
+  'All', 'Seasons', 'Rooms', 'Tehni', 'Experiences', 'Wildlife',
+] as const;
+
+type FilterCategory = typeof FILTER_CATEGORIES[number];
+
+const ROOM_CATEGORIES = ['Family Suite', 'Kumaon Vann', 'Kumaoni Suite', 'Kutir Suite'];
 
 const IMAGES: GalleryImage[] = [
   // ── Seasons (14) — IDs 1–4 rendered with priority ──────────────
@@ -666,14 +669,16 @@ const ASPECT_RATIO: Record<GalleryImage['aspect'], string> = {
 };
 
 export default function GalleryClient() {
-  const [activeCategory, setActiveCategory] = useState<Category>('All');
+  const [activeCategory, setActiveCategory] = useState<FilterCategory>('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [showTop, setShowTop] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
 
   const filtered = activeCategory === 'All'
     ? IMAGES
-    : IMAGES.filter(img => img.category === activeCategory);
+    : activeCategory === 'Rooms'
+      ? IMAGES.filter(img => ROOM_CATEGORIES.includes(img.category))
+      : IMAGES.filter(img => img.category === activeCategory);
 
   const openLightbox = (index: number) => {
     setImageLoading(true);
@@ -1040,7 +1045,7 @@ export default function GalleryClient() {
           role="tablist"
           aria-label="Filter gallery by category"
         >
-          {CATEGORIES.map(cat => (
+          {FILTER_CATEGORIES.map(cat => (
             <button
               key={cat}
               role="tab"
