@@ -46,7 +46,7 @@ const IMAGES: GalleryImage[] = [
     caption: 'The property from the trail above', note: 'Shaukiyathal · 7,800 ft',
     gradient: 'linear-gradient(160deg, #0e1a0c 0%, #182812 55%, #243618 100%)',
     accentColor: 'rgba(46,80,38,0.3)',
-    src: '/images/gallery/seasons/kot-kailash-property-almora.jpg',
+    src: '/images/gallery/seasons/kot-kailash-property-almora.JPG',
   },
   {
     id: 3, category: 'Seasons', aspect: 'landscape',

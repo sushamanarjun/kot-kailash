@@ -329,7 +329,7 @@ export default function TehniPage() {
 
         <RevealWrapper delay={1}>
           <div className="tehni-provenance-image" style={{ position: 'relative', height: '100%', minHeight: '480px', overflow: 'hidden', background: 'var(--forest-deep)' }}>
-            <Image src="/images/tehni-village-kumaon-almora.jpg" fill loading="lazy" style={{ objectFit: 'cover' }} alt="Kunja Gunth village below Kot Kailash ridge" sizes="(max-width: 960px) 100vw, 50vw" />
+            <Image src="/images/tehni-village-kumaon-almora.JPG" fill loading="lazy" style={{ objectFit: 'cover' }} alt="Kunja Gunth village below Kot Kailash ridge" sizes="(max-width: 960px) 100vw, 50vw" />
           </div>
         </RevealWrapper>
       </section>

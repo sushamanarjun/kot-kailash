@@ -36,7 +36,7 @@ const EXP_IMAGES: Record<string, string> = {
   '06': '/images/experiences/jata-ganga.jpg',
   '07': '/images/experiences/udiyar-caves.jpg',
   '08': '/images/experiences/kumaoni-food-trail.jpg',
-  '09': '/images/experiences/village-picnic.jpg',
+  '09': '/images/experiences/village-picnic.JPG',
 };
 
 export default function ExperiencePage() {
