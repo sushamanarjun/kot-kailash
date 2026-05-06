@@ -124,6 +124,25 @@ export default function AboutPage() {
         }
       `}</style>
 
+      {/* ─── Epigraph — dedication, precedes everything ──────── */}
+      <section style={{
+        background: 'var(--parchment)',
+        padding: '64px 40px',
+        textAlign: 'center',
+      }}>
+        <p style={{
+          fontFamily: 'var(--serif)',
+          fontSize: 'clamp(1rem, 1.5vw, 1.2rem)',
+          fontStyle: 'italic',
+          fontWeight: 300,
+          color: 'var(--ink-soft)',
+          lineHeight: 1.75,
+          margin: 0,
+        }}>
+          The best travel leaves you quieter than it found you.
+        </p>
+      </section>
+
       {/* ─── §1 Hero — split-screen ───────────────────────────── */}
       <section className="ab-hero">
         <h1 className="sr-only">Our Story — Kot Kailash Heritage Retreat, Kumaon</h1>
@@ -510,54 +529,28 @@ export default function AboutPage() {
         </div>
       </section> */}
 
-      {/* ─── §4 Pull quote ───────────────────────────────────── */}
+      {/* ─── §4 Positioning statement ────────────────────────── */}
       <section style={{
-        background: 'var(--forest-deep)',
-        padding: '80px 64px',
+        background: 'var(--ink)',
+        padding: '88px 64px',
         textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden',
       }}>
-        <div style={{
-          position: 'absolute',
-          top: '-30px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          fontFamily: 'var(--serif)',
-          fontSize: '20rem',
-          lineHeight: 1,
-          color: 'rgba(255,255,255,0.025)',
-          userSelect: 'none',
-          pointerEvents: 'none',
-        }}>"</div>
-
         <RevealWrapper>
-          <div style={{ position: 'relative', zIndex: 1 }}>
-            <div style={{
-              display: 'flex', alignItems: 'center',
-              justifyContent: 'center', gap: '20px', marginBottom: '28px',
-            }}>
-              <span style={{ width: '40px', height: '1px', background: 'var(--gold)', opacity: 0.35 }} />
-              <span style={{
-                fontFamily: 'var(--sans)', fontSize: '9px',
-                letterSpacing: '0.32em', textTransform: 'uppercase',
-                color: 'var(--gold)', opacity: 0.6,
-              }}>On travel</span>
-              <span style={{ width: '40px', height: '1px', background: 'var(--gold)', opacity: 0.35 }} />
-            </div>
-            <p style={{
-              fontFamily: 'var(--serif)',
-              fontSize: 'clamp(1.5rem, 2.8vw, 2.4rem)',
-              fontStyle: 'italic',
-              fontWeight: 300,
-              color: 'rgba(255,255,255,0.68)',
-              maxWidth: '640px',
-              margin: '0 auto',
-              lineHeight: 1.65,
-            }}>
-              &ldquo;The best travel leaves you quieter than it found you.&rdquo;
-            </p>
-          </div>
+          <p style={{
+            fontFamily: 'var(--serif)',
+            fontSize: 'clamp(1.05rem, 1.7vw, 1.3rem)',
+            fontStyle: 'italic',
+            fontWeight: 300,
+            color: 'rgba(255,255,255,0.7)',
+            maxWidth: '680px',
+            margin: '0 auto',
+            lineHeight: 1.85,
+          }}>
+            Kot Kailash Kumaon is, by any serious assessment, one of the most
+            quietly compelling boutique properties to have opened in the Indian
+            Himalayas in recent years. It has arrived at the right moment, in
+            the right place, built by the right people.
+          </p>
         </RevealWrapper>
       </section>
 

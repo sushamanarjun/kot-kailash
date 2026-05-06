@@ -152,43 +152,6 @@ export default function Founders({ compact = false }: FoundersProps) {
               Sayed is the reason the world will find it.
             </p>
 
-            {/* Divider */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '16px',
-              marginBottom: '36px',
-            }}>
-              <span style={{ width: '32px', height: '1px', background: 'var(--gold)', opacity: 0.4 }} />
-              <span style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '10px',
-                letterSpacing: '0.36em',
-                textTransform: 'uppercase',
-                color: 'var(--gold)',
-              }}>
-                A Final Note
-              </span>
-              <span style={{ width: '32px', height: '1px', background: 'var(--gold)', opacity: 0.4 }} />
-            </div>
-
-            {/* Final paragraph */}
-            <p style={{
-              fontFamily: 'var(--serif)',
-              fontSize: 'clamp(1rem, 1.5vw, 1.15rem)',
-              fontStyle: 'italic',
-              color: 'var(--ink)',
-              lineHeight: 1.9,
-              margin: 0,
-            }}>
-              Kot Kailash Kumaon is, by any serious assessment, one of the most
-              quietly compelling boutique properties to have opened in the Indian
-              Himalayas in recent years. It has arrived at the right moment, in
-              the right place, built by the right people — for guests who
-              understand that the best travel leaves them quieter than it found
-              them.
-            </p>
           </div>
         </RevealWrapper>
       )}
