@@ -60,18 +60,34 @@ export default function PressBar() {
           Cond&eacute; Nast Traveller
         </p>
 
-        {/* Descriptor */}
+        {/* Pull-quote */}
         <p
           style={{
             fontFamily: 'var(--serif)',
-            fontSize: '0.92rem',
+            fontSize: 'clamp(1rem, 1.6vw, 1.2rem)',
             fontStyle: 'italic',
             color: 'var(--ink-soft)',
-            lineHeight: 1.7,
+            lineHeight: 1.72,
+            maxWidth: '560px',
+            margin: '0 auto 14px',
+          }}
+        >
+          &ldquo;The snow-speckled giants loom so close that even from bed I can make out which peak is which.&rdquo;
+        </p>
+
+        {/* Byline */}
+        <p
+          style={{
+            fontFamily: 'var(--sans)',
+            fontSize: '10px',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: 'var(--ink-soft)',
+            opacity: 0.6,
             marginBottom: '32px',
           }}
         >
-          &ldquo;The ridge that made us stop.&rdquo;
+          Satarupa Paul &nbsp;&middot;&nbsp; Cond&eacute; Nast Traveller India &nbsp;&middot;&nbsp; April 2026
         </p>
 
         {/* CTAs */}
