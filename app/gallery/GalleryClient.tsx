@@ -640,11 +640,11 @@ const IMAGES: GalleryImage[] = [
     src: '/images/gallery/wildlife/himalayan-woodpecker.png',
   },
   {
-    id: 85, category: 'Wildlife', aspect: 'landscape',
+    id: 85, category: 'Experiences', aspect: 'landscape',
     caption: 'Jageshwar Temple complex', note: '124 temples · 9th century · 10 km',
     gradient: 'linear-gradient(160deg, #101418 0%, #181c24 55%, #20262e 100%)',
     accentColor: 'rgba(139,107,61,0.12)',
-    src: '/images/gallery/wildlife/jageshwar-temple.jpeg',
+    src: '/images/gallery/experience/jageshwar-temple.jpeg',
   },
   {
     id: 86, category: 'Wildlife', aspect: 'portrait',
