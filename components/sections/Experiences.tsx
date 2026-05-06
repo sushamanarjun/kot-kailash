@@ -87,6 +87,37 @@ export default function Experiences({ standalone = false, preview = false }: Exp
         </RevealWrapper>
       )}
 
+      {/* ── Burānsh note ── */}
+      {!standalone && (
+        <RevealWrapper>
+          <p style={{
+            fontFamily: 'var(--serif)',
+            fontSize: '0.95rem',
+            fontStyle: 'italic',
+            color: 'rgba(255,255,255,0.62)',
+            lineHeight: 1.8,
+            marginBottom: '56px',
+            maxWidth: '640px',
+          }}>
+            <span style={{
+              fontFamily: 'var(--sans)',
+              fontSize: '10px',
+              fontStyle: 'normal',
+              letterSpacing: '0.26em',
+              textTransform: 'uppercase',
+              color: 'var(--gold)',
+            }}>Burānsh</span>
+            {' '}— our sound healing retreat programme in collaboration with Cchitvan, Dhrupad scholars — runs by invitation. The next edition is being considered for October 2026. Enquiries:{' '}
+            <a
+              href="mailto:info@kotkailash.com"
+              style={{ color: 'rgba(197,153,90,0.85)', textDecoration: 'none' }}
+            >
+              info@kotkailash.com
+            </a>
+          </p>
+        </RevealWrapper>
+      )}
+
       {/* ── Standalone: small section separator ── */}
       {standalone && (
         <div
