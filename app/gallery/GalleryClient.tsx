@@ -112,7 +112,7 @@ const IMAGES: GalleryImage[] = [
     caption: 'Deep winter on the property', note: 'Snowbound · December',
     gradient: 'linear-gradient(160deg, #0c1018 0%, #141820 55%, #1c2028 100%)',
     accentColor: 'rgba(139,107,61,0.1)',
-    src: '/images/season-deep-winter.jpeg',
+    src: '/images/season-winter.jpg',
   },
   {
     id: 12, category: 'Seasons', aspect: 'landscape',
@@ -133,7 +133,7 @@ const IMAGES: GalleryImage[] = [
     caption: 'Winter on the ridge', note: 'First frost · Kumaon winter',
     gradient: 'linear-gradient(160deg, #101418 0%, #181e22 55%, #202830 100%)',
     accentColor: 'rgba(139,107,61,0.1)',
-    src: '/images/season-winter.jpeg',
+    src: '/images/season-winter.jpg',
   },
 
   // ── Family Suite (11) ──────────────────────────────────────────

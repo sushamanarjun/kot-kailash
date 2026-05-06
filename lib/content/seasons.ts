@@ -11,7 +11,7 @@ export const seasons: Season[] = [
     name: 'Winter',
     description:
       'Snow on the oak. Wood fires in Kumaon Vann. The silence deepens to something unreasonable. Leopard tracks on the forest roads.',
-    image: '/images/season-winter.jpeg',
+    image: '/images/season-winter.jpg',
   },
   {
     period: 'Mar – Apr',
@@ -46,6 +46,6 @@ export const seasons: Season[] = [
     name: 'Deep Winter',
     description:
       'Nanda Devi in full definition. Stars with no humidity. The Geminid meteor shower. The fire comes into its own.',
-    image: '/images/season-deep-winter.jpeg',
+    image: '/images/season-winter.jpg',
   },
 ];
