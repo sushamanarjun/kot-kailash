@@ -157,7 +157,7 @@ export default function Rooms({ showRates = false, compact = false }: RoomsProps
                 {buyout.description}
               </p>
               <a
-                href={`mailto:stay@kotkailash.com?subject=Full%20Buyout%20Enquiry`}
+                href={`mailto:info@kotkailash.com?subject=Full%20Buyout%20Enquiry`}
                 className="btn-gold"
               >
                 Enquire

@@ -466,7 +466,7 @@ export default function CancellationsPage() {
               }}
             >
               <a
-                href="mailto:stay@kotkailash.com?subject=Cancellation%20Enquiry"
+                href="mailto:info@kotkailash.com?subject=Cancellation%20Enquiry"
                 className="btn-gold"
               >
                 Email the Team

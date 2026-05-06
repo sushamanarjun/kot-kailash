@@ -14,14 +14,14 @@ interface FaqItem {
 }
 
 const TEMPLES = [
-  { name: 'Vridh Jageshwar Temple',    detail: '2 kms · 5 mins'   },
-  { name: 'Vimal Kot Devi Temple',     detail: '5 kms · 12 mins'  },
-  { name: 'Jageshwar Temple Complex',  detail: '10 kms · 15 mins' },
+  { name: 'Vridh Jageshwar Temple', detail: '2 kms · 5 mins' },
+  { name: 'Vimal Kot Devi Temple', detail: '5 kms · 12 mins' },
+  { name: 'Jageshwar Temple Complex', detail: '10 kms · 15 mins' },
   { name: 'Lakhudiyar Rock Art Caves', detail: '20 kms · 35 mins' },
-  { name: 'Chitai Golu Devta Temple',  detail: '25 kms · 45 mins' },
-  { name: 'Almora Zoo',                detail: '25 kms · 45 mins' },
-  { name: 'Nanda Devi Temple, Almora', detail: '33 kms · 1 hour'  },
-  { name: 'Katarmal Sun Temple',       detail: '50 kms · 2 hours' },
+  { name: 'Chitai Golu Devta Temple', detail: '25 kms · 45 mins' },
+  { name: 'Almora Zoo', detail: '25 kms · 45 mins' },
+  { name: 'Nanda Devi Temple, Almora', detail: '33 kms · 1 hour' },
+  { name: 'Katarmal Sun Temple', detail: '50 kms · 2 hours' },
 ];
 
 const categories: { numeral: string; label: string; sub: string; items: FaqItem[] }[] = [
@@ -230,13 +230,13 @@ const ClearIcon = () => (
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function FaqPageClient() {
-  const [openSet, setOpenSet]     = useState<Set<string>>(new Set());
+  const [openSet, setOpenSet] = useState<Set<string>>(new Set());
   const [activeCategory, setActiveCategory] = useState('I');
-  const [search, setSearch]       = useState('');
-  const sectionMap  = useRef<Map<string, HTMLElement>>(new Map());
-  const navRef      = useRef<HTMLDivElement>(null);
-  const searchRef   = useRef<HTMLInputElement>(null);
-  const statusId    = useId();
+  const [search, setSearch] = useState('');
+  const sectionMap = useRef<Map<string, HTMLElement>>(new Map());
+  const navRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const statusId = useId();
 
   const totalAnswers = categories.reduce((acc, c) => acc + c.items.length, 0);
   const trimmed = search.trim().toLowerCase();
@@ -244,13 +244,13 @@ export default function FaqPageClient() {
   // Flat search results — preserved original category info for context badge
   const searchResults = trimmed
     ? categories.flatMap(cat =>
-        cat.items
-          .map((item, i) => ({ item, catLabel: cat.label, catNumeral: cat.numeral, key: `${cat.numeral}-${i}` }))
-          .filter(({ item }) =>
-            item.q.toLowerCase().includes(trimmed) ||
-            (item.a?.toLowerCase().includes(trimmed))
-          )
-      )
+      cat.items
+        .map((item, i) => ({ item, catLabel: cat.label, catNumeral: cat.numeral, key: `${cat.numeral}-${i}` }))
+        .filter(({ item }) =>
+          item.q.toLowerCase().includes(trimmed) ||
+          (item.a?.toLowerCase().includes(trimmed))
+        )
+    )
     : [];
 
   const toggle = (key: string) =>
@@ -1118,7 +1118,7 @@ export default function FaqPageClient() {
             Write to us about your reservation, dates, or any question about the property.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="mailto:stay@kotkailash.com?subject=FAQ%20Enquiry" className="btn-gold">
+            <a href="mailto:info@kotkailash.com?subject=FAQ%20Enquiry" className="btn-gold">
               Email the Team
             </a>
             <Link href="/reserve" className="btn-outline">
