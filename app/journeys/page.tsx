@@ -439,7 +439,7 @@ export default function JourneysPage() {
               {[
                 '/images/experiences/ONE.jpg',
                 '/images/experiences/TWO.jpg',
-                '/images/experiences/THREE.jpg',
+                '/images/experiences/THREE.JPG',
               ].map((src, i) => (
                 <div key={i} style={{ position: 'relative', aspectRatio: '2/3', overflow: 'hidden', background: 'var(--fog)' }}>
                   <Image
