@@ -45,9 +45,9 @@ export default function Tehni({ compact }: { compact?: boolean }) {
           }}
         >
           <p>
-            Tehni is the Kumaoni word for the kitchen — literally, the place
-            where things are made ready. At Kot Kailash, the kitchen is where
-            the ridge expresses itself most directly.
+            Tehni is the Kumaoni word for a branch — a living offshoot of the
+            same tree that has fed this ridge for centuries. At Kot Kailash,
+            the kitchen is where the ridge expresses itself most directly.
           </p>
           {!compact && (
             <p style={{ marginTop: '15px' }}>

@@ -124,25 +124,6 @@ export default function AboutPage() {
         }
       `}</style>
 
-      {/* ─── Epigraph — dedication, precedes everything ──────── */}
-      <section style={{
-        background: 'var(--parchment)',
-        padding: '64px 40px',
-        textAlign: 'center',
-      }}>
-        <p style={{
-          fontFamily: 'var(--serif)',
-          fontSize: 'clamp(1rem, 1.5vw, 1.2rem)',
-          fontStyle: 'italic',
-          fontWeight: 300,
-          color: 'var(--ink-soft)',
-          lineHeight: 1.75,
-          margin: 0,
-        }}>
-          The best travel leaves you quieter than it found you.
-        </p>
-      </section>
-
       {/* ─── §1 Hero — split-screen ───────────────────────────── */}
       <section className="ab-hero">
         <h1 className="sr-only">Our Story — Kot Kailash Heritage Retreat, Kumaon</h1>

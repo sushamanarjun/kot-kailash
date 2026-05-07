@@ -152,6 +152,17 @@ export default function Founders({ compact = false }: FoundersProps) {
               Sayed is the reason the world will find it.
             </p>
 
+            {/* Closing line */}
+            <p style={{
+              fontFamily: 'var(--serif)',
+              fontSize: '0.95rem',
+              fontStyle: 'italic',
+              color: 'var(--ink-soft)',
+              lineHeight: 1.75,
+            }}>
+              The best travel leaves you quieter than it found you.
+            </p>
+
           </div>
         </RevealWrapper>
       )}

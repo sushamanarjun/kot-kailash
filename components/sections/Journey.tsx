@@ -109,7 +109,7 @@ export default function Journey() {
         >
           <p>
             Shaukiyathal is 90 kms (56 miles) from Haldwani / Kathgodam
-            Railway station and about 280 kms (174 miles) from New Delhi.
+            Railway station and approximately 400 km from Delhi NCR.
             The road climbs steadily after Almora town. There is no other
             way to arrive than slowly.
           </p>

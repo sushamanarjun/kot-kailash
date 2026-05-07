@@ -45,7 +45,7 @@ export const sacredSites: SacredSite[] = [
     numeral: 'VI',
     name: 'Kainchi Dham',
     description:
-      'Near Nainital in Uttarakhand, is a peaceful ashram and Hanuman temple founded in 1964 by Neem Karoli Baba. Surrounded by hills, it draws visitors from all walks of life seeking meditation, spiritual comfort, and inner peace.',
-    distance: '80 kms (50 miles)',
+      'Named for the two scissor-like hairpin bends — kainchi — in the mountain road that cradle it, this ashram was built in 1964 by Neem Karoli Baba, who chose this exact fold in the valley as the place where he would live and practice. It is passed on the drive to Kot Kailash. Some guests stop. Most feel the pull on the return journey, when they are quieter.',
+    distance: '80 kms · ~2 hours',
   },
 ];

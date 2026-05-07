@@ -7,7 +7,7 @@ import Reserve from '@/components/sections/Reserve';
 import RevealWrapper from '@/components/ui/RevealWrapper';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Experiences Near Jageshwar | Kot Kailash Retreat, Kumaon',
+  title: 'The Ridge — Experiences at Kot Kailash, Jageshwar, Kumaon',
   description:
     'Temple trails, forest walks, stargazing, and Kumaoni festivals — all from Kot Kailash, 2 km from Jageshwar Dham and within reach of Kasar Devi and Kainchi Dham.',
   path: '/experience',
@@ -31,11 +31,11 @@ const EXP_IMAGES: Record<string, string> = {
   '01': '/images/experiences/walk-to-jageshwar.jpg',
   '02': '/images/experiences/jageshwar.jpeg',
   '03': '/images/experiences/trek-to-bimalkot.jpg',
-  '04': '/images/experiences/yoga.jpg',
-  '05': '/images/experiences/culinary-class.jpeg',
-  '06': '/images/experiences/jata-ganga.jpg',
-  '07': '/images/experiences/udiyar-caves.jpg',
-  '08': '/images/experiences/kumaoni-food-trail.jpg',
+  '04': '/images/experiences/bird-watching.jpg',
+  '05': '/images/experiences/yoga.jpg',
+  '06': '/images/experiences/culinary-class.jpeg',
+  '07': '/images/experiences/jata-ganga.jpg',
+  '08': '/images/experiences/udiyar-caves.jpg',
   '09': '/images/experiences/village-picnic.jpg',
 };
 
@@ -43,7 +43,7 @@ export default function ExperiencePage() {
   return (
     <>
       <h1 className="sr-only">
-        Things to Do Near Jageshwar — Experiences at Kot Kailash, Kumaon
+        The Ridge — Experiences at Kot Kailash, Jageshwar, Kumaon
       </h1>
 
       {/* ═══════════════════════════════════════════════════════════════
@@ -116,7 +116,7 @@ export default function ExperiencePage() {
               letterSpacing: '0.38em', textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.7)', display: 'block', marginBottom: '20px',
             }}>
-              Experiences · Kot Kailash
+              The Ridge &nbsp;·&nbsp; Kot Kailash
             </span>
             <h2
               className="exp-hero-h2"
@@ -127,9 +127,9 @@ export default function ExperiencePage() {
                 color: 'white', lineHeight: 1.04, marginBottom: '22px',
               }}
             >
-              Several ways to know
+              Several Ways to
               <br />
-              <em style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.38)' }}>the ridge.</em>
+              <em style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.38)' }}>Know the Ridge.</em>
             </h2>
             <p style={{
               fontFamily: 'var(--serif)', fontSize: '1.05rem',
@@ -139,6 +139,16 @@ export default function ExperiencePage() {
               The ridge has a rhythm. The forest has its trails. The kitchen
               follows the harvest. Every experience at Kot Kailash begins where
               the property ends — in the landscape itself.
+            </p>
+            <p style={{
+              fontFamily: 'var(--serif)', fontSize: '0.88rem',
+              fontStyle: 'italic', color: 'rgba(255,255,255,0.35)',
+              lineHeight: 1.85, maxWidth: '480px', marginTop: '20px',
+            }}>
+              Nothing here is scheduled. Nothing is managed from a desk. Tell us
+              what draws you, and we will find the right trail, temple, kitchen,
+              or morning. Some of what this ridge offers cannot be arranged in
+              advance. Some of it can only be discovered.
             </p>
           </div>
 
@@ -208,7 +218,41 @@ export default function ExperiencePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          §3  NINE EXPERIENCES — alternating editorial rows
+          §2b  BURĀNSH NOTE
+      ═══════════════════════════════════════════════════════════════ */}
+      <section style={{
+        background: 'var(--ink)',
+        padding: '0 64px 56px',
+        borderTop: '1px solid rgba(255,255,255,0.04)',
+      }}>
+        <p style={{
+          fontFamily: 'var(--serif)',
+          fontSize: '0.95rem',
+          fontStyle: 'italic',
+          color: 'rgba(255,255,255,0.62)',
+          lineHeight: 1.8,
+          maxWidth: '640px',
+        }}>
+          <span style={{
+            fontFamily: 'var(--sans)',
+            fontSize: '10px',
+            fontStyle: 'normal',
+            letterSpacing: '0.26em',
+            textTransform: 'uppercase',
+            color: 'var(--gold)',
+          }}>Burānsh</span>
+          {' '}— our sound healing retreat programme in collaboration with Cchitvan, Dhrupad scholars — runs by invitation. The next edition is being considered for October 2026. Enquiries:{' '}
+          <a
+            href="mailto:info@kotkailash.com"
+            style={{ color: 'rgba(197,153,90,0.85)', textDecoration: 'none' }}
+          >
+            info@kotkailash.com
+          </a>
+        </p>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          §3  EXPERIENCES — alternating editorial rows
       ═══════════════════════════════════════════════════════════════ */}
       <section
         style={{ background: 'var(--ink)' }}
@@ -455,7 +499,7 @@ export default function ExperiencePage() {
                 letterSpacing: '0.32em', textTransform: 'uppercase',
                 color: 'var(--gold)', display: 'block', marginBottom: '28px',
               }}>
-                Beyond the Property
+                Beyond the Ridge
               </span>
               <h3
                 className="beyond-headline"
@@ -483,25 +527,18 @@ export default function ExperiencePage() {
                 fontStyle: 'italic', color: 'rgba(255,255,255,0.62)',
                 lineHeight: 1.9, marginBottom: '28px',
               }}>
-                The sacred sites, forest trails, waterfall descents, and village
-                kitchens of Shaukiyathal are not managed attractions. They are the
-                living landscape of this ridge — ancient, unhurried, and entirely genuine.
+                The sacred sites, forest trails, waterfall descents, and the wildlife
+                at Shaukiyathal are not managed attractions. They are the living
+                landscape of this ridge — ancient, unhurried, and entirely genuine.
               </p>
               <p style={{
                 fontFamily: 'var(--serif)', fontSize: '0.92rem',
                 fontStyle: 'italic', color: 'rgba(255,255,255,0.38)',
                 lineHeight: 1.85,
               }}>
-                All experiences are guided by people who know this land personally.
-                All prices are inclusive of taxes and may be arranged through our
-                team at reception or at{' '}
-                <a
-                  href="mailto:info@kotkailash.com"
-                  style={{ color: 'rgba(197,153,90,0.7)', textDecoration: 'none' }}
-                >
-                  info@kotkailash.com
-                </a>
-                . We recommend booking the evening before.
+                All experiences are arranged through our team. We recommend telling
+                us the evening before. Some of what this ridge offers requires no
+                arrangement at all — only the willingness to step outside and begin.
               </p>
             </div>
           </div>

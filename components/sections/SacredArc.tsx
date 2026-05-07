@@ -103,38 +103,19 @@ export default function SacredArc({ compact = false, standalone = false }: Sacre
         </div>
       </RevealWrapper>
 
-      {/* ── Grid Row 1 (3 sites) ── */}
+      {/* ── All 6 sites in one grid so rows size together ── */}
       <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '2px',
-          marginBottom: '2px',
         }}
         className="sacred-grid"
         role="list"
-        aria-label="Sacred sites near Kot Kailash, part 1"
+        aria-label="Sacred sites near Kot Kailash"
       >
-        {row1.map((site, i) => (
-          <RevealWrapper key={site.numeral} delay={(i as 0 | 1 | 2)}>
-            <SacredCard site={site} />
-          </RevealWrapper>
-        ))}
-      </div>
-
-      {/* ── Grid Row 2 ── */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '2px',
-        }}
-        className="sacred-grid-2"
-        role="list"
-        aria-label="Sacred sites near Kot Kailash, part 2"
-      >
-        {row2.map((site, i) => (
-          <RevealWrapper key={site.numeral} delay={(i as 0 | 1 | 2)}>
+        {sacredSites.map((site, i) => (
+          <RevealWrapper key={site.numeral} delay={((i % 3) as 0 | 1 | 2)}>
             <SacredCard site={site} />
           </RevealWrapper>
         ))}
@@ -156,7 +137,7 @@ function SacredCard({ site }: { site: (typeof sacredSites)[0] }) {
         transition: 'border-color 0.35s ease, box-shadow 0.35s ease',
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '230px',
+        minHeight: '300px',
       }}
       className="sacred-card"
       role="listitem"

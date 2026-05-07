@@ -9,7 +9,8 @@ const HOTEL_SPIDER_URL =
 
 const navLinks = [
   { href: '/stay', label: 'Stay' },
-  { href: '/experience', label: 'Experiences' },
+  { href: '/experience', label: 'The Ridge' },
+  { href: '/journeys', label: 'Journeys' },
   { href: '/tehni', label: 'Dine' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },

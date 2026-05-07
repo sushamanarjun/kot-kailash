@@ -34,8 +34,6 @@ export default function Footer() {
               maxWidth: '220px',
             }}
           >
-            &ldquo;The best travel leaves you quieter than it found you.&rdquo;
-            <br />
             A heritage ridge sanctuary at 7,800 feet.
           </p>
           <address

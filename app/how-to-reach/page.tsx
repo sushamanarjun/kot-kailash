@@ -22,8 +22,8 @@ const routes = [
   {
     numeral: 'I',
     from: 'From Delhi',
-    duration: '~6–7 hours',
-    distance: '370 km',
+    duration: '9–10 hours',
+    distance: '~400 km',
     steps: [
       { label: 'Delhi → Haldwani', note: 'NH9 via Moradabad · 290 km · ~5 hrs' },
       { label: 'Haldwani → Almora', note: 'Via Bhowali · 80 km · ~2 hrs' },
@@ -393,72 +393,17 @@ export default function HowToReachPage() {
         </RevealWrapper>
 
         <RevealWrapper delay={2}>
-          {/* Map placeholder */}
-          <div
-            style={{
-              width: '100%',
-              aspectRatio: '4/3',
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '12px',
-              position: 'relative',
-              overflow: 'hidden',
-            }}
-          >
-            {/* Grid lines */}
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                backgroundImage:
-                  'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-                backgroundSize: '40px 40px',
-              }}
+          <div style={{ width: '100%', aspectRatio: '4/3', position: 'relative', overflow: 'hidden' }}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3295.6601028943132!2d79.8410212!3d29.6555345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a0cf698a0ce723%3A0x9f5e9db5f3bed8bd!2sKot%20Kailash%20Kumaon!5e1!3m2!1sen!2sin!4v1778133109489!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0, display: 'block', filter: 'grayscale(20%) contrast(1.05)' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Kot Kailash — Shaukiyathal Ridge, Almora"
             />
-            {/* Pin icon */}
-            <svg
-              width="32"
-              height="40"
-              viewBox="0 0 32 40"
-              fill="none"
-              style={{ position: 'relative', zIndex: 1 }}
-            >
-              <path
-                d="M16 0C7.163 0 0 7.163 0 16c0 10 16 24 16 24S32 26 32 16C32 7.163 24.837 0 16 0Z"
-                fill="var(--gold)"
-                opacity="0.8"
-              />
-              <circle cx="16" cy="16" r="5" fill="white" opacity="0.9" />
-            </svg>
-            <span
-              style={{
-                fontFamily: 'var(--sans)',
-                fontSize: '11px',
-                letterSpacing: '0.25em',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.55)',
-                position: 'relative',
-                zIndex: 1,
-              }}
-            >
-              Shaukiyathal Ridge
-            </span>
-            <span
-              style={{
-                fontFamily: 'var(--serif)',
-                fontSize: '0.8rem',
-                fontStyle: 'italic',
-                color: 'rgba(255,255,255,0.2)',
-                position: 'relative',
-                zIndex: 1,
-              }}
-            >
-              29.6372° N, 79.8466° E
-            </span>
           </div>
         </RevealWrapper>
       </section>

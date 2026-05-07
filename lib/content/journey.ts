@@ -28,7 +28,7 @@ export const transportStats: TransportStat[] = [
     icon: '🚗',
     time: 'By Road',
     route: 'Delhi → Shaukiyathal',
-    detail: '8–9 hours from Delhi NCR. About 280 kms (174 miles). The mountain section begins after Haldwani.',
+    detail: '9–10 hours from Delhi NCR. Approximately 400 km. The mountain section begins after Haldwani.',
   },
 ];
 

@@ -6,7 +6,6 @@ import Manifesto from '@/components/sections/Manifesto';
 import FullBleedImage from '@/components/sections/FullBleedImage';
 import Rooms from '@/components/sections/Rooms';
 import Tehni from '@/components/sections/Tehni';
-import Experiences from '@/components/sections/Experiences';
 import Seasons from '@/components/sections/Seasons';
 import SacredArc from '@/components/sections/SacredArc';
 import Testimonials from '@/components/sections/Testimonials';
@@ -48,7 +47,6 @@ export default function HomePage() {
       <Rooms compact />
       <Seasons />
       <Tehni compact />
-      <Experiences preview />
       <SacredArc compact />
       <Testimonials />
       <PressBar />
