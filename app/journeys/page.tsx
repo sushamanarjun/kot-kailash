@@ -448,7 +448,7 @@ export default function JourneysPage() {
                     fill
                     loading="lazy"
                     style={{ objectFit: 'cover', objectPosition: 'center' }}
-                    sizes="(max-width: 700px) 100vw, 33vw"
+                    sizes="(max-width: 700px) 100vw, (max-width: 968px) calc((100vw - 128px) / 3), 280px"
                   />
                   <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,8,5,0.6) 0%, transparent 50%)' }} />
                   <div style={{ position: 'absolute', bottom: '16px', left: '16px', textAlign: 'left' }}>

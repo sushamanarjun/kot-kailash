@@ -36,7 +36,7 @@ const EXP_IMAGES: Record<string, string> = {
   '06': '/images/experiences/culinary-class.jpeg',
   '07': '/images/experiences/jata-ganga.jpg',
   '08': '/images/experiences/udiyar-caves.jpg',
-  '09': '/images/experiences/village-picnic.jpg',
+  '09': '/images/experiences/village-picnic.JPG',
 };
 
 export default function ExperiencePage() {
@@ -129,11 +129,11 @@ export default function ExperiencePage() {
             >
               Several Ways to
               <br />
-              <em style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.38)' }}>Know the Ridge.</em>
+              <em style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.65)' }}>Know the Ridge.</em>
             </h2>
             <p style={{
               fontFamily: 'var(--serif)', fontSize: '1.05rem',
-              fontStyle: 'italic', color: 'rgba(255,255,255,0.58)',
+              fontStyle: 'italic', color: 'rgba(255,255,255,0.78)',
               lineHeight: 1.88, maxWidth: '500px',
             }}>
               The ridge has a rhythm. The forest has its trails. The kitchen
@@ -141,8 +141,8 @@ export default function ExperiencePage() {
               the property ends — in the landscape itself.
             </p>
             <p style={{
-              fontFamily: 'var(--serif)', fontSize: '0.88rem',
-              fontStyle: 'italic', color: 'rgba(255,255,255,0.35)',
+              fontFamily: 'var(--serif)', fontSize: '0.95rem',
+              fontStyle: 'italic', color: 'rgba(255,255,255,0.62)',
               lineHeight: 1.85, maxWidth: '480px', marginTop: '20px',
             }}>
               Nothing here is scheduled. Nothing is managed from a desk. Tell us

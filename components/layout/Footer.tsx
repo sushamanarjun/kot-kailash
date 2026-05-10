@@ -74,7 +74,7 @@ export default function Footer() {
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '9px' }}>
             {[
               { href: '/#stay', label: 'Rooms & Suites' },
-              { href: '/#experiences', label: 'Experiences' },
+              { href: '/experience', label: 'The Ridge' },
               { href: '/#tehni', label: 'Tehni — The Kitchen' },
               { href: '/#sacred', label: 'Sacred Arc' },
               // { href: '/experience', label: 'Seasons' },
