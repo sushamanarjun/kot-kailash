@@ -61,8 +61,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${base}/about`,
+      url: `${base}/journeys`,
       lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${base}/about`,
+      lastModified: '2026-04-15',
       changeFrequency: 'yearly',
       priority: 0.7,
     },
@@ -74,7 +80,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${base}/how-to-reach`,
-      lastModified: new Date(),
+      lastModified: '2026-04-15',
       changeFrequency: 'yearly',
       priority: 0.75,
     },
@@ -92,19 +98,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${base}/faq`,
-      lastModified: new Date(),
+      lastModified: '2026-04-15',
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${base}/cancellations`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      lastModified: '2026-04-15',
+      changeFrequency: 'yearly',
       priority: 0.6,
     },
     {
       url: `${base}/founders`,
-      lastModified: new Date(),
+      lastModified: '2026-04-15',
       changeFrequency: 'yearly',
       priority: 0.65,
     },

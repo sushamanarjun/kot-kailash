@@ -57,6 +57,7 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
   },
+  manifest: '/manifest.json',
   robots: {
     index: true,
     follow: true,
@@ -77,7 +78,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${cormorant.variable} ${jost.variable}`}
     >
       <body>

@@ -8,6 +8,15 @@ export const metadata: Metadata = buildMetadata({
   description:
     'Kumaon Journeys is the retreat and cultural programme of Kot Kailash Kumaon. Each edition is built in collaboration with practitioners of genuine standing. Full property. No theatre.',
   path: '/journeys',
+  ogImage: '/images/journey-hero.jpg',
+  keywords: [
+    'Kumaon journeys retreat',
+    'Nada Yoga retreat Uttarakhand',
+    'Dhrupad music retreat India',
+    'sound healing retreat Himalayas',
+    'cultural retreat Almora',
+    'wellness retreat Kumaon',
+  ],
 });
 
 const programmeDetails = [

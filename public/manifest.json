@@ -1,0 +1,12 @@
+{
+  "name": "Kot Kailash Kumaon",
+  "short_name": "Kot Kailash",
+  "description": "A century-old Kumaoni heritage home at 7,800 feet. Shaukiyathal, Almora, Uttarakhand.",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }
+  ],
+  "theme_color": "#18140F",
+  "background_color": "#FAF7F2",
+  "display": "browser",
+  "start_url": "/"
+}

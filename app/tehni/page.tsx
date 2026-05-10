@@ -10,6 +10,7 @@ export const metadata: Metadata = buildMetadata({
   description:
     'No fixed menu. Tehni cooks what the land offers — Bhatt ke Dubke, Pahari Mutton, Buransh sherbet. Every ingredient sourced from Kunja Gunth village, Almora.',
   path: '/tehni',
+  ogImage: '/images/gallery/tehni/tehni-outdoor-breakfast.jpg',
   keywords: [
     'Kumaoni food dining experience Almora',
     'hyperlocal Kumaoni cuisine',

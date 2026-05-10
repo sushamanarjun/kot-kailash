@@ -8,31 +8,59 @@ import Reserve from '@/components/sections/Reserve';
 import RoomCarousel from '@/components/sections/RoomCarousel';
 
 const HOTEL_SPIDER_URL = 'https://reservations.hotel-spider.com/032644b5fbfafed6';
+const BASE_URL = 'https://kotkailash.com';
 
-const SEO_MAP: Record<string, { h1: string; title: string; description: string }> = {
+const SEO_MAP: Record<string, { h1: string; title: string; description: string; ogImage: string }> = {
   'kumaon-vann': {
     h1: 'Private Forest Cottage with Freestanding Bathtub, Almora',
     title: 'Kumaon Vann | Private Forest Cottage — Kot Kailash, Almora',
     description:
       'A freestanding bathtub, Himalayan views, and complete seclusion in the oak and rhododendron forest. Kot Kailash\'s signature cottage at 7,800 ft, Almora.',
+    ogImage: '/images/gallery/kumaon-vann/kumaon-vann-bath-tub.JPG',
   },
   'family-suite': {
     h1: 'Private Family Residence with Observatory, Kumaon',
     title: 'Family Suite | Private Residence — Kot Kailash, Kumaon',
     description:
       'Two bedrooms, a glass observatory, a private dining room with fireplace, and direct access to the Kot Kailash Library. For families who travel together.',
+    ogImage: '/images/gallery/family-suite/family-suite-main.jpg',
   },
   'kutir-suites': {
     h1: 'Family Suite with Machan Loft — Himalayan Views, Kumaon',
     title: 'Kutir Suites | Machan Loft Suites — Kot Kailash, Kumaon',
     description:
       'Multi-level family suites with Machan loft built in the Kumaoni watchtower tradition. Surreal Himalayan views. Kot Kailash Annexe, Shaukiyathal.',
+    ogImage: '/images/gallery/kutir-suite/kutir-suite-bedroom-machan.jpg',
   },
   'kumaoni-suites': {
     h1: 'Kumaoni Heritage Rooms in Almora with Valley Views',
     title: 'Kumaoni Suites | Heritage Rooms — Kot Kailash, Almora',
     description:
       'Walls hand-pressed with red clay. Stone that survived a hundred Himalayan winters. Valley views. Heritage restored without apology. Kot Kailash, Almora.',
+    ogImage: '/images/gallery/kumaoni-suite/kumaoni-suite-main.jpg',
+  },
+};
+
+const ROOM_SCHEMA_DATA: Record<string, { maxOccupancy: number; bed: string; amenities: string[] }> = {
+  'kumaon-vann': {
+    maxOccupancy: 2,
+    bed: 'King',
+    amenities: ['Mountain View', 'Forest Setting', 'Freestanding Bathtub', 'Wood-Burning Stove', 'Private Courtyard'],
+  },
+  'family-suite': {
+    maxOccupancy: 5,
+    bed: 'King',
+    amenities: ['Mountain View', 'Glass Observatory', 'Private Dining Room', 'Fireplace', 'Library Access', 'Two Bedrooms'],
+  },
+  'kutir-suites': {
+    maxOccupancy: 3,
+    bed: 'King with Machan Loft',
+    amenities: ['Mountain View', 'Machan Sleeping Loft', 'Private Dining Area', 'Living Room'],
+  },
+  'kumaoni-suites': {
+    maxOccupancy: 2,
+    bed: 'King',
+    amenities: ['Valley View', 'Heritage Stone Construction', 'Red Clay Plaster Walls', 'Courtyard Access'],
   },
 };
 
@@ -52,6 +80,7 @@ export async function generateMetadata({
     title: seo.title,
     description: seo.description,
     path: `/stay/${slug}`,
+    ogImage: seo.ogImage,
   });
 }
 
@@ -64,9 +93,55 @@ export default async function RoomPage({
   const room = rooms.find((r) => r.id === slug);
   if (!room) notFound();
   const seo = SEO_MAP[slug] ?? { h1: room.name };
+  const schemaData = ROOM_SCHEMA_DATA[slug];
+
+  const hotelRoomJsonLd = schemaData ? {
+    '@context': 'https://schema.org',
+    '@type': 'HotelRoom',
+    name: room.name,
+    description: room.shortDescription,
+    url: `${BASE_URL}/stay/${slug}`,
+    image: `${BASE_URL}${room.image}`,
+    occupancy: {
+      '@type': 'QuantitativeValue',
+      minValue: 1,
+      maxValue: schemaData.maxOccupancy,
+    },
+    bed: { '@type': 'BedDetails', typeOfBed: schemaData.bed },
+    amenityFeature: schemaData.amenities.map((name) => ({
+      '@type': 'LocationFeatureSpecification',
+      name,
+      value: true,
+    })),
+    containedInPlace: {
+      '@type': 'LodgingBusiness',
+      name: 'Kot Kailash',
+      url: BASE_URL,
+    },
+  } : null;
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Rooms & Suites', item: `${BASE_URL}/stay` },
+      { '@type': 'ListItem', position: 3, name: room.name },
+    ],
+  };
 
   return (
     <>
+      {hotelRoomJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(hotelRoomJsonLd) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Full-screen image hero */}
       <section
         style={{

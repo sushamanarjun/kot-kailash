@@ -10,6 +10,7 @@ export const metadata: Metadata = buildMetadata({
   description:
     'Private buyouts, yoga retreats, and corporate offsites at 7,800 ft. Eight keys, Himalayan air, hyperlocal dining at Tehni. Enquire for group rates at Kot Kailash.',
   path: '/retreats',
+  ogImage: '/images/journey-hero.jpg',
   keywords: [
     'corporate retreat Kumaon Uttarakhand',
     'wellness retreat Almora',

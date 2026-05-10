@@ -63,15 +63,18 @@ export const hotelJsonLd = {
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: '29.6372',
-    longitude: '79.8466',
+    latitude: '29.6555',
+    longitude: '79.8410',
   },
   telephone: '+919650264905',
   email: 'info@kotkailash.com',
   priceRange: '₹₹₹',
-  starRating: {
-    '@type': 'Rating',
+  aggregateRating: {
+    '@type': 'AggregateRating',
     ratingValue: '4.8',
+    reviewCount: '61',
+    bestRating: '5',
+    worstRating: '1',
   },
   numberOfRooms: '8',
   checkinTime: '14:00',
@@ -85,6 +88,32 @@ export const hotelJsonLd = {
   sameAs: [
     'https://www.tripadvisor.in/Hotel_Review-g679053-d25168310-Reviews-Kot_Kailash',
     'https://g.page/r/Cb3YvvO1nV6fEB0/review',
+  ],
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Ellias Thomas' },
+      reviewBody:
+        'In the morning, climbing the stairs and looking off in the darkness — awaiting the first glimpse of sun bathing the slope of Nanda Devi — this is, indeed, a magical experience every traveller should put on their bucket list.',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      publisher: { '@type': 'Organization', name: 'TripAdvisor' },
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Mitali' },
+      reviewBody:
+        "The scenery is something you can't capture fully in photos — it's calm, expansive, and almost therapeutic. We ended up extending our trip.",
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      publisher: { '@type': 'Organization', name: 'Booking.com' },
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Abhimanyu Nayyar' },
+      reviewBody:
+        'The food — simply outstanding. The Kumaoni meals here are hands down some of the best we have ever had.',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      publisher: { '@type': 'Organization', name: 'TripAdvisor' },
+    },
   ],
 };
 
@@ -106,8 +135,8 @@ export const localBusinessJsonLd = {
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: '29.6372',
-    longitude: '79.8466',
+    latitude: '29.6555',
+    longitude: '79.8410',
   },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',

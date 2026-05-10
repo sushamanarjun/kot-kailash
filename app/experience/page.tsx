@@ -11,6 +11,7 @@ export const metadata: Metadata = buildMetadata({
   description:
     'Temple trails, forest walks, stargazing, and Kumaoni festivals — all from Kot Kailash, 2 km from Jageshwar Dham and within reach of Kasar Devi and Kainchi Dham.',
   path: '/experience',
+  ogImage: '/images/kot-kailash-experience-kumaon.JPG',
   keywords: [
     'things to do near Jageshwar temple Almora',
     'Kasar Devi visit',

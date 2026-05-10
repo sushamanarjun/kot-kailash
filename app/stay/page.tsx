@@ -28,6 +28,7 @@ export const metadata: Metadata = buildMetadata({
   description:
     'Three ways to stay at Kot Kailash — Kumaoni Suites in the heritage house, Kutir Suites with Machan loft, and Kumaon Vann forest cottage with Himalayan views.',
   path: '/stay',
+  ogImage: '/images/gallery/kumaon-vann/kumaon-vann-bath-tub.JPG',
   keywords: [
     'heritage suites Kumaon Uttarakhand',
     'Kumaoni Suites Almora',
