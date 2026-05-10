@@ -34,8 +34,13 @@ export default function JourneysPage() {
           0%, 100% { transform: translateY(0); opacity: 0.5; }
           50%       { transform: translateY(8px); opacity: 1; }
         }
+        @keyframes jrnFadeUp {
+          from { opacity: 0; transform: translateY(22px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
         @media (prefers-reduced-motion: reduce) {
           .jrn-scroll-cue { animation: none !important; opacity: 0.5 !important; }
+          .jrn-anim { animation: none !important; opacity: 1 !important; transform: none !important; }
         }
         .jrn-cta-link { transition: opacity 0.3s ease; }
         .jrn-cta-link:hover { opacity: 0.65; }
@@ -78,11 +83,11 @@ export default function JourneysPage() {
 
         <div className="jrn-hero-content" style={{ position: 'relative', zIndex: 1, padding: '0 64px 88px', display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'flex-end', gap: '64px' }}>
           <div style={{ maxWidth: '640px' }}>
-            <span style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(197,153,90,0.95)', display: 'block', marginBottom: '20px', textShadow: '0 1px 10px rgba(0,0,0,0.7)' }}>
+            <span className="jrn-anim" style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(197,153,90,0.95)', display: 'block', marginBottom: '20px', textShadow: '0 1px 10px rgba(0,0,0,0.7)', animation: 'jrnFadeUp 0.8s ease both', animationDelay: '0.15s', opacity: 0 }}>
               Kumaon Journeys &nbsp;·&nbsp; Kot Kailash Kumaon
             </span>
 
-            <h2 className="jrn-hero-tagline" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.2rem, 4.2vw, 4rem)', fontWeight: 300, fontStyle: 'italic', color: 'white', lineHeight: 1.12, marginBottom: '24px' }}>
+            <h2 className="jrn-hero-tagline jrn-anim" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.2rem, 4.2vw, 4rem)', fontWeight: 300, fontStyle: 'italic', color: 'white', lineHeight: 1.12, marginBottom: '24px', animation: 'jrnFadeUp 0.8s ease both', animationDelay: '0.32s', opacity: 0 }}>
               Some things on this ridge
               <br />
               <em style={{ fontStyle: 'normal', color: 'rgba(210,175,120,0.92)' }}>cannot be booked.</em>
@@ -92,13 +97,13 @@ export default function JourneysPage() {
               <em style={{ fontStyle: 'normal', color: 'rgba(210,175,120,0.92)' }}>be received.</em>
             </h2>
 
-            <p style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.58)', lineHeight: 1.88, maxWidth: '520px', marginBottom: '36px' }}>
+            <p className="jrn-anim" style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.58)', lineHeight: 1.88, maxWidth: '520px', marginBottom: '36px', animation: 'jrnFadeUp 0.8s ease both', animationDelay: '0.52s', opacity: 0 }}>
               Kumaon Journeys is the retreat and cultural programme of Kot Kailash Kumaon.
               Each edition is named for the ridge at the season it runs. Built in
               collaboration with practitioners of genuine standing. No theatre.
             </p>
 
-            <div className="jrn-ctas" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+            <div className="jrn-ctas jrn-anim" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '20px', flexWrap: 'wrap', animation: 'jrnFadeUp 0.8s ease both', animationDelay: '0.68s', opacity: 0 }}>
               <a
                 href="mailto:info@kotkailash.com?subject=Kumaon%20Journeys%20—%20Register%20Interest%20(Trishul)"
                 className="jrn-cta-link"
@@ -124,7 +129,7 @@ export default function JourneysPage() {
           </div>
 
           {/* Stats panel — integrated into hero right column */}
-          <div className="jrn-stats-panel" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', paddingBottom: '4px' }}>
+          <div className="jrn-stats-panel jrn-anim" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', paddingBottom: '4px', animation: 'jrnFadeUp 0.8s ease both', animationDelay: '0.75s', opacity: 0 }}>
             {programmeDetails.map((item, i) => (
               <div
                 key={item.label}

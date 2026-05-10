@@ -65,8 +65,13 @@ export default function TehniPage() {
           0%, 100% { transform: translateY(0); opacity: 0.5; }
           50%       { transform: translateY(8px); opacity: 1; }
         }
+        @keyframes thnFadeUp {
+          from { opacity: 0; transform: translateY(22px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
         @media (prefers-reduced-motion: reduce) {
           .tehni-scroll-cue { animation: none !important; opacity: 0.5 !important; }
+          .thn-anim { animation: none !important; opacity: 1 !important; transform: none !important; }
         }
         @media (max-width: 680px) {
           .tehni-hero-content  { padding: 0 28px 60px !important; grid-template-columns: 1fr !important; }
@@ -111,17 +116,17 @@ export default function TehniPage() {
 
         <div className="tehni-hero-content" style={{ position: 'relative', zIndex: 1, padding: '0 64px 88px', display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'flex-end', gap: '48px' }}>
           <div style={{ maxWidth: '680px' }}>
-            <span style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'var(--gold)', display: 'block', marginBottom: '20px' }}>
+            <span className="thn-anim" style={{ fontFamily: 'var(--sans)', fontSize: '11px', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'var(--gold)', display: 'block', marginBottom: '20px', animation: 'thnFadeUp 0.8s ease both', animationDelay: '0.15s', opacity: 0 }}>
               Tehni · The Table at Kot Kailash
             </span>
-            <h2 className="tehni-hero-tagline" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(3rem, 5.5vw, 5.2rem)', fontWeight: 300, fontStyle: 'italic', color: 'white', lineHeight: 1.05, marginBottom: '24px' }}>
+            <h2 className="tehni-hero-tagline thn-anim" style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(3rem, 5.5vw, 5.2rem)', fontWeight: 300, fontStyle: 'italic', color: 'white', lineHeight: 1.05, marginBottom: '24px', animation: 'thnFadeUp 0.8s ease both', animationDelay: '0.32s', opacity: 0 }}>
               No fixed menus.
               <br />
               <em style={{ fontStyle: 'normal', color: 'var(--gold-pale)' }}>Only the rhythm</em>
               <br />
               of the harvest.
             </h2>
-            <p style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.58)', lineHeight: 1.88, maxWidth: '520px' }}>
+            <p className="thn-anim" style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.58)', lineHeight: 1.88, maxWidth: '520px', animation: 'thnFadeUp 0.8s ease both', animationDelay: '0.52s', opacity: 0 }}>
               Tehni is the Kumaoni word for a branch — a branch of the same living tree that has fed this ridge for centuries. What Chandan picks from the kitchen garden of Kunja Gunth each morning, Tehni cooks by evening.
             </p>
           </div>

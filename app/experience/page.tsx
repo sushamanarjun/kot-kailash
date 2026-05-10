@@ -37,7 +37,7 @@ const EXP_IMAGES: Record<string, string> = {
   '06': '/images/experiences/culinary-class.jpeg',
   '07': '/images/experiences/jata-ganga.jpg',
   '08': '/images/experiences/udiyar-caves.jpg',
-  '09': '/images/experiences/village-picnic.JPG',
+  '09': '/images/experiences/village-picnic.jpg',
 };
 
 export default function ExperiencePage() {
@@ -65,8 +65,13 @@ export default function ExperiencePage() {
             0%, 100% { transform: translateY(0);  opacity: 0.45; }
             50%       { transform: translateY(8px); opacity: 1; }
           }
+          @keyframes expFadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
           @media (prefers-reduced-motion: reduce) {
             .exp-scroll-cue { animation: none !important; opacity: 0.45 !important; }
+            .exp-anim { animation: none !important; opacity: 1 !important; transform: none !important; }
           }
           @media (max-width: 680px) {
             .exp-hero-grid   { grid-template-columns: 1fr !important; }
@@ -112,39 +117,43 @@ export default function ExperiencePage() {
           }}
         >
           <div style={{ maxWidth: '680px' }}>
-            <span style={{
+            <span className="exp-anim" style={{
               fontFamily: 'var(--sans)', fontSize: '11px',
               letterSpacing: '0.38em', textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.7)', display: 'block', marginBottom: '20px',
+              animation: 'expFadeUp 0.8s ease both', animationDelay: '0.15s', opacity: 0,
             }}>
               The Ridge &nbsp;·&nbsp; Kot Kailash
             </span>
             <h2
-              className="exp-hero-h2"
+              className="exp-hero-h2 exp-anim"
               style={{
                 fontFamily: 'var(--serif)',
                 fontSize: 'clamp(3rem, 5.8vw, 5.4rem)',
                 fontWeight: 300, fontStyle: 'italic',
                 color: 'white', lineHeight: 1.04, marginBottom: '22px',
+                animation: 'expFadeUp 0.8s ease both', animationDelay: '0.32s', opacity: 0,
               }}
             >
               Several Ways to
               <br />
               <em style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.65)' }}>Know the Ridge.</em>
             </h2>
-            <p style={{
+            <p className="exp-anim" style={{
               fontFamily: 'var(--serif)', fontSize: '1.05rem',
               fontStyle: 'italic', color: 'rgba(255,255,255,0.78)',
               lineHeight: 1.88, maxWidth: '500px',
+              animation: 'expFadeUp 0.8s ease both', animationDelay: '0.52s', opacity: 0,
             }}>
               The ridge has a rhythm. The forest has its trails. The kitchen
               follows the harvest. Every experience at Kot Kailash begins where
               the property ends — in the landscape itself.
             </p>
-            <p style={{
+            <p className="exp-anim" style={{
               fontFamily: 'var(--serif)', fontSize: '0.95rem',
               fontStyle: 'italic', color: 'rgba(255,255,255,0.62)',
               lineHeight: 1.85, maxWidth: '480px', marginTop: '20px',
+              animation: 'expFadeUp 0.8s ease both', animationDelay: '0.66s', opacity: 0,
             }}>
               Nothing here is scheduled. Nothing is managed from a desk. Tell us
               what draws you, and we will find the right trail, temple, kitchen,
