@@ -214,6 +214,34 @@ const IMAGES: GalleryImage[] = [
     accentColor: 'rgba(139,107,61,0.16)',
     src: '/images/gallery/family-suite/family-suite-overview-3.jpeg',
   },
+  {
+    id: 88, category: 'Family Suite', aspect: 'landscape',
+    caption: 'The private dining room', note: 'Fireplace · Family Suite',
+    gradient: 'linear-gradient(160deg, #1c1208 0%, #2c1e10 55%, #3a2a16 100%)',
+    accentColor: 'rgba(139,107,61,0.28)',
+    src: '/images/gallery/family-suite/Private-Dining.png',
+  },
+  {
+    id: 89, category: 'Family Suite', aspect: 'landscape',
+    caption: 'The Kot Kailash Library', note: 'Directly accessible from the suite',
+    gradient: 'linear-gradient(160deg, #181410 0%, #261e18 55%, #342818 100%)',
+    accentColor: 'rgba(139,107,61,0.22)',
+    src: '/images/gallery/family-suite/Library.jpg',
+  },
+  {
+    id: 90, category: 'Family Suite', aspect: 'landscape',
+    caption: 'Library — interior', note: 'Curated shelves · reading light',
+    gradient: 'linear-gradient(160deg, #161210 0%, #241c18 55%, #322618 100%)',
+    accentColor: 'rgba(139,107,61,0.2)',
+    src: '/images/gallery/family-suite/Library-one.jpg',
+  },
+  {
+    id: 91, category: 'Family Suite', aspect: 'landscape',
+    caption: 'Library — a closer look', note: 'Warm light · afternoon hours',
+    gradient: 'linear-gradient(160deg, #141010 0%, #201a18 55%, #2e2420 100%)',
+    accentColor: 'rgba(139,107,61,0.18)',
+    src: '/images/gallery/family-suite/Library-two.jpg',
+  },
 
   // ── Kumaon Vann (12) ───────────────────────────────────────────
   {
